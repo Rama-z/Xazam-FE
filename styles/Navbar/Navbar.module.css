@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900;1000&display=swap");
+
+.list-navbar {
+  display: flex;
+  /* gap: 2rem; */
+}
+.cont-nav {
+  gap: 10rem;
+}
+.nav-links {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.005em;
+
+  color: #414141;
+}
+.list-menu {
+  padding-left: 100px;
+}
+.dropdown {
+  border: none;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.005em;
+  color: #414141;
+}
+.cursor {
+  cursor: pointer;
+}
+.navbar {
+  gap: 20rem;
+  margin-right: 20rem !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .pages-shop {
+    justify-content: start !important;
+  }
+  .navbar {
+    gap: 2rem !important;
+    margin-right: 8rem !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .pages-shop {
+    justify-content: start !important;
+  }
+  .navbar {
+    gap: 2rem !important;
+    margin-right: 9rem !important;
+    position: relative;
+    top: 2rem;
+  }
+  .dropdown {
+    padding: 0px !important;
+  }
+  .icon {
+    position: relative;
+    top: 3.7rem;
+    justify-content: space-evenly !important;
+    display: flex;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    justify-content: start !important;
+    align-items: start !important;
+    /* border: 2px solid #6e6e6e; */
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .navbar {
+    margin-left: 1rem !important;
+  }
+  .icon {
+    margin-left: 1rem !important;
+  }
+}
