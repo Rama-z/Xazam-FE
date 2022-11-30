@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900;1000&display=swap");
+
+.desc-footer {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 0.75px;
+  color: #6e7191;
+}
+
+.title-footer {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  color: #000000;
+}
+
+.li {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  color: #4e4b66;
+}
+
+.social-media {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  color: #6e7191;
+}
+
+.cont-sponsor {
+  position: relative;
+  top: 0rem;
+}
+@media only screen and (max-width: 1024px) {
+  .cont-logo {
+    width: 14rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cont-logo {
+    position: relative;
+    top: -1rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .cont-explore {
+    margin-bottom: 3rem;
+  }
+  .cont-sponsor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cont-spons {
+    margin-bottom: 5rem !important;
+  }
+  .tickits-1 {
+    position: relative;
+    width: 165px;
+    top: 15px;
+  }
+  .tickits {
+    position: relative;
+    width: 165px;
+    top: -63px;
+    left: 13rem;
+  }
+}
