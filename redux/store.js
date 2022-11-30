@@ -1,12 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
-import regSlice from "./reducers/regSlice"
-
+import { configureStore } from "@reduxjs/toolkit";
+import regSlice from "./reducers/regSlice";
 
 const store = configureStore({
-    reducer: {
-        regSlice : regSlice,
-    }
-    
-})
+  reducer: {
+    regSlice: regSlice,
+  },
+});
 
 export default store;
