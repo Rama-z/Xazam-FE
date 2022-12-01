@@ -5,9 +5,13 @@ import dot from "../../assets/images/dot.png";
 import man from "../../assets/images/man.png";
 import star from "../../assets/images/star.png";
 import scrl from "../../assets/images/scroll.png";
+import eye from "../../assets/images/eye.png";
 import Image from "next/image";
 
 const Profile = () => {
+
+    const [isPwdShown, setIsPwdShown] = useState(false);
+    const [isPwdShown1, setIsPwdShown1] = useState(false);
   const router = useRouter();
   const as = () => {
     router.push("/");
@@ -28,8 +32,7 @@ const Profile = () => {
                 </div>
               </div>
               <div className={`${styles["man-wrap"]}`}>
-              <Image className={`${styles["man"]}`} src={man} 
-              alt="man" />
+                <Image className={`${styles["man"]}`} src={man} alt="man" />
               </div>
               <p className={`${styles["name"]}`}>Jonas El Rodriguez</p>
               <p className={`${styles["tag"]}`}>Moviegoers</p>
@@ -46,7 +49,9 @@ const Profile = () => {
                     <div className={`${styles["five-pointed-star"]}`}></div>
                   </div>
                 </div>
-                <p className={`${styles["master"]}`}>180 points become a master</p>
+                <p className={`${styles["master"]}`}>
+                  180 points become a master
+                </p>
                 <Image width={260} height={20} src={scrl} alt="scroll" />
               </div>
             </div>
@@ -67,30 +72,70 @@ const Profile = () => {
                 <div class="row">
                   <div class="col">
                     <p className={` ${styles["category"]}`}>First Name</p>
-                    <input className={` ${styles["input"]}`} type="text" placeholder="Jonas" />
+                    <input
+                      className={` ${styles["input"]}`}
+                      type="text"
+                      placeholder="Jonas"
+                    />
                     <p className={` ${styles["category"]}`}>E-mail</p>
                     <input
-                    className={` ${styles["input"]}`}
+                      className={` ${styles["input"]}`}
                       type="text"
                       placeholder="jonasrodrigu123@gmail.com"
                     />
-                    <p className={` ${styles["privacy"]}`}>Account and Privacy</p>
+                    <p className={` ${styles["privacy"]}`}>
+                      Account and Privacy
+                    </p>
                     <hr className={` ${styles["hr-1"]}`} />
                     <p className={` ${styles["pass"]}`}>New Password</p>
-                    <input className={` ${styles["input"]}`} type="text" placeholder="Write your password" />
+                    <input
+                      className={` ${styles["input"]}`}
+                      type={isPwdShown ? "text" : "password"}
+                      placeholder="Write your password"
+                    />
+                    <Image
+                      className={` ${styles["eye"]}`}
+                      width={20}
+                      src={eye}
+                      alt="eye"
+                      onClick={() => setIsPwdShown(!isPwdShown)}
+                    />
                   </div>
                   <div class="col">
                     <p className={` ${styles["category"]}`}>Last Name</p>
-                    <input className={` ${styles["input"]}`} type="text" placeholder="El Rodriguez" />
+                    <input
+                      className={` ${styles["input"]}`}
+                      type="text"
+                      placeholder="El Rodriguez"
+                    />
                     <p className={` ${styles["category"]}`}>Phone Number</p>
-                    <input className={` ${styles["input"]}`} type="text" placeholder="081445687121" />
-                    
+                    <input
+                      className={` ${styles["input"]}`}
+                      type="text"
+                      placeholder="081445687121"
+                    />
+
                     <hr className={` ${styles["hr-2"]}`} />
-                    <p className={` ${styles["confirm-pw"]}`} >Confirm Password</p>
-                    <input className={` ${styles["input"]}`} type="text" placeholder="Confirm your password" />
+                    <p className={` ${styles["confirm-pw"]}`}>
+                      Confirm Password
+                    </p>
+                    <input
+                      className={` ${styles["input"]}`}
+                      type={isPwdShown1 ? "text" : "password"}
+                      placeholder="Confirm your password"
+                    />
+                    <Image
+                      className={` ${styles["eye"]}`}
+                      width={20}
+                      src={eye}
+                      alt="eye"
+                      onClick={() => setIsPwdShown1(!isPwdShown1)}
+                    />
                   </div>
                 </div>
-                <button className={` ${styles["btn-change"]}`}>Update changes</button>
+                <button className={` ${styles["btn-change"]}`}>
+                  Update changes
+                </button>
               </div>
             </section>
           </div>

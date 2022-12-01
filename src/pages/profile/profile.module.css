@@ -194,8 +194,10 @@
   height: 54.5vw;
   
 }
-.hr-1{
-    /* width: 150vw; */
+.eye{
+    position: absolute;
+    margin-left: -2.5%;
+    margin-top: 1.5%;
 }
 .sect-2 {
   padding: 3%;
