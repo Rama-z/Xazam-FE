@@ -2,13 +2,13 @@
 
 <div align="center">
 
-[![React-router-dom](https://img.shields.io/npm/v/react-router-dom?label=react-router-dom)](https://www.npmjs.com/package/react-router-dom)
-[![Axios](https://img.shields.io/npm/v/axios?label=axios)](https://www.npmjs.com/package/axios)
-[![Chart.js](https://img.shields.io/npm/v/chart.js?label=chart.js)](https://www.npmjs.com/package/chart.js)
-[![Craco](https://img.shields.io/npm/v/craco?label=craco)](https://www.npmjs.com/package/craco)
-[![Lottie-react](https://img.shields.io/npm/v/lottie-react?label=lottie-react)](https://www.npmjs.com/package/lottie-react)
-[![Moment](https://img.shields.io/npm/v/moment?label=moment)](https://www.npmjs.com/package/moment)
-[![Redux](https://img.shields.io/npm/v/redux?label=redux)](https://www.npmjs.com/package/redux)
+[![React-router-dom](https://img.shields.io/npm/v/react-router-dom?label=React-Router-Dom)](https://www.npmjs.com/package/react-router-dom)
+[![Axios](https://img.shields.io/npm/v/axios?label=Axios)](https://www.npmjs.com/package/axios)
+[![Chart.js](https://img.shields.io/npm/v/chart.js?label=Chart.js)](https://www.npmjs.com/package/chart.js)
+[![Craco](https://img.shields.io/npm/v/craco?label=Craco)](https://www.npmjs.com/package/craco)
+[![Lottie-react](https://img.shields.io/npm/v/lottie-react?label=Lottie-React)](https://www.npmjs.com/package/lottie-react)
+[![Moment](https://img.shields.io/npm/v/moment?label=Moment)](https://www.npmjs.com/package/moment)
+[![Redux](https://img.shields.io/npm/v/redux?label=Redux)](https://www.npmjs.com/package/redux)
 
 <br/>
 
