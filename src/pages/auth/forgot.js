@@ -1,12 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import React from "react";
+import Image from "next/image";
 
 import styles from "../../styles/Forgot.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
 
-const forgot = () => {
+const Forgot = () => {
   return (
     <>
       <main className={styles["main"]}>
