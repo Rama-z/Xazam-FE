@@ -29,5 +29,13 @@
   "main": "next.config.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luqmanito/Xazam-FE-1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luqmanito/Xazam-FE-1/issues"
+  },
+  "homepage": "https://github.com/luqmanito/Xazam-FE-1#readme"
 }
