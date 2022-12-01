@@ -353,6 +353,23 @@ text-align: center;
 letter-spacing: 0.75px;
 color: #F7F7FC;
 }
+
+.btn-changes{
+    margin-top: 5%;
+    background: #8c8c8c;
+    border-radius: 4px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    width: 19vw;
+    height: 3.5vw;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #F7F7FC;
+    }
 .hr-2{
     margin-top: 31.8%;
 }
