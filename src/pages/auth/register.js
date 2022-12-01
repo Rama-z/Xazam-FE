@@ -7,9 +7,12 @@ import styles from "../../styles/Register.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
+import { useDispatch } from "react-redux";
 
 const Register = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
+
   return (
     <>
       <main className={styles["main"]}>
