@@ -47,7 +47,9 @@ const Profile = () => {
                   <p className={` ${styles["list-cat"]}`}>Date & time</p>{" "}
                 </div>
                 <div class="col">
-                  <p className={` ${styles["content-cat"]}`}>Tuesday, 07 July 2020 at 02:00pm</p>
+                  <p className={` ${styles["content-cat"]}`}>
+                    Tuesday, 07 July 2020 at 02:00pm
+                  </p>
                 </div>
                 <hr />
                 <div class="col">
@@ -55,7 +57,9 @@ const Profile = () => {
                   <p className={` ${styles["list-cat"]}`}>Movie title</p>{" "}
                 </div>
                 <div class="col">
-                  <p className={` ${styles["content-cat"]}`}>Spider-Man: Homecoming</p>
+                  <p className={` ${styles["content-cat"]}`}>
+                    Spider-Man: Homecoming
+                  </p>
                 </div>
                 <hr />
                 <div class="col">
@@ -63,12 +67,16 @@ const Profile = () => {
                   <p className={` ${styles["list-cat"]}`}>Cinema name</p>{" "}
                 </div>
                 <div class="col">
-                  <p className={` ${styles["content-cat"]}`}>CineOne21 Cinema</p>
+                  <p className={` ${styles["content-cat"]}`}>
+                    CineOne21 Cinema
+                  </p>
                 </div>
                 <hr />
                 <div class="col">
                   {" "}
-                  <p className={` ${styles["list-cat"]}`}>Number of tickets</p>{" "}
+                  <p className={` ${styles["list-cat"]}`}>
+                    Number of tickets
+                  </p>{" "}
                 </div>
                 <div class="col">
                   <p className={` ${styles["content-cat"]}`}>3 pieces</p>
@@ -197,12 +205,10 @@ const Profile = () => {
                 Pay via cash.{" "}
                 <span className={` ${styles["see"]}`}>See how it work</span>{" "}
               </p>
-             
             </div>
             <button className={` ${styles["btn-prev"]}`}>Previous step</button>
             <button className={` ${styles["btn-pay"]}`}>Pay your order</button>
           </div>
-          
         </div>
       </main>
       <Footer />
