@@ -7,24 +7,12 @@ import star from "../../assets/images/star.png";
 import scrl from "../../assets/images/scroll.png";
 import eye from "../../assets/images/eye.png";
 import Image from "next/image";
-import BasicExample from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import Navbar from "../../components/Navbar/Navbar";
 
 const Profile = () => {
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown1, setIsPwdShown1] = useState(false);
-  const [formState, setFormState] = useState({
-    pw1: "",
-    pw2: "",
-  });
-
-  const handleInputChange = function (e) {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   const router = useRouter();
   const as = () => {
     router.push("/");
@@ -32,7 +20,7 @@ const Profile = () => {
 
   return (
     <>
-    <BasicExample/>
+      <Navbar />
       <main className={styles.main}>
         <div class="container">
           <div className={`row ${styles["row"]}`}>
@@ -163,7 +151,7 @@ const Profile = () => {
           </div>
         </div>
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 };

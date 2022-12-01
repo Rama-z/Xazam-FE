@@ -1,0 +1,197 @@
+.main {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+.left-side {
+  /* border: 1px solid darkgreen; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: url(../assets//Images/bg-tickitz.png) no-repeat center fixed;
+  background-size: cover;
+  z-index: -1;
+  width: 50%;
+  padding: 6rem 4rem;
+  gap: 2rem;
+}
+
+/* .logo {
+  border: 1px solid darkblue;
+} */
+
+.img-logo {
+  /* border: 1px solid darkgreen; */
+  width: 14rem;
+  height: 6rem;
+}
+
+/* .decs {
+  border: 1px solid darkblue;
+} */
+
+.title {
+  /* border: 1px solid darkgoldenrod; */
+  color: var(--secondary-color);
+}
+
+.desc p {
+  /* border: 1px solid darkgoldenrod; */
+  color: var(--secondary-color);
+}
+
+.list {
+  /* border: 1px solid darkred; */
+  color: var(--secondary-color);
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content-list {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.content-list p:nth-child(1) {
+  border: 2px solid var(--secondary-color);
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+  padding-left: 0.6rem;
+  padding-top: 0.1rem;
+}
+
+.first-content-list {
+  background: var(--secondary-color);
+  color: rgba(41, 3, 65, 0.5);
+  font-weight: 500;
+}
+
+.right-side {
+  /* border: 1px solid darkcyan; */
+  width: 50%;
+  padding: 2rem 10rem;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.right-side h3 {
+  font-size: 24px;
+}
+
+.form {
+  /* border: 1px solid darkgray; */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.input:nth-child(1),
+.input:nth-child(2) {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input:nth-child(3) {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.label-email,
+.label-password {
+  font-size: 14px;
+  color: #4e4b66;
+}
+
+.label-checkbox {
+  color: #696f79;
+}
+
+.input .email,
+.input .password {
+  /* border: 1px solid darkblue; */
+  outline: none;
+  border-radius: 12px;
+  padding: 0.5rem;
+  border: 1px solid #dedede;
+  font-size: 13px;
+  padding: 1rem 0.5rem;
+}
+
+.input .checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+  color: #696f79;
+}
+
+.btn-submit {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 1rem 0;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.direct-to-login {
+  font-weight: 600;
+  color: #696f79;
+}
+
+.direct-to-login span {
+  color: var(--primary-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.social-btn-section {
+  /* border: 1px solid darkred; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.social-btn {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.social-btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.social-btn-title {
+  /* border: 1px solid darkblue; */
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #a0a3bd;
+}
+
+.social-btn {
+  cursor: pointer;
+  /* border: 1px solid darkblue; */
+}
