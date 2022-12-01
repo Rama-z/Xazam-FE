@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 import Axios from "axios";
 import Image from "next/image";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
-import styles from "../../styles/Register.module.css"
+import styles from "../../styles/Register.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
 
-const register = () => {
-  const router = useRouter()
+const Register = () => {
+  const router = useRouter();
   return (
     <>
       <main className={styles["main"]}>
@@ -67,7 +67,8 @@ const register = () => {
             <button className={styles["btn-submit"]}>Join for free Now</button>
           </form>
           <p className={styles["direct-to-login"]}>
-            Do you already have an account ? <span onClick={() => router.push("/auth/login")}>Log in</span>
+            Do you already have an account ?{" "}
+            <span onClick={() => router.push("/auth/login")}>Log in</span>
           </p>
           <span className={styles["social-btn-section"]}>
             <span className={styles["social-btn"]}>
@@ -91,6 +92,6 @@ const register = () => {
       </main>
     </>
   );
-}
+};
 
-export default register
+export default Register;
