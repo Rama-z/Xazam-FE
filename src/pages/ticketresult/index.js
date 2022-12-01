@@ -5,15 +5,18 @@ import { toast, ToastContainer } from "react-toastify";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import Container from "react-bootstrap/Container";
-import tickitz from "../../assets/images/Picture3.png";
-import tickitzs from "../../assets/images/Picture4.png";
+import tickitz from "../../../src/assets/images/Picture3.png";
+import tickitzs from "../../../src/assets/images/Picture4.png";
 import down from "../../assets/images/downloads.png";
 import print from "../../assets/images/print.png";
 import barcode2 from "../../assets/images/barcode2.png";
+import Footer from "../../components/Footer/Footer";
+import Navbar from "../../components/Navbar/Navbar";
 
 const TicketResult = () => {
   return (
     <>
+      <Navbar />
       <Container>
         <main className={`${styles["main"]}`}>
           <div className={`${styles["sub-main"]}`}>
@@ -129,6 +132,7 @@ const TicketResult = () => {
           </div>
         </main>
       </Container>
+      <Footer />
     </>
   );
 };
