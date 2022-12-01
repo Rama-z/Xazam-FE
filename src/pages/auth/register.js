@@ -44,6 +44,22 @@ const register = () => {
           <h3>Fill your additional details</h3>
           <form className={styles["form"]}>
             <span className={styles["input"]}>
+              <label className={styles["label-name"]}>Firstname</label>
+              <input
+                type="text"
+                className={styles["name"]}
+                placeholder="Write your firstname"
+              />
+            </span>
+            <span className={styles["input"]}>
+              <label className={styles["label-name"]}>Lastname</label>
+              <input
+                type="text"
+                className={styles["name"]}
+                placeholder="Write your lastname"
+              />
+            </span>
+            <span className={styles["input"]}>
               <label className={styles["label-email"]}>Email</label>
               <input
                 type="text"
