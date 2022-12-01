@@ -195,3 +195,77 @@
   cursor: pointer;
   /* border: 1px solid darkblue; */
 }
+
+/* || Responsive */
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .main {
+    /* border: 1px solid darkblue; */
+    flex-direction: column;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  .left-side {
+    /* border: 1px solid darkblue; */
+    width: auto;
+    height: 45vh;
+    padding: 1rem;
+  }
+
+  .right-side {
+    /* border: 1px solid darkblue; */
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .main {
+    /* border: 1px solid darkblue; */
+    flex-direction: column;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  .left-side {
+    /* border: 1px solid darkblue; */
+    width: auto;
+    height: 65vh;
+    padding: 1rem;
+  }
+
+  .right-side {
+    /* border: 1px solid darkblue; */
+    width: 80%;
+    padding: 2rem;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .main {
+    /* border: 1px solid darkblue; */
+    flex-direction: column;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  .img-logo {
+    /* border: 1px solid darkgreen; */
+    width: 10rem;
+    height: 4rem;
+  }
+
+  .left-side {
+    /* border: 1px solid darkblue; */
+    width: auto;
+    height: 100vh;
+    padding: 2rem;
+  }
+
+  .right-side {
+    /* border: 1px solid darkblue; */
+    padding: 1.5rem;
+    width: 90%;
+  }
+}

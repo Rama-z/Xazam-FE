@@ -1,7 +1,9 @@
 import React from "react";
 // import Axios from "axios"
-import {useRouter} from "next/router"
+import { useRouter } from "next/router";
 import Image from "next/image";
+import { useState } from "react";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 import styles from "../../styles/Login.module.css";
 import logo from "../../assets/Images/tickitz.png";
@@ -9,7 +11,12 @@ import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
 
 const login = () => {
-  const router = useRouter()
+  const router = useRouter();
+  const [toggle, setToggle] = useState(false);
+
+  const handleHidePwd = () => {
+    setToggle(!toggle);
+  };
   return (
     <>
       <main className={styles["main"]}>
@@ -36,10 +43,20 @@ const login = () => {
             <span className={styles["input"]}>
               <label className={styles["label-password"]}>Password</label>
               <input
-                type="text"
+                type={toggle ? "text" : "password"}
                 className={styles["password"]}
                 placeholder="Write your password"
               />
+              <span
+                className={styles["view-icon-section"]}
+                onClick={handleHidePwd}
+              >
+                {toggle ? (
+                  <ViewIcon className={styles["view-icon"]} />
+                ) : (
+                  <ViewOffIcon className={styles["view-icon"]} />
+                )}
+              </span>
             </span>
             <button className={styles["btn-submit"]}>Sign In</button>
           </form>
