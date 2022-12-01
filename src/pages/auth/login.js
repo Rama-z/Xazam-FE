@@ -1,5 +1,5 @@
 import React from "react";
-//import Axios from "axios"
+// import Axios from "axios"
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState } from "react";
@@ -10,14 +10,8 @@ import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
 
-const login = () => {
+const Login = () => {
   const router = useRouter();
-  const [toggle, setToggle] = useState(false);
-
-  const handleHidePwd = () => {
-    setToggle(!toggle);
-  };
-
   return (
     <>
       <main className={styles["main"]}>
@@ -92,4 +86,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

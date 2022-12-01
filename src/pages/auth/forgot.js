@@ -1,7 +1,7 @@
-import React from 'react'
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
-import styles from "../../styles/Forgot.module.css"
+import styles from "../../styles/Forgot.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
@@ -72,7 +72,7 @@ const forgot = () => {
             Do you already have an account ?{" "}
             <span onClick={() => router.push("/auth/login")}>Log in</span>
           </p> */}
-            {/* <span className={styles["social-btn-section"]}>
+          {/* <span className={styles["social-btn-section"]}>
               <span className={styles["social-btn"]}>
                 <Image
                   src={googleIcon}
@@ -94,6 +94,6 @@ const forgot = () => {
       </main>
     </>
   );
-}
+};
 
-export default forgot
+export default forgot;

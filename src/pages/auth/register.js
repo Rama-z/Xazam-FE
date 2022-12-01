@@ -1,15 +1,17 @@
-import React from 'react'
-//import Axios from "axios";
+import React from "react";
+import Axios from "axios";
 import Image from "next/image";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
-import styles from "../../styles/Register.module.css"
+import styles from "../../styles/Register.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
+import { useDispatch } from "react-redux";
 
-const register = () => {
-  const router = useRouter()
+const Register = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -109,6 +111,6 @@ const register = () => {
       </main>
     </>
   );
-}
+};
 
-export default register
+export default Register;
