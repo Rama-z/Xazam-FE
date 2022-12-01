@@ -1,5 +1,5 @@
 import React from "react";
-// import Axios from "axios"
+//import Axios from "axios"
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState } from "react";
@@ -9,9 +9,16 @@ import styles from "../../styles/Login.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
+import Button from "../../components/Button";
 
 const Login = () => {
   const router = useRouter();
+  const [toggle, setToggle] = useState(false);
+
+  const handleHidePwd = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <>
       <main className={styles["main"]}>
@@ -38,20 +45,28 @@ const Login = () => {
             <span className={styles["input"]}>
               <label className={styles["label-password"]}>Password</label>
               <input
-                type="password"
+                type={toggle ? "text" : "password"}
                 className={styles["password"]}
                 placeholder="Write your password"
               />
+              <span
+                className={styles["view-icon-section"]}
+                onClick={handleHidePwd}
+              >
+                {toggle ? (
+                  <ViewIcon className={styles["view-icon"]} />
+                ) : (
+                  <ViewOffIcon className={styles["view-icon"]} />
+                )}
+              </span>
             </span>
-            <button className={styles["btn-submit"]}>Sign In</button>
+            <Button initBtnSubmit={`Sign In`} />
           </form>
           <p className={styles["direct-to-reset"]}>
             Forgot your password ?{" "}
             <span onClick={() => router.push("/auth/forgot")}>Reset now</span>
           </p>
-          <p className={styles["or"]}>
-            Or
-          </p>
+          <p className={styles["or"]}>Or</p>
           <span className={styles["social-btn-section"]}>
             <span className={styles["social-btn"]}>
               <Image

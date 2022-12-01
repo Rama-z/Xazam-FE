@@ -1,5 +1,5 @@
 import React from "react";
-import Axios from "axios";
+// import Axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -7,6 +7,7 @@ import styles from "../../styles/Register.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
+import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 
 const Register = () => {
@@ -83,7 +84,7 @@ const Register = () => {
               </label>
               <input type="checkbox" className={styles["checkbox"]} />
             </span>
-            <button className={styles["btn-submit"]}>Join for free Now</button>
+            <Button initBtnSubmit={`Join for free Now`} />
           </form>
           <p className={styles["direct-to-login"]}>
             Do you already have an account ?{" "}
