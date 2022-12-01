@@ -46,7 +46,6 @@ function BasicExample() {
               <Dropdown.Toggle className={`${styles["dropdown"]}`} variant="white">
                 Location
               </Dropdown.Toggle>
-
               <Dropdown.Menu variant="white">
                 <Dropdown.Item href="#/action-1" active>
                   Action

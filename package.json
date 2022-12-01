@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.13",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@reduxjs/toolkit": "^1.9.1",
     "axios": "^1.2.0",
     "bootstrap": "^5.2.3",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.5",
+    "framer-motion": "^7.6.15",
     "js-cookie": "^3.0.1",
     "next": "13.0.5",
     "react": "18.2.0",
@@ -29,5 +33,13 @@
   "main": "next.config.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luqmanito/Xazam-FE-1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luqmanito/Xazam-FE-1/issues"
+  },
+  "homepage": "https://github.com/luqmanito/Xazam-FE-1#readme"
 }
