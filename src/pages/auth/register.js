@@ -1,5 +1,5 @@
 import React from "react";
-import Axios from "axios";
+// import Axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -12,9 +12,6 @@ import { useDispatch } from "react-redux";
 const Register = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-
-const register = () => {
-  const router = useRouter()
 
   return (
     <>

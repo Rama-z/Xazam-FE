@@ -10,7 +10,7 @@ import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
 
-const login = () => {
+const Login = () => {
   const router = useRouter();
   const [toggle, setToggle] = useState(false);
 
@@ -65,9 +65,7 @@ const login = () => {
             Forgot your password ?{" "}
             <span onClick={() => router.push("/auth/forgot")}>Reset now</span>
           </p>
-          <p className={styles["or"]}>
-            Or
-          </p>
+          <p className={styles["or"]}>Or</p>
           <span className={styles["social-btn-section"]}>
             <span className={styles["social-btn"]}>
               <Image
@@ -93,4 +91,3 @@ const login = () => {
 };
 
 export default Login;
-export default login;

@@ -1,7 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import React from "react";
-import Image from "next/image";
 
 import styles from "../../styles/Forgot.module.css";
 import logo from "../../assets/Images/tickitz.png";
@@ -98,4 +96,4 @@ const Forgot = () => {
   );
 };
 
-export default forgot;
+export default Forgot;
