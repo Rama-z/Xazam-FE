@@ -7,6 +7,8 @@ import star from "../../assets/images/star.png";
 import scrl from "../../assets/images/scroll.png";
 import eye from "../../assets/images/eye.png";
 import Image from "next/image";
+import BasicExample from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 const Profile = () => {
   const [isPwdShown, setIsPwdShown] = useState(false);
@@ -30,6 +32,7 @@ const Profile = () => {
 
   return (
     <>
+    <BasicExample/>
       <main className={styles.main}>
         <div class="container">
           <div className={`row ${styles["row"]}`}>
@@ -160,6 +163,7 @@ const Profile = () => {
           </div>
         </div>
       </main>
+      <Footer/>
     </>
   );
 };
