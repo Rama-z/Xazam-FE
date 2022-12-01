@@ -1,5 +1,5 @@
 import React from "react";
-// import Axios from "axios"
+//import Axios from "axios"
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState } from "react";
@@ -17,6 +17,7 @@ const login = () => {
   const handleHidePwd = () => {
     setToggle(!toggle);
   };
+
   return (
     <>
       <main className={styles["main"]}>
@@ -61,8 +62,11 @@ const login = () => {
             <button className={styles["btn-submit"]}>Sign In</button>
           </form>
           <p className={styles["direct-to-reset"]}>
-            Do you already have an account ?{" "}
+            Forgot your password ?{" "}
             <span onClick={() => router.push("/auth/forgot")}>Reset now</span>
+          </p>
+          <p className={styles["or"]}>
+            Or
           </p>
           <span className={styles["social-btn-section"]}>
             <span className={styles["social-btn"]}>

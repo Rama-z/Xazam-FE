@@ -121,6 +121,12 @@
   cursor: pointer;
 }
 
+.or {
+  text-align: center;
+  color: #AAAAAA;
+  font-size: 12px;
+}
+
 .social-btn-section {
   /* border: 1px solid darkred; */
   display: flex;

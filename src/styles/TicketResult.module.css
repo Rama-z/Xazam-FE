@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+
+.proof {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.25px;
+  color: #14142b;
+  text-align: center;
+  padding-bottom: 5%;
+}
+.main {
+  background-color: #5f2eea;
+  padding: 4%;
+}
+.sec {
+  margin: auto;
+  background-color: white;
+  width: 75%;
+  padding: 5%;
+  width: 65vw;
+  /* height: 20vw; */
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+.aside {
+  background-color: #5f2eea;
+  /* position:relative;  */
+  /* z-index: 1; */
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+.img {
+  width: 9vw;
+  height: 2vw;
+}
+.admit {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 34px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #ffffff;
+  padding: 2%;
+  /* background-color: #AAAAAA; */
+  /* margin-left: -10%; */
+}
+.dot {
+  height: 35px;
+  width: 35px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  margin-left: 35%;
+  margin-top: -1.3%;
+  display: inline-block;
+  position: absolute;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.dot2 {
+  height: 35px;
+  width: 35px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  margin-left: -4.3%;
+  margin-top: 20.5%;
+  display: inline-block;
+  position: absolute;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  /* border: 1px solid #dedede; */
+  border-radius: 16px;
+}
+.new1 {
+  border-top: 3px dashed grey;
+  position: absolute;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  margin-left: 19.8%;
+  margin-top: 18%;
+  width: 33vw;
+}
+.img-wrap {
+  padding-top: 2%;
+  padding-left: 4%;
+}
+.img-wrap2 {
+  padding-top: 2%;
+  /* padding-left: 25%; */
+}
+
+.main-con {
+  /* background-color: aquamarine; */
+  margin-top: -1%;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  border-bottom: 1px solid grey;
+  /* position:relative; */
+  /* z-index: 2; */
+}
+.main-row {
+  /* background-color: yellowgreen; */
+}
+.sub-row8 {
+  /* background-color: grey; */
+}
+
+.category-movie {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  padding-top: 5%;
+  padding-left: 5%;
+  letter-spacing: 0.75px;
+  color: #aaaaaa;
+}
+.category {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  padding-left: 20%;
+
+  color: #aaaaaa;
+}
+.category-cat {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  /* background-color: #14142b; */
+  color: #aaaaaa;
+}
+.category-price {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  /* background-color: #14142b; */
+  color: #aaaaaa;
+}
+.category-mov2 {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+margin-top: 11%;
+margin-left: -10%;
+  letter-spacing: 0.75px;
+
+  color: #aaaaaa;
+}
+.category1 {
+    font-family: "Mulish";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    margin-left: -25%;
+    letter-spacing: 0.75px;
+  /* background-color:#5f2eea; */
+    color: #aaaaaa;
+  }
+.content {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  color: #14142b;
+  padding-left: 5%;
+}
+.content2 {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  color: #14142b;
+  padding-left: 20%;
+}
+.contentpg {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  color: #14142b;
+}
+.content1 {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  color: #14142b;
+  margin-left: -10%;
+}
+.contentx {
+    font-family: "Mulish";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 38px;
+    letter-spacing: 0.75px;
+    color: #14142b;
+    margin-left: -25%;
+    /* background-color: #4e4b66; */
+  }
+.col-2- {
+  /* background-color: #5f2eea; */
+  width: 15vw;
+  /* margin-left: -20%; */
+}
+.barcode{
+    width: fit-content;
+    position: absolute;
+    transform: rotate(90deg);
+    margin-left: 7%;
+    margin-top: 7%;
+}
+.barcode2{
+  width: fit-content;
+  position: absolute;
+  transform: rotate(90deg);
+  margin-left: 7%;
+  margin-top: 20%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}
+.col-sub1{
+    margin-left: 4%;
+}
+.col-sub2{
+    margin-left: -30%;
+}
+.col-3 {
+  /* background-color: #5f2eea; */
+  width: 15vw;
+  margin-left: -5%;
+}
+.price {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.25px;
+
+  /* Text - Title */
+
+  color: #14142b;
+}
+.dl {
+  border: 1px solid #4e4b66;
+  border-radius: 4px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  background: #f5f6f8;
+  border-radius: 4px;
+  letter-spacing: 0.75px;
+  color: #4e4b66;
+  float: right;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.print {
+  border: 1px solid #4e4b66;
+  border-radius: 4px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  background: #f5f6f8;
+  border-radius: 4px;
+  letter-spacing: 0.75px;
+  color: #4e4b66;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.dl-btn {
+  margin-top: 5%;
+}
+.pr-btn {
+  margin-top: 5%;
+}
+.img-btn {
+  width: 1vw;
+  height: 1vw;
+}
