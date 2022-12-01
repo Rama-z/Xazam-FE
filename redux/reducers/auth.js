@@ -1,5 +1,5 @@
 import { ActionType } from "redux-promise-middleware";
-import { actionStrings } from "./actionStrings";
+import { actionStrings } from "../actions/actionStrings";
 
 const initialState = {
   userData: { id: null, token: null, pin: null },
