@@ -38,20 +38,10 @@ const Login = () => {
             <span className={styles["input"]}>
               <label className={styles["label-password"]}>Password</label>
               <input
-                type={toggle ? "text" : "password"}
+                type="password"
                 className={styles["password"]}
                 placeholder="Write your password"
               />
-              <span
-                className={styles["view-icon-section"]}
-                onClick={handleHidePwd}
-              >
-                {toggle ? (
-                  <ViewIcon className={styles["view-icon"]} />
-                ) : (
-                  <ViewOffIcon className={styles["view-icon"]} />
-                )}
-              </span>
             </span>
             <button className={styles["btn-submit"]}>Sign In</button>
           </form>
