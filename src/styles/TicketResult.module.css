@@ -114,12 +114,12 @@
   /* position:relative; */
   /* z-index: 2; */
 }
-.main-row {
-  /* background-color: yellowgreen; */
+/* .main-row {
+   background-color: yellowgreen; 
 }
 .sub-row8 {
-  /* background-color: grey; */
-}
+   background-color: grey; 
+} */
 
 .category-movie {
   font-family: "Mulish";
@@ -169,23 +169,23 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 24px;
-margin-top: 11%;
-margin-left: -10%;
+  margin-top: 11%;
+  margin-left: -10%;
   letter-spacing: 0.75px;
 
   color: #aaaaaa;
 }
 .category1 {
-    font-family: "Mulish";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 24px;
-    margin-left: -25%;
-    letter-spacing: 0.75px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  margin-left: -25%;
+  letter-spacing: 0.75px;
   /* background-color:#5f2eea; */
-    color: #aaaaaa;
-  }
+  color: #aaaaaa;
+}
 .content {
   font-family: "Mulish";
   font-style: normal;
@@ -226,29 +226,29 @@ margin-left: -10%;
   margin-left: -10%;
 }
 .contentx {
-    font-family: "Mulish";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 38px;
-    letter-spacing: 0.75px;
-    color: #14142b;
-    margin-left: -25%;
-    /* background-color: #4e4b66; */
-  }
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  color: #14142b;
+  margin-left: -25%;
+  /* background-color: #4e4b66; */
+}
 .col-2- {
   /* background-color: #5f2eea; */
   width: 15vw;
   /* margin-left: -20%; */
 }
-.barcode{
-    width: fit-content;
-    position: absolute;
-    transform: rotate(90deg);
-    margin-left: 7%;
-    margin-top: 7%;
+.barcode {
+  width: fit-content;
+  position: absolute;
+  transform: rotate(90deg);
+  margin-left: 7%;
+  margin-top: 7%;
 }
-.barcode2{
+.barcode2 {
   width: fit-content;
   position: absolute;
   transform: rotate(90deg);
@@ -259,11 +259,11 @@ margin-left: -10%;
   -ms-transform: rotate(90deg);
   -o-transform: rotate(90deg);
 }
-.col-sub1{
-    margin-left: 4%;
+.col-sub1 {
+  margin-left: 4%;
 }
-.col-sub2{
-    margin-left: -30%;
+.col-sub2 {
+  margin-left: -30%;
 }
 .col-3 {
   /* background-color: #5f2eea; */
