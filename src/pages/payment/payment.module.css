@@ -223,6 +223,7 @@ color: #000000;
   -o-border-radius: 8px;
   height: fit-content;
   margin-top: 1.8%;
+  
 }
 .fill {
   background: rgba(244, 183, 64, 0.3);
@@ -253,6 +254,7 @@ color: #000000;
 .sect-2 {
   padding: 3%;
   background-color: #f5f6f8;
+  
 }
 .sectwrap {
   background-color: rgb(255, 255, 255);
@@ -265,6 +267,7 @@ color: #000000;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
+ 
 }
 .sectwrap2 {
   background-color: rgb(255, 255, 255);
@@ -524,4 +527,76 @@ color: #000000;
 }
 .hr-2 {
   margin-top: 31.8%;
+}
+
+@media screen and (max-width: 768px) {
+  .fill{
+    font-size: 11px
+  }
+  .btn-prev{
+    margin-top: 79%;
+  }
+  .btn-pay{
+    margin-top: 79%
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .fill{
+    font-size: 11px
+  }
+  .btn-prev{
+    margin-top: 248%;
+    margin-left: 10%; 
+    width: fit-content;
+  }
+  .btn-pay{
+    margin-top: 248%;
+    margin-left: 45%; 
+    width: fit-content;
+  }
+  .input{
+width: 100%;
+  }
+  .sectwrap{
+    margin-top: 5%;
+    padding: 5%;
+    
+  }
+  .sect-2{
+    padding: 0;
+  }
+  .sectwrap2{
+    margin-top: 5%;
+    padding: 5%;
+    width: 100%;
+    
+  }
+  .fill{
+    width: 100%;
+    font-size: large;
+    height: fit-content;
+  }
+  .warn{
+    width: 3.5vw;
+    height: 3.5vw;
+    margin-left: 2%;
+  }
+  .paymethod{
+    width: 16vw;
+    height: fit-content
+
+  }
+  .dash-wrap{
+    width: 100%;
+  }
+  .dash1{
+    width: 50%;
+  }
+  .dash2{
+    width: 45%;
+  }
+  .row{
+    padding-bottom: 15%;
+  }
 }

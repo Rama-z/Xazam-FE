@@ -13,9 +13,25 @@ import Navbar from "../../components/Navbar/Navbar";
 const Profile = () => {
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown1, setIsPwdShown1] = useState(false);
+  const [formState, setFormState] = useState({
+    pw1: "",
+    pw2: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNum: ""
+
+  });
   const router = useRouter();
   const as = () => {
     router.push("/");
+  };
+
+  const handleInputChange = function (e) {
+    setFormState({
+      ...formState,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -24,7 +40,7 @@ const Profile = () => {
       <main className={styles.main}>
         <div class="container">
           <div className={`row ${styles["row"]}`}>
-            <div className={`col-4 ${styles["main-sec"]}`}>
+            <div className={`col-sm-4 ${styles["main-sec"]}`}>
               <div class="row">
                 <div class="col">
                   <p className={`${styles["info"]}`}>INFO</p>
@@ -42,22 +58,28 @@ const Profile = () => {
               <p className={`${styles["point"]}`}>Loyalty Points</p>
               <div className={`${styles["box"]}`}>
                 <div className={`row ${styles["card"]}`}>
-                  <div class="col-8">
+                  <div class="col-sm-8">
                     <p className={`${styles["tag2"]}`}>Moviegoers</p>
                     <span className={`${styles["num"]}`}>320</span>
                     <span className={`${styles["poi"]}`}>Point</span>
                   </div>
-                  <div class="col-4">
+                  <div class="col-sm-4">
                     <div className={`${styles["five-pointed-star"]}`}></div>
                   </div>
                 </div>
                 <p className={`${styles["master"]}`}>
                   180 points become a master
                 </p>
-                <Image width={260} height={20} src={scrl} alt="scroll" />
+                <Image
+                  className={`${styles["scrlll"]}`}
+                  width={260}
+                  height={20}
+                  src={scrl}
+                  alt="scroll"
+                />
               </div>
             </div>
-            <section className={`col-8 ${styles["sect-2"]}`} class="col-8">
+            <section className={`col-sm-8 ${styles["sect-2"]}`}>
               <div className={` ${styles["sectwrap"]}`}>
                 <div class="row">
                   <div class="col">
@@ -71,19 +93,23 @@ const Profile = () => {
                 <hr />
                 <p className={` ${styles["details"]}`}>Details Information</p>
 
-                <div class="row">
+                <form class="row">
                   <div class="col">
                     <p className={` ${styles["category"]}`}>First Name</p>
                     <input
+                    onChange={handleInputChange}
                       className={` ${styles["input"]}`}
                       type="text"
                       placeholder="Jonas"
+                      name="firstName"
                     />
                     <p className={` ${styles["category"]}`}>E-mail</p>
                     <input
+                    onChange={handleInputChange}
                       className={` ${styles["input"]}`}
                       type="text"
                       placeholder="jonasrodrigu123@gmail.com"
+                      name="email"
                     />
                     <p className={` ${styles["privacy"]}`}>
                       Account and Privacy
@@ -91,7 +117,7 @@ const Profile = () => {
                     <hr className={` ${styles["hr-1"]}`} />
                     <p className={` ${styles["pass"]}`}>New Password</p>
                     <input
-                    onChange={handleInputChange}
+                      onChange={handleInputChange}
                       className={` ${styles["input"]}`}
                       type={isPwdShown ? "text" : "password"}
                       placeholder="Write your password"
@@ -108,15 +134,19 @@ const Profile = () => {
                   <div class="col">
                     <p className={` ${styles["category"]}`}>Last Name</p>
                     <input
+                    onChange={handleInputChange}
                       className={` ${styles["input"]}`}
                       type="text"
                       placeholder="El Rodriguez"
+                      name="lastName"
                     />
                     <p className={` ${styles["category"]}`}>Phone Number</p>
                     <input
+                    onChange={handleInputChange}
                       className={` ${styles["input"]}`}
                       type="text"
                       placeholder="081445687121"
+                      name="phoneNum"
                     />
 
                     <hr className={` ${styles["hr-2"]}`} />
@@ -139,9 +169,12 @@ const Profile = () => {
                       onClick={() => setIsPwdShown1(!isPwdShown1)}
                     />
                   </div>
-                </div>
+                </form>
                 <button
-                  className={!formState.pw1 || !formState.pw2 ? `${styles["btn-changes"]}` : `${styles["btn-change"]}`
+                  className={
+                    !formState.firstName || !formState.lastName ||  !formState.email || !formState.phoneNum 
+                      ? `${styles["btn-changes"]}`
+                      : `${styles["btn-change"]}`
                   }
                 >
                   Update changes
