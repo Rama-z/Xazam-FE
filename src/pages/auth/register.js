@@ -8,13 +8,14 @@ import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
 import Button from "../../components/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import authAction from "../../redux/actions/auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const router = useRouter();
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [body, setBody] = useState({});
 
@@ -25,11 +26,11 @@ const Register = () => {
     });
   const registerSucces = () => {
     toast.success("Register Success! Please Check Your Email");
-    // router.push("/auth/login");
+    router.push("/auth/login");
   };
 
   const registerDenied = () => {
-    toast.error(`error`);
+    toast.error(`Register Failed, ${auth.err}`);
   };
 
   const submithandler = (e) => {

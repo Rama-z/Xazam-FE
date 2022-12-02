@@ -1,5 +1,12 @@
 import { ActionType } from "redux-promise-middleware";
-import { login, logout, register, forgot, reset } from "../../modules/api/Auth";
+import {
+  login,
+  logout,
+  register,
+  forgot,
+  reset,
+  confirm,
+} from "../../modules/api/Auth";
 import { actionStrings } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
@@ -52,6 +59,18 @@ const forgotFulfilled = (data) => ({
   payload: { data },
 });
 
+const confirmPending = () => ({
+  type: actionStrings.authConfirm.concat("_", Pending),
+});
+const confirmRejected = (error) => ({
+  type: actionStrings.authConfirm.concat("_", Rejected),
+  payload: { error },
+});
+const confirmFulfilled = (data) => ({
+  type: actionStrings.authConfirm.concat("_", Fulfilled),
+  payload: { data },
+});
+
 const resetPending = () => ({
   type: actionStrings.authReset.concat("_", Pending),
 });
@@ -64,15 +83,17 @@ const resetFulfilled = (data) => ({
   payload: { data },
 });
 
-const loginThunk = (body) => {
+const loginThunk = (body, cbSuccess, cbDenied) => {
   return async (dispatch) => {
     try {
       dispatch(loginPending());
       const result = await login(body);
       console.log(result.data);
       dispatch(loginFulfilled(result.data));
+      typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(loginRejected(error));
+      typeof cbDenied === "function" && cbDenied();
     }
   };
 };
@@ -117,6 +138,21 @@ const forgotThunk = (body, cbSuccess, cbDenied) => {
   };
 };
 
+const confirmThunk = (body, cbSuccess, cbDenied) => {
+  return async (dispatch) => {
+    try {
+      dispatch(confirmPending());
+      const result = await confirm(body);
+      console.log(result.data);
+      dispatch(confirmFulfilled(result.data));
+      typeof cbSuccess === "function" && cbSuccess();
+    } catch (error) {
+      dispatch(confirmRejected(error));
+      typeof cbDenied === "function" && cbDenied();
+    }
+  };
+};
+
 const resetThunk = (body, cbSuccess, cbDenied) => {
   return async (dispatch) => {
     try {
@@ -137,6 +173,7 @@ const authAction = {
   registerThunk,
   forgotThunk,
   resetThunk,
+  confirmThunk,
 };
 
 export default authAction;
