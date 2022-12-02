@@ -28,7 +28,6 @@ const Login = () => {
       ...body,
       [e.target.name]: e.target.value,
     });
-  // const togglePass = () => setShowPass(!showPass);
   const loginHandler = (e) => {
     e.preventDefault();
     dispatch(authAction.loginThunk(body));
@@ -63,7 +62,6 @@ const Login = () => {
             <span className={styles["input"]}>
               <label className={styles["label-password"]}>Password</label>
               <input
-                // type={toggle ? "text" : "password"}
                 type={showPass ? "text" : "password"}
                 name="password"
                 className={styles["password"]}
@@ -75,7 +73,7 @@ const Login = () => {
                 className={styles["view-icon-section"]}
                 onClick={handleHidePwd}
               >
-                <HidePassword state={toggle }/>
+                <HidePassword state={showPass}/>
               </span>
             </span>
             <Button initBtnSubmit={`Sign In`} />

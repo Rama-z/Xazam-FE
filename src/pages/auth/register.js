@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
-  const [toggle, setToggle] = useState(false);
+  const [showPass, setShowPass] = useState(false);
 
   const router = useRouter();
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const Register = () => {
   };
 
   const handleHidePwd = () => {
-    setToggle(!toggle);
+    setShowPass(!showPass);
   };
 
   return (
@@ -111,7 +111,7 @@ const Register = () => {
             <span className={styles["input"]}>
               <label className={styles["label-password"]}>Password</label>
               <input
-                type={toggle ? "text" : "password"}
+                type={showPass ? "text" : "password"}
                 className={styles["password"]}
                 placeholder="Write your password"
                 required
@@ -121,7 +121,7 @@ const Register = () => {
                 className={styles["view-icon-section"]}
                 onClick={handleHidePwd}
               >
-                <HidePassword state={toggle} />
+                <HidePassword state={showPass} />
               </span>
             </span>
             <span className={styles["input"]}>
