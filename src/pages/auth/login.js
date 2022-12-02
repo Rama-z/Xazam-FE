@@ -9,6 +9,7 @@ import styles from "../../styles/Login.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
+import Button from "../../components/Button";
 
 const Login = () => {
   const router = useRouter();
@@ -59,7 +60,7 @@ const Login = () => {
                 )}
               </span>
             </span>
-            <button className={styles["btn-submit"]}>Sign In</button>
+            <Button initBtnSubmit={`Sign In`} />
           </form>
           <p className={styles["direct-to-reset"]}>
             Forgot your password ?{" "}

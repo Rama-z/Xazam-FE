@@ -3,8 +3,7 @@ import Image from "next/image";
 
 import styles from "../../styles/Forgot.module.css";
 import logo from "../../assets/Images/tickitz.png";
-import googleIcon from "../../assets/Icons/google.png";
-import facebook from "../../assets/Icons/facebook.png";
+import Button from "../../components/Button";
 
 const Forgot = () => {
   return (
@@ -66,7 +65,7 @@ const Forgot = () => {
               </label>
               <input type="checkbox" className={styles["checkbox"]} />
             </span> */}
-            <button className={styles["btn-submit"]}>Join for free Now</button>
+            <Button initBtnSubmit={`Join for free Now`} />
           </form>
           {/* <p className={styles["direct-to-login"]}>
             Do you already have an account ?{" "}
