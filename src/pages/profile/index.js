@@ -91,9 +91,11 @@ const Profile = () => {
                     <hr className={` ${styles["hr-1"]}`} />
                     <p className={` ${styles["pass"]}`}>New Password</p>
                     <input
+                    onChange={handleInputChange}
                       className={` ${styles["input"]}`}
                       type={isPwdShown ? "text" : "password"}
                       placeholder="Write your password"
+                      name="pw1"
                     />
                     <Image
                       className={` ${styles["eye"]}`}
@@ -122,9 +124,12 @@ const Profile = () => {
                       Confirm Password
                     </p>
                     <input
+                      onChange={handleInputChange}
                       className={` ${styles["input"]}`}
+                      // className={}
                       type={isPwdShown1 ? "text" : "password"}
                       placeholder="Confirm your password"
+                      name="pw2"
                     />
                     <Image
                       className={` ${styles["eye"]}`}
@@ -135,7 +140,10 @@ const Profile = () => {
                     />
                   </div>
                 </div>
-                <button className={` ${styles["btn-change"]}`}>
+                <button
+                  className={!formState.pw1 || !formState.pw2 ? `${styles["btn-changes"]}` : `${styles["btn-change"]}`
+                  }
+                >
                   Update changes
                 </button>
               </div>
