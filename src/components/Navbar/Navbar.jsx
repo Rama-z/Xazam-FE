@@ -12,7 +12,7 @@ import styles from "src/styles/Navbar.module.css";
 // Import Image
 import Tickitz from "../../assets/images/Tickitz-purple.png";
 import profile from "../../assets/images/profile.png";
-import search from "../../assets/icon/search.png";
+import search from "../../assets/icons/search.png";
 import { useRouter } from "next/router";
 
 function BasicExample() {
