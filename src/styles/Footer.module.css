@@ -81,3 +81,12 @@
     left: 13rem;
   }
 }
+
+@media only screen and (max-width: 375px) {
+  .tickits {
+    position: relative;
+    width: 154px;
+    top: -63px;
+    left: 11rem;
+  }
+}
