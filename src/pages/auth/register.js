@@ -117,9 +117,7 @@ const Register = () => {
               </label>
               <input type="checkbox" className={styles["checkbox"]} />
             </span>
-            <button className={styles["btn-submit"]} type="submit">
-              Join for free Now
-            </button>
+            <Button initBtnSubmit={`Join for free Now`} />
           </form>
           <p className={styles["direct-to-login"]}>
             Do you already have an account ?{" "}
