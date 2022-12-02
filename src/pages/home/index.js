@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
+import { useRouter } from "next/router";
+
 import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
@@ -10,6 +12,8 @@ import lion from "../../assets/Images/lion-home.png";
 import movie from "../../assets/Images/movie-home.png";
 
 const Home = () => {
+  const router = useRouter();
+
   return (
     <>
       <Navbar />
@@ -87,38 +91,10 @@ const Home = () => {
                   alt={`movie`}
                   className={styles["moview-images"]}
                 />
-                <h3 className={styles[`title`]}>{`title`}</h3>
-                <p className={styles["description"]}> {`Deskripsi`}</p>
-                <button className={styles["btn-movie"]}>{`Details`}</button>
-              </li>
-              <li className={`${styles["moview"]}`}>
-                <Image
-                  src={``}
-                  alt={`movie`}
-                  className={styles["moview-images"]}
-                />
-                <h3 className={styles[`title`]}>{`title`}</h3>
-                <p className={styles["description"]}> {`Deskripsi`}</p>
-                <button className={styles["btn-movie"]}>{`Details`}</button>
-              </li>
-              <li className={`${styles["moview"]}`}>
-                <Image
-                  src={``}
-                  alt={`movie`}
-                  className={styles["moview-images"]}
-                />
-                <h3 className={styles[`title`]}>{`title`}</h3>
-                <p className={styles["description"]}> {`Deskripsi`}</p>
-                <button className={styles["btn-movie"]}>{`Details`}</button>
-              </li>
-              <li className={`${styles["moview"]}`}>
-                <Image
-                  src={``}
-                  alt={`movie`}
-                  className={styles["moview-images"]}
-                />
-                <h3 className={styles[`title`]}>{`title`}</h3>
-                <p className={styles["description"]}> {`Deskripsi`}</p>
+                <h3 className={styles[`title`]}>{`Black Widow`}</h3>
+                <p className={styles["description"]}>
+                  {`Action, Adventure, Sci-Fi`}
+                </p>
                 <button className={styles["btn-movie"]}>{`Details`}</button>
               </li>
             </ul>
