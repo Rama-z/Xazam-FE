@@ -19,7 +19,7 @@ const Home = () => {
       <Navbar
         profileAndBtn={
           <>
-            <button className={styles["sign-up-btn"]}>Sign-up</button>
+            <button className={styles["sign-up-btn"]} onClick={() => router.push("/auth/register")}>Sign-up</button>
           </>
         }
       />
