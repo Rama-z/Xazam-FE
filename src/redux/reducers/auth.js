@@ -6,7 +6,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   isFulfilled: false,
-  error: null,
+  err: null,
   confirms: false,
 };
 
