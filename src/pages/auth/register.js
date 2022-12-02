@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 import styles from "src/styles/Register.module.css";
-import logo from "src/assets/Images/tickitz.png";
+import logo from "src/assets/images/tickitz.png";
 import googleIcon from "src/assets/Icons/google.png";
 import facebook from "src/assets/Icons/facebook.png";
 import Button from "src/components/Button";
