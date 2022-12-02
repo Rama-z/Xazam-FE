@@ -261,12 +261,18 @@
   font-size: 12px;
 }
 
-/* .footer {
-  border: 1px solid darkgreen;
-} */
+/* || TO DO: Style for btn inside header */
+.sign-up-btn {
+  padding: 0.5rem 1.5rem;
+  background: #5f2eea;
+  border-radius: 4px;
+  outline: none;
+  color: #F7F7FC;
+  border: none;
+  font-weight: 600;
+}
 
 /* || Responsive */
-
 @media all and (min-width: 768px) and (max-width: 1024px) {
 }
 
