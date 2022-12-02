@@ -1,9 +1,9 @@
 import React from "react";
-//import Axios from "axios"
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState } from "react";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+
+import HidePassword from "../../components/HidePassword";
 
 import styles from "src/styles/Login.module.css";
 import logo from "src/assets/images/Tickitz.png";
@@ -75,7 +75,6 @@ const Login = () => {
             <span className={styles["input"]}>
               <label className={styles["label-password"]}>Password</label>
               <input
-                // type={toggle ? "text" : "password"}
                 type={showPass ? "text" : "password"}
                 name="password"
                 className={styles["password"]}
@@ -87,11 +86,7 @@ const Login = () => {
                 className={styles["view-icon-section"]}
                 onClick={handleHidePwd}
               >
-                {showPass ? (
-                  <ViewIcon className={styles["view-icon"]} />
-                ) : (
-                  <ViewOffIcon className={styles["view-icon"]} />
-                )}
+                <HidePassword state={showPass}/>
               </span>
             </span>
             <Button initBtnSubmit={`Sign In`} />

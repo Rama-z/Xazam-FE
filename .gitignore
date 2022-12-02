@@ -39,4 +39,7 @@ node_modules
 .env
 
 #home
-src/pages/home/index.js
+src/styles/MovieDetail.module.css
+
+#movie
+src/pages/movie/[detail].js

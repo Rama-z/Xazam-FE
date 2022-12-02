@@ -3,14 +3,14 @@ import styles from "src/styles/Footer.module.css";
 import Image from "next/image";
 
 // Import Image
-import Tickitz from "src/assets/images/Tickitz.png";
-import cineone from "src/assets/images/cineone.png";
-import hiflix from "src/assets/images/hiflix.png";
-import ebu from "src/assets/images/ebu.png";
-import fb from "src/assets/images/fb.png";
-import twitter from "src/assets/images/twitter.png";
-import youtube from "src/assets/images/youtube.png";
-import ig from "src/assets/images/ig.png";
+import Tickitz from "../../assets/images/Tickitz-purple.png";
+import cineone from "../../assets/images/cineone.png";
+import hiflix from "../../assets/images/hiflix.png";
+import ebu from "../../assets/images/ebu.png";
+import fb from "../../assets/images/fb.png";
+import twitter from "../../assets/images/twitter.png";
+import youtube from "../../assets/images/youtube.png";
+import ig from "../../assets/images/ig.png";
 
 function Footer() {
   return (
@@ -22,7 +22,11 @@ function Footer() {
               <div
                 className={` col-md-3 col-lg-5 col-xl-3 ms-0 mb-4 ${styles["cont-logo"]} `}
               >
-                <Image className="mb-3" src={Tickitz} alt="/" />
+                <Image
+                  className={`mb-3 ${styles["componay__logo"]}`}
+                  src={Tickitz}
+                  alt="/"
+                />
                 <p className={`${styles["desc-footer"]}`}>
                   Stop waiting in line. Buy tickets conveniently, watch movies
                   quietly.
@@ -78,9 +82,21 @@ function Footer() {
                   Our Sponsor
                 </h6>
                 <div className={`${styles["cont-sponsor"]}`}>
-                  <Image className={`mb-4`} src={ebu} alt="/" />
-                  <Image className={`mb-4`} src={cineone} alt="/" />
-                  <Image className={`mb-4`} src={hiflix} alt="/" />
+                  <Image
+                    className={`mb-4 ${styles["cont-sponsor__image"]}`}
+                    src={ebu}
+                    alt="/"
+                  />
+                  <Image
+                    className={`mb-4 ${styles["cont-sponsor__image"]}`}
+                    src={cineone}
+                    alt="/"
+                  />
+                  <Image
+                    className={`mb-4 ${styles["cont-sponsor__image"]}`}
+                    src={hiflix}
+                    alt="/"
+                  />
                 </div>
               </div>
               <div className="   col-md-12 col-lg-2 col-xl-2 mx-lg-0 p-lg-0 mt-lg-0 ms-md-5 ps-md-4 mt-md-0 mx-auto mb-md-5 mb-4 ">

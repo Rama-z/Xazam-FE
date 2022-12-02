@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900;1000&display=swap");
-
 .desc-footer {
   font-family: "Mulish";
   font-style: normal;
@@ -28,6 +26,16 @@
   line-height: 18px;
   letter-spacing: 0.5px;
   color: #4e4b66;
+}
+
+.componay__logo {
+  width: 120.41px;
+  height: 31.41px;
+}
+
+.cont-sponsor__image {
+  width: 120.41px;
+  height: 31.41px;
 }
 
 .social-media {

@@ -10,9 +10,9 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import styles from "src/styles/Navbar.module.css";
 
 // Import Image
-import Tickitz from "src/assets/images/Tickitz.png";
-import profile from "src/assets/images/profile.png";
-import search from "src/assets/Icons/search.png";
+import Tickitz from "../../assets/images/Tickitz-purple.png";
+import profile from "../../assets/images/profile.png";
+import search from "../../assets/icons/search.png";
 import { useRouter } from "next/router";
 
 function BasicExample() {
@@ -69,7 +69,11 @@ function BasicExample() {
             router.push("/");
           }}
         >
-          <Image src={Tickitz} alt="Tickitz" />
+          <Image
+            src={Tickitz}
+            alt="Tickitz"
+            className={styles["company__image"]}
+          />
           <div className="dropdown"></div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
