@@ -30,6 +30,9 @@ const Home = () => {
                   src={spiderman}
                   alt={`spiderman`}
                   className={styles["content-list-image"]}
+                  contain
+                  width={500}
+                  height={500}
                 />
               </li>
               <li className={styles["list-image"]}>
@@ -37,6 +40,9 @@ const Home = () => {
                   src={lion}
                   alt={`lion`}
                   className={styles["content-list-image"]}
+                  contain
+                  width={500}
+                  height={500}
                 />
               </li>
               <li className={styles["list-image"]}>
@@ -44,6 +50,9 @@ const Home = () => {
                   src={movie}
                   alt={`movie`}
                   className={styles["content-list-image"]}
+                  contain
+                  width={500}
+                  height={500}
                 />
               </li>
             </ul>
