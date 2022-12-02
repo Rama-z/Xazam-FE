@@ -13,8 +13,10 @@ import styles from "../../styles/Navbar.module.css";
 import Tickitz from "../../assets/images/Tickitz.png";
 import profile from "../../assets/images/profile.png";
 import search from "../../assets/icon/search.png";
+import { useRouter } from "next/router";
 
 function BasicExample() {
+  const router = useRouter();
   return (
     <Navbar expand="lg py-3">
       {/* <div className="container pt-3">
@@ -61,24 +63,45 @@ function BasicExample() {
       </div> */}
 
       <Container>
-        <Navbar.Brand className={`${styles["company"]}`}>
+        <Navbar.Brand
+          className={`${styles["company"]}`}
+          onClick={() => {
+            router.push("/");
+          }}
+        >
           <Image src={Tickitz} alt="Tickitz" />
           <div className="dropdown"></div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`mx-auto gap-5 ${styles["navbar"]}`}>
-            <Nav.Link className={` p-0 ${styles["nav-links"]}`}>Movies</Nav.Link>
-            <div className={`${styles["pages-shop"]} d-flex justify-content-center align-items-center`}>
-              <p className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}>Cinemas</p>
+            <Nav.Link className={` p-0 ${styles["nav-links"]}`}>
+              Movies
+            </Nav.Link>
+            <div
+              className={`${styles["pages-shop"]} d-flex justify-content-center align-items-center`}
+            >
+              <p className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}>
+                Cinemas
+              </p>
             </div>
-            <div className={`d-flex justify-content-center align-items-center ${styles["pages-shop"]}`}>
-              <p className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}> Buy Ticket</p>
+            <div
+              className={`d-flex justify-content-center align-items-center ${styles["pages-shop"]}`}
+            >
+              <p className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}>
+                {" "}
+                Buy Ticket
+              </p>
             </div>
           </Nav>
-          <div className={` d-flex gap-5 justify-content-center align-items-center ${styles["icon"]}`}>
+          <div
+            className={` d-flex gap-5 justify-content-center align-items-center ${styles["icon"]}`}
+          >
             <Dropdown>
-              <Dropdown.Toggle className={`${styles["dropdown"]}`} variant="white">
+              <Dropdown.Toggle
+                className={`${styles["dropdown"]}`}
+                variant="white"
+              >
                 Location
               </Dropdown.Toggle>
 
@@ -90,7 +113,11 @@ function BasicExample() {
                 <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <Image className={`  ${styles["icon-1"]} ${styles["cursor"]}`} src={search} alt="/" />
+            <Image
+              className={`  ${styles["icon-1"]} ${styles["cursor"]}`}
+              src={search}
+              alt="/"
+            />
             <Image src={profile} alt="/" />
           </div>
         </Navbar.Collapse>

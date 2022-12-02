@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
-import styles from "../../styles/admin.module.css";
+import styles from "../../styles/Admin.module.css";
 import Image from "next/image";
 
 // React-Bootsrap

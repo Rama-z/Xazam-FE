@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -7,11 +7,35 @@ import styles from "../../styles/Register.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
+import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
+import authAction from "../../redux/actions/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const [body, setBody] = useState({});
+
+  const changeHandler = (e) =>
+    setBody({
+      ...body,
+      [e.target.name]: e.target.value,
+    });
+  const registerSucces = () => {
+    toast.success("Register Success! Please Check Your Email");
+    // router.push("/auth/login");
+  };
+
+  const registerDenied = () => {
+    toast.error(`error`);
+  };
+
+  const submithandler = (e) => {
+    e.preventDefault();
+    dispatch(authAction.registerThunk(body, registerSucces, registerDenied));
+  };
 
   return (
     <>
@@ -44,21 +68,47 @@ const Register = () => {
         </section>
         <section className={styles["right-side"]}>
           <h3>Fill your additional details</h3>
-          <form className={styles["form"]}>
+          <form className={styles["form"]} onSubmit={submithandler}>
+            <span className={styles["input"]}>
+              <label className={styles["label-name"]}>Firstname</label>
+              <input
+                type="text"
+                name="firstName"
+                className={styles["name"]}
+                placeholder="Write your firstname"
+                onChange={changeHandler}
+              />
+            </span>
+            <span className={styles["input"]}>
+              <label className={styles["label-name"]}>Lastname</label>
+              <input
+                type="text"
+                name="lastName"
+                className={styles["name"]}
+                placeholder="Write your lastname"
+                onChange={changeHandler}
+              />
+            </span>
             <span className={styles["input"]}>
               <label className={styles["label-email"]}>Email</label>
               <input
                 type="text"
+                name="email"
                 className={styles["email"]}
                 placeholder="Write your email"
+                required
+                onChange={changeHandler}
               />
             </span>
             <span className={styles["input"]}>
               <label className={styles["label-password"]}>Password</label>
               <input
                 type="text"
+                name="password"
                 className={styles["password"]}
                 placeholder="Write your password"
+                required
+                onChange={changeHandler}
               />
             </span>
             <span className={styles["input"]}>
@@ -67,7 +117,7 @@ const Register = () => {
               </label>
               <input type="checkbox" className={styles["checkbox"]} />
             </span>
-            <button className={styles["btn-submit"]}>Join for free Now</button>
+            <Button initBtnSubmit={`Join for free Now`} />
           </form>
           <p className={styles["direct-to-login"]}>
             Do you already have an account ?{" "}

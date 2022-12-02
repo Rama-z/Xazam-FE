@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: row;
   min-height: 100vh;
+  font-family: "Inter", sans-serif;
 }
 .left-side {
   /* border: 1px solid darkgreen; */
@@ -56,6 +57,7 @@
 
 .input:nth-child(1),
 .input:nth-child(2) {
+  position: relative;
   /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: column;
@@ -76,7 +78,9 @@
   color: #4e4b66;
 }
 .input .email,
-.input .password {
+.input .password,
+.input input[type="text"],
+.input input[type="password"] {
   /* border: 1px solid darkblue; */
   outline: none;
   border-radius: 12px;
@@ -86,13 +90,16 @@
   padding: 1rem 0.5rem;
 }
 
-.btn-submit {
-  background: var(--primary-color);
-  color: var(--secondary-color);
-  padding: 1rem 0;
-  border-radius: 14px;
-  font-size: 14px;
-  font-weight: 600;
+.view-icon-section {
+  /* border: 1px solid darkblue; */
+  position: absolute;
+  right: 0.5rem;
+  top: 2.5rem;
+}
+
+.view-icon {
+  color: #a0a3bd !important;
+  cursor: pointer;
 }
 
 .direct-to-reset {
@@ -104,6 +111,12 @@
   color: var(--primary-color);
   text-decoration: underline;
   cursor: pointer;
+}
+
+.or {
+  text-align: center;
+  color: #aaaaaa;
+  font-size: 12px;
 }
 
 .social-btn-section {
@@ -140,4 +153,81 @@
 .social-btn {
   /* border: 1px solid darkblue; */
   cursor: pointer;
+}
+
+/* || Responsive */
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .main {
+    /* border: 1px solid darkblue; */
+    flex-direction: column;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  .left-side {
+    /* border: 1px solid darkblue; */
+    width: auto;
+    height: 50vh;
+    padding: 1rem;
+  }
+
+  .right-side {
+    /* border: 1px solid darkblue; */
+    width: 90%;
+    padding: 2rem;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .main {
+    /* border: 1px solid darkblue; */
+    flex-direction: column;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  .left-side {
+    /* border: 1px solid darkblue; */
+    width: auto;
+    height: 60vh;
+    padding: 1rem;
+  }
+
+  .right-side {
+    /* border: 1px solid darkblue; */
+    width: 80%;
+    padding: 1rem;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .main {
+    /* border: 1px solid darkblue; */
+    flex-direction: column;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  .img-logo {
+    /* border: 1px solid darkgreen; */
+    width: 10rem;
+    height: 4rem;
+  }
+
+  .left-side {
+    /* border: 1px solid darkblue; */
+    width: auto;
+    height: 100vh;
+    padding: 1rem;
+  }
+
+  .right-side {
+    /* border: 1px solid darkblue; */
+    padding: 1.5rem;
+    width: 90%;
+  }
+  .direct-to-reset {
+    font-size: 12px;
+  }
 }

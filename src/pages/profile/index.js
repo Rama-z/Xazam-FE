@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../profile/profile.module.css";
+import styles from "../../styles/Profile.module.css";
 import { useRouter } from "next/router";
 import dot from "../../assets/images/dot.png";
 import man from "../../assets/images/man.png";

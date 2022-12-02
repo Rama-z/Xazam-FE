@@ -1,15 +1,39 @@
 import React from "react";
-// import Axios from "axios"
+//import Axios from "axios"
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useState } from "react";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 import styles from "../../styles/Login.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
+import { useDispatch } from "react-redux";
+import authAction from "../../redux/actions/auth";
+import Button from "../../components/Button";
 
 const Login = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const [body, setbody] = useState({});
+  const [showPass, setShowPass] = useState(false);
+
+  const handleHidePwd = () => {
+    setShowPass(!showPass);
+  };
+
+  const changeHandler = (e) =>
+    setbody({
+      ...body,
+      [e.target.name]: e.target.value,
+    });
+  // const togglePass = () => setShowPass(!showPass);
+  const loginHandler = (e) => {
+    e.preventDefault();
+    dispatch(authAction.loginThunk(body));
+  };
+
   return (
     <>
       <main className={styles["main"]}>
@@ -24,29 +48,47 @@ const Login = () => {
           <p>
             Sign in with your data that you entered during your registration
           </p>
-          <form className={styles["form"]}>
+          <form className={styles["form"]} onSubmit={loginHandler}>
             <span className={styles["input"]}>
               <label className={styles["label-email"]}>Email</label>
               <input
                 type="text"
+                name="email"
                 className={styles["email"]}
                 placeholder="Write your email"
+                onChange={changeHandler}
+                required
               />
             </span>
             <span className={styles["input"]}>
               <label className={styles["label-password"]}>Password</label>
               <input
-                type="text"
+                // type={toggle ? "text" : "password"}
+                type={showPass ? "text" : "password"}
+                name="password"
                 className={styles["password"]}
                 placeholder="Write your password"
+                onChange={changeHandler}
+                required
               />
+              <span
+                className={styles["view-icon-section"]}
+                onClick={handleHidePwd}
+              >
+                {showPass ? (
+                  <ViewIcon className={styles["view-icon"]} />
+                ) : (
+                  <ViewOffIcon className={styles["view-icon"]} />
+                )}
+              </span>
             </span>
-            <button className={styles["btn-submit"]}>Sign In</button>
+            <Button initBtnSubmit={`Sign In`} />
           </form>
           <p className={styles["direct-to-reset"]}>
-            Do you already have an account ?{" "}
+            Forgot your password ?{" "}
             <span onClick={() => router.push("/auth/forgot")}>Reset now</span>
           </p>
+          <p className={styles["or"]}>Or</p>
           <span className={styles["social-btn-section"]}>
             <span className={styles["social-btn"]}>
               <Image
