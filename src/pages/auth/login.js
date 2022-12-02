@@ -1,23 +1,37 @@
 import React from "react";
-//import Axios from "axios"
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState } from "react";
 
-import Button from "../../components/Button";
 import HidePassword from "../../components/HidePassword";
 
 import styles from "../../styles/Login.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
+import { useDispatch } from "react-redux";
+import authAction from "../../redux/actions/auth";
+import Button from "../../components/Button";
 
 const Login = () => {
   const router = useRouter();
-  const [toggle, setToggle] = useState(false);
+  const dispatch = useDispatch();
+  const [body, setbody] = useState({});
+  const [showPass, setShowPass] = useState(false);
 
   const handleHidePwd = () => {
-    setToggle(!toggle);
+    setShowPass(!showPass);
+  };
+
+  const changeHandler = (e) =>
+    setbody({
+      ...body,
+      [e.target.name]: e.target.value,
+    });
+  // const togglePass = () => setShowPass(!showPass);
+  const loginHandler = (e) => {
+    e.preventDefault();
+    dispatch(authAction.loginThunk(body));
   };
 
   return (
@@ -34,21 +48,28 @@ const Login = () => {
           <p>
             Sign in with your data that you entered during your registration
           </p>
-          <form className={styles["form"]}>
+          <form className={styles["form"]} onSubmit={loginHandler}>
             <span className={styles["input"]}>
               <label className={styles["label-email"]}>Email</label>
               <input
                 type="text"
+                name="email"
                 className={styles["email"]}
                 placeholder="Write your email"
+                onChange={changeHandler}
+                required
               />
             </span>
             <span className={styles["input"]}>
               <label className={styles["label-password"]}>Password</label>
               <input
-                type={toggle ? "text" : "password"}
+                // type={toggle ? "text" : "password"}
+                type={showPass ? "text" : "password"}
+                name="password"
                 className={styles["password"]}
                 placeholder="Write your password"
+                onChange={changeHandler}
+                required
               />
               <span
                 className={styles["view-icon-section"]}

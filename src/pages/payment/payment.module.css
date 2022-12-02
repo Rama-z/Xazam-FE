@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+
 .main {
   background-color: #e5e5e5;
 }
 .row {
   background-color: #f5f6f8;
   padding: 5%;
+  padding-bottom: 10%;
 }
 .dot {
   margin-left: 55%;
@@ -180,6 +183,35 @@
   box-shadow: inset 0px 2px 4px rgba(17, 17, 17, 0.16);
   border-radius: 8px;
 }
+.list-cat{
+  font-family: 'Mulish';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 25px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+letter-spacing: 0.25px;
+
+color: #6B6B6B;
+}
+.content-cat{
+  font-family: 'Mulish';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 25px;
+
+/* display: flex; */
+align-items: center;
+text-align: right;
+letter-spacing: 0.25px;
+
+color: #000000;
+
+}
 .main-sec {
   background-color: white;
   padding: 3%;
@@ -189,7 +221,29 @@
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
-  /* height: 54.5vw; */
+  height: fit-content;
+  margin-top: 1.8%;
+}
+.fill {
+  background: rgba(244, 183, 64, 0.3);
+  border-radius: 8px;
+  margin-top: 15%;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  height: 4vw;
+  width: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.warn {
+  width: 1.5vw;
+  height: 1.5vw;
+  position: absolute;
+  margin-top: 1.2%;
+  margin-left: 1%;
 }
 .eye {
   position: absolute;
@@ -206,11 +260,116 @@
   padding-left: 5%;
   padding-top: 5%;
   padding-bottom: 10%;
-  /* margin-top: -5%; */
+  margin-top: -5%;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
+}
+.sectwrap2 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding-top: 5%;
+  padding-bottom: 2%;
+  margin-top: -5%;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  width: 66.5%;
+  height: fit-content;
+}
+.btn-prev {
+  border: 2px solid #5f2eea;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 20%;
+  height: fit-content;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 28px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  background-color: white;
+  color: #5f2eea;
+  position: absolute;
+  margin-top: 65%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.btn-pay {
+  position: absolute;
+  border: 2px solid #5f2eea;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 20%;
+  height: fit-content;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 28px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  background-color: #5f2eea;
+  color: white;
+  margin-top: 65%;
+  margin-left: 33.5%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.or {
+  width: 2vw;
+  margin-top: 5%;
+  margin-left: -2%;
+}
+.hr {
+  width: 100%;
+}
+.dash1 {
+  margin-top: 5%;
+  width: 25vw;
+}
+.cash {
+  text-align: center;
+  margin-top: 5%;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+
+  /* Text - Label */
+
+  color: #6e7191;
+}
+.see {
+  color: #5f2eea;
+}
+.dash2 {
+  margin-top: 5%;
+  width: 25vw;
+}
+.ors {
+  width: fit-content;
+}
+.pay-wrap {
+  text-align: center;
+}
+.paymethod {
+  width: fit-content;
+  height: 4vw;
 }
 .account {
   font-family: "Mulish";
@@ -347,22 +506,22 @@
   color: #f7f7fc;
 }
 
-.btn-changes{
-    margin-top: 5%;
-    background: #8c8c8c;
-    border-radius: 4px;
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
-    width: 19vw;
-    height: 3.5vw;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.75px;
-    color: #F7F7FC;
-    }
-.hr-2{
-    margin-top: 31.8%;
+.btn-changes {
+  margin-top: 5%;
+  background: #8c8c8c;
+  border-radius: 4px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  width: 19vw;
+  height: 3.5vw;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #f7f7fc;
+}
+.hr-2 {
+  margin-top: 31.8%;
 }

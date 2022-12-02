@@ -2,7 +2,7 @@ import { ActionType } from "redux-promise-middleware";
 import { actionStrings } from "../actions/actionStrings";
 
 const initialState = {
-  userData: { id: null, token: null, pin: null },
+  userData: { email: null, role: null, token: null, user_id: null },
   isLoading: false,
   isError: false,
   isFulfilled: false,
@@ -36,9 +36,10 @@ const authReducer = (prevState = initialState, { payload, type }) => {
         isError: false,
         isFulfilled: true,
         userData: {
-          id: payload.data.data.id,
+          email: payload.data.data.email,
+          role: payload.data.data.role,
           token: payload.data.data.token,
-          pin: payload.data.data.pin,
+          user_id: payload.data.data.user_id,
         },
       };
 

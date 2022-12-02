@@ -1,5 +1,4 @@
 import React from "react";
-// import Axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -12,12 +11,35 @@ import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
 import { useDispatch } from "react-redux";
+import authAction from "../../redux/actions/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const [toggle, setToggle] = useState(false);
 
   const router = useRouter();
   const dispatch = useDispatch();
+  const [body, setBody] = useState({});
+
+  const changeHandler = (e) =>
+    setBody({
+      ...body,
+      [e.target.name]: e.target.value,
+    });
+  const registerSucces = () => {
+    toast.success("Register Success! Please Check Your Email");
+    // router.push("/auth/login");
+  };
+
+  const registerDenied = () => {
+    toast.error(`error`);
+  };
+
+  const submithandler = (e) => {
+    e.preventDefault();
+    dispatch(authAction.registerThunk(body, registerSucces, registerDenied));
+  };
 
   const handleHidePwd = () => {
     setToggle(!toggle);
@@ -54,29 +76,36 @@ const Register = () => {
         </section>
         <section className={styles["right-side"]}>
           <h3>Fill your additional details</h3>
-          <form className={styles["form"]}>
+          <form className={styles["form"]} onSubmit={submithandler}>
             <span className={styles["input"]}>
               <label className={styles["label-name"]}>Firstname</label>
               <input
                 type="text"
+                name="firstName"
                 className={styles["name"]}
                 placeholder="Write your firstname"
+                onChange={changeHandler}
               />
             </span>
             <span className={styles["input"]}>
               <label className={styles["label-name"]}>Lastname</label>
               <input
                 type="text"
+                name="lastName"
                 className={styles["name"]}
                 placeholder="Write your lastname"
+                onChange={changeHandler}
               />
             </span>
             <span className={styles["input"]}>
               <label className={styles["label-email"]}>Email</label>
               <input
                 type="text"
+                name="email"
                 className={styles["email"]}
                 placeholder="Write your email"
+                required
+                onChange={changeHandler}
               />
             </span>
             <span className={styles["input"]}>
@@ -85,6 +114,8 @@ const Register = () => {
                 type={toggle ? "text" : "password"}
                 className={styles["password"]}
                 placeholder="Write your password"
+                required
+                onChange={changeHandler}
               />
               <span
                 className={styles["view-icon-section"]}

@@ -6,7 +6,6 @@ import styles from "../../styles/Forgot.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import Button from "../../components/Button";
 
-
 const Forgot = () => {
   return (
     <>
@@ -67,7 +66,7 @@ const Forgot = () => {
               </label>
               <input type="checkbox" className={styles["checkbox"]} />
             </span> */}
-            <Button initBtnSubmit={`Join for free Now`}/>
+            <Button initBtnSubmit={`Join for free Now`} />
           </form>
           {/* <p className={styles["direct-to-login"]}>
             Do you already have an account ?{" "}
