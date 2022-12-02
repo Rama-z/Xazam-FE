@@ -94,13 +94,13 @@
   /* border: 1px solid darkblue; */
   position: absolute;
   right: 0.5rem;
-  top: 2.5rem;
+  top: 2.7rem;
 }
 
-.view-icon {
+/* .view-icon {
   color: #a0a3bd !important;
   cursor: pointer;
-}
+} */
 
 .direct-to-reset {
   font-weight: 600;

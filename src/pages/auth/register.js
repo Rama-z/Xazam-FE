@@ -1,18 +1,27 @@
 import React from "react";
 // import Axios from "axios";
 import Image from "next/image";
+import { useState } from "react";
 import { useRouter } from "next/router";
+
+import Button from "../../components/Button";
+import HidePassword from "../../components/HidePassword";
 
 import styles from "../../styles/Register.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
-import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 
 const Register = () => {
+  const [toggle, setToggle] = useState(false);
+
   const router = useRouter();
   const dispatch = useDispatch();
+
+  const handleHidePwd = () => {
+    setToggle(!toggle);
+  };
 
   return (
     <>
@@ -73,10 +82,16 @@ const Register = () => {
             <span className={styles["input"]}>
               <label className={styles["label-password"]}>Password</label>
               <input
-                type="text"
+                type={toggle ? "text" : "password"}
                 className={styles["password"]}
                 placeholder="Write your password"
               />
+              <span
+                className={styles["view-icon-section"]}
+                onClick={handleHidePwd}
+              >
+                <HidePassword state={toggle} />
+              </span>
             </span>
             <span className={styles["input"]}>
               <label className={styles["label-checkbox"]}>

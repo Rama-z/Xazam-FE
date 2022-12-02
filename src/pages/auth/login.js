@@ -3,13 +3,14 @@ import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState } from "react";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+
+import Button from "../../components/Button";
+import HidePassword from "../../components/HidePassword";
 
 import styles from "../../styles/Login.module.css";
 import logo from "../../assets/Images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
-import Button from "../../components/Button";
 
 const Login = () => {
   const router = useRouter();
@@ -53,11 +54,7 @@ const Login = () => {
                 className={styles["view-icon-section"]}
                 onClick={handleHidePwd}
               >
-                {toggle ? (
-                  <ViewIcon className={styles["view-icon"]} />
-                ) : (
-                  <ViewOffIcon className={styles["view-icon"]} />
-                )}
+                <HidePassword state={toggle }/>
               </span>
             </span>
             <Button initBtnSubmit={`Sign In`} />

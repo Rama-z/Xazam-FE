@@ -101,6 +101,7 @@
 .input:nth-child(3),
 .input:nth-child(4) {
   /* border: 1px solid darkblue; */
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -135,6 +136,13 @@
   border: 1px solid #dedede;
   font-size: 13px;
   padding: 1rem 0.5rem;
+}
+
+.view-icon-section {
+  /* border: 1px solid darkblue; */
+  position: absolute;
+  right: 0.5rem;
+  top: 2.7rem;
 }
 
 .input .checkbox {
