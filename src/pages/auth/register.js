@@ -3,13 +3,13 @@ import Axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-import styles from "../../styles/Register.module.css";
-import logo from "../../assets/Images/tickitz.png";
-import googleIcon from "../../assets/Icons/google.png";
-import facebook from "../../assets/Icons/facebook.png";
-import Button from "../../components/Button";
+import styles from "src/styles/Register.module.css";
+import logo from "src/assets/Images/tickitz.png";
+import googleIcon from "src/assets/Icons/google.png";
+import facebook from "src/assets/Icons/facebook.png";
+import Button from "src/components/Button";
 import { useDispatch, useSelector } from "react-redux";
-import authAction from "../../redux/actions/auth";
+import authAction from "src/redux/actions/auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

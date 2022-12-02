@@ -1,23 +1,21 @@
 import React from "react";
-import styles from "../../styles/Footer.module.css";
+import styles from "src/styles/Footer.module.css";
 import Image from "next/image";
 
 // Import Image
-import Tickitz from "../../assets/images/Tickitz.png";
-import cineone from "../../assets/images/cineone.png";
-import hiflix from "../../assets/images/hiflix.png";
-import ebu from "../../assets/images/ebu.png";
-import fb from "../../assets/images/fb.png";
-import twitter from "../../assets/images/twitter.png";
-import youtube from "../../assets/images/youtube.png";
-import ig from "../../assets/images/ig.png";
+import Tickitz from "src/assets/images/Tickitz.png";
+import cineone from "src/assets/images/cineone.png";
+import hiflix from "src/assets/images/hiflix.png";
+import ebu from "src/assets/images/ebu.png";
+import fb from "src/assets/images/fb.png";
+import twitter from "src/assets/images/twitter.png";
+import youtube from "src/assets/images/youtube.png";
+import ig from "src/assets/images/ig.png";
 
 function Footer() {
   return (
     <div>
       <footer className=" text-center text-lg-start bg-light text-muted">
-        {/* <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"></section> */}
-
         <section className="p-4 pb-4 bg-white">
           <div className="container text-center text-md-start mt-5">
             <div className="row justify-content-evenly mt-3">
@@ -30,7 +28,6 @@ function Footer() {
                   quietly.
                 </p>
               </div>
-
               <div
                 className={`col-md-3 col-lg-1 col-xl-1 p-0 ${styles["cont-explore"]} `}
               >
@@ -63,7 +60,6 @@ function Footer() {
                     My Ticket
                   </a>
                 </p>
-
                 <p className={` mb-md-2 mb-4`}>
                   <a
                     href="#!"
@@ -73,7 +69,6 @@ function Footer() {
                   </a>
                 </p>
               </div>
-
               <div
                 className={`col-md-3 col-lg-2 col-xl-2  mx-md-0 px-md-0 mx-auto mb-4 ${styles["cont-spons"]} `}
               >
@@ -88,7 +83,6 @@ function Footer() {
                   <Image className={`mb-4`} src={hiflix} alt="/" />
                 </div>
               </div>
-
               <div className="   col-md-12 col-lg-2 col-xl-2 mx-lg-0 p-lg-0 mt-lg-0 ms-md-5 ps-md-4 mt-md-0 mx-auto mb-md-5 mb-4 ">
                 <h6
                   className={`text-uppercase fw-bold mb-4 ${styles["title-footer"]}`}

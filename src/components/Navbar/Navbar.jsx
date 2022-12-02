@@ -7,12 +7,12 @@ import Container from "react-bootstrap/Container";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 // Import Styles
-import styles from "../../styles/Navbar.module.css";
+import styles from "src/styles/Navbar.module.css";
 
 // Import Image
-import Tickitz from "../../assets/images/Tickitz.png";
-import profile from "../../assets/images/profile.png";
-import search from "../../assets/icon/search.png";
+import Tickitz from "src/assets/images/Tickitz.png";
+import profile from "src/assets/images/profile.png";
+import search from "src/assets/icon/search.png";
 import { useRouter } from "next/router";
 
 function BasicExample() {

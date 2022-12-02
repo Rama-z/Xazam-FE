@@ -5,13 +5,13 @@ import Image from "next/image";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
-import styles from "../../styles/Login.module.css";
-import logo from "../../assets/Images/tickitz.png";
-import googleIcon from "../../assets/Icons/google.png";
-import facebook from "../../assets/Icons/facebook.png";
+import styles from "src/styles/Login.module.css";
+import logo from "src/assets/Images/tickitz.png";
+import googleIcon from "src/assets/Icons/google.png";
+import facebook from "src/assets/Icons/facebook.png";
 import { useDispatch, useSelector } from "react-redux";
-import authAction from "../../redux/actions/auth";
-import Button from "../../components/Button";
+import authAction from "src/redux/actions/auth";
+import Button from "src/components/Button";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
