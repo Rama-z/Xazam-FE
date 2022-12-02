@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900;1000&display=swap");
+
+.cont-fluid {
+  background-color: #f5f6f8 !important;
+  padding-top: 3rem;
+  padding-bottom: 6rem;
+}
+.cont-up {
+  margin-bottom: 4rem;
+}
+
+.cont-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.star {
+  position: relative;
+  top: -153px;
+  left: 30px;
+  width: 59px;
+  height: 59px;
+}
+.info {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 0.75px;
+  color: #4e4b66;
+}
+.jonas {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 34px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #14142b;
+}
+.MoviegoersText {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #4e4b66;
+}
+.card-profile {
+  max-height: 800px !important;
+}
+.card {
+  position: relative;
+  top: 8px;
+  left: -21px;
+  width: 270px;
+}
+.tigaduanol {
+  position: relative;
+  top: -138px;
+  left: 21px;
+}
+.Moviegoers {
+  position: relative;
+  color: transparent;
+  top: -155px;
+  left: -13px;
+}
+.points {
+  position: relative;
+  top: -90px;
+  left: 75px;
+}
+
+.non-loadings {
+  padding-right: 25px;
+}
+.loadings {
+  position: relative;
+  top: -24px;
+}
+
+.bar {
+  height: 70px !important;
+  border-radius: 4px;
+  margin-bottom: 4rem;
+}
+.account {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 34px;
+  letter-spacing: 0.75px;
+  color: #aaaaaa;
+}
+
+.order {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 34px;
+  letter-spacing: 0.75px;
+  color: #14142b;
+}
+
+.contRight {
+  flex-direction: column;
+}
+.history-ticket {
+  flex-direction: column;
+}
+
+.date {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  color: #aaaaaa;
+}
+
+.homecoming {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  color: #000000;
+}
+.cursor {
+  cursor: pointer;
+}
+
+.ticketz {
+  background: #00ba88;
+  border-radius: 4px;
+  width: 196px;
+  height: 40px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #f7f7fc;
+  justify-content: center;
+  margin-left: 3rem;
+}
+
+.collapse {
+  padding-bottom: 25px;
+  padding-right: 47px;
+}
+
+.hist {
+  margin-bottom: 50px;
+}
+
+.used {
+  background: #6e7191;
+}
