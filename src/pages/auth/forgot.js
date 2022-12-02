@@ -1,17 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import {useRouter} from "next/router";
 
-import styles from "../../styles/Forgot.module.css";
-import logo from "../../assets/Images/tickitz.png";
-import Button from "../../components/Button";
+import styles from "src/styles/Forgot.module.css";
+import logo from "src/assets/images/Tickitz.png";
+import Button from "src/components/Button";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import authAction from "src/redux/actions/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Forgot = () => {
+  const router = useRouter();
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const [body, setBody] = useState({
+    linkDirect: `http://localhost:3000/auth/confirm`,
+  });
+  const forgotSuccess = () => {
+    toast.success("Please check your email to reset your password");
+  };
+  const forgotDenied = () => toast.error(`${auth.error}`);
+  const changeHandler = (e) => {
+    e.preventDefault();
+    setBody({
+      ...body,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const forgotHandler = (e) => {
+    e.preventDefault();
+    console.log(body);
+    dispatch(authAction.forgotThunk(body, forgotSuccess, forgotDenied));
+  };
   return (
     <>
       <main className={styles["main"]}>
         <section className={styles["left-side"]}>
-          <span className={styles["logo"]}>
+          <span
+            className={styles["logo"]}
+            onClick={() => {
+              router.push("/");
+            }}
+          >
             <Image src={logo} alt={`tickitz`} className={styles["img-logo"]} />
           </span>
           <span className={styles["desc"]}>
@@ -43,13 +75,15 @@ const Forgot = () => {
         <section className={styles["right-side"]}>
           <h3>Fill your complete email</h3>
           <p>we{`'`}ll send a link to your email shortly</p>
-          <form className={styles["form"]}>
+          <form className={styles["form"]} onSubmit={forgotHandler}>
             <span className={styles["input"]}>
               <label className={styles["label-email"]}>Email</label>
               <input
                 type="text"
+                name="email"
                 className={styles["email"]}
                 placeholder="Write your email"
+                onChange={changeHandler}
               />
             </span>
             {/* <span className={styles["input"]}>
@@ -66,7 +100,7 @@ const Forgot = () => {
               </label>
               <input type="checkbox" className={styles["checkbox"]} />
             </span> */}
-            <Button initBtnSubmit={`Join for free Now`} />
+            <Button initBtnSubmit={`Activate Now`} />
           </form>
           {/* <p className={styles["direct-to-login"]}>
             Do you already have an account ?{" "}

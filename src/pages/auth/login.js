@@ -5,16 +5,19 @@ import { useState } from "react";
 
 import HidePassword from "../../components/HidePassword";
 
-import styles from "../../styles/Login.module.css";
-import logo from "../../assets/Images/tickitz.png";
-import googleIcon from "../../assets/Icons/google.png";
-import facebook from "../../assets/Icons/facebook.png";
-import { useDispatch } from "react-redux";
-import authAction from "../../redux/actions/auth";
-import Button from "../../components/Button";
+import styles from "src/styles/Login.module.css";
+import logo from "src/assets/images/Tickitz.png";
+import googleIcon from "src/assets/Icons/google.png";
+import facebook from "src/assets/Icons/facebook.png";
+import { useDispatch, useSelector } from "react-redux";
+import authAction from "src/redux/actions/auth";
+import Button from "src/components/Button";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const router = useRouter();
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [body, setbody] = useState({});
   const [showPass, setShowPass] = useState(false);
@@ -28,9 +31,19 @@ const Login = () => {
       ...body,
       [e.target.name]: e.target.value,
     });
+
+  const loginSucces = () => {
+    toast.success("Login Success! Enjoy the movies");
+    router.push("/");
+  };
+
+  const loginDenied = () => {
+    toast.error(`Login failed, ${auth.err}`);
+  };
+
   const loginHandler = (e) => {
     e.preventDefault();
-    dispatch(authAction.loginThunk(body));
+    dispatch(authAction.loginThunk(body, loginSucces, loginDenied));
   };
 
   return (

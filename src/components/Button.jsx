@@ -1,13 +1,15 @@
-import React from 'react'
+import React from "react";
 
-import styles from "../styles/Button.module.css"
+import styles from "src/styles/Button.module.css";
 
-const Button = ({initBtnSubmit}) => {
+const Button = ({ initBtnSubmit }) => {
   return (
     <>
-      <button className={styles["btn-submit"]}>{initBtnSubmit}</button>
+      <button className={styles["btn-submit"]} type="submit">
+        {initBtnSubmit}
+      </button>
     </>
   );
-}
+};
 
-export default Button
+export default Button;

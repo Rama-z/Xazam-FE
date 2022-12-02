@@ -10,7 +10,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: url(../assets//Images/bg-tickitz.png) no-repeat center fixed;
+  background: url(../assets/images/bg-tickitz.png) no-repeat center fixed;
   background-size: cover;
   z-index: -1;
   width: 50%;
@@ -188,6 +188,44 @@
   /* border: 1px solid darkblue; */
 }
 
+.password-notif {
+  text-align: center;
+  color: var(--red);
+}
+
+.password-notif.hide {
+  display: none;
+}
+
+.password-notif.show {
+  display: initial;
+}
+
+.password-notif2 {
+  text-align: center;
+  color: var(--red);
+  color: white;
+}
+
+.password-notif2.hide {
+  display: none;
+}
+
+.password-notif2.show {
+  display: initial;
+}
+
+.view-icon {
+  color: #a0a3bd !important;
+  cursor: pointer;
+}
+
+.view-icon-section {
+  /* border: 1px solid darkblue; */
+  position: absolute;
+  right: 0.5rem;
+  top: 2.5rem;
+}
 /* || Responsive */
 
 @media all and (min-width: 768px) and (max-width: 1024px) {

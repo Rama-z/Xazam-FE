@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 // Import Styles
-import styles from "../../styles/Navbar.module.css";
+import styles from "src/styles/Navbar.module.css";
 
 // Import Image
 import Tickitz from "../../assets/images/Tickitz-purple.png";

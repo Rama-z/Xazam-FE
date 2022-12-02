@@ -19,6 +19,7 @@ const Register = () => {
   const [showPass, setShowPass] = useState(false);
 
   const router = useRouter();
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [body, setBody] = useState({});
 
@@ -29,11 +30,11 @@ const Register = () => {
     });
   const registerSucces = () => {
     toast.success("Register Success! Please Check Your Email");
-    // router.push("/auth/login");
+    router.push("/auth/login");
   };
 
   const registerDenied = () => {
-    toast.error(`error`);
+    toast.error(`Register Failed, ${auth.err}`);
   };
 
   const submithandler = (e) => {
