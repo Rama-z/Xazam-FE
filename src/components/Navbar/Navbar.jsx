@@ -10,7 +10,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import styles from "../../styles/Navbar.module.css";
 
 // Import Image
-import Tickitz from "../../assets/images/Tickitz.png";
+import Tickitz from "../../assets/images/Tickitz-purple.png";
 import profile from "../../assets/images/profile.png";
 import search from "../../assets/icon/search.png";
 
@@ -62,7 +62,7 @@ function BasicExample() {
 
       <Container>
         <Navbar.Brand className={`${styles["company"]}`}>
-          <Image src={Tickitz} alt="Tickitz" />
+          <Image src={Tickitz} alt="Tickitz"  className={styles["company__image"]}/>
           <div className="dropdown"></div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

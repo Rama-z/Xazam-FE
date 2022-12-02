@@ -3,7 +3,7 @@ import styles from "../../styles/Footer.module.css";
 import Image from "next/image";
 
 // Import Image
-import Tickitz from "../../assets/images/Tickitz.png";
+import Tickitz from "../../assets/images/Tickitz-purple.png";
 import cineone from "../../assets/images/cineone.png";
 import hiflix from "../../assets/images/hiflix.png";
 import ebu from "../../assets/images/ebu.png";
@@ -24,7 +24,11 @@ function Footer() {
               <div
                 className={` col-md-3 col-lg-5 col-xl-3 ms-0 mb-4 ${styles["cont-logo"]} `}
               >
-                <Image className="mb-3" src={Tickitz} alt="/" />
+                <Image
+                  className={`mb-3 ${styles["componay__logo"]}`}
+                  src={Tickitz}
+                  alt="/"
+                />
                 <p className={`${styles["desc-footer"]}`}>
                   Stop waiting in line. Buy tickets conveniently, watch movies
                   quietly.
@@ -83,9 +87,21 @@ function Footer() {
                   Our Sponsor
                 </h6>
                 <div className={`${styles["cont-sponsor"]}`}>
-                  <Image className={`mb-4`} src={ebu} alt="/" />
-                  <Image className={`mb-4`} src={cineone} alt="/" />
-                  <Image className={`mb-4`} src={hiflix} alt="/" />
+                  <Image
+                    className={`mb-4 ${styles["cont-sponsor__image"]}`}
+                    src={ebu}
+                    alt="/"
+                  />
+                  <Image
+                    className={`mb-4 ${styles["cont-sponsor__image"]}`}
+                    src={cineone}
+                    alt="/"
+                  />
+                  <Image
+                    className={`mb-4 ${styles["cont-sponsor__image"]}`}
+                    src={hiflix}
+                    alt="/"
+                  />
                 </div>
               </div>
 

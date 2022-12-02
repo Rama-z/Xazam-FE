@@ -39,4 +39,5 @@ node_modules
 .env
 
 #home
-src/pages/home/index.js
+src/pages/home/detail.js
+src/styles/DetailMovie.module.css
