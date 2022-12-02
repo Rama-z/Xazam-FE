@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 import styles from "src/styles/Forgot.module.css";
 import logo from "src/assets/images/Tickitz.png";
 import Button from "src/components/Button";
-import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import authAction from "src/redux/actions/auth";
 import { toast } from "react-toastify";
