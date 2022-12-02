@@ -1,5 +1,5 @@
 import { ActionType } from "redux-promise-middleware";
-import { login, logout, register, forgot, reset } from "src/modules/api/Auth";
+import { login, logout, register, forgot, reset } from "../../modules/api/Auth";
 import { actionStrings } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
@@ -69,6 +69,7 @@ const loginThunk = (body) => {
     try {
       dispatch(loginPending());
       const result = await login(body);
+      console.log(result.data);
       dispatch(loginFulfilled(result.data));
     } catch (error) {
       dispatch(loginRejected(error));
