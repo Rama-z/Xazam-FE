@@ -12,7 +12,7 @@ import spiderman from "src/assets/images/spiderman.png";
 import ebu from "src/assets/images/ebu.png";
 import hiflix from "src/assets/images/hiflix.png";
 import cineone from "src/assets/images/cineone.png";
-import chart from "src/assets/images/chart.png";
+import chart from "src/assets/images/Chart.png";
 
 function index() {
   return (

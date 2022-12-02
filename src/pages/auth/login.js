@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 import styles from "src/styles/Login.module.css";
-import logo from "src/assets/Images/tickitz.png";
+import logo from "src/assets/Images/Tickitz.png";
 import googleIcon from "src/assets/Icons/google.png";
 import facebook from "src/assets/Icons/facebook.png";
 import { useDispatch, useSelector } from "react-redux";

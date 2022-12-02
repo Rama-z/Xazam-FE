@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 import styles from "src/styles/Forgot.module.css";
-import logo from "src/assets/Images/tickitz.png";
+import logo from "src/assets/Images/Tickitz.png";
 import Button from "src/components/Button";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
