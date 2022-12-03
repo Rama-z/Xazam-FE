@@ -14,7 +14,7 @@ import Image from "next/image";
 import BasicExample from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
-const Profile = () => {
+const Payment = () => {
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown1, setIsPwdShown1] = useState(false);
   const [formState, setFormState] = useState({
@@ -40,7 +40,7 @@ const Profile = () => {
       <main className={styles.main}>
         <div class="container">
           <div className={`row ${styles["row"]}`}>
-            <div className={`col-8 ${styles["main-sec"]}`}>
+            <div className={`col-sm-8 ${styles["main-sec"]}`}>
               <div class="row">
                 <div class="col">
                   {" "}
@@ -91,7 +91,7 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            <section className={`col-4 ${styles["sect-2"]}`} class="col-8">
+            <section className={`col-sm-4 ${styles["sect-2"]}`}>
               <div className={` ${styles["sectwrap"]}`}>
                 <div class="row">
                   <div class="col">
@@ -192,12 +192,12 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-              <div class="row justify-content-md-center">
-                <div className={`col col-lg-2 ${styles["dash1"]}`}>
+              <div className={`row justify-content-sm-center ${styles["dash-wrap"]}`} >
+                <div className={` col-sm-2 ${styles["dash1"]}`}>
                   <hr className={` ${styles["hr"]}`} />
                 </div>
-                <div className={`col-md-auto ${styles["or"]}`}>or</div>
-                <div className={`col col-lg-2 ${styles["dash2"]}`}>
+                <div className={`col-sm-auto ${styles["or"]}`}>or</div>
+                <div className={`col-sm-2 ${styles["dash2"]}`}>
                   <hr className={` ${styles["hr"]}`} />
                 </div>
               </div>
@@ -216,4 +216,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Payment;

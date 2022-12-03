@@ -93,7 +93,7 @@
   /* border: 1px solid darkgray; */
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .input:nth-child(1),

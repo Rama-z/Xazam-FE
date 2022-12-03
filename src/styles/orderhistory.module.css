@@ -3,7 +3,7 @@
 .cont-fluid {
   background-color: #f5f6f8 !important;
   padding-top: 3rem;
-  padding-bottom: 6rem;
+  padding-bottom: 1rem;
 }
 .cont-up {
   margin-bottom: 4rem;
@@ -162,11 +162,246 @@
   padding-bottom: 25px;
   padding-right: 47px;
 }
-
+.loyalty {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.75px;
+  color: #4e4b66;
+}
 .hist {
   margin-bottom: 50px;
 }
 
 .used {
   background: #6e7191;
+}
+.satulapan {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 0.25px;
+  color: #4e4b66;
+}
+
+@media only screen and (min-width: 1367px) {
+  .cont-fluid {
+    padding-bottom: 1rem;
+  }
+  .tigaduanol {
+    position: relative;
+    top: -95px;
+    left: -175px;
+  }
+  .card {
+    position: relative;
+    top: 8px;
+    left: -21px;
+    width: 315px;
+  }
+  .non-loadings {
+    width: 269px;
+    padding: 0px;
+  }
+  .satulapan {
+    font-size: 19px !important;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .pages-shop {
+    justify-content: flex-start !important;
+  }
+  .card {
+    position: relative;
+    top: 8px;
+    left: -21px;
+    width: 226px;
+    height: 155px;
+  }
+  .Moviegoers {
+    position: relative;
+    color: transparent;
+    top: -146px;
+    left: -22px;
+    height: 16px;
+    width: 88px;
+  }
+  .star {
+    position: relative;
+    top: -132px;
+    left: 14px;
+    width: 51px;
+    height: 43px;
+  }
+  .tigaduanol {
+    position: relative;
+    top: -121px;
+    left: 12px;
+    height: 15px;
+    width: 31px;
+  }
+  .points {
+    position: relative;
+    top: -84px;
+    left: 51px;
+  }
+  .satulapan {
+    font-family: "Mulish";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 32px;
+    letter-spacing: 0.25px;
+    color: #4e4b66;
+    position: relative;
+    top: -20px;
+  }
+  .non-loadings {
+    width: 184px;
+    padding: 0px;
+  }
+  .imgloads {
+    position: relative;
+    top: -30px;
+  }
+  .loadings {
+    width: 100px;
+  }
+  .jonas {
+    font-size: 17px;
+  }
+  .card-profile {
+    max-height: 760px !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    position: relative;
+    top: 8px;
+    left: -21px;
+    width: 282px;
+    height: 155px;
+  }
+  .Moviegoers {
+    position: relative;
+    top: -141px;
+    left: -13px;
+  }
+  .star {
+    top: -128px;
+    left: 55px;
+  }
+  .tigaduanol {
+    top: -87px;
+    left: -152px;
+  }
+  .points {
+    left: 56px;
+  }
+  .satulapan {
+    font-size: 17px;
+    top: 5px;
+  }
+  .non-loadings {
+    width: 234px;
+  }
+  .imgloads {
+    top: 0px;
+  }
+  .account {
+    font-size: 14px;
+  }
+  .order {
+    font-size: 14px;
+  }
+  .logo {
+    width: 90px;
+    height: 30px;
+  }
+  .logo1 {
+    width: 85px;
+    height: 22px;
+  }
+  .div1 {
+    display: flex !important;
+    align-items: center;
+  }
+  .date {
+    font-size: 11px;
+    padding-bottom: 10px;
+  }
+  .homecoming {
+    font-size: 17px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+  }
+  .ticketz {
+    width: 100px;
+    font-size: 10px;
+    margin-left: 2rem;
+  }
+  .collapse {
+    padding-right: 30px;
+  }
+  .nav-account-set {
+    padding-left: 40px !important;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .cont-up {
+    display: flex;
+    flex-direction: column !important;
+  }
+  .Moviegoers {
+    left: 5px;
+    top: -190px;
+  }
+  .star {
+    left: 125px;
+    top: -180px;
+  }
+  .tigaduanol {
+    top: -105px;
+    left: -130px;
+  }
+  .points {
+    top: -103px;
+    left: 80px;
+  }
+  .card {
+    width: 368px;
+    height: 215px;
+  }
+  .satulapan {
+    font-size: 20px;
+  }
+  .non-loadings {
+    width: 315px;
+  }
+  .loadings {
+    width: 135px;
+  }
+  .card-profile {
+    margin-bottom: 7rem;
+    max-height: 860px !important;
+    height: 860px !important;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .card {
+    width: 325px;
+  }
+  .star {
+    left: 90px;
+  }
+  .non-loadings {
+    width: 275px;
+  }
 }

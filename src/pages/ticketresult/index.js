@@ -24,17 +24,17 @@ const TicketResult = () => {
               <p className={`${styles["proof"]}`}>Proof of Payment</p>
               <aside className={`${styles["aside"]}`}>
                 <div class="row">
-                  <div className={`col ${styles["img-wrap"]}`}>
+                  <div className={`col-sm ${styles["img-wrap"]}`}>
                     <Image
                       className={`${styles["img"]}`}
                       src={tickitz}
                       alt="Tickitz"
                     />
                   </div>
-                  <div className={`col-6 ${styles["admit"]}`}>Admit One</div>
+                  <div className={`col-sm-6 ${styles["admit"]}`}>Admit One</div>
                   <span className={`dot ${styles["dot"]}`}></span>
                   <hr className={`${styles["new1"]}`} />
-                  <div className={`col ${styles["img-wrap2"]}`}>
+                  <div className={`col-sm ${styles["img-wrap2"]}`}>
                     <Image
                       className={`${styles["img"]}`}
                       src={tickitz}
@@ -45,7 +45,7 @@ const TicketResult = () => {
               </aside>
               <section className={`${styles["main-con"]}`}>
                 <div className={`row ${styles["main-row"]}`}>
-                  <div className={`col-8 ${styles["sub-row8"]}`}>
+                  <div className={`col-sm-8 ${styles["sub-row8"]}`}>
                     <p className={`${styles["category-movie"]}`}>Movie</p>
                     <p className={`${styles["content"]}`}>
                       Spider-Man: Homecoming
@@ -57,7 +57,7 @@ const TicketResult = () => {
                         <p className={`${styles["category"]}`}>Count</p>
                         <p className={`${styles["content2"]}`}>3 pieces</p>
                       </div>
-                      <div className={`col-5 ${styles["col-2"]}`}>
+                      <div className={`col-sm-5 ${styles["col-2"]}`}>
                         <p className={`${styles["category"]}`}>Time</p>
                         <p className={`${styles["content2"]}`}>02:00pm</p>
                         <p className={`${styles["category"]}`}>Seats</p>
@@ -71,7 +71,7 @@ const TicketResult = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="col-4">
+                  <div class="col-sm-4">
                     <Image
                       className={`${styles["barcode"]}`}
                       src={barcode2}
@@ -102,6 +102,7 @@ const TicketResult = () => {
                         <p className={`${styles["contentx"]}`}>PG-13 </p>
                       </div>
                       <span className={`dot ${styles["dot2"]}`}></span>
+                      <span className={`dot ${styles["dot3"]}`}></span>
                     </div>
                   </div>
                 </div>
