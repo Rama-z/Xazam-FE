@@ -9,7 +9,9 @@
   margin: auto;
 }
 
-.section_one, .section_two, .section_tree {
+.section_one,
+.section_two,
+.section_tree {
   padding: 0 8rem;
 }
 
@@ -359,7 +361,9 @@
     overflow-x: auto;
   }
 
-  .section_one, .section_two, .section_tree {
-  padding: 0;
-}
+  .section_one,
+  .section_two,
+  .section_tree {
+    padding: 0;
+  }
 }
