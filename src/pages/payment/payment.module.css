@@ -2,6 +2,7 @@
 
 .main {
   background-color: #e5e5e5;
+  max-width: 1440px;
 }
 .row {
   background-color: #f5f6f8;
@@ -373,6 +374,7 @@ color: #000000;
 .paymethod {
   width: fit-content;
   height: 4vw;
+  cursor: pointer;
 }
 .account {
   font-family: "Mulish";
