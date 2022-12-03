@@ -16,7 +16,13 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar
+        profileAndBtn={
+          <>
+            <button className={styles["sign-up-btn"]} onClick={() => router.push("/auth/register")}>Sign-up</button>
+          </>
+        }
+      />
       <main className={styles["main"]}>
         <section className={`${styles["section"]} ${styles["section_one"]}`}>
           <span className={styles["title"]}>

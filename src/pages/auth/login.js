@@ -34,7 +34,7 @@ const Login = () => {
 
   const loginSucces = () => {
     toast.success("Login Success! Enjoy the movies");
-    router.push("/");
+    router.push("/home");
   };
 
   const loginDenied = () => {

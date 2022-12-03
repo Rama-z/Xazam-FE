@@ -38,8 +38,5 @@ next-env.d.ts
 node_modules
 .env
 
-#home
-src/styles/MovieDetail.module.css
-
-#movie
-src/pages/movie/[detail].js
+#search
+src/components/Search.jsx
