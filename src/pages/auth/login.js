@@ -37,13 +37,19 @@ const Login = () => {
     router.push("/home");
   };
 
+  const loginPending = () => {
+    toast.info("Loading, please wait!");
+  };
+
   const loginDenied = () => {
     toast.error(`Login failed, ${auth.err}`);
   };
 
   const loginHandler = (e) => {
     e.preventDefault();
-    dispatch(authAction.loginThunk(body, loginSucces, loginDenied));
+    dispatch(
+      authAction.loginThunk(body, loginSucces, loginDenied, loginPending)
+    );
   };
 
   return (

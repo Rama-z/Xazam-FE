@@ -34,6 +34,10 @@ const Register = () => {
     router.push("/auth/login");
   };
 
+  const registerPending = () => {
+    toast.info("Loading, please wait!");
+  };
+
   const registerDenied = () => {
     toast.error(`Register Failed, ${auth.err}`);
   };
@@ -41,7 +45,14 @@ const Register = () => {
   const submithandler = (e) => {
     e.preventDefault();
     console.log(body);
-    dispatch(authAction.registerThunk(body, registerSucces, registerDenied));
+    dispatch(
+      authAction.registerThunk(
+        body,
+        registerSucces,
+        registerDenied,
+        registerPending
+      )
+    );
   };
 
   const handleHidePwd = () => {
