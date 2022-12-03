@@ -141,7 +141,7 @@ const Confirm = () => {
                 onClick={handleHidePwdConf}
                 className={styles["view-icon-section"]}
               >
-                <HidePassword state={setShowPassConf} />
+                <HidePassword state={showPassConf} />
               </span>
             </span>
             <p
