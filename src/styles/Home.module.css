@@ -358,4 +358,8 @@
   .list-movies {
     overflow-x: auto;
   }
+
+  .section_one, .section_two, .section_tree {
+  padding: 0;
+}
 }
