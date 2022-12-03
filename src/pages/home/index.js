@@ -15,7 +15,8 @@ import Search from "components/Search";
 const Home = () => {
   const router = useRouter();
   const [clickText, setClickText] = useState(false);
-
+  const [show, setShow] = useState(true);
+  const [upcomingShow, setUpcomingShow] = useState(true);
   const handleClickText = () => {
     setClickText(!clickText);
   };
@@ -37,7 +38,15 @@ const Home = () => {
       />
       <Search showInputText={clickText} />
       <main className={styles["main"]}>
-        <section className={`${styles["section"]} ${styles["section_one"]}`}>
+        <section
+          className={
+            upcomingShow
+              ? show
+                ? `${styles["section"]} ${styles["section_one"]}`
+                : `${styles.none}`
+              : `${styles.none}`
+          }
+        >
           <span className={styles["title"]}>
             <p>Nearest Cinema, Newest Movie.</p>
             <h1>Find out now!</h1>
@@ -77,10 +86,22 @@ const Home = () => {
             </ul>
           </span>
         </section>
-        <section className={`${styles["section"]} ${styles["section_two"]}`}>
+        <section
+          className={
+            upcomingShow
+              ? `${styles["section"]} ${styles["section_two"]}`
+              : `${styles.none}`
+          }
+        >
           <span className={`${styles["section__header"]}`}>
             <h1>Now Showing</h1>
-            <p>view all</p>
+            <p
+              onClick={() => {
+                show ? setShow(false) : setShow(true);
+              }}
+            >
+              {show ? `view all` : `view less`}
+            </p>
           </span>
           <ul className={`${styles["list-movies"]}`}>
             <li
@@ -97,10 +118,22 @@ const Home = () => {
             </li>
           </ul>
         </section>
-        <section className={`${styles["section"]} ${styles["section_tree"]}`}>
+        <section
+          className={
+            show
+              ? `${styles["section"]} ${styles["section_tree"]}`
+              : `${styles.none}`
+          }
+        >
           <span className={`${styles["section__header"]}`}>
             <h1>Upcoming Showing</h1>
-            <p>view all</p>
+            <p
+              onClick={() => {
+                upcomingShow ? setUpcomingShow(false) : setUpcomingShow(true);
+              }}
+            >
+              {upcomingShow ? `view all` : `view less`}
+            </p>
           </span>
           <ul className={`${styles["section__header__month"]}`}>
             <li>January</li>

@@ -284,6 +284,9 @@
   font-weight: 600;
 }
 
+.none {
+  display: none;
+}
 /* || Responsive */
 @media all and (min-width: 768px) and (max-width: 1024px) {
   .section__header__month {
