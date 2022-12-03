@@ -1,15 +1,15 @@
 import React from "react";
 import Image from "next/image";
-import {useState} from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 
 import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
-import spiderman from "../../assets/Images/spiderman-home.png";
-import lion from "../../assets/Images/lion-home.png";
-import movie from "../../assets/Images/movie-home.png";
+import spiderman from "src/assets/images/spiderman-home.png";
+import lion from "src/assets/images/lion-home.png";
+import movie from "../../assets/images/movie-home.png";
 import Search from "components/Search";
 
 const Home = () => {
@@ -18,20 +18,24 @@ const Home = () => {
 
   const handleClickText = () => {
     setClickText(!clickText);
-  }
-    
+  };
+
   return (
     <>
       <Navbar
         profileAndBtn={
           <>
-            <button className={styles["sign-up-btn"]} onClick={() => router.push("/auth/register")}>Sign-up</button>
+            <button
+              className={styles["sign-up-btn"]}
+              onClick={() => router.push("/auth/register")}
+            >
+              Sign-up
+            </button>
           </>
         }
-
         propsOnclick={handleClickText}
       />
-      <Search showInputText={clickText}/>
+      <Search showInputText={clickText} />
       <main className={styles["main"]}>
         <section className={`${styles["section"]} ${styles["section_one"]}`}>
           <span className={styles["title"]}>

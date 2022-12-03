@@ -7,7 +7,7 @@ import Button from "../../components/Button";
 import HidePassword from "../../components/HidePassword";
 
 import styles from "../../styles/Register.module.css";
-import logo from "../../assets/Images/tickitz.png";
+import logo from "src/assets/images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
 import { useDispatch, useSelector } from "react-redux";

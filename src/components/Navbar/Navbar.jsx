@@ -11,7 +11,7 @@ import styles from "src/styles/Navbar.module.css";
 
 // Import Image
 import Tickitz from "../../assets/images/Tickitz-purple.png";
-import search from "../../assets/icons/search.png";
+import search from "src/assets/icons/search.png";
 import { useRouter } from "next/router";
 
 const Header = ({ profileAndBtn, propsOnclick }) => {
