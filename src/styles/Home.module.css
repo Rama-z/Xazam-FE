@@ -9,6 +9,10 @@
   margin: auto;
 }
 
+.section_one, .section_two, .section_tree {
+  padding: 0 8rem;
+}
+
 /* .section {
   border: 1px solid darkgoldenrod;
 } */
@@ -98,6 +102,7 @@
   flex-direction: row;
   /* justify-content: center; */
   gap: 1rem;
+  overflow-x: auto;
 }
 
 .section__header__month li {
@@ -353,4 +358,8 @@
   .list-movies {
     overflow-x: auto;
   }
+
+  .section_one, .section_two, .section_tree {
+  padding: 0;
+}
 }
