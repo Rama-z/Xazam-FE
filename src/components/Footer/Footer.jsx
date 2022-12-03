@@ -108,23 +108,39 @@ function Footer() {
                 <div className={` ${styles["cont-social-media"]}`}>
                   <div className={`${styles["tickits-1"]}`}>
                     <div className="d-flex gap-2 pb-1">
-                      <Image src={fb} alt="/" />
+                      <Image
+                        src={fb}
+                        alt="/"
+                        className={`${styles["social-media-icon"]}`}
+                      />
                       <p className={`${styles["social-media"]}`}>
                         Tickitz Cinema id
                       </p>
                     </div>
                     <div className="d-flex gap-2 pb-1 ">
-                      <Image src={ig} alt="/" />
+                      <Image
+                        src={ig}
+                        alt="/"
+                        className={`${styles["social-media-icon"]}`}
+                      />
                       <p className={`${styles["social-media"]}`}>tickitz.id</p>
                     </div>
                   </div>
                   <div className={`${styles["tickits"]}`}>
                     <div className="d-flex gap-2 pb-1 ">
-                      <Image src={twitter} alt="/" />
+                      <Image
+                        src={twitter}
+                        alt="/"
+                        className={`${styles["social-media-icon"]}`}
+                      />
                       <p className={`${styles["social-media"]}`}>tickitz.id</p>
                     </div>
-                    <div className="d-flex gap-2 pb-1 ">
-                      <Image src={youtube} alt="/" />
+                    <div className="d-flex gap-2 pb-1">
+                      <Image
+                        src={youtube}
+                        alt="/"
+                        className={`${styles["social-media-icon"]}`}
+                      />
                       <p className={`${styles["social-media"]}`}>
                         Tickitz Cinema id
                       </p>

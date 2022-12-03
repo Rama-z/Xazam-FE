@@ -48,6 +48,11 @@
   color: #6e7191;
 }
 
+.social-media-icon {
+  width: 18px;
+  height: 18px;
+}
+
 .cont-sponsor {
   position: relative;
   top: 0rem;
