@@ -30,7 +30,23 @@ const Detail = () => {
               <p>{`Advanture, Action, Sci-Fi`}</p>
             </span>
             <span className={styles["desc-secondary"]}>
-              <span className={styles["desc"]}>
+              <span className={styles["release"]}>
+                <p>Release</p>
+                <p>{`June 28, 2017`}</p>
+              </span>
+              <span className={styles["ridrected-by"]}>
+                <p>Directed by</p>
+                <p>{`Jon Watss`}</p>
+              </span>
+              <span className={styles["duration"]}>
+                <p>Duration</p>
+                <p>{`2 hours 13 minutes `}</p>
+              </span>
+              <span className={styles["costs"]}>
+                <p>Costs</p>
+                <p>{`Tom Holland, Michael Keaton, Robert Downey Jr., ...`}</p>
+              </span>
+              {/* <span className={styles["desc"]}>
                 <span className={styles["release"]}>
                   <p>Release</p>
                   <p>{`June 28, 2017`}</p>
@@ -39,8 +55,8 @@ const Detail = () => {
                   <p>Directed by</p>
                   <p>{`Jon Watss`}</p>
                 </span>
-              </span>
-              <span className={styles["desc"]}>
+              </span> */}
+              {/* <span className={styles["desc"]}>
                 <span className={styles["duration"]}>
                   <p>Duration</p>
                   <p>{`2 hours 13 minutes `}</p>
@@ -49,23 +65,25 @@ const Detail = () => {
                   <p>Costs</p>
                   <p>{`Tom Holland, Michael Keaton, Robert Downey Jr., ...`}</p>
                 </span>
-              </span>
-            </span>
-            <span className={styles["synopsis"]}>
-              <h3>Synopsis</h3>
-              <p>
-                Thrilled by his experience with the Avengers, Peter returns
-                home, where he lives with his Aunt May, under the watchful eye
-                of his new mentor Tony Stark, Peter tries to fall back into his
-                normal daily routine - distracted by thoughts of proving himself
-                to be more than just your friendly neighborhood Spider-Man - but
-                when the Vulture emerges as a new villain, everything that Peter
-                holds most important will be threatened.
-              </p>
+              </span> */}
             </span>
           </span>
         </section>
         <section className={styles["section-second"]}>
+          <span className={styles["synopsis"]}>
+            <h3>Synopsis</h3>
+            <p>
+              Thrilled by his experience with the Avengers, Peter returns home,
+              where he lives with his Aunt May, under the watchful eye of his
+              new mentor Tony Stark, Peter tries to fall back into his normal
+              daily routine - distracted by thoughts of proving himself to be
+              more than just your friendly neighborhood Spider-Man - but when
+              the Vulture emerges as a new villain, everything that Peter holds
+              most important will be threatened.
+            </p>
+          </span>
+        </section>
+        <section className={styles["section-third"]}>
           <h1>Showtimes and Tickets</h1>
           <span className={styles["date-and-location"]}>
             <span className={styles["schedule"]}>
@@ -184,6 +202,15 @@ const Detail = () => {
               </li>
             </ul>
           </span>
+        </section>
+        <section className={styles["pagination"]}>
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+          </ul>
         </section>
       </main>
       <Footer />
