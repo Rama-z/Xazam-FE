@@ -19,8 +19,8 @@
 /* .desc-secondary {
   border: 1px solid darkblue;
 } */
-
-/* .desc-secondary {
+/* 
+.desc-secondary {
   border: 1px solid darkblue;
 } */
 
@@ -32,7 +32,6 @@
 
 /* .desc span p {
   border: 1px solid darkblue;
-
 } */
 
 .desc span p:nth-child(1) {
@@ -140,8 +139,8 @@
   align-items: center;
   gap: 1rem;
 }
-
-/* .ticket-image-section {
+/* 
+.ticket-image-section {
   border: 1px solid darkblue;
 } */
 
@@ -279,7 +278,7 @@
 }
 
 .btn-tickets-section p {
-  /* border: 1px solid darkcyan; */
+  border: 1px solid darkcyan;
   color: var(--primary-color);
   font-weight: 700;
   padding: 0.5rem 1rem;
@@ -287,10 +286,86 @@
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
+  .tickets-list {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
+  .section-first {
+    flex-direction: column;
+  }
+  .desc-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .desc-detail h3,
+  .desc-detail p {
+    text-align: center;
+  }
+
+  .desc span p:nth-child(1) {
+    font-weight: 700;
+  }
+
+  .tickets-list {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .synopsis p {
+    text-align: justify;
+  }
+
+  .desc {
+    justify-content: center;
+  }
+
+  .desc span {
+    padding: 0 1rem;
+    /* width: 35%; */
+    align-items: center;
+  }
 }
 
 @media all and (max-width: 480px) {
+  .section-first {
+    flex-direction: column;
+  }
+  .desc-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .desc-detail h3,
+  .desc-detail p {
+    text-align: center;
+  }
+
+  .tickets-list {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .schedule-input,
+  .select-location {
+    width: 10.5rem;
+  }
+
+  .synopsis p {
+    text-align: justify;
+  }
+
+  .date-and-location {
+    width: 100%;
+    padding: 0;
+  }
+
+  .section-second {
+    gap: 1.5rem;
+  }
 }
