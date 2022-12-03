@@ -28,6 +28,7 @@ const Register = () => {
       ...body,
       [e.target.name]: e.target.value,
     });
+
   const registerSucces = () => {
     toast.success("Register Success! Please Check Your Email");
     router.push("/auth/login");
@@ -39,6 +40,7 @@ const Register = () => {
 
   const submithandler = (e) => {
     e.preventDefault();
+    console.log(body);
     dispatch(authAction.registerThunk(body, registerSucces, registerDenied));
   };
 
@@ -116,6 +118,7 @@ const Register = () => {
                 className={styles["password"]}
                 placeholder="Write your password"
                 required
+                name="password"
                 onChange={changeHandler}
               />
               <span
