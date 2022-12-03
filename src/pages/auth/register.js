@@ -116,6 +116,7 @@ const Register = () => {
                 className={styles["password"]}
                 placeholder="Write your password"
                 required
+                name="password"
                 onChange={changeHandler}
               />
               <span

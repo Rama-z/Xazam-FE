@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
+import {useState} from "react";
 import { useRouter } from "next/router";
 
 import styles from "../../styles/Home.module.css";
@@ -10,10 +10,16 @@ import Footer from "../../components/Footer/Footer";
 import spiderman from "../../assets/Images/spiderman-home.png";
 import lion from "../../assets/Images/lion-home.png";
 import movie from "../../assets/Images/movie-home.png";
+import Search from "components/Search";
 
 const Home = () => {
   const router = useRouter();
+  const [clickText, setClickText] = useState(false);
 
+  const handleClickText = () => {
+    setClickText(!clickText);
+  }
+    
   return (
     <>
       <Navbar
@@ -22,7 +28,10 @@ const Home = () => {
             <button className={styles["sign-up-btn"]} onClick={() => router.push("/auth/register")}>Sign-up</button>
           </>
         }
+
+        propsOnclick={handleClickText}
       />
+      <Search showInputText={clickText}/>
       <main className={styles["main"]}>
         <section className={`${styles["section"]} ${styles["section_one"]}`}>
           <span className={styles["title"]}>
