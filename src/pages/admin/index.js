@@ -1,18 +1,19 @@
 import React from "react";
-import Footer from "src/components/Footer/Footer";
-import Navbar from "src/components/Navbar/Navbar";
-import styles from "src/styles/Admin.module.css";
+import Footer from "../../components/Footer/Footer";
+import Navbar from "../../components/Navbar/Navbar";
+import styles from "../../styles/Admin.module.css";
 import Image from "next/image";
 
 // React-Bootsrap
 import Form from "react-bootstrap/Form";
 
 // Import Image
-import spiderman from "src/assets/images/spiderman.png";
-import ebu from "src/assets/images/ebu.png";
-import hiflix from "src/assets/images/hiflix.png";
-import cineone from "src/assets/images/cineone.png";
-import chart from "src/assets/images/Chart.png";
+import spiderman from "../../assets/images/spiderman.png";
+import ebu from "../../assets/images/ebu.png";
+import hiflix from "../../assets/images/hiflix.png";
+import cineone from "../../assets/images/cineone.png";
+import chart from "../../assets/images/chart.png";
+import plus from "../../assets/images/plus.png";
 
 function index() {
   return (
@@ -28,10 +29,12 @@ function index() {
                 Movie Description
               </p>
               <div
-                className={`container card col-12 p-0 m-0 ${styles["card1-left"]}`}
+                className={`container card col-md-12 col-lg-12  p-0 m-0 ${styles["card1-left"]}`}
               >
-                <div className=" px-5 px-md-2">
-                  <div className="container d-flex justify-content-between p-5 ">
+                <div className={` px-5 px-md-2 ${styles.patdualiama}`}>
+                  <div
+                    className={`container d-flex justify-content-between p-5 ${styles.spaces} `}
+                  >
                     <div
                       className={`d-flex col-lg-5 col-md-6 ${styles["cont-image"]}`}
                     >
@@ -94,16 +97,18 @@ function index() {
                             {" "}
                             Duration (hour / minute)
                           </p>
-                          <div className={` d-flex justify-content-around`}>
+                          <div
+                            className={` d-flex justify-content-around ${styles.tigatujuhlima}`}
+                          >
                             <div
-                              className={`card col-5 col-md-3 ${styles["desc-card"]} ${styles["position"]}`}
+                              className={`card col-5 col-md-3 ${styles["desc-card"]} ${styles["position"]} ${styles["cols"]}`}
                             >
                               <p className=" mb-0 d-flex justify-content-center ">
                                 2
                               </p>
                             </div>
                             <div
-                              className={`card col-5 col-md-3  ${styles["desc-card"]} ${styles["position-2"]}`}
+                              className={`card col-5 col-md-3  ${styles["desc-card"]} ${styles["position-2"]} ${styles["cols"]}`}
                             >
                               <p className=" mb-0 d-flex justify-content-center ">
                                 13
@@ -119,7 +124,7 @@ function index() {
                           Casts{" "}
                         </p>
                         <div className={`card ${styles["desc-card"]}`}>
-                          <p className="px-2 mb-0">
+                          <p className={` px-2 mb-0 ${styles.tom}`}>
                             Tom Holland, Michael Keaton, Robert Dow..{" "}
                           </p>
                         </div>
@@ -127,12 +132,14 @@ function index() {
                     </div>
                   </div>
                   <div className="container px-0 mb-5">
-                    <div className={` container col-12 p-5 pb-0`}>
+                    <div
+                      className={`${styles["synopsis"]} container col-12 p-5 pb-0`}
+                    >
                       <p className={`${styles["name-director"]}`}>Synopsis</p>
                       <div
                         className={`card p-4 col-12 ${styles["Synopsis-card"]}`}
                       >
-                        <p className=" mb-0">
+                        <p className={` mb-0 ${styles.textsynopsis}`}>
                           Thrilled by his experience with the Avengers, Peter
                           returns home, where he lives with his Aunt May, |{" "}
                         </p>
@@ -143,91 +150,113 @@ function index() {
               </div>
             </div>
 
-            <div className={` d-flex col-4  ${styles["card2-left"]} `}>
-              <p className={`${styles["movie-description"]}`}>
-                Premiere Location{" "}
-              </p>
-              <div
-                className={` ${styles["cont-purwokerto"]} container card col-12 p-0 m-0 `}
-              >
-                <Form.Select
-                  disabled
-                  className={`${styles["form"]}`}
-                  aria-label="Default select example"
-                >
-                  <option className={`${styles["purwokerto"]}`}>
-                    Purwokerto
-                  </option>
-                  <option value="1">Jakarta</option>
-                  <option value="2">Bali</option>
-                  <option value="3">Semarang</option>
-                </Form.Select>
+            <div
+              className={` d-flex col-md-12 col-lg-4  ${styles["card2-left"]} `}
+            >
+              <div className={`col-md-6 col-lg-12 ${styles.tujuhenamlapan}`}>
+                <p className={`${styles["movie-description"]}`}>
+                  Premiere Location{" "}
+                </p>
                 <div
-                  className={`d-flex justify-content-around align-items-center ${styles["margin"]}`}
+                  className={` ${styles["cont-purwokerto"]} container card col-12 p-0 m-0 `}
                 >
-                  <Image className={`${styles["ebu"]}`} src={ebu} alt="/" />
-                  <Image
-                    className={`${styles["hiflix"]}`}
-                    src={hiflix}
-                    alt="/"
-                  />
-                  <Image
-                    className={`${styles["cineone"]}`}
-                    src={cineone}
-                    alt="/"
-                  />
-                </div>
-                <div
-                  className={`d-flex justify-content-around align-items-center ${styles["margin"]}`}
-                >
-                  <Image className={`${styles["ebu"]}`} src={ebu} alt="/" />
-                  <Image
-                    className={`${styles["hiflix"]}`}
-                    src={hiflix}
-                    alt="/"
-                  />
-                  <Image
-                    className={`${styles["cineone"]}`}
-                    src={cineone}
-                    alt="/"
-                  />
-                </div>
-                <div
-                  className={`d-flex justify-content-around align-items-center ${styles["margin-3"]}`}
-                >
-                  <Image className={`${styles["ebu"]}`} src={ebu} alt="/" />
-                  <Image
-                    className={`${styles["hiflix"]}`}
-                    src={hiflix}
-                    alt="/"
-                  />
-                  <Image
-                    className={`${styles["cineone"]}`}
-                    src={cineone}
-                    alt="/"
-                  />
+                  <Form.Select
+                    disabled
+                    className={`${styles["form"]}`}
+                    aria-label="Default select example"
+                  >
+                    <option className={`${styles["purwokerto"]}`}>
+                      Purwokerto
+                    </option>
+                    <option value="1">Jakarta</option>
+                    <option value="2">Bali</option>
+                    <option value="3">Semarang</option>
+                  </Form.Select>
+                  <div
+                    className={`d-flex justify-content-around align-items-center ${styles["margin"]}`}
+                  >
+                    <Image className={`${styles["ebu"]}`} src={ebu} alt="/" />
+                    <Image
+                      className={`${styles["hiflix"]}`}
+                      src={hiflix}
+                      alt="/"
+                    />
+                    <Image
+                      className={`${styles["cineone"]}`}
+                      src={cineone}
+                      alt="/"
+                    />
+                  </div>
+                  <div
+                    className={`d-flex justify-content-around align-items-center ${styles["margin"]}`}
+                  >
+                    <Image className={`${styles["ebu"]}`} src={ebu} alt="/" />
+                    <Image
+                      className={`${styles["hiflix"]}`}
+                      src={hiflix}
+                      alt="/"
+                    />
+                    <Image
+                      className={`${styles["cineone"]}`}
+                      src={cineone}
+                      alt="/"
+                    />
+                  </div>
+                  <div
+                    className={`d-flex justify-content-around align-items-center ${styles["margin-3"]}`}
+                  >
+                    <Image className={`${styles["ebu"]}`} src={ebu} alt="/" />
+                    <Image
+                      className={`${styles["hiflix"]}`}
+                      src={hiflix}
+                      alt="/"
+                    />
+                    <Image
+                      className={`${styles["cineone"]}`}
+                      src={cineone}
+                      alt="/"
+                    />
+                  </div>
                 </div>
               </div>
-              <p className={`${styles["movie-description"]}`}> Showtimes </p>
-              <div
-                className={`${styles["date"]} container card col-12 p-0 m-0 `}
-              >
-                <Form.Select
-                  disabled
-                  className={`${styles["form"]}`}
-                  aria-label="Default select example"
+              <div className={`col-md-5  col-lg-12 ${styles.tujuhenamlapan}`}>
+                <p className={`${styles["movie-description"]}`}> Showtimes </p>
+                <div
+                  className={`${styles["date"]} container card col-12 p-0 m-0 `}
                 >
-                  <option className={`${styles["purwokerto"]}`}>
-                    Set a date
-                  </option>
-                </Form.Select>
+                  <Form.Select
+                    disabled
+                    className={`${styles["form"]}`}
+                    aria-label="Default select example"
+                  >
+                    <option className={`${styles["purwokerto"]}`}>
+                      Set a date
+                    </option>
+                  </Form.Select>
+                  <div className="d-flex justify-content-around gap-1 mb-4 px-1">
+                    <div className={`card ${styles.add}`}>
+                      <Image src={plus} alt="/" />
+                    </div>
+                    <p className={`${styles.time}`}> 08:30 am </p>
+                    <p className={`${styles.time}`}> 08:30 am </p>
+                    <p className={`${styles.time}`}> 08:30 am </p>
+                  </div>
+                  <div className="d-flex justify-content-around gap-1 px-1">
+                    <p className={`${styles.time}`}> 08:30 am </p>
+                    <p className={`${styles.time}`}> 08:30 am </p>
+                    <p className={`${styles.time}`}> 08:30 am </p>
+                    <p className={`${styles.time}`}> 08:30 am </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div className={`container ${styles["cont-down"]} `}>
           <div className={`d-flex justify-content-between px-2`}>
-            <p className={`${styles["movie-description"]}`}>Sales Charts </p>
+            <p className={`${styles["movie-description"]} ${styles.sales}`}>
+              Sales Charts{" "}
+            </p>
             <div className={`${styles["time"]}`}>
               <p>08:30am</p>
               <p>10:30pm</p>
@@ -236,7 +265,7 @@ function index() {
           </div>
 
           <div className=" card col-12">
-            <ul className="nav gap-5 pt-5 ps-3">
+            <ul className={` nav gap-5 pt-5 ps-3 ${styles.navschart}`}>
               <li className="nav-item">
                 <p className="my-0">Based on Movie</p>
               </li>
@@ -246,14 +275,38 @@ function index() {
             </ul>
             <hr className="container mt-3 mb-5" />
             <div className="container d-flex">
-              <Image className="col-4" src={chart} alt="/" />
-              <Image className="col-4" src={chart} alt="/" />
-              <Image className="col-4" src={chart} alt="/" />
+              <Image
+                className={`col-4 ${styles.imgcharts}`}
+                src={chart}
+                alt="/"
+              />
+              <Image
+                className={`col-4 ${styles.imgcharts}`}
+                src={chart}
+                alt="/"
+              />
+              <Image
+                className={`col-4 ${styles.imgcharts}`}
+                src={chart}
+                alt="/"
+              />
             </div>
             <div className="container d-flex">
-              <Image className="col-4" src={chart} alt="/" />
-              <Image className="col-4" src={chart} alt="/" />
-              <Image className="col-4" src={chart} alt="/" />
+              <Image
+                className={`col-4 ${styles.imgcharts}`}
+                src={chart}
+                alt="/"
+              />
+              <Image
+                className={`col-4 ${styles.imgcharts}`}
+                src={chart}
+                alt="/"
+              />
+              <Image
+                className={`col-4 ${styles.imgcharts}`}
+                src={chart}
+                alt="/"
+              />
             </div>
 
             <div className="d-flex justify-content-center gap-3 my-5">

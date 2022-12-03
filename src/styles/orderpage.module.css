@@ -252,3 +252,211 @@
   letter-spacing: 0.25px;
   color: #5f2eea;
 }
+
+@media only screen and (min-width: 1367px) {
+  .imgscreen {
+    padding-left: 94px;
+    margin-bottom: 2rem;
+    position: relative;
+    left: 84px;
+  }
+  .availables {
+    padding-left: 0px;
+    position: relative;
+    left: -20px;
+  }
+  .keyseat {
+    padding-left: 150px;
+  }
+  .number {
+    padding-left: 179px;
+    gap: 162px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .left-text {
+    font-size: 10px;
+  }
+  .right-text {
+    font-size: 12px;
+  }
+  .imgscreen {
+    padding-left: 126px;
+    margin-bottom: 2rem;
+    width: 461px;
+  }
+  .pads {
+    padding-left: 3rem;
+  }
+  .titlemovie {
+    padding-left: 10px !important;
+  }
+  .number {
+    padding-left: 125px;
+    gap: 57px;
+  }
+  .keyseat {
+    padding-left: 97px;
+  }
+  .availables {
+    padding-left: 45px;
+    gap: 18px !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cont-tujuh {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .choose {
+    padding-top: 5rem !important;
+  }
+  .imgscreen {
+    padding-left: 166px;
+    margin-bottom: 2rem;
+    width: 570px;
+  }
+  .pads2 {
+    padding-left: 47px;
+  }
+  .number {
+    padding-left: 165px;
+    gap: 131px;
+  }
+  .keyseat {
+    padding-left: 135px;
+  }
+  .availables {
+    padding-left: 0px;
+    gap: 18px !important;
+    position: relative;
+    left: -14px;
+  }
+  .cont-up {
+    margin-bottom: 4rem;
+  }
+  .left-text {
+    font-size: 20px;
+  }
+  .right-text {
+    font-size: 20px;
+  }
+  .img {
+    padding-bottom: 40px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .spiders {
+    padding-left: 0px !important;
+    font-size: 14px;
+  }
+  .buttons {
+    border: 0px;
+    font-family: "Mulish";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 9px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #5f2eea;
+    height: 42px !important;
+    width: 91px;
+    border-radius: 11px;
+    align-items: center;
+    justify-content: center;
+  }
+  .imgscreen {
+    padding-left: 39px;
+    margin-bottom: 2rem;
+    width: 361px;
+  }
+  .pads2 {
+    padding-left: 22px;
+  }
+  .number {
+    padding-left: 40px;
+    gap: 46px;
+  }
+  .keyseat {
+    padding-left: 37px;
+  }
+  .availables {
+    padding-left: 0px;
+    gap: 11px !important;
+    position: relative;
+    left: 9px;
+    font-size: 10px;
+  }
+  .changes {
+    gap: 100px;
+  }
+  .changebtn {
+    font-size: 10px;
+  }
+  .checkoutbtn {
+    font-size: 11px;
+  }
+  .left-text {
+    font-size: 12px;
+  }
+  .right-text {
+    font-size: 14px;
+  }
+  .title-payment {
+    font-size: 20px;
+  }
+  .prices {
+    font-size: 24px;
+  }
+  .seat {
+    padding: 0px;
+    position: relative;
+    left: -8px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .seat {
+    padding-left: 10px;
+    padding-right: 7px;
+  }
+  .number {
+    padding-left: 31px;
+    gap: 14px;
+  }
+  .availables {
+    padding-left: 0px;
+    gap: 5px !important;
+    position: relative;
+    left: 1px;
+    font-size: 8px;
+    top: -8px;
+  }
+  .imgscreen {
+    padding-left: 30px;
+    margin-bottom: 2rem;
+    width: 323px;
+  }
+  .keyseat {
+    padding-left: 111px;
+  }
+  .changebtn {
+    font-size: 8px;
+    height: 40px;
+  }
+  .checkoutbtn {
+    font-size: 8px;
+    height: 40px;
+  }
+  .changes {
+    gap: 74px;
+  }
+  .left-text {
+    font-size: 11px;
+  }
+  .right-text {
+    font-size: 13px;
+  }
+}
