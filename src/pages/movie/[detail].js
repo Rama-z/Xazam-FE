@@ -1,15 +1,22 @@
 import React from "react";
 // import { useRouter } from "next/router";
 import Image from "next/image";
+import { useState } from "react";
 
 import Header from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { Input } from "@chakra-ui/react";
 import profile from "../../assets/images/profile.png";
+import Search from "components/Search";
 
 import styles from "../../styles/MovieDetail.module.css";
 
 const Detail = () => {
+  const [clickText, setClickText] = useState(false);
+
+  const handleClickText = () => {
+    setClickText(!clickText);
+  };
   return (
     <>
       <Header
@@ -18,7 +25,9 @@ const Detail = () => {
             <Image src={profile} alt="/" />
           </>
         }
+        propsOnclick={handleClickText}
       />
+      <Search showInputText={clickText} />
       <main className={styles["main"]}>
         <section className={styles["section-first"]}>
           <span className={styles["desc-image"]}>

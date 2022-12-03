@@ -14,7 +14,7 @@ import Tickitz from "../../assets/images/Tickitz-purple.png";
 import search from "../../assets/icons/search.png";
 import { useRouter } from "next/router";
 
-const Header = ({profileAndBtn}) => {
+const Header = ({ profileAndBtn, propsOnclick }) => {
   const router = useRouter();
   return (
     <Navbar expand="lg py-3">
@@ -74,19 +74,18 @@ const Header = ({profileAndBtn}) => {
               </Dropdown.Menu>
             </Dropdown>
             <Image
+              onClick={propsOnclick}
               className={`  ${styles["icon-1"]} ${styles["cursor"]}`}
               src={search}
               alt="/"
             />
             {/* TO DO: Using props to reusable components */}
-            <span className={styles["profile-and-btn"]}>
-              {profileAndBtn}
-            </span>
+            <span className={styles["profile-and-btn"]}>{profileAndBtn}</span>
           </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-}
+};
 
 export default Header;
