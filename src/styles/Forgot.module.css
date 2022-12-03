@@ -65,8 +65,7 @@
   border-radius: 100%;
   width: 32px;
   height: 32px;
-  padding-left: 0.6rem;
-  padding-top: 0.1rem;
+  text-align: center;
 }
 
 .first-content-list {
@@ -97,19 +96,13 @@
 }
 
 .input:nth-child(1),
-.input:nth-child(2) {
+.input:nth-child(2),
+.input:nth-child(3) {
+  position: relative;
   /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.input:nth-child(3) {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-right: auto;
-  gap: 0.5rem;
-  align-items: center;
 }
 
 .label-email,
@@ -123,8 +116,9 @@
 }
 
 .input .email,
-.input .password {
+.input .password{
   /* border: 1px solid darkblue; */
+  /* position: relative; */
   outline: none;
   border-radius: 12px;
   padding: 0.5rem;
@@ -224,7 +218,7 @@
   /* border: 1px solid darkblue; */
   position: absolute;
   right: 0.5rem;
-  top: 2.5rem;
+  top: 2.7rem;
 }
 /* || Responsive */
 

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import authAction from "src/redux/actions/auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import HidePassword from "components/HidePassword";
 
 const Confirm = () => {
   const router = useRouter();
@@ -18,10 +18,15 @@ const Confirm = () => {
   const dispatch = useDispatch();
   const [body, setBody] = useState({});
   const [showPass, setShowPass] = useState(false);
+  const [showPassConf, setShowPassConf] = useState(false);
 
   const handleHidePwd = () => {
     setShowPass(!showPass);
   };
+  const handleHidePwdConf = () => {
+    setShowPassConf(!showPassConf);
+  };
+
   const confirmSuccess = () => {
     toast.success("Your password successfully reset, Please Login!");
     router.push("/auth/login");
@@ -71,7 +76,7 @@ const Confirm = () => {
           </span>
           <ul className={styles["list"]}>
             <li className={styles["content-list"]}>
-              <p className={styles["first-content-list"]}>1</p>
+              <p>1</p>
               <p>Fill your additional details</p>
             </li>
             <li className={styles["content-list"]}>
@@ -79,7 +84,7 @@ const Confirm = () => {
               <p>Active your email</p>
             </li>
             <li className={styles["content-list"]}>
-              <p>3</p>
+              <p className={styles["first-content-list"]}>3</p>
               <p>Enter your new password</p>
             </li>
             <li className={styles["content-list"]}>
@@ -99,29 +104,45 @@ const Confirm = () => {
                 disabled
                 value={router.query.pin}
                 className={styles["email"]}
-                placeholder="Write your email"
+                placeholder="Input your pin code"
                 onChange={changeHandler}
               />
-              <label className={styles["label-email"]}>New Password</label>
+            </span>
+            <span className={styles["input"]}>
+              <label className={styles["label-password"]}>New Password</label>
               <input
                 type={showPass ? "text" : "password"}
                 name="newPassword"
-                className={styles["email"]}
+                className={styles["password"]}
                 placeholder="Input your new password"
                 onChange={changeHandler}
                 onClick={() => setNotSimilar(false)}
               />
-              <label className={styles["label-email"]}>
+              <span
+                onClick={handleHidePwd}
+                className={styles["view-icon-section"]}
+              >
+                <HidePassword state={showPass} />
+              </span>
+            </span>
+            <span className={styles["input"]}>
+              <label className={styles["label-password"]}>
                 Confirm New Password
               </label>
               <input
-                type={showPass ? "text" : "password"}
+                type={showPassConf ? "text" : "password"}
                 name="confirmPassword"
-                className={styles["email"]}
+                className={styles["password"]}
                 placeholder="Confirm your new password"
                 onChange={changeHandler}
                 onClick={() => setNotSimilar(false)}
               />
+              <span
+                onClick={handleHidePwdConf}
+                className={styles["view-icon-section"]}
+              >
+                <HidePassword state={setShowPassConf} />
+              </span>
             </span>
             <p
               className={`${styles["password-notif"]} ${
