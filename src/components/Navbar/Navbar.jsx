@@ -7,75 +7,35 @@ import Container from "react-bootstrap/Container";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 // Import Styles
-import styles from "../../styles/Navbar.module.css";
+import styles from "src/styles/Navbar.module.css";
 
 // Import Image
-import Tickitz from "../../assets/images/Tickitz.png";
-import profile from "../../assets/images/profile.png";
-import search from "../../assets/icon/search.png";
+import Tickitz from "../../assets/images/Tickitz-purple.png";
+import search from "src/assets/icons/search.png";
 import { useRouter } from "next/router";
 
-function BasicExample() {
+const Header = ({ profileAndBtn, propsOnclick }) => {
   const router = useRouter();
   return (
     <Navbar expand="lg py-3">
-      {/* <div className="container pt-3">
-        <nav className="navbar navbar-expand-lg navbar-light ">
-          <a className="navbar-brand gap-5" href="#">
-            <Image src={Tickitz} alt="Tickitz" />
-          </a>
-          <div className={` collapse navbar-collapse ${styles["list-menu"]} `}>
-            <ul className={`navbar-nav ${styles["list-navbar"]}`}>
-              <li className="nav-item active">
-                <a className={`nav-link ${styles["nav-links"]}`} href="#">
-                  Movies
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className={`nav-link ${styles["nav-links"]}`} href="#">
-                  Cinemas
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className={`nav-link ${styles["nav-links"]}`} href="#">
-                  Buy Ticket
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="d-flex justify-content-center align-items-center gap-5">
-            <Dropdown>
-              <Dropdown.Toggle className={`${styles["dropdown"]}`} variant="white">
-                Location
-              </Dropdown.Toggle>
-              <Dropdown.Menu variant="white">
-                <Dropdown.Item href="#/action-1" active>
-                  Action
-                </Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-            <Image src={search} alt="/" />
-            <Image src={profile} alt="/" />
-          </div>
-        </nav>
-      </div> */}
-
       <Container>
-        <Navbar.Brand
-          className={`${styles["company"]}`}
-          onClick={() => {
-            router.push("/");
-          }}
-        >
-          <Image src={Tickitz} alt="Tickitz" />
+        <Navbar.Brand className={`${styles["company"]}`}>
+          <Image
+            src={Tickitz}
+            alt="Tickitz"
+            className={styles["company__image"]}
+          />
           <div className="dropdown"></div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`mx-auto gap-5 ${styles["navbar"]}`}>
-            <Nav.Link className={` p-0 ${styles["nav-links"]}`}>
+            <Nav.Link
+              className={` p-0 ${styles["nav-links"]}`}
+              onClick={() => {
+                router.push("/home");
+              }}
+            >
               Movies
             </Nav.Link>
             <div
@@ -114,16 +74,18 @@ function BasicExample() {
               </Dropdown.Menu>
             </Dropdown>
             <Image
+              onClick={propsOnclick}
               className={`  ${styles["icon-1"]} ${styles["cursor"]}`}
               src={search}
               alt="/"
             />
-            <Image src={profile} alt="/" />
+            {/* TO DO: Using props to reusable components */}
+            <span className={styles["profile-and-btn"]}>{profileAndBtn}</span>
           </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-}
+};
 
-export default BasicExample;
+export default Header;

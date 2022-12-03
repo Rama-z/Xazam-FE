@@ -1,9 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900;1000&display=swap");
-
 .list-navbar {
   display: flex;
   /* gap: 2rem; */
 }
+
+.company__image {
+  width: 120.41px;
+  height: 31.41px;
+}
+
 .cont-nav {
   gap: 10rem;
 }
@@ -30,6 +34,12 @@
   letter-spacing: 0.005em;
   color: #414141;
 }
+
+.icon-1 {
+  width: 24px;
+  height: 24px;
+}
+
 .cursor {
   cursor: pointer;
 }
@@ -37,6 +47,10 @@
   gap: 20rem;
   margin-right: 20rem !important;
 }
+
+/* .profile-and-btn {
+  border: 1px solid darkblue;
+} */
 
 @media only screen and (max-width: 1024px) {
   .pages-shop {

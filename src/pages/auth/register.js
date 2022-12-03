@@ -1,20 +1,25 @@
-import React, { useState } from "react";
-import Axios from "axios";
+import React from "react";
 import Image from "next/image";
+import { useState } from "react";
 import { useRouter } from "next/router";
 
+import Button from "../../components/Button";
+import HidePassword from "../../components/HidePassword";
+
 import styles from "../../styles/Register.module.css";
-import logo from "../../assets/Images/tickitz.png";
+import logo from "src/assets/images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
-import Button from "../../components/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import authAction from "../../redux/actions/auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
+  const [showPass, setShowPass] = useState(false);
+
   const router = useRouter();
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [body, setBody] = useState({});
 
@@ -23,18 +28,35 @@ const Register = () => {
       ...body,
       [e.target.name]: e.target.value,
     });
+
   const registerSucces = () => {
     toast.success("Register Success! Please Check Your Email");
-    // router.push("/auth/login");
+    router.push("/auth/login");
+  };
+
+  const registerPending = () => {
+    toast.info("Loading, please wait!");
   };
 
   const registerDenied = () => {
-    toast.error(`error`);
+    toast.error(`Register Failed, ${auth.err}`);
   };
 
   const submithandler = (e) => {
     e.preventDefault();
-    dispatch(authAction.registerThunk(body, registerSucces, registerDenied));
+    console.log(body);
+    dispatch(
+      authAction.registerThunk(
+        body,
+        registerSucces,
+        registerDenied,
+        registerPending
+      )
+    );
+  };
+
+  const handleHidePwd = () => {
+    setShowPass(!showPass);
   };
 
   return (
@@ -103,13 +125,19 @@ const Register = () => {
             <span className={styles["input"]}>
               <label className={styles["label-password"]}>Password</label>
               <input
-                type="text"
-                name="password"
+                type={showPass ? "text" : "password"}
                 className={styles["password"]}
                 placeholder="Write your password"
                 required
+                name="password"
                 onChange={changeHandler}
               />
+              <span
+                className={styles["view-icon-section"]}
+                onClick={handleHidePwd}
+              >
+                <HidePassword state={showPass} />
+              </span>
             </span>
             <span className={styles["input"]}>
               <label className={styles["label-checkbox"]}>

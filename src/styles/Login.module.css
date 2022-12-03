@@ -10,7 +10,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: url(../assets//Images/bg-tickitz.png) no-repeat center fixed;
+  background: url(../assets/images/bg-tickitz.png) no-repeat center fixed;
   background-size: cover;
   z-index: -1;
   width: 50%;
@@ -94,17 +94,18 @@
   /* border: 1px solid darkblue; */
   position: absolute;
   right: 0.5rem;
-  top: 2.5rem;
+  top: 2.7rem;
 }
 
-.view-icon {
+/* .view-icon {
   color: #a0a3bd !important;
   cursor: pointer;
-}
+} */
 
 .direct-to-reset {
   font-weight: 600;
   color: #696f79;
+  text-align: center;
 }
 
 .direct-to-reset span {

@@ -10,11 +10,13 @@ const config = (token) => {
     },
   };
 };
+// const baseUrl = `http://localhost:8080/api/xazam/auth`;
 
 export const register = (body) => axios.post(`${baseUrl}/register`, body);
 export const login = (body) => axios.post(`${baseUrl}/login`, body);
 export const logout = () => axios.delete(`${baseUrl}/logout`);
-export const forgot = (body) => axios.post(`${baseUrl}/forgot-password`, body);
+export const forgot = (body) => axios.post(`${baseUrl}/reset-password`, body);
+export const confirm = (body) => axios.patch(`${baseUrl}/reset-password`, body);
 export const reset = (body) => axios.patch(`${baseUrl}/reset-password`, body);
 export const profiles = (token) =>
   axios.get(`${baseUrl2}/profile`, config(token));

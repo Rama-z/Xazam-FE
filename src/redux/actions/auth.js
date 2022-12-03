@@ -1,5 +1,12 @@
 import { ActionType } from "redux-promise-middleware";
-import { login, logout, register, forgot, reset } from "../../modules/api/Auth";
+import {
+  login,
+  logout,
+  register,
+  forgot,
+  reset,
+  confirm,
+} from "../../modules/api/Auth";
 import { actionStrings } from "./actionStrings";
 
 
@@ -54,6 +61,18 @@ const forgotFulfilled = (data) => ({
   payload: { data },
 });
 
+const confirmPending = () => ({
+  type: actionStrings.authConfirm.concat("_", Pending),
+});
+const confirmRejected = (error) => ({
+  type: actionStrings.authConfirm.concat("_", Rejected),
+  payload: { error },
+});
+const confirmFulfilled = (data) => ({
+  type: actionStrings.authConfirm.concat("_", Fulfilled),
+  payload: { data },
+});
+
 const resetPending = () => ({
   type: actionStrings.authReset.concat("_", Pending),
 });
@@ -66,17 +85,18 @@ const resetFulfilled = (data) => ({
   payload: { data },
 });
 
-const loginThunk = (body) => {
-  
+const loginThunk = (body, cbSuccess, cbDenied, cbLoading) => {
   return async (dispatch) => {
     try {
       dispatch(loginPending());
+      typeof cbLoading === "function" && cbLoading();
       const result = await login(body);
       console.log(result.data);
       dispatch(loginFulfilled(result.data));
-    
+      typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(loginRejected(error));
+      typeof cbDenied === "function" && cbDenied();
     }
   };
 };
@@ -93,10 +113,11 @@ const logoutThunk = () => {
   };
 };
 
-const registerThunk = (body, cbSuccess, cbDenied) => {
+const registerThunk = (body, cbSuccess, cbDenied, cbLoading) => {
   return async (dispatch) => {
     try {
       dispatch(registerPending());
+      typeof cbLoading === "function" && cbLoading();
       const result = await register(body);
       dispatch(registerFulfilled(result.data));
       typeof cbSuccess === "function" && cbSuccess();
@@ -107,15 +128,31 @@ const registerThunk = (body, cbSuccess, cbDenied) => {
   };
 };
 
-const forgotThunk = (body, cbSuccess, cbDenied) => {
+const forgotThunk = (body, cbSuccess, cbDenied, cbLoading) => {
   return async (dispatch) => {
     try {
       dispatch(forgotPending());
+      typeof cbLoading === "function" && cbLoading();
       const result = await forgot(body);
       dispatch(forgotFulfilled(result.data));
       typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(forgotRejected(error));
+      typeof cbDenied === "function" && cbDenied();
+    }
+  };
+};
+
+const confirmThunk = (body, cbSuccess, cbDenied, cbLoading) => {
+  return async (dispatch) => {
+    try {
+      dispatch(confirmPending());
+      typeof cbLoading === "function" && cbLoading();
+      const result = await confirm(body);
+      dispatch(confirmFulfilled(result.data));
+      typeof cbSuccess === "function" && cbSuccess();
+    } catch (error) {
+      dispatch(confirmRejected(error));
       typeof cbDenied === "function" && cbDenied();
     }
   };
@@ -141,6 +178,7 @@ const authAction = {
   registerThunk,
   forgotThunk,
   resetThunk,
+  confirmThunk,
 };
 
 export default authAction;

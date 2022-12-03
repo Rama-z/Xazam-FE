@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "../../styles/Footer.module.css";
+import styles from "src/styles/Footer.module.css";
 import Image from "next/image";
 
 // Import Image
-import Tickitz from "../../assets/images/Tickitz.png";
+import Tickitz from "../../assets/images/Tickitz-purple.png";
 import cineone from "../../assets/images/cineone.png";
 import hiflix from "../../assets/images/hiflix.png";
 import ebu from "../../assets/images/ebu.png";
@@ -16,21 +16,22 @@ function Footer() {
   return (
     <div>
       <footer className=" text-center text-lg-start bg-light text-muted">
-        {/* <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"></section> */}
-
         <section className="p-4 pb-4 bg-white">
           <div className="container text-center text-md-start mt-5">
             <div className="row justify-content-evenly mt-3">
               <div
                 className={` col-md-3 col-lg-5 col-xl-3 ms-0 mb-4 ${styles["cont-logo"]} `}
               >
-                <Image className="mb-3" src={Tickitz} alt="/" />
+                <Image
+                  className={`mb-3 ${styles["componay__logo"]}`}
+                  src={Tickitz}
+                  alt="/"
+                />
                 <p className={`${styles["desc-footer"]}`}>
                   Stop waiting in line. Buy tickets conveniently, watch movies
                   quietly.
                 </p>
               </div>
-
               <div
                 className={`col-md-3 col-lg-1 col-xl-1 p-0 ${styles["cont-explore"]} `}
               >
@@ -63,7 +64,6 @@ function Footer() {
                     My Ticket
                   </a>
                 </p>
-
                 <p className={` mb-md-2 mb-4`}>
                   <a
                     href="#!"
@@ -73,7 +73,6 @@ function Footer() {
                   </a>
                 </p>
               </div>
-
               <div
                 className={`col-md-3 col-lg-2 col-xl-2  mx-md-0 px-md-0 mx-auto mb-4 ${styles["cont-spons"]} `}
               >
@@ -83,12 +82,23 @@ function Footer() {
                   Our Sponsor
                 </h6>
                 <div className={`${styles["cont-sponsor"]}`}>
-                  <Image className={`mb-4`} src={ebu} alt="/" />
-                  <Image className={`mb-4`} src={cineone} alt="/" />
-                  <Image className={`mb-4`} src={hiflix} alt="/" />
+                  <Image
+                    className={`mb-4 ${styles["cont-sponsor__image"]}`}
+                    src={ebu}
+                    alt="/"
+                  />
+                  <Image
+                    className={`mb-4 ${styles["cont-sponsor__image"]}`}
+                    src={cineone}
+                    alt="/"
+                  />
+                  <Image
+                    className={`mb-4 ${styles["cont-sponsor__image"]}`}
+                    src={hiflix}
+                    alt="/"
+                  />
                 </div>
               </div>
-
               <div className="   col-md-12 col-lg-2 col-xl-2 mx-lg-0 p-lg-0 mt-lg-0 ms-md-5 ps-md-4 mt-md-0 mx-auto mb-md-5 mb-4 ">
                 <h6
                   className={`text-uppercase fw-bold mb-4 ${styles["title-footer"]}`}
@@ -98,23 +108,39 @@ function Footer() {
                 <div className={` ${styles["cont-social-media"]}`}>
                   <div className={`${styles["tickits-1"]}`}>
                     <div className="d-flex gap-2 pb-1">
-                      <Image src={fb} alt="/" />
+                      <Image
+                        src={fb}
+                        alt="/"
+                        className={`${styles["social-media-icon"]}`}
+                      />
                       <p className={`${styles["social-media"]}`}>
                         Tickitz Cinema id
                       </p>
                     </div>
                     <div className="d-flex gap-2 pb-1 ">
-                      <Image src={ig} alt="/" />
+                      <Image
+                        src={ig}
+                        alt="/"
+                        className={`${styles["social-media-icon"]}`}
+                      />
                       <p className={`${styles["social-media"]}`}>tickitz.id</p>
                     </div>
                   </div>
                   <div className={`${styles["tickits"]}`}>
                     <div className="d-flex gap-2 pb-1 ">
-                      <Image src={twitter} alt="/" />
+                      <Image
+                        src={twitter}
+                        alt="/"
+                        className={`${styles["social-media-icon"]}`}
+                      />
                       <p className={`${styles["social-media"]}`}>tickitz.id</p>
                     </div>
-                    <div className="d-flex gap-2 pb-1 ">
-                      <Image src={youtube} alt="/" />
+                    <div className="d-flex gap-2 pb-1">
+                      <Image
+                        src={youtube}
+                        alt="/"
+                        className={`${styles["social-media-icon"]}`}
+                      />
                       <p className={`${styles["social-media"]}`}>
                         Tickitz Cinema id
                       </p>

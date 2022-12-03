@@ -1,20 +1,23 @@
 import React from "react";
-//import Axios from "axios"
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState } from "react";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
-import styles from "../../styles/Login.module.css";
-import logo from "../../assets/Images/tickitz.png";
-import googleIcon from "../../assets/Icons/google.png";
-import facebook from "../../assets/Icons/facebook.png";
-import { useDispatch } from "react-redux";
-import authAction from "../../redux/actions/auth";
-import Button from "../../components/Button";
+import HidePassword from "../../components/HidePassword";
+
+import styles from "src/styles/Login.module.css";
+import logo from "src/assets/images/Tickitz.png";
+import googleIcon from "src/assets/Icons/google.png";
+import facebook from "src/assets/Icons/facebook.png";
+import { useDispatch, useSelector } from "react-redux";
+import authAction from "src/redux/actions/auth";
+import Button from "src/components/Button";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const router = useRouter();
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [body, setbody] = useState({});
   const [showPass, setShowPass] = useState(false);
@@ -28,11 +31,25 @@ const Login = () => {
       ...body,
       [e.target.name]: e.target.value,
     });
-  // const togglePass = () => setShowPass(!showPass);
+
+  const loginSucces = () => {
+    toast.success("Login Success! Enjoy the movies");
+    router.push("/home");
+  };
+
+  const loginPending = () => {
+    toast.info("Loading, please wait!");
+  };
+
+  const loginDenied = () => {
+    toast.error(`Login failed, ${auth.err}`);
+  };
+
   const loginHandler = (e) => {
     e.preventDefault();
-    dispatch(authAction.loginThunk(body));
-    
+    dispatch(
+      authAction.loginThunk(body, loginSucces, loginDenied, loginPending)
+    );
   };
 
 
@@ -66,7 +83,6 @@ const Login = () => {
             <span className={styles["input"]}>
               <label className={styles["label-password"]}>Password</label>
               <input
-                // type={toggle ? "text" : "password"}
                 type={showPass ? "text" : "password"}
                 name="password"
                 className={styles["password"]}
@@ -78,15 +94,16 @@ const Login = () => {
                 className={styles["view-icon-section"]}
                 onClick={handleHidePwd}
               >
-                {showPass ? (
-                  <ViewIcon className={styles["view-icon"]} />
-                ) : (
-                  <ViewOffIcon className={styles["view-icon"]} />
-                )}
+                <HidePassword state={showPass} />
               </span>
             </span>
             <Button initBtnSubmit={`Sign In`} />
           </form>
+          <p className={styles["direct-to-reset"]}>
+            Doesn&acute;t have an account ?{" "}
+            <span onClick={() => router.push("/auth/register")}>Register</span>
+          </p>
+          <p className={styles["or"]}>Or</p>
           <p className={styles["direct-to-reset"]}>
             Forgot your password ?{" "}
             <span onClick={() => router.push("/auth/forgot")}>Reset now</span>

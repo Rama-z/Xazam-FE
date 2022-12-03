@@ -20,25 +20,41 @@ function index() {
     <div>
       <Navbar />
       <main className={` container-fluid ${styles["cont-fluid"]}`}>
-        <div className="d-flex container justify-content-between">
-          <div className={` d-flex col-lg-7 ${styles["cont-up"]} `}>
+        <div
+          className={` d-flex container justify-content-between ${styles["cont-tujuh"]}`}
+        >
+          <div className={` d-flex col-md-12 col-lg-7 ${styles["cont-up"]}  `}>
             <p className={`${styles["movie-selected"]}`}>Movie Selected</p>
             <div className={` card ${styles.cardmovie}`}>
               <div className="d-flex justify-content-between align-items-center">
-                <p className={`${styles.titlemovie}`}>Spider-Man: Homecoming</p>
+                <p className={`${styles.titlemovie} ${styles.spiders}`}>
+                  Spider-Man: Homecoming
+                </p>
                 <button className={`${styles.buttons}`}>Change movie</button>
               </div>
             </div>
-            <p className={`${styles.titlemovie} ${styles.pads}`}>Choose Your Seat</p>
+            <p
+              className={`${styles.titlemovie} ${styles.choose} ${styles.pads}`}
+            >
+              Choose Your Seat
+            </p>
             <div className={` card ${styles.chair}`}>
               <form>
                 <div className="card-seat">
-                  <div className={` d-flex justify-content-center ${styles.pads2}`}>
+                  <div
+                    className={` d-flex justify-content-center ${styles.pads2}`}
+                  >
                     <h5>Screen</h5>
                   </div>
 
-                  <Image className={`${styles.imgscreen}`} src={screen} alt="/" />
-                  <div className={` d-flex justify-content-around ${styles.seat}`}>
+                  <Image
+                    className={`${styles.imgscreen}`}
+                    src={screen}
+                    alt="/"
+                  />
+                  <div
+                    className={` d-flex justify-content-around ${styles.seat}`}
+                  >
                     <div>
                       <div className="d-flex gap-3 align-items-center">
                         <p className={`mb-0 col-1 ${styles["seat-font"]}`}>A</p>
@@ -239,15 +255,27 @@ function index() {
                 </div>
                 <div className={` d-flex gap-4 ${styles.availables} `}>
                   <div className="d-flex gap-2 align-items-center">
-                    <Image className={`${styles.imgseat}`} src={available} alt="/" />
+                    <Image
+                      className={`${styles.imgseat}`}
+                      src={available}
+                      alt="/"
+                    />
                     <p className="mb-0">Available</p>
                   </div>
                   <div className="d-flex gap-2 align-items-center ">
-                    <Image className={`${styles.imgseat}`} src={selected} alt="/" />
+                    <Image
+                      className={`${styles.imgseat}`}
+                      src={selected}
+                      alt="/"
+                    />
                     <p className="mb-0">Selected</p>
                   </div>
                   <div className="d-flex gap-2 align-items-center">
-                    <Image className={`${styles.imgseat}`} src={lovenest} alt="/" />
+                    <Image
+                      className={`${styles.imgseat}`}
+                      src={lovenest}
+                      alt="/"
+                    />
                     <p className="mb-0">Love nest</p>
                   </div>
                   <div className="d-flex gap-2 align-items-center">
@@ -257,12 +285,23 @@ function index() {
                 </div>
               </form>
             </div>
-            <div className={` d-flex justify-content-between ${styles.changes}`}>
-              <div className={` card ${styles.changebtn}`}>Change your movie</div>
-              <div className={` card ${styles.checkoutbtn}`}>Checkout now</div>
+            <div
+              className={` d-flex justify-content-between ${styles.changes}`}
+            >
+              <div className={` card ${styles.changebtn}`} onClick>
+                Change your movie
+              </div>
+              <div
+                className={` card ${styles.checkoutbtn}`}
+                onClick={() => {
+                  router.push("/payment");
+                }}
+              >
+                Checkout now
+              </div>
             </div>
           </div>
-          <div className={` d-flex col-lg-4 ${styles["cont-up"]} `}>
+          <div className={` d-flex col-md-12 col-lg-4 ${styles["cont-up"]} `}>
             <p className={`${styles["movie-selected"]}`}>Order Info</p>
             <div className={`card ${styles.cardpayment} `}>
               <div className={` d-flex  ${styles.img}`}>
@@ -271,10 +310,16 @@ function index() {
               </div>
               <div className="d-flex justify-content-between px-4">
                 <p className={`${styles["left-text"]}`}>Movie selected</p>
-                <p className={`${styles["right-text"]}`}> Spider-Man: Homecoming</p>
+                <p className={`${styles["right-text"]}`}>
+                  {" "}
+                  Spider-Man: Homecoming
+                </p>
               </div>
               <div className="d-flex justify-content-between px-4">
-                <p className={`${styles["left-text"]}`}> Tuesday, 07 July 2020</p>
+                <p className={`${styles["left-text"]}`}>
+                  {" "}
+                  Tuesday, 07 July 2020
+                </p>
                 <p className={`${styles["right-text"]}`}> 02:00pm</p>
               </div>
               <div className="d-flex justify-content-between px-4">

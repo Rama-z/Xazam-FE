@@ -37,6 +37,3 @@ next-env.d.ts
 
 node_modules
 .env
-
-#home
-src/pages/home/index.js

@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import warn from "../../assets/images/warn.png";
 import pay1 from "../../assets/images/bca.png";
 import pay2 from "../../assets/images/bri.png";
-import pay3 from "../../assets/images/gpay.png";
+import pay3 from "../../assets/images/Gpay.png";
 import pay4 from "../../assets/images/paypal.png";
 import pay5 from "../../assets/images/gopay.png";
 import pay6 from "../../assets/images/dana.png";

@@ -6,4 +6,5 @@ export const actionStrings = {
   authReset: "AUTH_RESET_PASSWORD",
   editProfile: "EDIT_PROFILE",
   getProfile: "GET_PROFILE",
+  authConfirm: "AUTH_CONFIRM_PASSWORD",
 };
