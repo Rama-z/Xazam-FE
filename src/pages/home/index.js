@@ -83,7 +83,12 @@ const Home = () => {
             <p>view all</p>
           </span>
           <ul className={`${styles["list-movies"]}`}>
-            <li className={`${styles["moview-spesific-to-image"]}`}>
+            <li
+              className={`${styles["moview-spesific-to-image"]}`}
+              onClick={() => {
+                router.push(`/movie/detail`);
+              }}
+            >
               <Image
                 src={``}
                 alt={`movie`}

@@ -140,7 +140,14 @@ const Detail = () => {
                     <p>{`$10.00/seat`}</p>
                   </span>
                   <span className={styles["btn-tickets-section"]}>
-                    <button className={styles["btn-book"]}>Book Now</button>
+                    <button
+                      className={styles["btn-book"]}
+                      onClick={() => {
+                        router.push("/orderpage");
+                      }}
+                    >
+                      Book Now
+                    </button>
                     <p>Add to cart</p>
                   </span>
                 </span>

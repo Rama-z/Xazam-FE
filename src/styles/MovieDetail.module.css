@@ -310,6 +310,10 @@
   box-shadow: 0px 8px 16px rgba(95, 46, 234, 0.24);
 }
 
+.movie-spesific-to-image {
+  cursor: pointer;
+}
+
 @media all and (min-width: 768px) and (max-width: 1024px) {
   .tickets-list {
     overflow-x: auto;

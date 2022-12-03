@@ -19,12 +19,7 @@ const Header = ({ profileAndBtn, propsOnclick }) => {
   return (
     <Navbar expand="lg py-3">
       <Container>
-        <Navbar.Brand
-          className={`${styles["company"]}`}
-          onClick={() => {
-            router.push("/");
-          }}
-        >
+        <Navbar.Brand className={`${styles["company"]}`}>
           <Image
             src={Tickitz}
             alt="Tickitz"
@@ -35,7 +30,12 @@ const Header = ({ profileAndBtn, propsOnclick }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`mx-auto gap-5 ${styles["navbar"]}`}>
-            <Nav.Link className={` p-0 ${styles["nav-links"]}`}>
+            <Nav.Link
+              className={` p-0 ${styles["nav-links"]}`}
+              onClick={() => {
+                router.push("/home");
+              }}
+            >
               Movies
             </Nav.Link>
             <div
