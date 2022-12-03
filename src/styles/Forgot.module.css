@@ -93,7 +93,7 @@
   /* border: 1px solid darkgray; */
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0.5rem;
 }
 
 .input:nth-child(1),
@@ -190,7 +190,7 @@
 
 .password-notif {
   text-align: center;
-  color: var(--red);
+  color: red;
 }
 
 .password-notif.hide {

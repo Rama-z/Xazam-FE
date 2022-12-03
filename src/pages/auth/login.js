@@ -86,11 +86,16 @@ const Login = () => {
                 className={styles["view-icon-section"]}
                 onClick={handleHidePwd}
               >
-                <HidePassword state={showPass}/>
+                <HidePassword state={showPass} />
               </span>
             </span>
             <Button initBtnSubmit={`Sign In`} />
           </form>
+          <p className={styles["direct-to-reset"]}>
+            Doesn&acute;t have an account ?{" "}
+            <span onClick={() => router.push("/auth/register")}>Register</span>
+          </p>
+          <p className={styles["or"]}>Or</p>
           <p className={styles["direct-to-reset"]}>
             Forgot your password ?{" "}
             <span onClick={() => router.push("/auth/forgot")}>Reset now</span>

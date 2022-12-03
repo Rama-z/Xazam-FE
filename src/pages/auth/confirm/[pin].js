@@ -27,7 +27,12 @@ const Confirm = () => {
     router.push("/auth/login");
   };
 
-  const confirmDenied = () => toast.error(`${auth.err}`);
+  const confirmDenied = () =>
+    toast.error(
+      auth.err === undefined
+        ? "Please complete your new password form"
+        : `${auth.err}`
+    );
 
   const changeHandler = (e) => {
     e.preventDefault();
@@ -125,13 +130,7 @@ const Confirm = () => {
             >
               Retyped password didn&apos;t match!
             </p>
-            <p
-              className={`${styles["password-notif2"]} ${
-                !notSimiliar ? styles["show"] : styles["hide"]
-              }`}
-            >
-              Retyped password didn&apos;t match!
-            </p>
+
             <Button initBtnSubmit={`Set Password`} />
           </form>
           {/* <p className={styles["direct-to-login"]}>
