@@ -117,19 +117,22 @@ const Home = () => {
           </span>
           <ul className={`${styles["list-movies"]}`}>
             {moviesNowShowing.map((movie, idx) => (
-              <li className={styles["movie-spesific-to-image"]} key={idx}>
+              <li
+                className={styles["movie-spesific-to-image"]}
+                key={idx}
+                onClick={() =>
+                  router.push({
+                    pathname: "/movie/[detail]",
+                    query: { detail: `${movie.id}` },
+                  })
+                }
+              >
                 <Image
                   src={movie.image}
                   alt={`movie`}
                   className={styles["movie-images"]}
                   width={500}
                   height={500}
-                  onClick={() =>
-                    router.push({
-                      pathname: "/movie/[detail]",
-                      query: { detail: `${movie.id}` },
-                    })
-                  }
                 />
               </li>
             ))}

@@ -16,20 +16,25 @@ const Detail = () => {
   const [clickText, setClickText] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
-  const movies = useSelector((state) => state.movie.movieDetail);
-  console.log(movies);
+  // const movies = useSelector((state) => state.movie.movieDetail);
+  // const casts = useSelector((state) => state.movie.movieDetail.cast);
+
+  // const [name, setName] = useState(movies.name);
+  // const [image, setImage] = useState(movies.image);
+  // const [director, setDirector] = useState(movies.director);
+  // const [relasedate, setRelasedate] = useState(movies.relase_date);
+  // const [duration, setDuration] = useState(movies.duration);
+  // const [synopsis, setSynopsis] = useState(movies.synopsis);
 
   const handleClickText = () => {
     setClickText(!clickText);
   };
 
-  useEffect(() => {
-    dispatch(movieAction.movieDetailThunk(router.query.detail));
-  }, [dispatch, router.query.detail]);
-
   // useEffect(() => {
-  //   const {name, image, duration, director, relase_date, synopsis} = movies
-  // },[movies])
+  //   dispatch(movieAction.movieDetailThunk(router.query.detail,setName, setImage, setDirector,
+  //   setRelasedate, setDuration, setSynopsis
+  //     ));
+  // }, [dispatch, router.query.detail]);
 
   return (
     <>
@@ -73,7 +78,9 @@ const Detail = () => {
               </span>
               <span className={styles["casts"]}>
                 <p>Casts</p>
-                <p>{``}</p>
+                <ul className={styles["cast-content"]}>
+                  <li>{``}</li>
+                </ul>
               </span>
             </span>
           </span>
@@ -81,7 +88,7 @@ const Detail = () => {
         <section className={styles["section-second"]}>
           <span className={styles["synopsis"]}>
             <h3>Synopsis</h3>
-            <p>{``}</p>
+            <p>{}</p>
           </span>
         </section>
         <section className={styles["section-third"]}>
