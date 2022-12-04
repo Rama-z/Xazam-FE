@@ -368,6 +368,15 @@ const Profile = () => {
                 ) : (
                   ""
                 )}
+                <button
+                  className={`btn btn-danger ${styles["btn-changes"]}`}
+                  onClick={() => {
+                    dispatch(authAction.logoutThunk(token));
+                    router.push("/auth/login");
+                  }}
+                >
+                  Logout
+                </button>
               </div>
             </section>
           </div>
