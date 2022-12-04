@@ -11,7 +11,7 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import profileAction from "src/redux/actions/profile";
-import { editprofilesApi, profiles } from "src/modules/api/Auth";
+
 import Upload from "components/upload/upload";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -90,21 +90,6 @@ const Profile = () => {
     setLastName(e.target.value);
   };
 
-  console.log(formState);
-  const getProfileThunk = async () => {
-    try {
-      dispatch(profileAction.profilePending());
-      const result = await profiles(token);
-      setFirstName(result.data.data.firstname);
-      setPhoneNum(result.data.data.notelp);
-      setLastName(result.data.data.lastname);
-      setImageUser(result.data.data.image);
-      dispatch(profileAction.profileFulfilled(result.data));
-    } catch (error) {
-      dispatch(profileAction.profileRejected(error));
-    }
-  };
-
   const data = new FormData();
   if (formState.firstname !== undefined) {
     data.append("firstname", formState.firstname);
@@ -126,34 +111,18 @@ const Profile = () => {
     }
   }
 
-  console.log(data);
-
-  const editProfileThunk = async () => {
-    if (formState.pw1 !== formState.password) {
-      setIsCorrect(true);
-      setTimeout(() => {
-        setIsCorrect(false);
-      }, 2000);
-    } else {
-      try {
-        dispatch(profileAction.editProfilePending());
-        const result = await editprofilesApi(data, token);
-        dispatch(profileAction.editProfileFulfilled(result.data));
-        toast.success("Profile Data Updated!", {
-          position: toast.POSITION.TOP_CENTER,
-          autoClose: 2000,
-        });
-        console.log(result);
-      } catch (error) {
-        dispatch(profileAction.editProfileRejected(error));
-      }
-    }
-  };
-
   useEffect(() => {
-    getProfileThunk();
+    dispatch(
+      profileAction.getProfileThunk(
+        token,
+        setFirstName,
+        setPhoneNum,
+        setLastName,
+        setImageUser
+      )
+    );
     setEmail(emailUser);
-  }, []);
+  }, [dispatch, setEmail, emailUser, token]);
 
   return (
     <>
@@ -264,7 +233,10 @@ const Profile = () => {
                     </p>
                     <hr className={` ${styles["hr-1"]}`} />
                     <p className={` ${styles["pass"]}`}>New Password</p>
-                    <p onClick={handleChange2} className={` ${styles["edit2"]}`}>
+                    <p
+                      onClick={handleChange2}
+                      className={` ${styles["edit2"]}`}
+                    >
                       ✎ Edit
                     </p>
                     <input
@@ -349,13 +321,20 @@ const Profile = () => {
                   </div>
                 </form>
                 <button
-                  onClick={editProfileThunk}
+                  onClick={() => {
+                    dispatch(
+                      profileAction.editProfileThunk(data, token, formState)
+                    );
+                    toast.success("Profile Data Updated!", {
+                      position: toast.POSITION.TOP_CENTER,
+                      autoClose: 2000,
+                    });
+                  }}
                   className={
-                    (!formState.firstname &&
-                      !formState.lastname &&
-                      !formState.notelp 
-                      ) &&
-                      (!formState.pw1 || !formState.password)                    
+                    !formState.firstname &&
+                    !formState.lastname &&
+                    !formState.notelp &&
+                    (!formState.pw1 || !formState.password)
                       ? `${styles["btn-changes"]}`
                       : `${styles["btn-change"]}`
                   }
