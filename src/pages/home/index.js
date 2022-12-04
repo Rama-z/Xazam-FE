@@ -1,25 +1,37 @@
 import React from "react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
 
 import spiderman from "src/assets/images/spiderman-home.png";
 import lion from "src/assets/images/lion-home.png";
 import movie from "../../assets/images/movie-home.png";
 import Search from "components/Search";
+import movieAction from "src/redux/actions/movie";
 
 const Home = () => {
   const router = useRouter();
   const [clickText, setClickText] = useState(false);
-  const [show, setShow] = useState(true);
   const [upcomingShow, setUpcomingShow] = useState(true);
+  const [show, setShow] = useState(true);
+  const dispatch = useDispatch();
+  const moviesNowShowing = useSelector(
+    (state) => state.movie.showTimes.nowShowing
+  );
+  const moviesUpComing = useSelector((state) => state.movie.showTimes.upComing);
+
   const handleClickText = () => {
     setClickText(!clickText);
   };
+
+  useEffect(() => {
+    dispatch(movieAction.showTimesThunk());
+  }, [dispatch]);
 
   return (
     <>
@@ -104,18 +116,26 @@ const Home = () => {
             </p>
           </span>
           <ul className={`${styles["list-movies"]}`}>
-            <li
-              className={`${styles["moview-spesific-to-image"]}`}
-              onClick={() => {
-                router.push(`/movie/detail`);
-              }}
-            >
-              <Image
-                src={``}
-                alt={`movie`}
-                className={styles["moview-images"]}
-              />
-            </li>
+            {moviesNowShowing.map((movie, idx) => (
+              <li
+                className={styles["movie-spesific-to-image"]}
+                key={idx}
+                onClick={() =>
+                  router.push({
+                    pathname: "/movie/[detail]",
+                    query: { detail: `${movie.id}` },
+                  })
+                }
+              >
+                <Image
+                  src={movie.image}
+                  alt={`movie`}
+                  className={styles["movie-images"]}
+                  width={500}
+                  height={500}
+                />
+              </li>
+            ))}
           </ul>
         </section>
         <section
@@ -151,18 +171,28 @@ const Home = () => {
           </ul>
           <span className={`${styles["section__header__movie"]}`}>
             <ul className={`${styles["list-movies"]}`}>
-              <li className={`${styles["moview"]}`}>
-                <Image
-                  src={``}
-                  alt={`movie`}
-                  className={styles["moview-images"]}
-                />
-                <h3 className={styles[`title`]}>{`Black Widow`}</h3>
-                <p className={styles["description"]}>
-                  {`Action, Adventure, Sci-Fi`}
-                </p>
-                <button className={styles["btn-movie"]}>{`Details`}</button>
-              </li>
+              {moviesUpComing.map((movie, idx) => (
+                <li className={`${styles["movie"]}`} key={idx}>
+                  <Image
+                    src={movie.image}
+                    alt={`movie`}
+                    className={styles["movie-images"]}
+                    width={500}
+                    height={500}
+                  />
+                  <h3 className={styles[`title`]}>{movie.name}</h3>
+                  <p className={styles["description"]}>{movie.category}</p>
+                  <button
+                    className={styles["btn-movie"]}
+                    onClick={() =>
+                      router.push({
+                        pathname: "/movie/[detail]",
+                        query: { detail: `${movie.id}` },
+                      })
+                    }
+                  >{`Details`}</button>
+                </li>
+              ))}
             </ul>
           </span>
         </section>

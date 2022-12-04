@@ -1,9 +1,10 @@
 .main {
   background-color: #e5e5e5;
   max-width: 1440px;
+  margin: auto;
 }
 .row {
-  background-color: #f5f6f8;
+  /* background-color: #f5f6f8; */
   padding: 5%;
   padding-bottom: 10%;
 }
@@ -280,7 +281,7 @@
 }
 .sect-2 {
   padding: 3%;
-  background-color: #f5f6f8;
+  /* background-color: #f5f6f8; */
 }
 .sectwrap {
   background-color: rgb(255, 255, 255);
@@ -558,6 +559,7 @@
   text-align: center;
   letter-spacing: 0.75px;
   color: #f7f7fc;
+  border: none;
 }
 .hr-2 {
   margin-top: 29.5%;

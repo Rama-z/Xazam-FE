@@ -13,4 +13,14 @@ module.exports = {
       },
     ];
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "res.cloudinary.com",
+        port: "",
+        pathname: "/dwo9znbl6/**",
+      },
+    ],
+  },
 };
