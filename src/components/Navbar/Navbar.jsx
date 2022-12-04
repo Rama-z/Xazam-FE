@@ -22,7 +22,7 @@ const Header = ({ profileAndBtn, propsOnclick }) => {
   const [firstName, setFirstName] = useState(profile.userData.firstName);
   const [lastName, setLastName] = useState(profile.userData.lastName);
   const [phoneNum, setPhoneNum] = useState(profile.userData.notelp);
-  const [imageUser, setImageUser] = useState(null);
+  const [imageUser, setImageUser] = useState(profile.image);
   const router = useRouter();
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -106,7 +106,7 @@ const Header = ({ profileAndBtn, propsOnclick }) => {
             <span className={styles["image-profile"]}>
               {auth.userData.user_id ? (
                 <Image
-                  src={profile.profile.image ? profile.profile.image : sample}
+                  src={imageUser ? imageUser : sample}
                   layout="fill"
                   style={{ cursor: "pointer" }}
                   objectFit="cover"

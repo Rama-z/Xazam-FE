@@ -23,6 +23,7 @@
   /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .desc-secondary span {
@@ -59,6 +60,23 @@
   /* border: 1px solid darkorange; */
   height: 358px;
   width: 232px;
+}
+
+/* .casts {
+  border: 1px solid darkblue;
+} */
+
+.cast-content {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding-left: 0;
+}
+
+.cast-content li {
+  list-style: none;
+  font-size: 14px;
 }
 
 /* .desc {

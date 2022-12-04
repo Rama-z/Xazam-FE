@@ -2,8 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from "../../styles/Profile.module.css";
 import { useRouter } from "next/router";
 import dot from "../../assets/images/dot.png";
-import tjango from "../../assets/images/tjango.webp";
-import defaultpic from "../../assets/images/defaultpic.jpg";
 import scrl from "../../assets/images/scroll.png";
 import eye from "../../assets/images/eye.png";
 import Image from "next/image";
