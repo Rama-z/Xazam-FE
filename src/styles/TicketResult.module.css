@@ -12,6 +12,7 @@
 .main {
   background-color: #5f2eea;
   padding: 4%;
+  max-width: 1440px;
 }
 .sec {
   margin: auto;

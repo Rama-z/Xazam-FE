@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Dropdown from "react-bootstrap/Dropdown";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import { useRouter } from "next/router";
 
 // Import Styles
 import styles from "src/styles/Navbar.module.css";
@@ -12,10 +13,32 @@ import styles from "src/styles/Navbar.module.css";
 // Import Image
 import Tickitz from "../../assets/images/Tickitz-purple.png";
 import search from "src/assets/icons/search.png";
-import { useRouter } from "next/router";
+import sample from "src/assets/images/avatar.webp";
+import { useDispatch, useSelector } from "react-redux";
+import profileAction from "src/redux/actions/profile";
 
 const Header = ({ profileAndBtn, propsOnclick }) => {
+  const profile = useSelector((state) => state.profile);
+  const [firstName, setFirstName] = useState(profile.userData.firstName);
+  const [lastName, setLastName] = useState(profile.userData.lastName);
+  const [phoneNum, setPhoneNum] = useState(profile.userData.notelp);
+  const [imageUser, setImageUser] = useState(null);
   const router = useRouter();
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      profileAction.getProfileThunk(
+        auth.userData.token,
+        setFirstName,
+        setPhoneNum,
+        setLastName,
+        setImageUser
+      )
+    );
+  }, [dispatch, auth.userData.token]);
+
   return (
     <Navbar expand="lg py-3">
       <Container>
@@ -80,7 +103,22 @@ const Header = ({ profileAndBtn, propsOnclick }) => {
               alt="/"
             />
             {/* TO DO: Using props to reusable components */}
-            <span className={styles["profile-and-btn"]}>{profileAndBtn}</span>
+            <span className={styles["image-profile"]}>
+              {auth.userData.user_id ? (
+                <Image
+                  src={profile.image ? profile.image : sample}
+                  layout="fill"
+                  style={{ cursor: "pointer" }}
+                  objectFit="cover"
+                  alt="profile"
+                  onClick={() => {
+                    router.push("/profile");
+                  }}
+                />
+              ) : (
+                profileAndBtn
+              )}
+            </span>
           </div>
         </Navbar.Collapse>
       </Container>
