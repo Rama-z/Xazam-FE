@@ -19,8 +19,7 @@ const Profile = () => {
     firstName: "",
     lastName: "",
     email: "",
-    phoneNum: ""
-
+    phoneNum: "",
   });
   const router = useRouter();
   const as = () => {
@@ -67,16 +66,8 @@ const Profile = () => {
                     <div className={`${styles["five-pointed-star"]}`}></div>
                   </div>
                 </div>
-                <p className={`${styles["master"]}`}>
-                  180 points become a master
-                </p>
-                <Image
-                  className={`${styles["scrlll"]}`}
-                  width={260}
-                  height={20}
-                  src={scrl}
-                  alt="scroll"
-                />
+                <p className={`${styles["master"]}`}>180 points become a master</p>
+                <Image className={`${styles["scrlll"]}`} width={260} height={20} src={scrl} alt="scroll" />
               </div>
             </div>
             <section className={`col-sm-8 ${styles["sect-2"]}`}>
@@ -96,63 +87,23 @@ const Profile = () => {
                 <form class="row">
                   <div class="col">
                     <p className={` ${styles["category"]}`}>First Name</p>
-                    <input
-                    onChange={handleInputChange}
-                      className={` ${styles["input"]}`}
-                      type="text"
-                      placeholder="Jonas"
-                      name="firstName"
-                    />
+                    <input onChange={handleInputChange} className={` ${styles["input"]}`} type="text" placeholder="Jonas" name="firstName" />
                     <p className={` ${styles["category"]}`}>E-mail</p>
-                    <input
-                    onChange={handleInputChange}
-                      className={` ${styles["input"]}`}
-                      type="text"
-                      placeholder="jonasrodrigu123@gmail.com"
-                      name="email"
-                    />
-                    <p className={` ${styles["privacy"]}`}>
-                      Account and Privacy
-                    </p>
+                    <input onChange={handleInputChange} className={` ${styles["input"]}`} type="text" placeholder="jonasrodrigu123@gmail.com" name="email" />
+                    <p className={` ${styles["privacy"]}`}>Account and Privacy</p>
                     <hr className={` ${styles["hr-1"]}`} />
                     <p className={` ${styles["pass"]}`}>New Password</p>
-                    <input
-                      onChange={handleInputChange}
-                      className={` ${styles["input"]}`}
-                      type={isPwdShown ? "text" : "password"}
-                      placeholder="Write your password"
-                      name="pw1"
-                    />
-                    <Image
-                      className={` ${styles["eye"]}`}
-                      width={20}
-                      src={eye}
-                      alt="eye"
-                      onClick={() => setIsPwdShown(!isPwdShown)}
-                    />
+                    <input onChange={handleInputChange} className={` ${styles["input"]}`} type={isPwdShown ? "text" : "password"} placeholder="Write your password" name="pw1" />
+                    <Image className={` ${styles["eye"]}`} width={20} src={eye} alt="eye" onClick={() => setIsPwdShown(!isPwdShown)} />
                   </div>
                   <div class="col">
                     <p className={` ${styles["category"]}`}>Last Name</p>
-                    <input
-                    onChange={handleInputChange}
-                      className={` ${styles["input"]}`}
-                      type="text"
-                      placeholder="El Rodriguez"
-                      name="lastName"
-                    />
+                    <input onChange={handleInputChange} className={` ${styles["input"]}`} type="text" placeholder="El Rodriguez" name="lastName" />
                     <p className={` ${styles["category"]}`}>Phone Number</p>
-                    <input
-                    onChange={handleInputChange}
-                      className={` ${styles["input"]}`}
-                      type="text"
-                      placeholder="081445687121"
-                      name="phoneNum"
-                    />
+                    <input onChange={handleInputChange} className={` ${styles["input"]}`} type="text" placeholder="081445687121" name="phoneNum" />
 
                     <hr className={` ${styles["hr-2"]}`} />
-                    <p className={` ${styles["confirm-pw"]}`}>
-                      Confirm Password
-                    </p>
+                    <p className={` ${styles["confirm-pw"]}`}>Confirm Password</p>
                     <input
                       onChange={handleInputChange}
                       className={` ${styles["input"]}`}
@@ -161,24 +112,10 @@ const Profile = () => {
                       placeholder="Confirm your password"
                       name="pw2"
                     />
-                    <Image
-                      className={` ${styles["eye"]}`}
-                      width={20}
-                      src={eye}
-                      alt="eye"
-                      onClick={() => setIsPwdShown1(!isPwdShown1)}
-                    />
+                    <Image className={` ${styles["eye"]}`} width={20} src={eye} alt="eye" onClick={() => setIsPwdShown1(!isPwdShown1)} />
                   </div>
                 </form>
-                <button
-                  className={
-                    !formState.firstName || !formState.lastName ||  !formState.email || !formState.phoneNum 
-                      ? `${styles["btn-changes"]}`
-                      : `${styles["btn-change"]}`
-                  }
-                >
-                  Update changes
-                </button>
+                <button className={!formState.firstName || !formState.lastName || !formState.email || !formState.phoneNum ? `${styles["btn-changes"]}` : `${styles["btn-change"]}`}>Update changes</button>
               </div>
             </section>
           </div>

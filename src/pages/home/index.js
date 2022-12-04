@@ -25,10 +25,7 @@ const Home = () => {
       <Navbar
         profileAndBtn={
           <>
-            <button
-              className={styles["sign-up-btn"]}
-              onClick={() => router.push("/auth/register")}
-            >
+            <button className={styles["sign-up-btn"]} onClick={() => router.push("/auth/register")}>
               Sign-up
             </button>
           </>
@@ -45,34 +42,13 @@ const Home = () => {
           <span className={styles["title-image"]}>
             <ul className={styles["list-images-section"]}>
               <li className={styles["list-image"]}>
-                <Image
-                  src={spiderman}
-                  alt={`spiderman`}
-                  className={styles["content-list-image"]}
-                  contain
-                  width={500}
-                  height={500}
-                />
+                <Image src={spiderman} alt={`spiderman`} className={styles["content-list-image"]} contain width={500} height={500} />
               </li>
               <li className={styles["list-image"]}>
-                <Image
-                  src={lion}
-                  alt={`lion`}
-                  className={styles["content-list-image"]}
-                  contain
-                  width={500}
-                  height={500}
-                />
+                <Image src={lion} alt={`lion`} className={styles["content-list-image"]} contain width={500} height={500} />
               </li>
               <li className={styles["list-image"]}>
-                <Image
-                  src={movie}
-                  alt={`movie`}
-                  className={styles["content-list-image"]}
-                  contain
-                  width={500}
-                  height={500}
-                />
+                <Image src={movie} alt={`movie`} className={styles["content-list-image"]} contain width={500} height={500} />
               </li>
             </ul>
           </span>
@@ -89,11 +65,7 @@ const Home = () => {
                 router.push(`/movie/detail`);
               }}
             >
-              <Image
-                src={``}
-                alt={`movie`}
-                className={styles["moview-images"]}
-              />
+              <Image src={``} alt={`movie`} className={styles["moview-images"]} />
             </li>
           </ul>
         </section>
@@ -119,15 +91,9 @@ const Home = () => {
           <span className={`${styles["section__header__movie"]}`}>
             <ul className={`${styles["list-movies"]}`}>
               <li className={`${styles["moview"]}`}>
-                <Image
-                  src={``}
-                  alt={`movie`}
-                  className={styles["moview-images"]}
-                />
+                <Image src={``} alt={`movie`} className={styles["moview-images"]} />
                 <h3 className={styles[`title`]}>{`Black Widow`}</h3>
-                <p className={styles["description"]}>
-                  {`Action, Adventure, Sci-Fi`}
-                </p>
+                <p className={styles["description"]}>{`Action, Adventure, Sci-Fi`}</p>
                 <button className={styles["btn-movie"]}>{`Details`}</button>
               </li>
             </ul>
@@ -141,10 +107,7 @@ const Home = () => {
               <input type="text" placeholder="Type your email" />
               <button className={styles["btn-join"]}>Join now</button>
             </span>
-            <description className={styles["decs"]}>
-              By joining you as a Tickitz member, we will always send you the
-              latest updates via email.
-            </description>
+            <description className={styles["decs"]}>By joining you as a Tickitz member, we will always send you the latest updates via email.</description>
           </span>
         </section>
       </main>

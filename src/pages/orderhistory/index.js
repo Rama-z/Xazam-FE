@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
-
+import { useRouter } from "next/router";
 import styles from "../../styles/orderhistory.module.css";
 import Image from "next/image";
 
@@ -27,7 +27,7 @@ import chevrondown from "../../assets/images/chevrondown.png";
 import ebu from "../../assets/images/ebu.png";
 
 function index() {
-  const [open, setOpen] = useState(false);
+  const router = useRouter();
   return (
     <div>
       <Navbar />
@@ -62,7 +62,7 @@ function index() {
               </div>
             </div>
           </div>
-          <div className={`d-flex card col-md-6 col-lg-8 ${styles.contRight} `}>
+          <div className={`d-flex col-md-6 col-lg-8 ${styles.contRight} `}>
             <div className={` card  d-flex justify-content-center ${styles["bar"]}`}>
               <div className={` d-flex gap-5 ps-md-5 ps-lg-5 ${styles["nav-account-set"]}`}>
                 <p className={`mb-0 ${styles.account} ${styles.cursor}`}>Account Settings </p>
@@ -80,18 +80,14 @@ function index() {
               <hr />
               <div className={`container d-flex justify-content-between ${styles.collapse}`}>
                 <div className={` card ${styles.ticketz} ${styles.cursor} `}>Ticket in active</div>
-                <div className={` ${styles.cursor}`} onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
+                <div className={` ${styles.cursor}`} aria-controls="example-collapse-text" aria-expanded={open}>
                   <div className="d-flex gap-3 align-items-center">
-                    <p className="mb-0">Show Details</p>
-                    <Image src={chevrondown} alt="/" />
+                    <p className={` mb-0 ${styles.cursor}`} onClick={() => router.push("/ticketresult")}>
+                      Show Ticket &nbsp; &#8250;
+                    </p>
                   </div>
                 </div>
               </div>
-              <Collapse in={open}>
-                <div className="container px-5 " id="example-collapse-text">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                </div>
-              </Collapse>
             </div>
             <div className={`card d-flex pt-4 justify-content-center ${styles["hist"]}`}>
               <div className={` d-flex px-5 ${styles["history-ticket"]}`}>
@@ -104,18 +100,14 @@ function index() {
               <hr />
               <div className={`container d-flex justify-content-between ${styles.collapse}`}>
                 <div className={` card ${styles.ticketz} ${styles.cursor} ${styles.used} `}>Ticket used</div>
-                <div className={` ${styles.cursor}`} onClick={() => setOpen(!open)} aria-controls="example-collapse-text1" aria-expanded={open}>
+                <div className={` ${styles.cursor}`} aria-controls="example-collapse-text1" aria-expanded={open}>
                   <div className="d-flex gap-3 align-items-center">
-                    <p className="mb-0">Show Details</p>
-                    <Image src={chevrondown} alt="/" />
+                    <p className="mb-0" onClick={() => router.push("/ticketresult")}>
+                      Show Ticket &nbsp; &#8250;
+                    </p>
                   </div>
                 </div>
               </div>
-              <Collapse in={open}>
-                <div className="container px-5 " id="example-collapse-text">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                </div>
-              </Collapse>
             </div>
             <div className={`card d-flex pt-4 justify-content-center ${styles["hist"]}`}>
               <div className={` d-flex px-5 ${styles["history-ticket"]}`}>
@@ -128,18 +120,14 @@ function index() {
               <hr />
               <div className={`container d-flex justify-content-between ${styles.collapse}`}>
                 <div className={` card ${styles.ticketz} ${styles.cursor} ${styles.used}`}>Ticket used</div>
-                <div className={` ${styles.cursor}`} onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
+                <div className={` ${styles.cursor}`} aria-controls="example-collapse-text" aria-expanded={open}>
                   <div className="d-flex gap-3 align-items-center">
-                    <p className="mb-0">Show Details</p>
-                    <Image src={chevrondown} alt="/" />
+                    <p className="mb-0" onClick={() => router.push("/ticketresult")}>
+                      Show Ticket &nbsp; &#8250;
+                    </p>
                   </div>
                 </div>
               </div>
-              <Collapse in={open}>
-                <div className="container px-5 " id="example-collapse-text">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                </div>
-              </Collapse>
             </div>
           </div>
         </div>

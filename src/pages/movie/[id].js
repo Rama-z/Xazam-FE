@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState } from "react";
@@ -8,11 +8,27 @@ import Footer from "../../components/Footer/Footer";
 import { Input } from "@chakra-ui/react";
 import profile from "../../assets/images/profile.png";
 import Search from "components/Search";
+import { useDispatch, useSelector } from "react-redux";
+import movieAction from "src/redux/actions/movie";
 
 import styles from "../../styles/MovieDetail.module.css";
+import { useRouter } from "next/router";
 
-const Detail = () => {
+// const myLoader = { src, width, quality };
+const myLoader = ({ src, width, quality }) => {
+  return `${src}?w=${width}&q=${quality || 75}`;
+};
+
+const Detail = ({ datas }) => {
   const [clickText, setClickText] = useState(false);
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const moviesDetail = useSelector((state) => state.movie);
+  // dispatch(movieAction.moviedetailFulfilled(datas));
+
+  useEffect(() => {
+    dispatch(movieAction.moviedetailFulfilled(datas));
+  }, [router.query.id, dispatch, datas]);
 
   const handleClickText = () => {
     setClickText(!clickText);
@@ -31,7 +47,7 @@ const Detail = () => {
       <main className={styles["main"]}>
         <section className={styles["section-first"]}>
           <span className={styles["desc-image"]}>
-            <Image src={``} alt={``} className={styles["image"]} />
+            <Image loader={myLoader} src={moviesDetail.data.image} width={90} height={90} alt={``} className={styles["image"]} />
           </span>
           <span className={styles["desc-main"]}>
             <span className={styles["desc-detail"]}>
@@ -82,13 +98,8 @@ const Detail = () => {
           <span className={styles["synopsis"]}>
             <h3>Synopsis</h3>
             <p>
-              Thrilled by his experience with the Avengers, Peter returns home,
-              where he lives with his Aunt May, under the watchful eye of his
-              new mentor Tony Stark, Peter tries to fall back into his normal
-              daily routine - distracted by thoughts of proving himself to be
-              more than just your friendly neighborhood Spider-Man - but when
-              the Vulture emerges as a new villain, everything that Peter holds
-              most important will be threatened.
+              Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by
+              thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.
             </p>
           </span>
         </section>
@@ -96,12 +107,7 @@ const Detail = () => {
           <h1>Showtimes and Tickets</h1>
           <span className={styles["date-and-location"]}>
             <span className={styles["schedule"]}>
-              <Input
-                placeholder="Select Date and Time"
-                size="md"
-                type="datetime-local"
-                className={styles["schedule-input"]}
-              />
+              <Input placeholder="Select Date and Time" size="md" type="datetime-local" className={styles["schedule-input"]} />
             </span>
             <span className={styles["location"]}>
               <select name="" id="" className={styles["select-location"]}>
@@ -117,17 +123,11 @@ const Detail = () => {
                 <span className={styles["ticket__content"]}>
                   <span className={styles["ticket__content__header"]}>
                     <span className={styles["ticket-image-section"]}>
-                      <Image
-                        src={``}
-                        alt={`Image`}
-                        className={styles["ticket-image"]}
-                      />
+                      <Image src={``} alt={`Image`} className={styles["ticket-image"]} />
                     </span>
                     <span className={styles["ticket-desc"]}>
                       <p className={styles["ticket-desc__title"]}>{`ebv.id`}</p>
-                      <p
-                        className={styles["ticket-desc__location"]}
-                      >{`Whatever street No.12, South Purwokerto`}</p>
+                      <p className={styles["ticket-desc__location"]}>{`Whatever street No.12, South Purwokerto`}</p>
                     </span>
                   </span>
                   <span>
@@ -156,17 +156,11 @@ const Detail = () => {
                 <span className={styles["ticket__content"]}>
                   <span className={styles["ticket__content__header"]}>
                     <span className={styles["ticket-image-section"]}>
-                      <Image
-                        src={``}
-                        alt={`Image`}
-                        className={styles["ticket-image"]}
-                      />
+                      <Image src={``} alt={`Image`} className={styles["ticket-image"]} />
                     </span>
                     <span className={styles["ticket-desc"]}>
                       <p className={styles["ticket-desc__title"]}>{`ebv.id`}</p>
-                      <p
-                        className={styles["ticket-desc__location"]}
-                      >{`Whatever street No.12, South Purwokerto`}</p>
+                      <p className={styles["ticket-desc__location"]}>{`Whatever street No.12, South Purwokerto`}</p>
                     </span>
                   </span>
                   <span>
@@ -188,17 +182,11 @@ const Detail = () => {
                 <span className={styles["ticket__content"]}>
                   <span className={styles["ticket__content__header"]}>
                     <span className={styles["ticket-image-section"]}>
-                      <Image
-                        src={``}
-                        alt={`Image`}
-                        className={styles["ticket-image"]}
-                      />
+                      <Image src={``} alt={`Image`} className={styles["ticket-image"]} />
                     </span>
                     <span className={styles["ticket-desc"]}>
                       <p className={styles["ticket-desc__title"]}>{`ebv.id`}</p>
-                      <p
-                        className={styles["ticket-desc__location"]}
-                      >{`Whatever street No.12, South Purwokerto`}</p>
+                      <p className={styles["ticket-desc__location"]}>{`Whatever street No.12, South Purwokerto`}</p>
                     </span>
                   </span>
                   <span>
@@ -232,6 +220,27 @@ const Detail = () => {
       <Footer />
     </>
   );
+};
+
+export const getServerSideProps = async (context) => {
+  try {
+    const baseUrl = `https://xazam-be.vercel.app/api/xazam/movie/movie-detail/${context.params.id}`;
+
+    const result = await fetch(baseUrl);
+    const datas = await result.json();
+    return {
+      props: {
+        datas,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      props: {
+        data: err,
+      },
+    };
+  }
 };
 
 export default Detail;
