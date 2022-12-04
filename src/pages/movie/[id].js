@@ -9,22 +9,25 @@ import { Input } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import profile from "../../assets/images/profile.png";
 import Search from "components/Search";
-import styles from "../../styles/MovieDetail.module.css";
 import movieAction from "src/redux/actions/movie";
 
-const Detail = () => {
-  const [clickText, setClickText] = useState(false);
-  const router = useRouter();
-  const dispatch = useDispatch();
-  // const movies = useSelector((state) => state.movie.movieDetail);
-  // const casts = useSelector((state) => state.movie.movieDetail.cast);
+import styles from "../../styles/MovieDetail.module.css";
 
-  // const [name, setName] = useState(movies.name);
-  // const [image, setImage] = useState(movies.image);
-  // const [director, setDirector] = useState(movies.director);
-  // const [relasedate, setRelasedate] = useState(movies.relase_date);
-  // const [duration, setDuration] = useState(movies.duration);
-  // const [synopsis, setSynopsis] = useState(movies.synopsis);
+// const myLoader = { src, width, quality };
+const myLoader = ({ src, width, quality }) => {
+  return `${src}?w=${width}&q=${quality || 75}`;
+};
+
+const Detail = ({ datas }) => {
+  const [clickText, setClickText] = useState(false);
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const moviesDetail = useSelector((state) => state.movie);
+  // dispatch(movieAction.moviedetailFulfilled(datas));
+
+  useEffect(() => {
+    dispatch(movieAction.moviedetailFulfilled(datas));
+  }, [router.query.id, dispatch, datas]);
 
   const handleClickText = () => {
     setClickText(!clickText);
@@ -51,11 +54,12 @@ const Detail = () => {
         <section className={styles["section-first"]}>
           <span className={styles["desc-image"]}>
             <Image
-              src={``}
+              loader={myLoader}
+              src={moviesDetail.data.image}
+              width={90}
+              height={90}
               alt={``}
               className={styles["image"]}
-              width={500}
-              height={500}
             />
           </span>
           <span className={styles["desc-main"]}>
@@ -88,7 +92,15 @@ const Detail = () => {
         <section className={styles["section-second"]}>
           <span className={styles["synopsis"]}>
             <h3>Synopsis</h3>
-            <p>{}</p>
+            <p>
+              Thrilled by his experience with the Avengers, Peter returns home,
+              where he lives with his Aunt May, under the watchful eye of his
+              new mentor Tony Stark, Peter tries to fall back into his normal
+              daily routine - distracted by thoughts of proving himself to be
+              more than just your friendly neighborhood Spider-Man - but when
+              the Vulture emerges as a new villain, everything that Peter holds
+              most important will be threatened.
+            </p>
           </span>
         </section>
         <section className={styles["section-third"]}>
@@ -118,7 +130,7 @@ const Detail = () => {
                     <span className={styles["ticket-image-section"]}>
                       <Image
                         src={``}
-                        alt={``}
+                        alt={`Image`}
                         className={styles["ticket-image"]}
                       />
                     </span>
@@ -231,6 +243,27 @@ const Detail = () => {
       <Footer />
     </>
   );
+};
+
+export const getServerSideProps = async (context) => {
+  try {
+    const baseUrl = `https://xazam-be.vercel.app/api/xazam/movie/movie-detail/${context.params.id}`;
+
+    const result = await fetch(baseUrl);
+    const datas = await result.json();
+    return {
+      props: {
+        datas,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      props: {
+        data: err,
+      },
+    };
+  }
 };
 
 export default Detail;

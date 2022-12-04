@@ -1,12 +1,5 @@
 import { ActionType } from "redux-promise-middleware";
-import {
-  login,
-  logout,
-  register,
-  forgot,
-  reset,
-  confirm,
-} from "../../modules/api/Auth";
+import { login, logout, register, forgot, reset, confirm } from "../../modules/api/Auth";
 import { actionStrings } from "./actionStrings";
 
 

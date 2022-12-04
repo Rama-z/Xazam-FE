@@ -31,7 +31,7 @@ const Profile = () => {
   const [imageUser, setImageUser] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [image, setImage] = useState("");
-  const [formState, setFormState] = useState({});
+
   const [disableButton, setDisableButton] = useState(true);
   const [disableButtonPw, setDisableButtonPw] = useState(true);
 
@@ -42,6 +42,14 @@ const Profile = () => {
     setDisableButtonPw(!disableButtonPw);
   };
 
+  const [formState, setFormState] = useState({
+    pw1: "",
+    pw2: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNum: "",
+  });
   const router = useRouter();
   const nav = () => {
     router.push("/");
