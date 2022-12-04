@@ -8,9 +8,9 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 
-import spiderman from "../../assets/Images/spiderman-home.png";
-import lion from "../../assets/Images/lion-home.png";
-import movie from "../../assets/Images/movie-home.png";
+import spiderman from "src/assets/images/spiderman-home.png";
+import lion from "src/assets/images/lion-home.png";
+import movie from "../../assets/images/movie-home.png";
 import Search from "components/Search";
 import movieAction from "src/redux/actions/movie";
 
@@ -18,14 +18,17 @@ const Home = () => {
   const router = useRouter();
   const [clickText, setClickText] = useState(false);
   const dispatch = useDispatch();
-  const movies = useSelector((state) => state.movie.movies);
+  const moviesNowShowing = useSelector(
+    (state) => state.movie.showTimes.nowShowing
+  );
+  const moviesUpComing = useSelector((state) => state.movie.showTimes.upComing);
 
   const handleClickText = () => {
     setClickText(!clickText);
   };
 
   useEffect(() => {
-    dispatch(movieAction.moviesThunk());
+    dispatch(movieAction.showTimesThunk());
   }, [dispatch]);
 
   return (
@@ -91,13 +94,23 @@ const Home = () => {
             <p>view all</p>
           </span>
           <ul className={`${styles["list-movies"]}`}>
-            <li className={`${styles["movie-spesific-to-image"]}`}>
-              <Image
-                src={``}
-                alt={`movie`}
-                className={styles["movie-images"]}
-              />
-            </li>
+            {moviesNowShowing.map((movie, idx) => (
+              <li className={styles["movie-spesific-to-image"]} key={idx}>
+                <Image
+                  src={movie.image}
+                  alt={`movie`}
+                  className={styles["movie-images"]}
+                  width={500}
+                  height={500}
+                  onClick={() =>
+                    router.push({
+                      pathname: "/movie/[detail]",
+                      query: { detail: `${movie.id}` },
+                    })
+                  }
+                />
+              </li>
+            ))}
           </ul>
         </section>
         <section className={`${styles["section"]} ${styles["section_tree"]}`}>
@@ -121,7 +134,7 @@ const Home = () => {
           </ul>
           <span className={`${styles["section__header__movie"]}`}>
             <ul className={`${styles["list-movies"]}`}>
-              {movies.map((movie,idx) => (
+              {moviesUpComing.map((movie, idx) => (
                 <li className={`${styles["movie"]}`} key={idx}>
                   <Image
                     src={movie.image}
@@ -131,13 +144,16 @@ const Home = () => {
                     height={500}
                   />
                   <h3 className={styles[`title`]}>{movie.name}</h3>
-                  <p className={styles["description"]}>
-                    {movie.category}
-                  </p>
-                  <button className={styles["btn-movie"]} onClick={() => router.push({
-                    pathname: "/movie/[detail]",
-                    query: {detail: `${movie.id}`}
-                  })}>{`Details`}</button>
+                  <p className={styles["description"]}>{movie.category}</p>
+                  <button
+                    className={styles["btn-movie"]}
+                    onClick={() =>
+                      router.push({
+                        pathname: "/movie/[detail]",
+                        query: { detail: `${movie.id}` },
+                      })
+                    }
+                  >{`Details`}</button>
                 </li>
               ))}
             </ul>

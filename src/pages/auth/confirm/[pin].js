@@ -32,6 +32,10 @@ const Confirm = () => {
     router.push("/auth/login");
   };
 
+  const confirmPending = () => {
+    toast.info("Loading, please wait!");
+  };
+
   const confirmDenied = () =>
     toast.error(
       auth.err === undefined
@@ -52,7 +56,14 @@ const Confirm = () => {
     e.preventDefault();
     console.log(body);
     if (body.newPassword !== body.confirmPassword) return setNotSimilar(true);
-    dispatch(authAction.confirmThunk(body, confirmSuccess, confirmDenied));
+    dispatch(
+      authAction.confirmThunk(
+        body,
+        confirmSuccess,
+        confirmDenied,
+        confirmPending
+      )
+    );
   };
 
   return (

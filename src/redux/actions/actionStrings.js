@@ -8,9 +8,10 @@ export const actionStrings = {
 };
 
 export const actionMovies = {
-  movieAll: "MOVIEW_ALL",
-  movieDetail: "MOVIEW_DETAIL",
+  movieAll: "MOVIE_ALL",
+  movieDetail: "MOVIE_DETAIL",
+  showTimes: "SHOW_TIMES",
   showTime: "SHOW_TIME",
-  movieCreate: "MOVIEW_CREATE",
-  movieDelete: "MOVIEW_DELETE",
+  movieCreate: "MOVIE_CREATE",
+  movieDelete: "MOVIE_DELETE",
 }

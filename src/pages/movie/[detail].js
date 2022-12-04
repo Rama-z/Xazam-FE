@@ -27,6 +27,10 @@ const Detail = () => {
     dispatch(movieAction.movieDetailThunk(router.query.detail));
   }, [dispatch, router.query.detail]);
 
+  // useEffect(() => {
+  //   const {name, image, duration, director, relase_date, synopsis} = movies
+  // },[movies])
+
   return (
     <>
       <Header
@@ -107,7 +111,7 @@ const Detail = () => {
                     <span className={styles["ticket-image-section"]}>
                       <Image
                         src={``}
-                        alt={`Image`}
+                        alt={``}
                         className={styles["ticket-image"]}
                       />
                     </span>
@@ -128,7 +132,14 @@ const Detail = () => {
                     <p>{`$10.00/seat`}</p>
                   </span>
                   <span className={styles["btn-tickets-section"]}>
-                    <button className={styles["btn-book"]}>Book Now</button>
+                    <button
+                      className={styles["btn-book"]}
+                      onClick={() => {
+                        router.push("/orderpage");
+                      }}
+                    >
+                      Book Now
+                    </button>
                     <p>Add to cart</p>
                   </span>
                 </span>

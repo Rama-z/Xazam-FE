@@ -83,10 +83,11 @@ const resetFulfilled = (data) => ({
   payload: { data },
 });
 
-const loginThunk = (body, cbSuccess, cbDenied) => {
+const loginThunk = (body, cbSuccess, cbDenied, cbLoading) => {
   return async (dispatch) => {
     try {
       dispatch(loginPending());
+      typeof cbLoading === "function" && cbLoading();
       const result = await login(body);
       console.log(result.data);
       dispatch(loginFulfilled(result.data));
@@ -110,10 +111,11 @@ const logoutThunk = () => {
   };
 };
 
-const registerThunk = (body, cbSuccess, cbDenied) => {
+const registerThunk = (body, cbSuccess, cbDenied, cbLoading) => {
   return async (dispatch) => {
     try {
       dispatch(registerPending());
+      typeof cbLoading === "function" && cbLoading();
       const result = await register(body);
       dispatch(registerFulfilled(result.data));
       typeof cbSuccess === "function" && cbSuccess();
@@ -124,10 +126,11 @@ const registerThunk = (body, cbSuccess, cbDenied) => {
   };
 };
 
-const forgotThunk = (body, cbSuccess, cbDenied) => {
+const forgotThunk = (body, cbSuccess, cbDenied, cbLoading) => {
   return async (dispatch) => {
     try {
       dispatch(forgotPending());
+      typeof cbLoading === "function" && cbLoading();
       const result = await forgot(body);
       dispatch(forgotFulfilled(result.data));
       typeof cbSuccess === "function" && cbSuccess();
@@ -138,12 +141,12 @@ const forgotThunk = (body, cbSuccess, cbDenied) => {
   };
 };
 
-const confirmThunk = (body, cbSuccess, cbDenied) => {
+const confirmThunk = (body, cbSuccess, cbDenied, cbLoading) => {
   return async (dispatch) => {
     try {
       dispatch(confirmPending());
+      typeof cbLoading === "function" && cbLoading();
       const result = await confirm(body);
-      console.log(result.data);
       dispatch(confirmFulfilled(result.data));
       typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {

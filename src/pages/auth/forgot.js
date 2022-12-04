@@ -20,6 +20,10 @@ const Forgot = () => {
   const forgotSuccess = () => {
     toast.success("Please check your email to reset your password");
   };
+  const forgotPending = () => {
+    toast.info("Loading, please wait!");
+  };
+
   const forgotDenied = () => toast.error(`${auth.error}`);
   const changeHandler = (e) => {
     e.preventDefault();
@@ -31,7 +35,9 @@ const Forgot = () => {
   const forgotHandler = (e) => {
     e.preventDefault();
     console.log(body);
-    dispatch(authAction.forgotThunk(body, forgotSuccess, forgotDenied));
+    dispatch(
+      authAction.forgotThunk(body, forgotSuccess, forgotDenied, forgotPending)
+    );
   };
   return (
     <>

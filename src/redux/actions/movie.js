@@ -5,6 +5,7 @@ import {
   showtime,
   createmovie,
   deletemovie,
+  showtimes,
 } from "../../modules/api/Movie";
 
 import { actionMovies } from "./actionStrings";
@@ -41,6 +42,21 @@ const moviewDetailFulfilled = data => ({
   payload: {data},
 })
 
+// TODO: Showtimes action type
+const showTimesPending = () => ({
+  type: actionMovies.showTimes.concat("-", Pending),
+});
+
+const showTimesRejected = error => ({
+  type: actionMovies.showTimes.concat("-", Rejected),
+  payload: { error },
+});
+
+const showTimesFulfilled = data => ({
+  type: actionMovies.showTimes.concat("-", Fulfilled),
+  payload: { data },
+});
+
 // TODO: Showtime action type
 const showTimePending = () => ({
   type: actionMovies.showTime.concat("-", Pending),
@@ -71,7 +87,7 @@ const createMoviewFulfilled = data => ({
   payload: { data },
 });
 
-// TODO: Delte movie action type
+// TODO: delete movie action type
 const deleteMoviePending = () => ({
   type: actionMovies.movieDelete.concat("-", Pending),
 });
@@ -116,7 +132,22 @@ const movieDetailThunk = (id, success, denied) => {
   };
 };
 
-const showTImeThunk = (params, success, denied) => {
+const showTimesThunk = (success, denied) => {
+  return async (dispatch) => {
+    try {
+      dispatch(showTimesPending());
+      const result = await showtimes();
+      console.log(result.data);
+      dispatch(showTimesFulfilled(result.data));
+      typeof success === "function" && success();
+    } catch (error) {
+      dispatch(showTimesRejected(error));
+      typeof denied === "function" && denied();
+    }
+  };
+};
+
+const showTimeThunk = (params, success, denied) => {
   return async (dispatch) => {
     try {
       dispatch(showTimePending());
@@ -164,7 +195,8 @@ const deleteMoviewThunk = (id, success, denied) => {
 const movieAction = {
   moviesThunk,
   movieDetailThunk,
-  showTImeThunk,
+  showTimesThunk,
+  showTimeThunk,
   createMovieThunk,
   deleteMoviewThunk,
 }

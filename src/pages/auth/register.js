@@ -7,7 +7,7 @@ import Button from "../../components/Button";
 import HidePassword from "../../components/HidePassword";
 
 import styles from "../../styles/Register.module.css";
-import logo from "../../assets/Images/tickitz.png";
+import logo from "src/assets/images/tickitz.png";
 import googleIcon from "../../assets/Icons/google.png";
 import facebook from "../../assets/Icons/facebook.png";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,9 +28,14 @@ const Register = () => {
       ...body,
       [e.target.name]: e.target.value,
     });
+
   const registerSucces = () => {
     toast.success("Register Success! Please Check Your Email");
     router.push("/auth/login");
+  };
+
+  const registerPending = () => {
+    toast.info("Loading, please wait!");
   };
 
   const registerDenied = () => {
@@ -39,7 +44,15 @@ const Register = () => {
 
   const submithandler = (e) => {
     e.preventDefault();
-    dispatch(authAction.registerThunk(body, registerSucces, registerDenied));
+    console.log(body);
+    dispatch(
+      authAction.registerThunk(
+        body,
+        registerSucces,
+        registerDenied,
+        registerPending
+      )
+    );
   };
 
   const handleHidePwd = () => {

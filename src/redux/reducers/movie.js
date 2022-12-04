@@ -15,6 +15,10 @@ const initialState = {
     cast: [],
     shotimes: []
   },
+  showTimes:{
+    nowShowing:[],
+    upComing:[],
+  },
   showTime: [],
   createMovie: [],
   deleteMovie: [],
@@ -27,7 +31,7 @@ const initialState = {
 
 const movieReduser = (prevState = initialState, { payload, type }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const { movieAll, movieDetail, showTime, movieCreate, movieDelete } =
+  const { movieAll, movieDetail, showTimes ,showTime, movieCreate, movieDelete } =
     actionMovies;
   switch (type) {
     // TODO: movie all
@@ -76,6 +80,31 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
         isError: false,
         isFulfilled: true,
         movieDetail: payload.data.data,
+      };
+
+    // TODO: Shows time
+    case showTimes.concat("-", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
+    case showTimes.concat("-", Rejected):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: true,
+        isFulfilled: false,
+        err: payload.error.response?.data.message,
+      };
+    case showTimes.concat("-", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        showTimes: payload.data.data,
       };
 
     // TODO: Show time
@@ -154,8 +183,7 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
       };
 
     default:
-      return prevState 
-
+      return prevState;
   }
 };
 
