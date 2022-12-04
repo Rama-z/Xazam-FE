@@ -27,8 +27,6 @@
 
 .man-wrap {
   text-align: center;
-  width: 100px;
-  height: 100px;
 }
 
 .name {
@@ -41,7 +39,6 @@
   text-align: center;
   letter-spacing: 0.75px;
   color: #14142b;
-  margin-top: 3rem;
 }
 
 .edit {
