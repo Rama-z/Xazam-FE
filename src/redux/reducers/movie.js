@@ -13,11 +13,11 @@ const initialState = {
     director: null,
     category: [],
     cast: [],
-    shotimes: []
+    shotimes: [],
   },
-  showTimes:{
-    nowShowing:[],
-    upComing:[],
+  showTimes: {
+    nowShowing: [],
+    upComing: [],
   },
   showTime: [],
   createMovie: [],
@@ -31,8 +31,14 @@ const initialState = {
 
 const movieReduser = (prevState = initialState, { payload, type }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const { movieAll, movieDetail, showTimes ,showTime, movieCreate, movieDelete } =
-    actionMovies;
+  const {
+    movieAll,
+    movieDetail,
+    showTimes,
+    showTime,
+    movieCreate,
+    movieDelete,
+  } = actionMovies;
   switch (type) {
     // TODO: movie all
     case movieAll.concat("-", Pending):

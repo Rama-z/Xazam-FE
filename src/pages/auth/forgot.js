@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 import styles from "src/styles/Forgot.module.css";
-import logo from "src/assets/images/Tickitz.png";
+import logo from "src/assets/images/tickitz.png";
 import Button from "src/components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import authAction from "src/redux/actions/auth";

@@ -11,7 +11,7 @@ import profile from "../../assets/images/profile.png";
 import Search from "components/Search";
 import styles from "../../styles/MovieDetail.module.css";
 import movieAction from "src/redux/actions/movie";
-
+import sample from "src/assets/images/avatar.webp";
 const Detail = () => {
   const [clickText, setClickText] = useState(false);
   const router = useRouter();
@@ -33,7 +33,7 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch(
-      movieAction.movieDetailThunk(router.query.detail),
+      movieAction.movieDetailThunk(router.query.id),
       setName,
       setImage,
       setDirector,
@@ -41,7 +41,7 @@ const Detail = () => {
       setDuration,
       setSynopsis
     );
-  }, [dispatch, router.query.detail]);
+  }, [dispatch, router.query.id]);
 
   return (
     <>
@@ -58,7 +58,7 @@ const Detail = () => {
         <section className={styles["section-first"]}>
           <span className={styles["desc-image"]}>
             <Image
-              src={image}
+              src={image ? image : sample}
               alt={name}
               className={styles["image"]}
               width={500}

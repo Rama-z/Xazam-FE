@@ -12,10 +12,16 @@ import spiderman from "../../assets/images/spiderman.png";
 import ebu from "../../assets/images/ebu.png";
 import hiflix from "../../assets/images/hiflix.png";
 import cineone from "../../assets/images/cineone.png";
-import chart from "src/assets/images/chart.png";
+import chart from "src/assets/images/Chart.png";
 import plus from "../../assets/images/plus.png";
 
 function index() {
+  const inputNumber = (event) => {
+    if (!/[0-9]/.test(event.key)) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -45,12 +51,12 @@ function index() {
                           alt="/"
                         />
                       </div>
-                      <div>
+                      <form>
                         <p className={`${styles["name-director"]}`}>Director</p>
                         <div className={`card ${styles["director-card"]}`}>
-                          <p className="ps-4 mb-0">Jon Watts</p>
+                          <input className={`px-3 ${styles.inputs}`} />
                         </div>
-                      </div>
+                      </form>
                     </div>
                     <div
                       className={`col-lg-7 col-md-6 ${styles["cont-desc-movie"]}`}
@@ -90,7 +96,7 @@ function index() {
                             </p>
                           </div>
                         </div>
-                        <div>
+                        <form>
                           <p
                             className={`${styles["title-desc"]} ${styles["title-desc-md"]}`}
                           >
@@ -115,7 +121,7 @@ function index() {
                               </p>
                             </div>
                           </div>
-                        </div>
+                        </form>
                       </div>
                       <div className="">
                         <p

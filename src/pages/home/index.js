@@ -123,8 +123,8 @@ const Home = () => {
                 key={idx}
                 onClick={() =>
                   router.push({
-                    pathname: "/movie/[detail]",
-                    query: { detail: `${movie.id}` },
+                    pathname: `/movie/[id]`,
+                    query: { id: `${movie.id}` },
                   })
                 }
               >
@@ -175,7 +175,7 @@ const Home = () => {
               {moviesUpComing.map((movie, idx) => (
                 <li className={`${styles["movie"]}`} key={idx}>
                   <Image
-                    src={movie.image}
+                    src={movie.image ? movie.image : sample}
                     alt={`movie`}
                     className={styles["movie-images"]}
                     width={500}
@@ -187,8 +187,8 @@ const Home = () => {
                     className={styles["btn-movie"]}
                     onClick={() =>
                       router.push({
-                        pathname: "/movie/[detail]",
-                        query: { detail: `${movie.id}` },
+                        pathname: "/movie/[id]",
+                        query: { id: `${movie.id}` },
                       })
                     }
                   >{`Details`}</button>

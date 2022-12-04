@@ -17,12 +17,12 @@ const moviesPanding = () => ({
   type: actionMovies.movieAll.concat("-", Pending),
 });
 
-const moviesRejected = error => ({
+const moviesRejected = (error) => ({
   type: actionMovies.movieAll.concat("-", Rejected),
   payload: { error },
 });
 
-const moviesFulfilled = data => ({
+const moviesFulfilled = (data) => ({
   type: actionMovies.movieAll.concat("-", Fulfilled),
   payload: { data },
 });
@@ -34,25 +34,25 @@ const movieDetailPanding = () => ({
 
 const movieDetailRejected = error => ({
   type: actionMovies.movieDetail.concat("-", Rejected),
-  payload: {error},
-})
+  payload: { error },
+});
 
 const movieDetailFulfilled = data => ({
   type: actionMovies.movieDetail.concat("-", Fulfilled),
-  payload: {data},
-})
+  payload: { data },
+});
 
 // TODO: Showtimes action type
 const showTimesPending = () => ({
   type: actionMovies.showTimes.concat("-", Pending),
 });
 
-const showTimesRejected = error => ({
+const showTimesRejected = (error) => ({
   type: actionMovies.showTimes.concat("-", Rejected),
   payload: { error },
 });
 
-const showTimesFulfilled = data => ({
+const showTimesFulfilled = (data) => ({
   type: actionMovies.showTimes.concat("-", Fulfilled),
   payload: { data },
 });
@@ -62,12 +62,12 @@ const showTimePending = () => ({
   type: actionMovies.showTime.concat("-", Pending),
 });
 
-const showTimeRejected = error => ({
+const showTimeRejected = (error) => ({
   type: actionMovies.showTime.concat("-", Rejected),
   payload: { error },
 });
 
-const showTimeFulfilled = data => ({
+const showTimeFulfilled = (data) => ({
   type: actionMovies.showTime.concat("-", Fulfilled),
   payload: { data },
 });
@@ -114,8 +114,8 @@ const moviesThunk = (success, denied) => {
       dispatch(moviesRejected(error));
       typeof denied === "function" && denied();
     }
-  }
-}
+  };
+};
 
 const movieDetailThunk = (id, success, denied) => {
   return async (dispatch) => {

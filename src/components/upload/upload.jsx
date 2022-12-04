@@ -1,15 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../upload/upload.module.css";
+import Image from "next/image";
 
 const Upload = ({ img, ...rest }) => {
   return (
     <div className={`${styles["upload"]}`}>
       {img && (
-        <img className={`${styles["img-preview"]}`} src={img} alt="preview" />
+        <Image
+          className={`${styles["img-preview"]}`}
+          src={img}
+          alt="preview"
+          width={170}
+          height={170}
+        />
       )}{" "}
       <br />
       <label for="file-upload" className={`${styles["custom-file-upload"]}`}>
-        <i className={`${styles["theButton"]}`}>✎</i> 
+        <i className={`${styles["theButton"]}`}>✎</i>
       </label>
       <input
         name="image"

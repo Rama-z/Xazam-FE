@@ -12,7 +12,7 @@ import styles from "src/styles/Navbar.module.css";
 
 // Import Image
 import Tickitz from "../../assets/images/Tickitz-purple.png";
-import search from "src/assets/icons/search.png";
+import search from "src/assets/Icons/search.png";
 import sample from "src/assets/images/avatar.webp";
 import { useDispatch, useSelector } from "react-redux";
 import profileAction from "src/redux/actions/profile";
@@ -108,8 +108,8 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
                 <Image
                   src={imageUser ? imageUser : sample}
                   layout="fill"
-                  style={{ cursor: "pointer" }}
                   objectFit="cover"
+                  style={{ cursor: "pointer" }}
                   alt="profile"
                   onClick={() => {
                     router.push("/profile");

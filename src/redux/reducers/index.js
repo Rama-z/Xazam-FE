@@ -6,5 +6,5 @@ import movieReduser from "./movie";
 export default combineReducers({
   auth: authReducer,
   movie: movieReduser,
-  profile: profileReducer
+  profile: profileReducer,
 });
