@@ -64,7 +64,12 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
             <div
               className={`${styles["pages-shop"]} d-flex justify-content-center align-items-center`}
             >
-              <p className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}>
+              <p
+                className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}
+                onClick={() => {
+                  router.push("/cinema");
+                }}
+              >
                 Cinemas
               </p>
             </div>
