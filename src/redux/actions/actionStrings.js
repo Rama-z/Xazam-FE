@@ -4,6 +4,7 @@ export const actionStrings = {
   authRegister: "AUTH_REGISTER",
   authForgot: "AUTH_FORGOT_PASSWORD",
   authReset: "AUTH_RESET_PASSWORD",
+  authChange: "AUTH_CHANGE_PASSWORD",
   editProfile: "EDIT_PROFILE",
   getProfile: "GET_PROFILE",
   authConfirm: "AUTH_CONFIRM_PASSWORD",

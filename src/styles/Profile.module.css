@@ -10,7 +10,9 @@
 }
 .dot {
   margin-left: 55%;
+  border-radius: 50px;
 }
+
 .man {
   box-shadow: 0px 8px 32px rgba(186, 186, 186, 0.08);
   border-radius: 6px;
@@ -22,9 +24,13 @@
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
+
 .man-wrap {
   text-align: center;
+  width: 100px;
+  height: 100px;
 }
+
 .name {
   font-family: "Mulish";
   font-style: normal;
@@ -35,7 +41,9 @@
   text-align: center;
   letter-spacing: 0.75px;
   color: #14142b;
+  margin-top: 3rem;
 }
+
 .edit {
   position: absolute;
   margin-left: 39%;
@@ -562,7 +570,7 @@
   border: none;
 }
 .hr-2 {
-  margin-top: 31.8%;
+  margin-top: 29.5%;
 }
 .ui-fail {
   text-align: center;

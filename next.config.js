@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  images: {
-    domains: ["res.cloudinary.com"],
-  },
   async redirects() {
     return [
       {
@@ -16,6 +13,7 @@ module.exports = {
   images: {
     remotePatterns: [
       {
+        domains: ["res.cloudinary.com"],
         protocol: "http",
         hostname: "res.cloudinary.com",
         port: "",

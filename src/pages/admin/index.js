@@ -12,7 +12,7 @@ import spiderman from "../../assets/images/spiderman.png";
 import ebu from "../../assets/images/ebu.png";
 import hiflix from "../../assets/images/hiflix.png";
 import cineone from "../../assets/images/cineone.png";
-import chart from "src/assets/images/chart.png";
+import chart from "src/assets/images/Chart.png";
 import plus from "../../assets/images/plus.png";
 
 function index() {
@@ -27,15 +27,29 @@ function index() {
       <Navbar />
       <main className={` container-fluid ${styles["cont-fluid"]}`}>
         <div className={`container ${styles["cont-up"]} `}>
-          <div className={` ${styles["cont-up"]} container d-flex p-0 justify-content-between `}>
+          <div
+            className={` ${styles["cont-up"]} container d-flex p-0 justify-content-between `}
+          >
             <div className={`container  ${styles["cont1-left"]}`}>
-              <p className={`${styles["movie-description"]}`}>Movie Description</p>
-              <div className={`container card col-md-12 col-lg-12  p-0 m-0 ${styles["card1-left"]}`}>
+              <p className={`${styles["movie-description"]}`}>
+                Movie Description
+              </p>
+              <div
+                className={`container card col-md-12 col-lg-12  p-0 m-0 ${styles["card1-left"]}`}
+              >
                 <div className={` px-5 px-md-2 ${styles.patdualiama}`}>
-                  <div className={`container d-flex justify-content-between p-5 ${styles.spaces} `}>
-                    <div className={`d-flex col-lg-5 col-md-6 ${styles["cont-image"]}`}>
+                  <div
+                    className={`container d-flex justify-content-between p-5 ${styles.spaces} `}
+                  >
+                    <div
+                      className={`d-flex col-lg-5 col-md-6 ${styles["cont-image"]}`}
+                    >
                       <div className={` card ${styles["card-spider"]}`}>
-                        <Image className={` p-4 ${styles["img-spider"]} `} src={spiderman} alt="/" />
+                        <Image
+                          className={` p-4 ${styles["img-spider"]} `}
+                          src={spiderman}
+                          alt="/"
+                        />
                       </div>
                       <form>
                         <p className={`${styles["name-director"]}`}>Director</p>
@@ -44,118 +58,198 @@ function index() {
                         </div>
                       </form>
                     </div>
-                    <div className={`col-lg-7 col-md-6 ${styles["cont-desc-movie"]}`}>
+                    <div
+                      className={`col-lg-7 col-md-6 ${styles["cont-desc-movie"]}`}
+                    >
                       <div className="mb-3">
                         <p className={`${styles["title-desc"]}`}>Movie Name</p>
-                        <form className={`card ${styles["desc-card"]}`}>
-                          <input className={`ps-4 ps-md-2 mb-0 ${styles.inputs} ${styles["font-md"]} `} />
-                        </form>
+                        <div className={`card ${styles["desc-card"]}`}>
+                          <p
+                            className={`ps-4 ps-md-2 mb-0 ${styles["font-md"]} `}
+                          >
+                            Spider-Man: Homecoming
+                          </p>
+                        </div>
                       </div>
                       <div className="mb-3">
                         <p className={`${styles["title-desc"]}`}>Category</p>
-                        <form className={`card ${styles["desc-card"]}`}>
-                          <input className={`ps-4 ps-md-2 mb-0 ${styles.inputs} ${styles["font-md"]} `} />
-                        </form>
+                        <div className={`card ${styles["desc-card"]}`}>
+                          <p
+                            className={`ps-4 ps-md-2 mb-0 ${styles["font-md"]} `}
+                          >
+                            Action, Adventure, Sci-Fi
+                          </p>
+                        </div>
                       </div>
                       <div className={`mb-4 ${styles["realise-cont"]}`}>
                         <div className="col-5">
-                          <p className={`${styles["title-desc"]} ${styles["title-desc-md"]}`}>Release date</p>
-                          <form className={`card ${styles["desc-card"]}`}>
-                            <input className={`ps-4 ps-md-2 mb-0 ${styles.inputs} ${styles["font-md"]} `} />
-                          </form>
+                          <p
+                            className={`${styles["title-desc"]} ${styles["title-desc-md"]}`}
+                          >
+                            Release date
+                          </p>
+                          <div className={`card ${styles["desc-card"]}`}>
+                            <p
+                              className={`ps-4 ps-md-2 mb-0 ${styles["font-md"]} `}
+                            >
+                              07/05/2020
+                            </p>
+                          </div>
                         </div>
-                        <form className={`${styles.formduration}`}>
-                          <p className={`${styles["title-desc"]} ${styles["title-desc-md"]} ${styles.duration}`}> Duration (hour / minute)</p>
-                          <div className={` d-flex justify-content-around ${styles.tigatujuhlima}`}>
-                            <div className={`card col-5 col-md-3 ${styles["desc-card"]} ${styles["position"]} ${styles["cols"]}`}>
-                              <input className={` mb-0 d-flex justify-content-center ${styles.inputs}`} maxLength="2" onKeyPress={inputNumber} />
+                        <form>
+                          <p
+                            className={`${styles["title-desc"]} ${styles["title-desc-md"]}`}
+                          >
+                            {" "}
+                            Duration (hour / minute)
+                          </p>
+                          <div
+                            className={` d-flex justify-content-around ${styles.tigatujuhlima}`}
+                          >
+                            <div
+                              className={`card col-5 col-md-3 ${styles["desc-card"]} ${styles["position"]} ${styles["cols"]}`}
+                            >
+                              <p className=" mb-0 d-flex justify-content-center ">
+                                2
+                              </p>
                             </div>
-                            <div className={`card col-5 col-md-3  ${styles["desc-card"]} ${styles["position-2"]} ${styles["cols"]}`}>
-                              <input className={` mb-0 d-flex justify-content-center ${styles.inputs}`} maxLength="2" onKeyPress={inputNumber} />
+                            <div
+                              className={`card col-5 col-md-3  ${styles["desc-card"]} ${styles["position-2"]} ${styles["cols"]}`}
+                            >
+                              <p className=" mb-0 d-flex justify-content-center ">
+                                13
+                              </p>
                             </div>
                           </div>
                         </form>
                       </div>
-                      <div className={`${styles.divcast}`}>
-                        <p className={`${styles["title-desc"]} ${styles["margins"]}`}>Casts </p>
-                        <form className={`card ${styles["desc-card"]}`}>
-                          <input className={` px-2 mb-0 ${styles.tom} ${styles.inputs}`} />
-                        </form>
+                      <div className="">
+                        <p
+                          className={`${styles["title-desc"]} ${styles["margins"]}`}
+                        >
+                          Casts{" "}
+                        </p>
+                        <div className={`card ${styles["desc-card"]}`}>
+                          <p className={` px-2 mb-0 ${styles.tom}`}>
+                            Tom Holland, Michael Keaton, Robert Dow..{" "}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div className="container px-0 mb-5">
-                    <div className={`${styles["synopsis"]} container col-12 p-5 pb-0`}>
+                    <div
+                      className={`${styles["synopsis"]} container col-12 p-5 pb-0`}
+                    >
                       <p className={`${styles["name-director"]}`}>Synopsis</p>
-                      <form className={`card p-4 col-12 ${styles["Synopsis-card"]}`}>
-                        <textarea className={` mb-0 ${styles.textsynopsis} ${styles.inputs} ${styles.textarea}`} />
-                      </form>
+                      <div
+                        className={`card p-4 col-12 ${styles["Synopsis-card"]}`}
+                      >
+                        <p className={` mb-0 ${styles.textsynopsis}`}>
+                          Thrilled by his experience with the Avengers, Peter
+                          returns home, where he lives with his Aunt May, |{" "}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div className={` d-flex col-md-12 col-lg-4  ${styles["card2-left"]} `}>
+            <div
+              className={` d-flex col-md-12 col-lg-4  ${styles["card2-left"]} `}
+            >
               <div className={`col-md-6 col-lg-12 ${styles.tujuhenamlapan}`}>
-                <p className={`${styles["movie-description"]}`}>Premiere Location </p>
-                <div className={` ${styles["cont-purwokerto"]} container card col-12 p-0 m-0 `}>
-                  {/* <Form.Select disabled className={`${styles["form"]}`} aria-label="Default select example">
-                    <option className={`${styles["purwokerto"]}`}>Purwokerto</option>
+                <p className={`${styles["movie-description"]}`}>
+                  Premiere Location{" "}
+                </p>
+                <div
+                  className={` ${styles["cont-purwokerto"]} container card col-12 p-0 m-0 `}
+                >
+                  <Form.Select
+                    className={`${styles["form"]}`}
+                    aria-label="Default select example"
+                  >
+                    <option className={`${styles["purwokerto"]}`}>
+                      Purwokerto
+                    </option>
                     <option value="1">Jakarta</option>
                     <option value="2">Bali</option>
                     <option value="3">Semarang</option>
-                  </Form.Select> */}
-                  <div className={`d-flex justify-content-around align-items-center ${styles["margin"]}`}>
-                    <Image className={`${styles["ebu"]} ${styles["cursor"]}`} src={ebu} alt="/" />
-                    <Image className={`${styles["hiflix"]} ${styles["cursor"]} `} src={hiflix} alt="/" />
-                    <Image className={`${styles["cineone"]} ${styles["cursor"]}`} src={cineone} alt="/" />
+                  </Form.Select>
+                  <div
+                    className={`d-flex justify-content-around align-items-center ${styles["margin"]}`}
+                  >
+                    <Image className={`${styles["ebu"]}`} src={ebu} alt="/" />
+                    <Image
+                      className={`${styles["hiflix"]}`}
+                      src={hiflix}
+                      alt="/"
+                    />
+                    <Image
+                      className={`${styles["cineone"]}`}
+                      src={cineone}
+                      alt="/"
+                    />
                   </div>
-                  <div className={`d-flex justify-content-around align-items-center ${styles["margin"]}`}>
-                    <Image className={`${styles["ebu"]} ${styles["cursor"]}`} src={ebu} alt="/" />
-                    <Image className={`${styles["hiflix"]} ${styles["cursor"]}`} src={hiflix} alt="/" />
-                    <Image className={`${styles["cineone"]} ${styles["cursor"]}`} src={cineone} alt="/" />
+                  <div
+                    className={`d-flex justify-content-around align-items-center ${styles["margin"]}`}
+                  >
+                    <Image className={`${styles["ebu"]}`} src={ebu} alt="/" />
+                    <Image
+                      className={`${styles["hiflix"]}`}
+                      src={hiflix}
+                      alt="/"
+                    />
+                    <Image
+                      className={`${styles["cineone"]}`}
+                      src={cineone}
+                      alt="/"
+                    />
                   </div>
-                  <div className={`d-flex justify-content-around align-items-center ${styles["margin-3"]}`}>
-                    <Image className={`${styles["ebu"]} ${styles["cursor"]}`} src={ebu} alt="/" />
-                    <Image className={`${styles["hiflix"]} ${styles["cursor"]}`} src={hiflix} alt="/" />
-                    <Image className={`${styles["cineone"]} ${styles["cursor"]}`} src={cineone} alt="/" />
+                  <div
+                    className={`d-flex justify-content-around align-items-center ${styles["margin-3"]}`}
+                  >
+                    <Image className={`${styles["ebu"]}`} src={ebu} alt="/" />
+                    <Image
+                      className={`${styles["hiflix"]}`}
+                      src={hiflix}
+                      alt="/"
+                    />
+                    <Image
+                      className={`${styles["cineone"]}`}
+                      src={cineone}
+                      alt="/"
+                    />
                   </div>
                 </div>
               </div>
               <div className={`col-md-5  col-lg-12 ${styles.tujuhenamlapan}`}>
                 <p className={`${styles["movie-description"]}`}> Showtimes </p>
-                <div className={`${styles["date"]} container card col-12 p-0 m-0 `}>
-                  {/* <Form.Select className={`${styles["form"]} ${styles["form-up"]}`} aria-label="Default select example">
-                    <option className={`${styles["purwokerto"]}`}>Set a date</option>
-                  </Form.Select> */}
-                  <div className={` d-flex pb-5 px-2 ${styles.padtuj} `}>
-                    <div className={` container pt-2 d-flex ${styles.inputdates}`}>
-                      <label className={` py-1 ${styles.set}`}> Start Date : </label>
-                      <input className={`${styles.dates} ${styles["cursor"]}`} type="date" placeholder="DD/MM/YYYY" />
-                    </div>
-                    <div className={` container pt-2 d-flex  ${styles.inputdates}`}>
-                      <label className={` py-1 ${styles.set}`}> End Date : </label>
-                      <input className={`${styles.dates} ${styles["cursor"]}`} type="date" placeholder="DD/MM/YYYY" />
-                    </div>
-                  </div>
-
-                  {/* <Form.Select className={`${styles["form"]} ${styles["form-down"]}`} aria-label="Default select example">
-                    <option className={`${styles["purwokerto"]}`}>Set a date</option>
-                  </Form.Select> */}
-                  <div className={`${styles.jam} d-flex justify-content-around gap-1 mb-4 px-1 `}>
+                <div
+                  className={`${styles["date"]} container card col-12 p-0 m-0 `}
+                >
+                  <Form.Select
+                    disabled
+                    className={`${styles["form"]}`}
+                    aria-label="Default select example"
+                  >
+                    <option className={`${styles["purwokerto"]}`}>
+                      Set a date
+                    </option>
+                  </Form.Select>
+                  <div className="d-flex justify-content-around gap-1 mb-4 px-1">
                     <div className={`card ${styles.add}`}>
-                      <Image className={`${styles["cursor"]}`} src={plus} alt="/" />
+                      <Image src={plus} alt="/" />
                     </div>
-                    <p className={`${styles.time} ${styles["cursor"]}`}> 08:30 am </p>
-                    <p className={`${styles.time} ${styles["cursor"]}`}> 08:30 am </p>
-                    <p className={`${styles.time} ${styles["cursor"]}`}> 08:30 am </p>
+                    <p className={`${styles.time}`}> 08:30 am </p>
+                    <p className={`${styles.time}`}> 08:30 am </p>
+                    <p className={`${styles.time}`}> 08:30 am </p>
                   </div>
-                  <div className={`${styles.jam2} ${styles["cursor"]} d-flex justify-content-around gap-1 mb-4 px-1 `}>
-                    <p className={`${styles.time} ${styles["cursor"]}`}> 08:30 am </p>
-                    <p className={`${styles.time} ${styles["cursor"]}`}> 08:30 am </p>
-                    <p className={`${styles.time} ${styles["cursor"]}`}> 08:30 am </p>
-                    <p className={`${styles.time} ${styles["cursor"]}`}> 08:30 am </p>
+                  <div className="d-flex justify-content-around gap-1 px-1">
+                    <p className={`${styles.time}`}> 08:30 am </p>
+                    <p className={`${styles.time}`}> 08:30 am </p>
+                    <p className={`${styles.time}`}> 08:30 am </p>
+                    <p className={`${styles.time}`}> 08:30 am </p>
                   </div>
                 </div>
               </div>
@@ -164,14 +258,10 @@ function index() {
         </div>
         <div className={`container ${styles["cont-down"]} `}>
           <div className={`d-flex justify-content-between px-2`}>
-            <p className={`${styles["movie-description"]} ${styles.sales}`}>Sales Charts </p>
-            <div className={`${styles["time"]}`}>
-              <p>08:30am</p>
-              <p>10:30pm</p>
-              <p>12:00pm</p>
-            </div>
+            <p className={`${styles["movie-description"]} ${styles.sales}`}>
+              Sales Charts{" "}
+            </p>
           </div>
-
           <div className=" card col-12">
             <ul className={` nav gap-5 pt-5 ps-3 ${styles.navschart}`}>
               <li className="nav-item">
@@ -183,16 +273,39 @@ function index() {
             </ul>
             <hr className="container mt-3 mb-5" />
             <div className="container d-flex">
-              <Image className={`col-4 ${styles.imgcharts}`} src={chart} alt="/" />
-              <Image className={`col-4 ${styles.imgcharts}`} src={chart} alt="/" />
-              <Image className={`col-4 ${styles.imgcharts}`} src={chart} alt="/" />
+              <Image
+                className={`col-4 ${styles.imgcharts}`}
+                src={chart}
+                alt="/"
+              />
+              <Image
+                className={`col-4 ${styles.imgcharts}`}
+                src={chart}
+                alt="/"
+              />
+              <Image
+                className={`col-4 ${styles.imgcharts}`}
+                src={chart}
+                alt="/"
+              />
             </div>
             <div className="container d-flex">
-              <Image className={`col-4 ${styles.imgcharts}`} src={chart} alt="/" />
-              <Image className={`col-4 ${styles.imgcharts}`} src={chart} alt="/" />
-              <Image className={`col-4 ${styles.imgcharts}`} src={chart} alt="/" />
+              <Image
+                className={`col-4 ${styles.imgcharts}`}
+                src={chart}
+                alt="/"
+              />
+              <Image
+                className={`col-4 ${styles.imgcharts}`}
+                src={chart}
+                alt="/"
+              />
+              <Image
+                className={`col-4 ${styles.imgcharts}`}
+                src={chart}
+                alt="/"
+              />
             </div>
-
             <div className="d-flex justify-content-center gap-3 my-5">
               <div className={`card ${styles["pagination-1"]}`}>1</div>
               <div className={`card ${styles["pagination"]}`}>2</div>
