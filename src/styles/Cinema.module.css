@@ -1,142 +1,12 @@
 .main {
-  /* border: 1px solid darkblue; */
   font-family: "Mulish", sans-serif;
   max-width: 1440px;
   margin: auto;
 }
 
-.section-first,
-.section-second,
-.section-third {
-  padding: 0 1rem;
-}
-
-.section-first {
-  /* border: 1px solid darkblue; */
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.desc-secondary {
-  /* border: 1px solid darkblue; */
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.desc-secondary span {
-  /* border: 1px solid darkblue; */
-  position: relative;
-  width: 15rem;
-}
-
-/* .desc-secondary span p {
+/* .tickets-section {
   border: 1px solid darkblue;
 } */
-
-.desc-secondary span p:nth-child(1) {
-  color: #8692a6;
-  font-weight: 600;
-}
-
-.desc-secondary span p:nth-child(2) {
-  color: #121212;
-  font-size: 14px;
-}
-
-.desc-detail {
-  display: flex;
-  flex-direction: column;
-}
-
-.desc-image {
-  /* border: 1px solid darkgoldenrod; */
-  padding: 2rem;
-}
-
-.desc-image .image {
-  /* border: 1px solid darkorange; */
-  height: 358px;
-  width: 232px;
-  border-radius: 4px;
-}
-
-/* .casts {
-  border: 1px solid darkblue;
-} */
-
-.cast-content, .catagory-content {
-  /* border: 1px solid darkblue; */
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  padding-left: 0;
-  width: 50vw;
-}
-
-.cast-content li {
-  /* border: 1px solid darkblue; */
-  list-style: none;
-  font-size: 14px;
-}
-
-/* .desc {
-  border: 1px solid darkblue;
-  display: flex;
-  flex-direction: row;
-} */
-
-.desc-secondary span {
-  /* border: 1px solid darkblue; */
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-/* .desc-detail {
-  border: 1px solid darkgreen;
-} */
-
-.synopsis {
-  /* border: 1px solid darkblue; */
-  display: flex;
-  flex-direction: column;
-}
-
-.synopsis h3 {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.synopsis p {
-  text-align: justify;
-}
-
-.section-third {
-  /* border: 1px solid darkblue; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* background: #f5f6f8; */
-  padding: 1rem;
-  gap: 1rem;
-}
-
-.section-third h1 {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-/* .date-and-location {
-  border: 1px solid darkblue;
-} */
-
-.tickets-section {
-  /* border: 1px solid darkgoldenrod; */
-  width: 100%;
-}
 
 .tickets-list {
   /* border: 1px solid darkred; */
@@ -179,8 +49,8 @@
 .ticket {
   /* border: 1px solid darkorchid; */
   list-style: none;
-  width: 23.8125rem;
-  height: 21.875em;
+  /* width: 23.8125rem;
+  height: 21.875em; */
   padding: 1.5rem;
   border-radius: 8px;
   background: #ffffff;

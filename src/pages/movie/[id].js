@@ -9,35 +9,39 @@ import { Input } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import profile from "../../assets/images/profile.png";
 import Search from "components/Search";
-import movieAction from "src/redux/actions/movie";
-
 import styles from "../../styles/MovieDetail.module.css";
-
-// const myLoader = { src, width, quality };
-const myLoader = ({ src, width, quality }) => {
-  return `${src}?w=${width}&q=${quality || 75}`;
-};
-
-const Detail = ({ datas }) => {
+import movieAction from "src/redux/actions/movie";
+import sample from "src/assets/images/avatar.webp";
+const Detail = () => {
   const [clickText, setClickText] = useState(false);
-  const dispatch = useDispatch();
   const router = useRouter();
-  const moviesDetail = useSelector((state) => state.movie);
-  // dispatch(movieAction.moviedetailFulfilled(datas));
+  const dispatch = useDispatch();
+  const movies = useSelector((state) => state.movie.movieDetail);
+  const casts = useSelector((state) => state.movie.movieDetail.cast);
+  const catagories = useSelector((state) => state.movie.movieDetail.category);
 
-  useEffect(() => {
-    dispatch(movieAction.moviedetailFulfilled(datas));
-  }, [router.query.id, dispatch, datas]);
+  const [name, setName] = useState(movies.name);
+  const [image, setImage] = useState(movies.image);
+  const [director, setDirector] = useState(movies.director);
+  const [relasedate, setRelasedate] = useState(movies.relase_date);
+  const [duration, setDuration] = useState(movies.duration);
+  const [synopsis, setSynopsis] = useState(movies.synopsis);
 
   const handleClickText = () => {
     setClickText(!clickText);
   };
 
-  // useEffect(() => {
-  //   dispatch(movieAction.movieDetailThunk(router.query.detail,setName, setImage, setDirector,
-  //   setRelasedate, setDuration, setSynopsis
-  //     ));
-  // }, [dispatch, router.query.detail]);
+  useEffect(() => {
+    dispatch(
+      movieAction.movieDetailThunk(router.query.id),
+      setName,
+      setImage,
+      setDirector,
+      setRelasedate,
+      setDuration,
+      setSynopsis
+    );
+  }, [dispatch, router.query.id]);
 
   return (
     <>
@@ -54,36 +58,41 @@ const Detail = ({ datas }) => {
         <section className={styles["section-first"]}>
           <span className={styles["desc-image"]}>
             <Image
-              loader={myLoader}
-              src={moviesDetail.data.image}
-              width={90}
-              height={90}
-              alt={``}
+              src={image ? image : sample}
+              alt={name}
               className={styles["image"]}
+              width={500}
+              height={500}
             />
           </span>
           <span className={styles["desc-main"]}>
             <span className={styles["desc-detail"]}>
-              <h3>{``}</h3>
-              <p>{``}</p>
+              <h3>{name}</h3>
+              <span className={styles["catagory-content"]}>
+                {catagories.map((result, idx) => (
+                  <p key={idx}>{result}</p>
+                ))}
+              </span>
             </span>
             <span className={styles["desc-secondary"]}>
               <span className={styles["release"]}>
                 <p>Release</p>
-                <p>{``}</p>
+                <p>{relasedate}</p>
               </span>
               <span className={styles["ridrected-by"]}>
                 <p>Directed by</p>
-                <p>{``}</p>
+                <p>{director}</p>
               </span>
               <span className={styles["duration"]}>
                 <p>Duration</p>
-                <p>{``}</p>
+                <p>{duration}</p>
               </span>
               <span className={styles["casts"]}>
                 <p>Casts</p>
                 <ul className={styles["cast-content"]}>
-                  <li>{``}</li>
+                  {casts.map((result, idx) => (
+                    <li key={idx}>{result}</li>
+                  ))}
                 </ul>
               </span>
             </span>
@@ -92,15 +101,7 @@ const Detail = ({ datas }) => {
         <section className={styles["section-second"]}>
           <span className={styles["synopsis"]}>
             <h3>Synopsis</h3>
-            <p>
-              Thrilled by his experience with the Avengers, Peter returns home,
-              where he lives with his Aunt May, under the watchful eye of his
-              new mentor Tony Stark, Peter tries to fall back into his normal
-              daily routine - distracted by thoughts of proving himself to be
-              more than just your friendly neighborhood Spider-Man - but when
-              the Vulture emerges as a new villain, everything that Peter holds
-              most important will be threatened.
-            </p>
+            <p>{synopsis}</p>
           </span>
         </section>
         <section className={styles["section-third"]}>
@@ -130,7 +131,7 @@ const Detail = ({ datas }) => {
                     <span className={styles["ticket-image-section"]}>
                       <Image
                         src={``}
-                        alt={`Image`}
+                        alt={``}
                         className={styles["ticket-image"]}
                       />
                     </span>
@@ -243,27 +244,6 @@ const Detail = ({ datas }) => {
       <Footer />
     </>
   );
-};
-
-export const getServerSideProps = async (context) => {
-  try {
-    const baseUrl = `https://xazam-be.vercel.app/api/xazam/movie/movie-detail/${context.params.id}`;
-
-    const result = await fetch(baseUrl);
-    const datas = await result.json();
-    return {
-      props: {
-        datas,
-      },
-    };
-  } catch (err) {
-    console.log(err);
-    return {
-      props: {
-        data: err,
-      },
-    };
-  }
 };
 
 export default Detail;
