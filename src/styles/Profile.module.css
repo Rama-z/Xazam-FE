@@ -250,7 +250,8 @@
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
   height: fit-content;
-  margin-top: 1.8%;
+  /* margin-top: 1.8%; */
+  padding-bottom: 6.5%;
 }
 .fill {
   background: rgba(244, 183, 64, 0.3);
@@ -360,7 +361,7 @@
   margin-left: -2%;
 }
 .hr {
-  width: 100%;
+  width: 95%;
 }
 .dash1 {
   margin-top: 5%;
@@ -456,7 +457,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 32px;
-  padding-top: 15%;
+  padding-top: 5%;
   letter-spacing: 0.75px;
 
   /* Text - Title */
@@ -589,12 +590,14 @@
     width: 25vw;
     margin-left: 20%;
     height: 6vw;
+    margin-top: 15%;
   }
   .btn-changes {
     font-size: 15px;
     width: 25vw;
     margin-left: 20%;
     height: 6vw;
+    margin-top: 15%;
   }
   .edit {
     margin-top: -8%;
@@ -604,6 +607,10 @@
     margin-top: -14%;
     margin-left: 43%;
   }
+  .sectwrap{
+    padding-bottom: 11%;
+  }
+  
 }
 
 @media screen and (max-width: 428px) {
