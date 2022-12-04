@@ -19,6 +19,8 @@ const Home = () => {
   const [clickText, setClickText] = useState(false);
   const [upcomingShow, setUpcomingShow] = useState(true);
   const [show, setShow] = useState(true);
+  const [upComing, setUpComing] = useState(5);
+  const [nowShowing, setNowShowing] = useState(5);
   const dispatch = useDispatch();
   const moviesNowShowing = useSelector(
     (state) => state.movie.showTimes.nowShowing
@@ -109,6 +111,7 @@ const Home = () => {
             <p
               onClick={() => {
                 show ? setShow(false) : setShow(true);
+                setNowShowing(nowShowing === 5 ? 20 : 5);
               }}
             >
               {show ? `view all` : `view less`}
@@ -116,7 +119,7 @@ const Home = () => {
           </span>
           <ul className={`${styles["list-movies"]}`}>
             {moviesNowShowing.map((movie, idx) => {
-              if (idx < 5) {
+              if (idx < nowShowing) {
                 return (
                   <li
                     className={styles["movie-spesific-to-image"]}
@@ -153,6 +156,7 @@ const Home = () => {
             <p
               onClick={() => {
                 upcomingShow ? setUpcomingShow(false) : setUpcomingShow(true);
+                setUpComing(upComing === 5 ? 20 : 5);
               }}
             >
               {upcomingShow ? `view all` : `view less`}
@@ -175,7 +179,7 @@ const Home = () => {
           <span className={`${styles["section__header__movie"]}`}>
             <ul className={`${styles["list-movies"]}`}>
               {moviesUpComing.map((movie, idx) => {
-                if (idx < 5) {
+                if (idx < upComing) {
                   return (
                     <li className={`${styles["movie"]}`} key={idx}>
                       <Image
