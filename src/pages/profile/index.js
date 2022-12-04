@@ -9,7 +9,7 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import profileAction from "src/redux/actions/profile";
-
+import sample from "src/assets/images/avatar.webp";
 import Upload from "components/upload/upload";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -145,6 +145,8 @@ const Profile = () => {
                   onChange={(e) => onImageUpload(e)}
                   img={imagePreview !== null ? imagePreview : imageUser}
                   name="image"
+                  width={100}
+                  height={100}
                 />
               </div>
               <p className={`${styles["name"]}`}>

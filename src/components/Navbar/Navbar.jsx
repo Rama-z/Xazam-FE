@@ -108,8 +108,8 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
                 <Image
                   src={imageUser ? imageUser : sample}
                   layout="fill"
-                  style={{ cursor: "pointer" }}
                   objectFit="cover"
+                  style={{ cursor: "pointer" }}
                   alt="profile"
                   onClick={() => {
                     router.push("/profile");
