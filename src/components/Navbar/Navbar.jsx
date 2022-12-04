@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { useRouter } from "next/router";
+import Search from "src/components/Search";
 
 // Import Styles
 import styles from "src/styles/Navbar.module.css";
@@ -23,6 +24,7 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
   const [lastName, setLastName] = useState(profile.userData.lastName);
   const [phoneNum, setPhoneNum] = useState(profile.userData.notelp);
   const [imageUser, setImageUser] = useState(profile.image);
+  const [clickText, setClickText] = useState(false);
   const router = useRouter();
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -47,6 +49,9 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
             src={Tickitz}
             alt="Tickitz"
             className={styles["company__image"]}
+            onClick={() => {
+              router.push("/home");
+            }}
           />
           <div className="dropdown"></div>
         </Navbar.Brand>
@@ -56,7 +61,7 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
             <Nav.Link
               className={` p-0 ${styles["nav-links"]}`}
               onClick={() => {
-                router.push("/home");
+                router.push("/movies");
               }}
             >
               Movies
@@ -101,7 +106,9 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
               </Dropdown.Menu>
             </Dropdown>
             <Image
-              onClick={propsOnclick}
+              onClick={() => {
+                setClickText(!clickText);
+              }}
               className={`${styles["icon-1"]} ${styles["cursor"]}`}
               src={search}
               alt="/"
@@ -124,6 +131,7 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
             )}
           </div>
         </Navbar.Collapse>
+        <Search showInputText={clickText} />
       </Container>
     </Navbar>
   );

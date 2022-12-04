@@ -102,12 +102,11 @@ const deleteMovieFulfilled = (data) => ({
   payload: { data },
 });
 
-const moviesThunk = (success, denied) => {
+const moviesThunk = (params, success, denied) => {
   return async (dispatch) => {
     try {
       dispatch(moviesPanding());
-      const result = await movies();
-      console.log(result.data);
+      const result = await movies(params);
       dispatch(moviesFulfilled(result.data));
       typeof success === "function" && success();
     } catch (error) {

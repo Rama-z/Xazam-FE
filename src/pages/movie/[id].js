@@ -17,15 +17,15 @@ const Detail = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movie.movieDetail);
-  const casts = useSelector((state) => state.movie.movieDetail.cast);
-  const catagories = useSelector((state) => state.movie.movieDetail.category);
+  const casts = useSelector((state) => state.movie.movieDetail?.cast);
+  const catagories = useSelector((state) => state.movie.movieDetail?.category);
 
-  const [name, setName] = useState(movies.name);
-  const [image, setImage] = useState(movies.image);
-  const [director, setDirector] = useState(movies.director);
-  const [relasedate, setRelasedate] = useState(movies.relase_date);
-  const [duration, setDuration] = useState(movies.duration);
-  const [synopsis, setSynopsis] = useState(movies.synopsis);
+  const [name, setName] = useState(movies?.name);
+  const [image, setImage] = useState(movies?.image);
+  const [director, setDirector] = useState(movies?.director);
+  const [relasedate, setRelasedate] = useState(movies?.relase_date);
+  const [duration, setDuration] = useState(movies?.duration);
+  const [synopsis, setSynopsis] = useState(movies?.synopsis);
 
   const handleClickText = () => {
     setClickText(!clickText);
@@ -69,7 +69,7 @@ const Detail = () => {
             <span className={styles["desc-detail"]}>
               <h3>{name}</h3>
               <span className={styles["catagory-content"]}>
-                {catagories.map((result, idx) => (
+                {catagories?.map((result, idx) => (
                   <p key={idx}>{result}</p>
                 ))}
               </span>
@@ -90,7 +90,7 @@ const Detail = () => {
               <span className={styles["casts"]}>
                 <p>Casts</p>
                 <ul className={styles["cast-content"]}>
-                  {casts.map((result, idx) => (
+                  {casts?.map((result, idx) => (
                     <li key={idx}>{result}</li>
                   ))}
                 </ul>

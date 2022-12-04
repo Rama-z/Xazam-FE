@@ -6,7 +6,7 @@
   /* border: 1px solid darkgoldenrod; */
   font-family: "Mulish", sans-serif;
   max-width: 1440px;
-  margin: auto;
+  margin-left: 8rem;
 }
 
 .section_one,
@@ -196,6 +196,11 @@
   cursor: pointer;
 }
 
+.movie-spesific-to-image:hover {
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
 .list-movies {
   padding: 1rem;
   display: grid;
@@ -224,6 +229,12 @@
   width: 159px;
   height: 224px;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+.movie-images:hover {
+  transform: scale(1.05);
+  transition-duration: 0.5s;
 }
 
 .movie .title {

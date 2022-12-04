@@ -1,6 +1,8 @@
 import { Router, useRouter } from "next/router";
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
+import styles from "src/styles/Movies.module.css";
 
 const Search = ({ showInputText }) => {
   const router = useRouter();
@@ -28,11 +30,21 @@ const Search = ({ showInputText }) => {
 
   return (
     <>
-      <span style={inputTextHeaderSection}>
+      <span
+        style={inputTextHeaderSection}
+        className={`${styles["input-index"]}`}
+      >
         {showInputText ? (
           <form
-            onSubmit={() => {
-              router.push(`/movies?search=${searchBar}`);
+            onSubmit={(e) => {
+              if (router.route === "/movies") {
+                e.preventDefault();
+                router.push(`/movies/?search=${searchBar}&limit=10&page=1`);
+              }
+              {
+                e.preventDefault();
+                router.push(`/movies/?search=${searchBar}&limit=10&page=1`);
+              }
             }}
           >
             <input

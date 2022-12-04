@@ -16,6 +16,7 @@ import movieAction from "src/redux/actions/movie";
 
 const Home = () => {
   const router = useRouter();
+  console.log(router);
   const [clickText, setClickText] = useState(false);
   const [upcomingShow, setUpcomingShow] = useState(true);
   const [show, setShow] = useState(true);
@@ -23,10 +24,11 @@ const Home = () => {
   const [nowShowing, setNowShowing] = useState(5);
   const dispatch = useDispatch();
   const moviesNowShowing = useSelector(
-    (state) => state.movie.showTimes.nowShowing
+    (state) => state.movie.showTimes?.nowShowing
   );
-  console.log(moviesNowShowing);
-  const moviesUpComing = useSelector((state) => state.movie.showTimes.upComing);
+  const moviesUpComing = useSelector(
+    (state) => state.movie.showTimes?.upComing
+  );
 
   const handleClickText = () => {
     setClickText(!clickText);
@@ -119,7 +121,7 @@ const Home = () => {
             </p>
           </span>
           <ul className={`${styles["list-movies"]}`}>
-            {moviesNowShowing.map((movie, idx) => {
+            {moviesNowShowing?.map((movie, idx) => {
               if (idx < nowShowing) {
                 return (
                   <li
@@ -179,7 +181,7 @@ const Home = () => {
           </ul>
           <span className={`${styles["section__header__movie"]}`}>
             <ul className={`${styles["list-movies"]}`}>
-              {moviesUpComing.map((movie, idx) => {
+              {moviesUpComing?.map((movie, idx) => {
                 if (idx < upComing) {
                   return (
                     <li className={`${styles["movie"]}`} key={idx}>
