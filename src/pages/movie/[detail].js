@@ -1,22 +1,32 @@
 import React from "react";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Header from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { Input } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
 import profile from "../../assets/images/profile.png";
 import Search from "components/Search";
-
 import styles from "../../styles/MovieDetail.module.css";
+import movieAction from "src/redux/actions/movie";
 
 const Detail = () => {
   const [clickText, setClickText] = useState(false);
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const movies = useSelector((state) => state.movie.movieDetail);
+  console.log(movies);
 
   const handleClickText = () => {
     setClickText(!clickText);
   };
+
+  useEffect(() => {
+    dispatch(movieAction.movieDetailThunk(router.query.detail));
+  }, [dispatch, router.query.detail]);
+
   return (
     <>
       <Header
@@ -31,65 +41,43 @@ const Detail = () => {
       <main className={styles["main"]}>
         <section className={styles["section-first"]}>
           <span className={styles["desc-image"]}>
-            <Image src={``} alt={``} className={styles["image"]} />
+            <Image
+              src={``}
+              alt={``}
+              className={styles["image"]}
+              width={500}
+              height={500}
+            />
           </span>
           <span className={styles["desc-main"]}>
             <span className={styles["desc-detail"]}>
-              <h3>{`Spider-Man: Homecoming`}</h3>
-              <p>{`Advanture, Action, Sci-Fi`}</p>
+              <h3>{``}</h3>
+              <p>{``}</p>
             </span>
             <span className={styles["desc-secondary"]}>
               <span className={styles["release"]}>
                 <p>Release</p>
-                <p>{`June 28, 2017`}</p>
+                <p>{``}</p>
               </span>
               <span className={styles["ridrected-by"]}>
                 <p>Directed by</p>
-                <p>{`Jon Watss`}</p>
+                <p>{``}</p>
               </span>
               <span className={styles["duration"]}>
                 <p>Duration</p>
-                <p>{`2 hours 13 minutes `}</p>
+                <p>{``}</p>
               </span>
-              <span className={styles["costs"]}>
-                <p>Costs</p>
-                <p>{`Tom Holland, Michael Keaton, Robert Downey Jr., ...`}</p>
+              <span className={styles["casts"]}>
+                <p>Casts</p>
+                <p>{``}</p>
               </span>
-              {/* <span className={styles["desc"]}>
-                <span className={styles["release"]}>
-                  <p>Release</p>
-                  <p>{`June 28, 2017`}</p>
-                </span>
-                <span className={styles["ridrected-by"]}>
-                  <p>Directed by</p>
-                  <p>{`Jon Watss`}</p>
-                </span>
-              </span> */}
-              {/* <span className={styles["desc"]}>
-                <span className={styles["duration"]}>
-                  <p>Duration</p>
-                  <p>{`2 hours 13 minutes `}</p>
-                </span>
-                <span className={styles["costs"]}>
-                  <p>Costs</p>
-                  <p>{`Tom Holland, Michael Keaton, Robert Downey Jr., ...`}</p>
-                </span>
-              </span> */}
             </span>
           </span>
         </section>
         <section className={styles["section-second"]}>
           <span className={styles["synopsis"]}>
             <h3>Synopsis</h3>
-            <p>
-              Thrilled by his experience with the Avengers, Peter returns home,
-              where he lives with his Aunt May, under the watchful eye of his
-              new mentor Tony Stark, Peter tries to fall back into his normal
-              daily routine - distracted by thoughts of proving himself to be
-              more than just your friendly neighborhood Spider-Man - but when
-              the Vulture emerges as a new villain, everything that Peter holds
-              most important will be threatened.
-            </p>
+            <p>{``}</p>
           </span>
         </section>
         <section className={styles["section-third"]}>
