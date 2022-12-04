@@ -87,7 +87,6 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
               >
                 Location
               </Dropdown.Toggle>
-
               <Dropdown.Menu variant="white">
                 <Dropdown.Item href="#/action-1" active>
                   Action
@@ -98,13 +97,12 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
             </Dropdown>
             <Image
               onClick={propsOnclick}
-              className={`  ${styles["icon-1"]} ${styles["cursor"]}`}
+              className={`${styles["icon-1"]} ${styles["cursor"]}`}
               src={search}
               alt="/"
             />
-            {/* TO DO: Using props to reusable components */}
-            <span className={styles["image-profile"]}>
-              {auth.userData.user_id ? (
+            {auth.userData.user_id ? (
+              <div className={styles["image-profile"]}>
                 <Image
                   src={imageUser ? imageUser : sample}
                   layout="fill"
@@ -115,10 +113,10 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
                     router.push("/profile");
                   }}
                 />
-              ) : (
-                profileAndBtn
-              )}
-            </span>
+              </div>
+            ) : (
+              profileAndBtn
+            )}
           </div>
         </Navbar.Collapse>
       </Container>

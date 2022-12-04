@@ -17,12 +17,12 @@ const moviesPanding = () => ({
   type: actionMovies.movieAll.concat("-", Pending),
 });
 
-const moviesRejected = error => ({
+const moviesRejected = (error) => ({
   type: actionMovies.movieAll.concat("-", Rejected),
   payload: { error },
 });
 
-const moviesFulfilled = data => ({
+const moviesFulfilled = (data) => ({
   type: actionMovies.movieAll.concat("-", Fulfilled),
   payload: { data },
 });
@@ -32,27 +32,27 @@ const moviewDetailPanding = () => ({
   type: actionMovies.movieDetail.concat("-", Pending),
 });
 
-const moviewDetailRejected = error => ({
+const moviewDetailRejected = (error) => ({
   type: actionMovies.movieDetail.concat("-", Rejected),
-  payload: {error},
-})
+  payload: { error },
+});
 
-const moviewDetailFulfilled = data => ({
+const moviewDetailFulfilled = (data) => ({
   type: actionMovies.movieDetail.concat("-", Fulfilled),
-  payload: {data},
-})
+  payload: { data },
+});
 
 // TODO: Showtimes action type
 const showTimesPending = () => ({
   type: actionMovies.showTimes.concat("-", Pending),
 });
 
-const showTimesRejected = error => ({
+const showTimesRejected = (error) => ({
   type: actionMovies.showTimes.concat("-", Rejected),
   payload: { error },
 });
 
-const showTimesFulfilled = data => ({
+const showTimesFulfilled = (data) => ({
   type: actionMovies.showTimes.concat("-", Fulfilled),
   payload: { data },
 });
@@ -62,12 +62,12 @@ const showTimePending = () => ({
   type: actionMovies.showTime.concat("-", Pending),
 });
 
-const showTimeRejected = error => ({
+const showTimeRejected = (error) => ({
   type: actionMovies.showTime.concat("-", Rejected),
   payload: { error },
 });
 
-const showTimeFulfilled = data => ({
+const showTimeFulfilled = (data) => ({
   type: actionMovies.showTime.concat("-", Fulfilled),
   payload: { data },
 });
@@ -77,12 +77,12 @@ const createMoviewPending = () => ({
   type: actionMovies.movieCreate.concat("-", Pending),
 });
 
-const createMoviewRejected = error => ({
+const createMoviewRejected = (error) => ({
   type: actionMovies.movieCreate.concat("-", Rejected),
   payload: { error },
 });
 
-const createMoviewFulfilled = data => ({
+const createMoviewFulfilled = (data) => ({
   type: actionMovies.movieCreate.concat("-", Fulfilled),
   payload: { data },
 });
@@ -92,12 +92,12 @@ const deleteMoviePending = () => ({
   type: actionMovies.movieDelete.concat("-", Pending),
 });
 
-const deleteMoviewRejected = error => ({
+const deleteMoviewRejected = (error) => ({
   type: actionMovies.movieDelete.concat("-", Rejected),
   payload: { error },
 });
 
-const deleteMoviewFulfilled = data => ({
+const deleteMoviewFulfilled = (data) => ({
   type: actionMovies.movieDelete.concat("-", Fulfilled),
   payload: { data },
 });
@@ -114,8 +114,8 @@ const moviesThunk = (success, denied) => {
       dispatch(moviesRejected(error));
       typeof denied === "function" && denied();
     }
-  }
-}
+  };
+};
 
 const movieDetailThunk = (id, success, denied) => {
   return async (dispatch) => {
@@ -199,6 +199,10 @@ const movieAction = {
   showTimeThunk,
   createMovieThunk,
   deleteMoviewThunk,
+<<<<<<< HEAD
 }
+=======
+};
+>>>>>>> main
 
 export default movieAction;

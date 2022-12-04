@@ -19,6 +19,8 @@ const Home = () => {
   const [clickText, setClickText] = useState(false);
   const [upcomingShow, setUpcomingShow] = useState(true);
   const [show, setShow] = useState(true);
+  const [upComing, setUpComing] = useState(5);
+  const [nowShowing, setNowShowing] = useState(5);
   const dispatch = useDispatch();
   const moviesNowShowing = useSelector(
     (state) => state.movie.showTimes.nowShowing
@@ -65,31 +67,30 @@ const Home = () => {
           </span>
           <span className={styles["title-image"]}>
             <ul className={styles["list-images-section"]}>
-              <li className={styles["list-image"]}>
+              <li className={styles["list-image1"]}>
                 <Image
                   src={spiderman}
                   alt={`spiderman`}
-                  className={styles["content-list-image"]}
+                  className={styles["content-list-image1"]}
                   contain
-                  width={500}
-                  height={500}
+                  objectFit="cover"
                 />
               </li>
-              <li className={styles["list-image"]}>
+              <li className={styles["list-image2"]}>
                 <Image
                   src={lion}
                   alt={`lion`}
-                  className={styles["content-list-image"]}
+                  className={styles["content-list-image2"]}
                   contain
                   width={500}
                   height={500}
                 />
               </li>
-              <li className={styles["list-image"]}>
+              <li className={styles["list-image3"]}>
                 <Image
                   src={movie}
                   alt={`movie`}
-                  className={styles["content-list-image"]}
+                  className={styles["content-list-image3"]}
                   contain
                   width={500}
                   height={500}
@@ -110,32 +111,37 @@ const Home = () => {
             <p
               onClick={() => {
                 show ? setShow(false) : setShow(true);
+                setNowShowing(nowShowing === 5 ? 20 : 5);
               }}
             >
               {show ? `view all` : `view less`}
             </p>
           </span>
           <ul className={`${styles["list-movies"]}`}>
-            {moviesNowShowing.map((movie, idx) => (
-              <li
-                className={styles["movie-spesific-to-image"]}
-                key={idx}
-                onClick={() =>
-                  router.push({
-                    pathname: "/movie/[detail]",
-                    query: { detail: `${movie.id}` },
-                  })
-                }
-              >
-                <Image
-                  src={movie.image}
-                  alt={`movie`}
-                  className={styles["movie-images"]}
-                  width={500}
-                  height={500}
-                />
-              </li>
-            ))}
+            {moviesNowShowing.map((movie, idx) => {
+              if (idx < nowShowing) {
+                return (
+                  <li
+                    className={styles["movie-spesific-to-image"]}
+                    key={idx}
+                    onClick={() =>
+                      router.push({
+                        pathname: `/movie/[id]`,
+                        query: { id: `${movie.id}` },
+                      })
+                    }
+                  >
+                    <Image
+                      src={movie.image}
+                      alt={`movie`}
+                      className={styles["movie-images"]}
+                      width={500}
+                      height={500}
+                    />
+                  </li>
+                );
+              }
+            })}
           </ul>
         </section>
         <section
@@ -150,6 +156,7 @@ const Home = () => {
             <p
               onClick={() => {
                 upcomingShow ? setUpcomingShow(false) : setUpcomingShow(true);
+                setUpComing(upComing === 5 ? 20 : 5);
               }}
             >
               {upcomingShow ? `view all` : `view less`}
@@ -171,28 +178,32 @@ const Home = () => {
           </ul>
           <span className={`${styles["section__header__movie"]}`}>
             <ul className={`${styles["list-movies"]}`}>
-              {moviesUpComing.map((movie, idx) => (
-                <li className={`${styles["movie"]}`} key={idx}>
-                  <Image
-                    src={movie.image}
-                    alt={`movie`}
-                    className={styles["movie-images"]}
-                    width={500}
-                    height={500}
-                  />
-                  <h3 className={styles[`title`]}>{movie.name}</h3>
-                  <p className={styles["description"]}>{movie.category}</p>
-                  <button
-                    className={styles["btn-movie"]}
-                    onClick={() =>
-                      router.push({
-                        pathname: "/movie/[detail]",
-                        query: { detail: `${movie.id}` },
-                      })
-                    }
-                  >{`Details`}</button>
-                </li>
-              ))}
+              {moviesUpComing.map((movie, idx) => {
+                if (idx < upComing) {
+                  return (
+                    <li className={`${styles["movie"]}`} key={idx}>
+                      <Image
+                        src={movie.image ? movie.image : sample}
+                        alt={`movie`}
+                        className={styles["movie-images"]}
+                        width={500}
+                        height={500}
+                      />
+                      <h3 className={styles[`title`]}>{movie.name}</h3>
+                      <p className={styles["description"]}>{movie.category}</p>
+                      <button
+                        className={styles["btn-movie"]}
+                        onClick={() =>
+                          router.push({
+                            pathname: "/movie/[id]",
+                            query: { id: `${movie.id}` },
+                          })
+                        }
+                      >{`Details`}</button>
+                    </li>
+                  );
+                }
+              })}
             </ul>
           </span>
         </section>
