@@ -16,25 +16,32 @@ const Detail = () => {
   const [clickText, setClickText] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
-  // const movies = useSelector((state) => state.movie.movieDetail);
-  // const casts = useSelector((state) => state.movie.movieDetail.cast);
+  const movies = useSelector((state) => state.movie.movieDetail);
+  const casts = useSelector((state) => state.movie.movieDetail.cast);
+  const catagories = useSelector((state) => state.movie.movieDetail.category);
 
-  // const [name, setName] = useState(movies.name);
-  // const [image, setImage] = useState(movies.image);
-  // const [director, setDirector] = useState(movies.director);
-  // const [relasedate, setRelasedate] = useState(movies.relase_date);
-  // const [duration, setDuration] = useState(movies.duration);
-  // const [synopsis, setSynopsis] = useState(movies.synopsis);
+  const [name, setName] = useState(movies.name);
+  const [image, setImage] = useState(movies.image);
+  const [director, setDirector] = useState(movies.director);
+  const [relasedate, setRelasedate] = useState(movies.relase_date);
+  const [duration, setDuration] = useState(movies.duration);
+  const [synopsis, setSynopsis] = useState(movies.synopsis);
 
   const handleClickText = () => {
     setClickText(!clickText);
   };
 
-  // useEffect(() => {
-  //   dispatch(movieAction.movieDetailThunk(router.query.detail,setName, setImage, setDirector,
-  //   setRelasedate, setDuration, setSynopsis
-  //     ));
-  // }, [dispatch, router.query.detail]);
+  useEffect(() => {
+    dispatch(
+      movieAction.movieDetailThunk(router.query.detail),
+      setName,
+      setImage,
+      setDirector,
+      setRelasedate,
+      setDuration,
+      setSynopsis
+    );
+  }, [dispatch, router.query.detail]);
 
   return (
     <>
@@ -51,8 +58,8 @@ const Detail = () => {
         <section className={styles["section-first"]}>
           <span className={styles["desc-image"]}>
             <Image
-              src={``}
-              alt={``}
+              src={image}
+              alt={name}
               className={styles["image"]}
               width={500}
               height={500}
@@ -60,26 +67,32 @@ const Detail = () => {
           </span>
           <span className={styles["desc-main"]}>
             <span className={styles["desc-detail"]}>
-              <h3>{``}</h3>
-              <p>{``}</p>
+              <h3>{name}</h3>
+              <span className={styles["catagory-content"]}>
+                {catagories.map((result, idx) => (
+                  <p key={idx}>{result}</p>
+                ))}
+              </span>
             </span>
             <span className={styles["desc-secondary"]}>
               <span className={styles["release"]}>
                 <p>Release</p>
-                <p>{``}</p>
+                <p>{relasedate}</p>
               </span>
               <span className={styles["ridrected-by"]}>
                 <p>Directed by</p>
-                <p>{``}</p>
+                <p>{director}</p>
               </span>
               <span className={styles["duration"]}>
                 <p>Duration</p>
-                <p>{``}</p>
+                <p>{duration}</p>
               </span>
               <span className={styles["casts"]}>
                 <p>Casts</p>
                 <ul className={styles["cast-content"]}>
-                  <li>{``}</li>
+                  {casts.map((result, idx) => (
+                    <li key={idx}>{result}</li>
+                  ))}
                 </ul>
               </span>
             </span>
@@ -88,7 +101,7 @@ const Detail = () => {
         <section className={styles["section-second"]}>
           <span className={styles["synopsis"]}>
             <h3>Synopsis</h3>
-            <p>{}</p>
+            <p>{synopsis}</p>
           </span>
         </section>
         <section className={styles["section-third"]}>

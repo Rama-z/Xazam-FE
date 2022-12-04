@@ -23,6 +23,7 @@ const Home = () => {
   const moviesNowShowing = useSelector(
     (state) => state.movie.showTimes.nowShowing
   );
+  console.log(moviesNowShowing);
   const moviesUpComing = useSelector((state) => state.movie.showTimes.upComing);
 
   const handleClickText = () => {
