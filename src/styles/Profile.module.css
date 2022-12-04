@@ -35,41 +35,41 @@
   letter-spacing: 0.75px;
   color: #14142b;
 }
-.edit{
+.edit {
   position: absolute;
   margin-left: 39%;
   margin-top: -3%;
   width: 5vw;
   height: fit-content;
-  font-family: 'Mulish';
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 28px;
-display: flex;
-align-items: center;
-text-align: center;
-letter-spacing: 0.75px;
-color: #5f2eea;
-cursor: pointer;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #5f2eea;
+  cursor: pointer;
 }
-.edit2{
+.edit2 {
   position: absolute;
   margin-left: 39%;
   margin-top: -3%;
   width: 5vw;
   height: fit-content;
-  font-family: 'Mulish';
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 28px;
-display: flex;
-align-items: center;
-text-align: center;
-letter-spacing: 0.75px;
-color: #5f2eea;
-cursor: pointer;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #5f2eea;
+  cursor: pointer;
 }
 .tag {
   font-family: "Mulish";
@@ -215,31 +215,30 @@ cursor: pointer;
   box-shadow: inset 0px 2px 4px rgba(17, 17, 17, 0.16);
   border-radius: 8px;
 }
-.list-cat{
-  font-family: 'Mulish';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 25px;
-/* identical to box height */
+.list-cat {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  /* identical to box height */
 
-display: flex;
-align-items: center;
-letter-spacing: 0.25px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25px;
 
-color: #6B6B6B;
+  color: #6b6b6b;
 }
-.content-cat{
-  font-family: 'Mulish';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 25px;
-align-items: center;
-text-align: right;
-letter-spacing: 0.25px;
-color: #000000;
-
+.content-cat {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  align-items: center;
+  text-align: right;
+  letter-spacing: 0.25px;
+  color: #000000;
 }
 .main-sec {
   background-color: white;
@@ -561,126 +560,124 @@ color: #000000;
   color: #f7f7fc;
 }
 .hr-2 {
-  margin-top: 31.8%;
+  margin-top: 29.5%;
 }
-.ui-fail{
+.ui-fail {
   text-align: center;
-   font-weight: bold;
-   color: red;
-   margin-top: -12%;
-   margin-left: 45%;
+  font-weight: bold;
+  color: red;
+  margin-top: -12%;
+  margin-left: 45%;
 }
 
 @media screen and (max-width: 768px) {
-  .scrlll{
-      width: 20vw;
+  .scrlll {
+    width: 20vw;
   }
   .five-pointed-star {
     margin-left: -5%;
   }
-  .hr-2{
+  .hr-2 {
     margin-top: 41%;
   }
-  .eye{
+  .eye {
     margin-left: 0.5%;
     margin-top: 1%;
-    
   }
-  .btn-change{
-    font-size: 15px;
-    width: 25vw;
-    margin-left: 20%;
-    height: 6vw
-  }
-  .btn-changes{
+  .btn-change {
     font-size: 15px;
     width: 25vw;
     margin-left: 20%;
     height: 6vw;
   }
-  .edit{
+  .btn-changes {
+    font-size: 15px;
+    width: 25vw;
+    margin-left: 20%;
+    height: 6vw;
+  }
+  .edit {
     margin-top: -8%;
     margin-left: 43%;
   }
-  .edit2{
+  .edit2 {
     margin-top: -14%;
     margin-left: 43%;
   }
 }
 
 @media screen and (max-width: 428px) {
-  .man{
+  .man {
     width: 30vw;
     height: 30vw;
   }
-  .five-pointed-star{
+  .five-pointed-star {
     margin-top: -20%;
     margin-left: 85%;
   }
-  .scrlll{
+  .scrlll {
     width: 100%;
     height: fit-content;
   }
-  .sect-2{
-    padding: 0
+  .sect-2 {
+    padding: 0;
   }
-  .sectwrap{
+  .sectwrap {
     margin-top: 5%;
     padding: 5%;
     width: 100%;
   }
-  .account{
+  .account {
     width: fit-content;
   }
-  .history{
+  .history {
     width: fit-content;
   }
-  .category{
+  .category {
     width: 100%;
   }
-  .input{
+  .input {
     width: 100%;
     height: fit-content;
   }
-  .inputs{
+  .inputs {
     width: 100%;
     height: fit-content;
   }
-  .hr-2{
+  .hr-2 {
     margin-top: 64%;
   }
-  .btn-change{
-    
-    font-size: 15px;
-    width: 30vw;
-    margin-left: 32%;
-    height: 8vw
-  }
-  .btn-changes{
-    
+  .btn-change {
     font-size: 15px;
     width: 30vw;
     margin-left: 32%;
     height: 8vw;
   }
-  .privacy, .details{
+  .btn-changes {
+    font-size: 15px;
+    width: 30vw;
+    margin-left: 32%;
+    height: 8vw;
+  }
+  .privacy,
+  .details {
     font-weight: bolder;
   }
-  .eye{
+  .eye {
     margin-top: 4%;
     margin-left: 1%;
     width: 3vw;
     height: 3vw;
   }
-  .edit{
+  .edit {
     margin-top: -15%;
     margin-left: 75%;
   }
-  .edit2{
+  .edit2 {
     margin-top: -25%;
     margin-left: 75%;
   }
-  .ui-fail{
+  .ui-fail {
     margin-top: 5%;
     margin-left: -1%;
   }

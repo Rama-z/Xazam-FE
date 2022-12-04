@@ -6,10 +6,9 @@ import {
   forgot,
   reset,
   confirm,
+  change,
 } from "../../modules/api/Auth";
 import { actionStrings } from "./actionStrings";
-
-
 
 const { Pending, Rejected, Fulfilled } = ActionType;
 
@@ -82,6 +81,18 @@ const resetRejected = (error) => ({
 });
 const resetFulfilled = (data) => ({
   type: actionStrings.authReset.concat("_", Fulfilled),
+  payload: { data },
+});
+
+const changePending = () => ({
+  type: actionStrings.authChange.concat("_", Pending),
+});
+const changeRejected = (error) => ({
+  type: actionStrings.authChange.concat("_", Rejected),
+  payload: { error },
+});
+const changeFulfilled = (data) => ({
+  type: actionStrings.authChange.concat("_", Fulfilled),
   payload: { data },
 });
 
@@ -172,6 +183,19 @@ const resetThunk = (body, cbSuccess, cbDenied) => {
   };
 };
 
+const changeThunk = (body, token) => {
+  return async (dispatch) => {
+    try {
+      dispatch(changePending());
+      const result = await change(body, token);
+      dispatch(changeFulfilled(result.data));
+      // typeof cbSuccess === "function" && cbSuccess();
+    } catch (error) {
+      dispatch(changeRejected(error));
+      // typeof cbDenied === "function" && cbDenied();
+    }
+  };
+};
 const authAction = {
   loginThunk,
   logoutThunk,
@@ -179,6 +203,7 @@ const authAction = {
   forgotThunk,
   resetThunk,
   confirmThunk,
+  changeThunk,
 };
 
 export default authAction;

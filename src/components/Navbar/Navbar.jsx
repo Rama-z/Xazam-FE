@@ -17,7 +17,7 @@ import sample from "src/assets/images/avatar.webp";
 import { useDispatch, useSelector } from "react-redux";
 import profileAction from "src/redux/actions/profile";
 
-const Header = ({ profileAndBtn, propsOnclick }) => {
+const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
   const profile = useSelector((state) => state.profile);
   const [firstName, setFirstName] = useState(profile.userData.firstName);
   const [lastName, setLastName] = useState(profile.userData.lastName);

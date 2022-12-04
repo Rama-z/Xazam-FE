@@ -149,7 +149,6 @@ function index() {
                 </div>
               </div>
             </div>
-
             <div
               className={` d-flex col-md-12 col-lg-4  ${styles["card2-left"]} `}
             >
@@ -161,7 +160,6 @@ function index() {
                   className={` ${styles["cont-purwokerto"]} container card col-12 p-0 m-0 `}
                 >
                   <Form.Select
-                    disabled
                     className={`${styles["form"]}`}
                     aria-label="Default select example"
                   >
@@ -257,13 +255,7 @@ function index() {
             <p className={`${styles["movie-description"]} ${styles.sales}`}>
               Sales Charts{" "}
             </p>
-            <div className={`${styles["time"]}`}>
-              <p>08:30am</p>
-              <p>10:30pm</p>
-              <p>12:00pm</p>
-            </div>
           </div>
-
           <div className=" card col-12">
             <ul className={` nav gap-5 pt-5 ps-3 ${styles.navschart}`}>
               <li className="nav-item">
@@ -308,7 +300,6 @@ function index() {
                 alt="/"
               />
             </div>
-
             <div className="d-flex justify-content-center gap-3 my-5">
               <div className={`card ${styles["pagination-1"]}`}>1</div>
               <div className={`card ${styles["pagination"]}`}>2</div>
