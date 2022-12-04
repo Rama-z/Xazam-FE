@@ -246,6 +246,7 @@
   letter-spacing: 0.25px;
   color: #000000;
 }
+
 .main-sec {
   background-color: white;
   padding: 3%;
@@ -255,9 +256,8 @@
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
-  height: fit-content;
-  margin-top: 1.8%;
 }
+
 .fill {
   background: rgba(244, 183, 64, 0.3);
   border-radius: 8px;
