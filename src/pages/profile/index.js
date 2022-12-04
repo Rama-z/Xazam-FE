@@ -13,6 +13,7 @@ import profileAction from "src/redux/actions/profile";
 import Upload from "components/upload/upload";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import authAction from "src/redux/actions/auth";
 
 const Profile = () => {
   const target = useRef(null);
@@ -34,6 +35,7 @@ const Profile = () => {
   const [formState, setFormState] = useState({});
   const [disableButton, setDisableButton] = useState(true);
   const [disableButtonPw, setDisableButtonPw] = useState(true);
+  const [body, setBody] = useState();
 
   const handleChange = () => {
     setDisableButton(!disableButton);
@@ -62,19 +64,13 @@ const Profile = () => {
     });
   };
 
-  const handleInputChangePw1 = function (e) {
-    setFormState({
-      ...formState,
+  const changePwdHandler = function (e) {
+    setBody({
+      ...body,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleInputChangePw2 = function (e) {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value,
-    });
-  };
   const handleInputValue = function (e) {
     setFirstName(e.target.value);
   };
@@ -110,6 +106,10 @@ const Profile = () => {
   }
 
   useEffect(() => {
+    console.log(body);
+  }, [body]);
+
+  useEffect(() => {
     dispatch(
       profileAction.getProfileThunk(
         token,
@@ -121,6 +121,8 @@ const Profile = () => {
     );
     setEmail(emailUser);
   }, [dispatch, setEmail, emailUser, token]);
+
+  const changePwdSubmitHandler = () => {};
 
   return (
     <>
@@ -190,7 +192,6 @@ const Profile = () => {
                 <p onClick={handleChange} className={` ${styles["edit"]}`}>
                   ✎ Edit
                 </p>
-
                 <form class="row">
                   <div class="col">
                     <p className={` ${styles["category"]}`}>First Name</p>
@@ -225,36 +226,6 @@ const Profile = () => {
                       placeholder={email}
                       name="email"
                       disabled="yes"
-                    />
-                    <p className={` ${styles["privacy"]}`}>
-                      Account and Privacy
-                    </p>
-                    <hr className={` ${styles["hr-1"]}`} />
-                    <p className={` ${styles["pass"]}`}>New Password</p>
-                    <p
-                      onClick={handleChange2}
-                      className={` ${styles["edit2"]}`}
-                    >
-                      ✎ Edit
-                    </p>
-                    <input
-                      onChange={handleInputChangePw1}
-                      className={
-                        disableButtonPw
-                          ? `${styles["input"]}`
-                          : `${styles["inputs"]}`
-                      }
-                      type={isPwdShown ? "text" : "password"}
-                      placeholder="Write your password"
-                      name="pw1"
-                      disabled={disableButtonPw}
-                    />
-                    <Image
-                      className={` ${styles["eye"]}`}
-                      width={20}
-                      src={eye}
-                      alt="eye"
-                      onClick={() => setIsPwdShown(!isPwdShown)}
                     />
                   </div>
                   <div class="col">
@@ -292,30 +263,65 @@ const Profile = () => {
                       name="notelp"
                       disabled={disableButton}
                     />
-
-                    <hr className={` ${styles["hr-2"]}`} />
-                    <p className={` ${styles["confirm-pw"]}`}>
-                      Confirm Password
-                    </p>
-                    <input
-                      onChange={handleInputChangePw2}
-                      className={
-                        disableButtonPw
-                          ? `${styles["input"]}`
-                          : `${styles["inputs"]}`
-                      }
-                      type={isPwdShown1 ? "text" : "password"}
-                      placeholder="Confirm your password"
-                      name="password"
-                      disabled={disableButtonPw}
-                    />
-                    <Image
-                      className={` ${styles["eye"]}`}
-                      width={20}
-                      src={eye}
-                      alt="eye"
-                      onClick={() => setIsPwdShown1(!isPwdShown1)}
-                    />
+                  </div>
+                </form>
+                <form className="col" onSubmit={changePwdSubmitHandler}>
+                  <div className="row">
+                    <div className="col">
+                      <p className={` ${styles["privacy"]}`}>
+                        Account and Privacy
+                      </p>
+                      <hr className={` ${styles["hr-1"]}`} />
+                      <p className={` ${styles["pass"]}`}>Old Password</p>
+                      <p
+                        onClick={handleChange2}
+                        className={` ${styles["edit2"]}`}
+                      >
+                        ✎ Edit
+                      </p>
+                      <input
+                        onChange={changePwdHandler}
+                        className={
+                          disableButtonPw
+                            ? `${styles["input"]}`
+                            : `${styles["inputs"]}`
+                        }
+                        type={isPwdShown ? "text" : "password"}
+                        placeholder="Write your password"
+                        name="password"
+                        disabled={disableButtonPw}
+                      />
+                      <Image
+                        className={` ${styles["eye"]}`}
+                        width={20}
+                        src={eye}
+                        alt="eye"
+                        onClick={() => setIsPwdShown(!isPwdShown)}
+                      />
+                    </div>
+                    <div className="col">
+                      <hr className={` ${styles["hr-2"]}`} />
+                      <p className={` ${styles["confirm-pw"]}`}>New Password</p>
+                      <input
+                        onChange={changePwdHandler}
+                        className={
+                          disableButtonPw
+                            ? `${styles["input"]}`
+                            : `${styles["inputs"]}`
+                        }
+                        type={isPwdShown1 ? "text" : "password"}
+                        placeholder="Confirm your password"
+                        name="new_password"
+                        disabled={disableButtonPw}
+                      />
+                      <Image
+                        className={` ${styles["eye"]}`}
+                        width={20}
+                        src={eye}
+                        alt="eye"
+                        onClick={() => setIsPwdShown1(!isPwdShown1)}
+                      />
+                    </div>
                   </div>
                 </form>
                 <button
@@ -323,6 +329,7 @@ const Profile = () => {
                     dispatch(
                       profileAction.editProfileThunk(data, token, formState)
                     );
+                    dispatch(authAction.changeThunk(body, token));
                     toast.success("Profile Data Updated!", {
                       position: toast.POSITION.TOP_CENTER,
                       autoClose: 2000,

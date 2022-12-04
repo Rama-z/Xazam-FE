@@ -19,6 +19,7 @@ const authReducer = (prevState = initialState, { payload, type }) => {
     authRegister,
     authReset,
     authConfirm,
+    authChange,
   } = actionStrings;
   switch (type) {
     case authLogin.concat("_", Pending):
@@ -148,6 +149,27 @@ const authReducer = (prevState = initialState, { payload, type }) => {
         err: payload.error.response?.data.message,
       };
     case authReset.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+      };
+
+    case authChange.concat("_", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
+    case authChange.concat("_", Rejected):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: true,
+        isFulfilled: false,
+        err: payload.error.response?.data.message,
+      };
+    case authChange.concat("_", Fulfilled):
       return {
         ...prevState,
         isLoading: false,
