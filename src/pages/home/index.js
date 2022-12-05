@@ -18,7 +18,6 @@ import movieAction from "src/redux/actions/movie";
 
 const Home = () => {
   const router = useRouter();
-  console.log(router);
   const [clickText, setClickText] = useState(false);
   const [upcomingShow, setUpcomingShow] = useState(true);
   const [show, setShow] = useState(true);
@@ -120,7 +119,6 @@ const Home = () => {
           <ul className={`${styles["list-movies"]}`}>
             {moviesNowShowing &&
               moviesNowShowing.map((movie, idx) => {
-                console.log(movie);
                 if (idx < nowShowing) {
                   return (
                     <li

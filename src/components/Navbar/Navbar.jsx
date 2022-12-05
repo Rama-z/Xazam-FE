@@ -40,7 +40,7 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
         setImageUser
       )
     );
-  }, [dispatch, auth.userData.token]);
+  }, [dispatch, auth.userData.token, profile.profile.image]);
 
   return (
     <Navbar expand="lg py-3">
@@ -49,6 +49,7 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
           <Image
             src={Tickitz}
             alt="Tickitz"
+            objectFit="cover"
             className={styles["company__image"]}
             onClick={() => {
               router.push("/home");

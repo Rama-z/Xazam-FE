@@ -3,12 +3,17 @@
   margin-top: 10%;
 }
 
+.upload {
+  position: relative;
+}
+
 .upload-button {
   display: none;
   margin-left: 15%;
   margin-top: 3%;
   justify-content: center;
 }
+
 .custom-file-upload {
   position: absolute;
   font-family: "Mulish";
@@ -16,8 +21,8 @@
   font-weight: 700;
   font-size: 20px;
   color: #5f2eea;
-  margin-top: -10.5%;
-  margin-left: -5%;
+  margin-top: -58.5%;
+  margin-left: -29%;
   cursor: pointer;
 }
 
@@ -26,6 +31,7 @@
     width: 15vw;
     height: 15vw;
   }
+
   .custom-file-upload {
     margin-top: -14%;
     margin-left: -8%;
@@ -38,6 +44,7 @@
     width: 40vw;
     height: 40vw;
   }
+
   .custom-file-upload {
     margin-top: -35%;
     margin-left: -20%;
