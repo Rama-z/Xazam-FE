@@ -2,7 +2,7 @@ import React from "react";
 // import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState } from "react";
-
+import spiderman from "../../assets/images/spiderman.png"
 import Header from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { Input } from "@chakra-ui/react";
@@ -31,11 +31,11 @@ const Detail = () => {
       <main className={styles["main"]}>
         <section className={styles["section-first"]}>
           <span className={styles["desc-image"]}>
-            <Image src={``} alt={``} className={styles["image"]} />
+            <Image src={spiderman} alt={`movie cover`} className={styles["image"]} />
           </span>
           <span className={styles["desc-main"]}>
             <span className={styles["desc-detail"]}>
-              <h3>{`Spider-Man: Homecoming`}</h3>
+              <h3>{`Spider-Mans: Homecoming`}</h3>
               <p>{`Advanture, Action, Sci-Fi`}</p>
             </span>
             <span className={styles["desc-secondary"]}>
@@ -55,26 +55,7 @@ const Detail = () => {
                 <p>Costs</p>
                 <p>{`Tom Holland, Michael Keaton, Robert Downey Jr., ...`}</p>
               </span>
-              {/* <span className={styles["desc"]}>
-                <span className={styles["release"]}>
-                  <p>Release</p>
-                  <p>{`June 28, 2017`}</p>
-                </span>
-                <span className={styles["ridrected-by"]}>
-                  <p>Directed by</p>
-                  <p>{`Jon Watss`}</p>
-                </span>
-              </span> */}
-              {/* <span className={styles["desc"]}>
-                <span className={styles["duration"]}>
-                  <p>Duration</p>
-                  <p>{`2 hours 13 minutes `}</p>
-                </span>
-                <span className={styles["costs"]}>
-                  <p>Costs</p>
-                  <p>{`Tom Holland, Michael Keaton, Robert Downey Jr., ...`}</p>
-                </span>
-              </span> */}
+            <p>asdjavsdvasjhdassaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsadasdassssssssssssssssssssssssssssssssssssdadasdsadqwdqwdqwjhquwgduyqwjbuywqud</p>
             </span>
           </span>
         </section>
