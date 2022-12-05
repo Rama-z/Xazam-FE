@@ -41,7 +41,6 @@ const initialState = {
 };
 
 const movieReduser = (prevState = initialState, { payload, type }) => {
-  console.log(payload);
   const { Pending, Rejected, Fulfilled } = ActionType;
   const {
     movieAll,
@@ -93,12 +92,13 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
         err: payload.error.response?.data.message,
       };
     case movieDetail.concat("-", Fulfilled):
+      console.log(payload.data.id);
       return {
         ...prevState,
         isLoading: false,
         isError: false,
         isFulfilled: true,
-        movieDetail: payload.data.data,
+        movieDetail: payload.data,
       };
 
     // TODO: Shows time
@@ -210,6 +210,7 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
       };
     case studios.concat("-", Rejected):
       return {
+        ...prevState,
         isLoading: false,
         isError: true,
         isFulfilled: false,
@@ -217,6 +218,7 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
       };
     case studios.concat("-", Fulfilled):
       return {
+        ...prevState,
         isLoading: false,
         isError: false,
         isFulfilled: true,

@@ -34,7 +34,6 @@ const profileReducer = (prevState = initialState, { payload, type }) => {
         error: payload.error.message,
       };
     case getProfile.concat("_", Fulfilled):
-      console.log(payload);
       return {
         ...prevState,
         isError: false,
