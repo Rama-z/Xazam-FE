@@ -16,11 +16,12 @@ import Footer from "../../components/Footer/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-import PrivateRoute from "src/helper/privateroute";
+import { useSelector } from "react-redux";
 
 const Payment = () => {
-  // TODO: Private route
-  PrivateRoute();
+  const movies = useSelector((state) => state.movie);
+  const auth = useSelector((state) => state.auth);
+  const profile = useSelector((state) => state.profile);
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown1, setIsPwdShown1] = useState(false);
   const [formState, setFormState] = useState({
@@ -64,7 +65,7 @@ const Payment = () => {
                 </div>
                 <div class="col">
                   <p className={` ${styles["content-cat"]}`}>
-                    Spider-Man: Homecoming
+                    {movies.movieDetail.name}
                   </p>
                 </div>
                 <hr />
@@ -74,7 +75,7 @@ const Payment = () => {
                 </div>
                 <div class="col">
                   <p className={` ${styles["content-cat"]}`}>
-                    CineOne21 Cinema
+                    {movies.transfer_data.studio}
                   </p>
                 </div>
                 <hr />
@@ -85,7 +86,9 @@ const Payment = () => {
                   </p>{" "}
                 </div>
                 <div class="col">
-                  <p className={` ${styles["content-cat"]}`}>3 pieces</p>
+                  <p className={` ${styles["content-cat"]}`}>
+                    {movies.transfer_data.ticket_count} pieces
+                  </p>
                 </div>
                 <hr />
                 <div class="col">
@@ -93,7 +96,9 @@ const Payment = () => {
                   <p className={` ${styles["list-cat"]}`}>Total payment</p>{" "}
                 </div>
                 <div class="col">
-                  <p className={` ${styles["content-cat"]}`}>$30,00</p>
+                  <p className={` ${styles["content-cat"]}`}>
+                    ${movies.transfer_data.total_price}
+                  </p>
                 </div>
               </div>
             </div>
@@ -105,19 +110,19 @@ const Payment = () => {
                     <input
                       className={` ${styles["input"]}`}
                       type="text"
-                      placeholder="Jonas El Rodriguez"
+                      placeholder={`${profile.profile.firstName} ${profile.profile.lastName}`}
                     />
                     <p className={` ${styles["category"]}`}>E-mail</p>
                     <input
                       className={` ${styles["input"]}`}
                       type="text"
-                      placeholder="jonasrodrigu123@gmail.com"
+                      placeholder={auth.userData.email}
                     />
                     <p className={` ${styles["category"]}`}>Phone Number</p>
                     <input
                       className={` ${styles["input"]}`}
                       type="text"
-                      placeholder="081445687121"
+                      placeholder={profile.profile.noTelp}
                     />
                   </div>
                 </div>

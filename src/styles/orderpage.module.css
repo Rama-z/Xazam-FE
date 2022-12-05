@@ -218,7 +218,7 @@
 
 .seat-urgent {
   display: flex !important;
-  justify-content: end !important;
+  justify-content: flex-end !important;
 }
 
 .right-text {
