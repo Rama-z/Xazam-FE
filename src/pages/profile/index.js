@@ -113,6 +113,7 @@ const Profile = () => {
     }
   }
 
+  console.log(data);
   useEffect(() => {
     console.log(body);
   }, [body]);
@@ -197,7 +198,7 @@ const Profile = () => {
                   </div>
                   <div class="col"></div>
                 </div>
-                <hr />
+                <hr className={` ${styles["hr"]}`} /> 
                 <p className={` ${styles["details"]}`}>Details Information</p>
                 <p onClick={handleChange} className={` ${styles["edit"]}`}>
                   ✎ Edit
@@ -275,13 +276,15 @@ const Profile = () => {
                     />
                   </div>
                 </form>
+                <p className={` ${styles["privacy"]}`}>
+                        Account and Privacy
+                      </p>
+                      <hr className={` ${styles["hr"]}`} />
                 <form className="col" onSubmit={changePwdSubmitHandler}>
                   <div className="row">
                     <div className="col">
-                      <p className={` ${styles["privacy"]}`}>
-                        Account and Privacy
-                      </p>
-                      <hr className={` ${styles["hr-1"]}`} />
+                      
+                      {/* <hr className={` ${styles["hr-1"]}`} /> */}
                       <p className={` ${styles["pass"]}`}>Old Password</p>
                       <p
                         onClick={handleChange2}
@@ -310,7 +313,7 @@ const Profile = () => {
                       />
                     </div>
                     <div className="col">
-                      <hr className={` ${styles["hr-2"]}`} />
+                      {/* <hr className={` ${styles["hr-2"]}`} /> */}
                       <p className={` ${styles["confirm-pw"]}`}>New Password</p>
                       <input
                         onChange={changePwdHandler}
