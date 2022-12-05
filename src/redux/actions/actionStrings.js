@@ -11,6 +11,7 @@ export const actionStrings = {
   movieDetail: "MOVIE_DETAIL",
   studios: "STUDIO",
   payment: "PAYMENT",
+  ticketResult: "TICKET_RESULT",
 };
 
 export const actionMovies = {
