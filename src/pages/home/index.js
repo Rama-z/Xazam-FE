@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
-import moment from "moment";
 
 import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
@@ -26,7 +25,6 @@ const Home = () => {
   const [nowShowing, setNowShowing] = useState(5);
   const dispatch = useDispatch();
   const [month, setMonth] = useState("");
-  console.log(month);
   const moviesNowShowing = useSelector(
     (state) => state.movie.showTimes?.nowShowing
   );

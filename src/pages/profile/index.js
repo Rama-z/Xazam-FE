@@ -44,7 +44,6 @@ const Profile = () => {
   const [disableButtonPw, setDisableButtonPw] = useState(true);
 
   const [body, setBody] = useState();
-  console.log(body);
 
   const handleChange = () => {
     setDisableButton(!disableButton);
@@ -88,6 +87,10 @@ const Profile = () => {
     });
   };
 
+  useEffect(() => {
+    console.log(body);
+  }, [body]);
+
   const handleInputValue = function (e) {
     setFirstName(e.target.value);
   };
@@ -101,31 +104,6 @@ const Profile = () => {
     setLastName(e.target.value);
   };
 
-  const data = new FormData();
-  if (formState.firstName !== undefined) {
-    data.append("firstname", formState.firstName);
-  }
-  formState.firstName = formState.firstName;
-  if (formState.lastName !== undefined) {
-    data.append("lastname", formState.lastName);
-  }
-  formState.lastName = formState.lastName;
-  if (formState.image !== undefined) {
-    data.append("image", formState.image);
-  }
-  formState.image = formState.image;
-  if (formState.notelp !== undefined) {
-    data.append("notelp", formState.notelp);
-  }
-  formState.notelp = formState.notelp;
-  if (formState.pw1 !== undefined && formState.password !== undefined) {
-    if (formState.pw1 !== formState.password) {
-      console.log(`password salah`);
-    } else {
-      data.append("password", formState.password);
-    }
-  }
-
   // console.log(body);
   //  console.log(formState);
   useEffect(() => {
@@ -136,9 +114,52 @@ const Profile = () => {
   const changePwdSubmitHandler = () => {};
 
   const submitHandler = () => {
-    dispatch(profileAction.editProfileThunk(body, token));
-    dispatch(authAction.changeThunk(body, token));
+    if (!body) return;
+    setDisableButton(true);
+    setDisableButtonPw(true);
+    const data = new FormData();
+    if (body?.image) {
+      data.append("image", body.image);
+    }
+    if (body?.lastname && body.lastname.length > 0) {
+      data.append("lastname", body.lastname);
+    }
+    if (body?.firstname && body.firstname.length > 0) {
+      data.append("image", body.firstname);
+    }
+    if (body?.notelp && body.notelp.length >= 11) {
+      data.append("notelp", body.notelp);
+    }
+    if (body?.password && body?.new_password && body?.confirm_password) {
+      if (body?.new_password !== body?.confirm_password) {
+        return toast.error("New Password and Confirm Password Doesn't Match", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 2000,
+        });
+      }
+      dispatch(authAction.changeThunk(body, token, success, doesntMatch));
+    }
+    dispatch(
+      profileAction.editProfileThunk(data, token, setImageUser, success, error)
+    );
+  };
+
+  const success = () => {
     toast.success("Profile Data Updated!", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2000,
+    });
+  };
+
+  const error = () => {
+    toast.error("Failed Data Updated!", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2000,
+    });
+  };
+
+  const doesntMatch = () => {
+    toast.error("Old Password Wrong!", {
       position: toast.POSITION.TOP_CENTER,
       autoClose: 2000,
     });
@@ -195,6 +216,7 @@ const Profile = () => {
                     imagePreview !== null ? imagePreview : profile.profile.image
                   }
                   name="image"
+                  objectFit="cover"
                   width={100}
                   height={100}
                 />
@@ -234,9 +256,18 @@ const Profile = () => {
               <div className={` ${styles["sectwrap"]}`}>
                 <div class="row">
                   <div class="col">
-                    <p className={` ${styles["account"]}`}>Account Settings</p>
+                    <p
+                      className={` ${styles["account"]} ${styles["selected"]}`}
+                    >
+                      Account Settings
+                    </p>
                   </div>
-                  <div class="col-6">
+                  <div
+                    class="col-6"
+                    onClick={() => {
+                      router.push("/orderhistory/");
+                    }}
+                  >
                     <p className={` ${styles["account"]}`}>Order History</p>
                   </div>
                   <div class="col"></div>

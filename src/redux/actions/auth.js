@@ -183,16 +183,16 @@ const resetThunk = (body, cbSuccess, cbDenied) => {
   };
 };
 
-const changeThunk = (body, token) => {
+const changeThunk = (body, token, cbSuccess, cbDenied) => {
   return async (dispatch) => {
     try {
       dispatch(changePending());
       const result = await change(body, token);
       dispatch(changeFulfilled(result.data));
-      // typeof cbSuccess === "function" && cbSuccess();
+      typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(changeRejected(error));
-      // typeof cbDenied === "function" && cbDenied();
+      typeof cbDenied === "function" && cbDenied();
     }
   };
 };

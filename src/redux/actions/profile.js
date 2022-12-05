@@ -50,15 +50,20 @@ const getProfileThunk = (
   };
 };
 
-const editProfileThunk = (body, token) => {
+const editProfileThunk = (body, token, setImageUser, cbSuccess, cbError) => {
   return async (dispatch) => {
     try {
       dispatch(editProfilePending());
       const result = await editprofilesApi(body, token);
+      const prof = await profiles(token);
       dispatch(editProfileFulfilled(result.data));
+      dispatch(profileFulfilled(prof.data));
+      setImageUser(prof.data.data.image);
+      typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       console.log(error);
       dispatch(editProfileRejected(error));
+      typeof cbDenied === "function" && cbDenied();
     }
   };
 };
