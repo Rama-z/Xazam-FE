@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "../../styles/orderhistory.module.css";
 import Image from "next/image";
+import { useSelector, useDispatch } from "react-redux";
 
 // Import React-Bootsrap
 import Button from "react-bootstrap/Button";
@@ -11,6 +13,7 @@ import Collapse from "react-bootstrap/Collapse";
 // Import Component
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import CardHistory from "../../components/CardHistory/Card";
 
 // Import Image
 import dot from "../../assets/images/dot.png";
@@ -25,9 +28,34 @@ import nonloading from "../../assets/images/nonloading.png";
 import cineone from "../../assets/images/cineone.png";
 import chevrondown from "../../assets/images/chevrondown.png";
 import ebu from "../../assets/images/ebu.png";
+import profileAction from "src/redux/actions/profile";
+import authAction from "src/redux/actions/auth";
 
 function index() {
-  const router = useRouter();
+  const dispatch = useDispatch();
+  const profiles = useSelector((state) => state.profile.userData);
+  console.log(profile);
+  const auth = useSelector((state) => state.auth);
+  console.log(auth);
+  const token = useSelector((state) => state.auth.userData.token);
+
+  const [firstName, setFirstName] = useState(profiles.firstName);
+  const [lastName, setLastName] = useState(profiles.lastName);
+  const [phoneNum, setPhoneNum] = useState(profiles.notelp);
+  const [imageUser, setImageUser] = useState(profiles.image);
+  // const [imageUser, setImageUser] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
+  const [image, setImage] = useState("");
+
+  console.log(imageUser);
+  console.log(phoneNum);
+  console.log(lastName);
+  console.log(firstName);
+
+  useEffect(() => {
+    dispatch(profileAction.getProfileThunk(token, setFirstName, setImageUser));
+  }, [dispatch, token]);
+
   return (
     <div>
       <Navbar />
@@ -40,8 +68,8 @@ function index() {
                 <Image src={dot} alt="/" />
               </div>
               <div className={` justify-content-center align-items-center pt-5 ${styles["cont-profile"]}`}>
-                <Image className="mb-3" src={profile} alt="/" width={136} height={136} />
-                <p className={`mb-0 ${styles.jonas}`}>Jonas El Rodriguez</p>
+                <Image className="mb-3" src={ebu} alt="/" width={100} height={100} />
+                <p className={`mb-0 ${styles.jonas}`}>{firstName}</p>
                 <p className={`${styles.MoviegoersText}`}>Moviegoers </p>
               </div>
             </div>
@@ -69,7 +97,8 @@ function index() {
                 <p className={`mb-0 ${styles.order} ${styles.cursor}`}>Order History </p>
               </div>
             </div>
-            <div className={`card d-flex pt-4 justify-content-center ${styles["hist"]}`}>
+            <CardHistory />
+            {/* <div className={`card d-flex pt-4 justify-content-center ${styles["hist"]}`}>
               <div className={` d-flex px-5 ${styles["history-ticket"]}`}>
                 <p className={`mb-0 ${styles.date}`}>Tuesday, 07 July 2020 - 04:30pm </p>
                 <div className={`d-flex justify-content-between ${styles.div1}`}>
@@ -128,7 +157,7 @@ function index() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </main>

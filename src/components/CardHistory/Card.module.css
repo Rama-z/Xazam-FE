@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900;1000&display=swap");
+
+.hist {
+  margin-bottom: 50px;
+}
+
+.history-ticket {
+  flex-direction: column;
+}
+
+.date {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  color: #aaaaaa;
+}
+
+.homecoming {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  color: #000000;
+}
+
+.logo1 {
+  width: 132px;
+  height: 29px;
+}
+
+.collapse {
+  padding-bottom: 25px;
+  padding-right: 47px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.ticketz {
+  background: #00ba88;
+  border-radius: 4px;
+  width: 196px;
+  height: 40px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #f7f7fc;
+  justify-content: center;
+  margin-left: 3rem;
+}

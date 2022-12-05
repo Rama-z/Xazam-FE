@@ -20,9 +20,7 @@ const Home = () => {
   const [upcomingShow, setUpcomingShow] = useState(true);
   const [show, setShow] = useState(true);
   const dispatch = useDispatch();
-  const moviesNowShowing = useSelector(
-    (state) => state.movie.showTimes.nowShowing
-  );
+  const moviesNowShowing = useSelector((state) => state.movie.showTimes.nowShowing);
   const moviesUpComing = useSelector((state) => state.movie.showTimes.upComing);
 
   const handleClickText = () => {
@@ -38,10 +36,7 @@ const Home = () => {
       <Navbar
         profileAndBtn={
           <>
-            <button
-              className={styles["sign-up-btn"]}
-              onClick={() => router.push("/auth/register")}
-            >
+            <button className={styles["sign-up-btn"]} onClick={() => router.push("/auth/register")}>
               Sign-up
             </button>
           </>
@@ -50,15 +45,7 @@ const Home = () => {
       />
       <Search showInputText={clickText} />
       <main className={styles["main"]}>
-        <section
-          className={
-            upcomingShow
-              ? show
-                ? `${styles["section"]} ${styles["section_one"]}`
-                : `${styles.none}`
-              : `${styles.none}`
-          }
-        >
+        <section className={upcomingShow ? (show ? `${styles["section"]} ${styles["section_one"]}` : `${styles.none}`) : `${styles.none}`}>
           <span className={styles["title"]}>
             <p>Nearest Cinema, Newest Movie.</p>
             <h1>Find out now!</h1>
@@ -66,45 +53,18 @@ const Home = () => {
           <span className={styles["title-image"]}>
             <ul className={styles["list-images-section"]}>
               <li className={styles["list-image"]}>
-                <Image
-                  src={spiderman}
-                  alt={`spiderman`}
-                  className={styles["content-list-image"]}
-                  contain
-                  width={500}
-                  height={500}
-                />
+                <Image src={spiderman} alt={`spiderman`} className={styles["content-list-image"]} contain width={500} height={500} />
               </li>
               <li className={styles["list-image"]}>
-                <Image
-                  src={lion}
-                  alt={`lion`}
-                  className={styles["content-list-image"]}
-                  contain
-                  width={500}
-                  height={500}
-                />
+                <Image src={lion} alt={`lion`} className={styles["content-list-image"]} contain width={500} height={500} />
               </li>
               <li className={styles["list-image"]}>
-                <Image
-                  src={movie}
-                  alt={`movie`}
-                  className={styles["content-list-image"]}
-                  contain
-                  width={500}
-                  height={500}
-                />
+                <Image src={movie} alt={`movie`} className={styles["content-list-image"]} contain width={500} height={500} />
               </li>
             </ul>
           </span>
         </section>
-        <section
-          className={
-            upcomingShow
-              ? `${styles["section"]} ${styles["section_two"]}`
-              : `${styles.none}`
-          }
-        >
+        <section className={upcomingShow ? `${styles["section"]} ${styles["section_two"]}` : `${styles.none}`}>
           <span className={`${styles["section__header"]}`}>
             <h1>Now Showing</h1>
             <p
@@ -127,24 +87,12 @@ const Home = () => {
                   })
                 }
               >
-                <Image
-                  src={movie.image}
-                  alt={`movie`}
-                  className={styles["movie-images"]}
-                  width={500}
-                  height={500}
-                />
+                <Image src={movie.image} alt={`movie`} className={styles["movie-images"]} width={500} height={500} />
               </li>
             ))}
           </ul>
         </section>
-        <section
-          className={
-            show
-              ? `${styles["section"]} ${styles["section_tree"]}`
-              : `${styles.none}`
-          }
-        >
+        <section className={show ? `${styles["section"]} ${styles["section_tree"]}` : `${styles.none}`}>
           <span className={`${styles["section__header"]}`}>
             <h1>Upcoming Showing</h1>
             <p
@@ -173,13 +121,7 @@ const Home = () => {
             <ul className={`${styles["list-movies"]}`}>
               {moviesUpComing.map((movie, idx) => (
                 <li className={`${styles["movie"]}`} key={idx}>
-                  <Image
-                    src={movie.image ? movie.image : sample}
-                    alt={`movie`}
-                    className={styles["movie-images"]}
-                    width={500}
-                    height={500}
-                  />
+                  <Image src={movie.image ? movie.image : sample} alt={`movie`} className={styles["movie-images"]} width={500} height={500} />
                   <h3 className={styles[`title`]}>{movie.name}</h3>
                   <p className={styles["description"]}>{movie.category}</p>
                   <button
@@ -204,10 +146,7 @@ const Home = () => {
               <input type="text" placeholder="Type your email" />
               <button className={styles["btn-join"]}>Join now</button>
             </span>
-            <description className={styles["decs"]}>
-              By joining you as a Tickitz member, we will always send you the
-              latest updates via email.
-            </description>
+            <description className={styles["decs"]}>By joining you as a Tickitz member, we will always send you the latest updates via email.</description>
           </span>
         </section>
       </main>
