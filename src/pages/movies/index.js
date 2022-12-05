@@ -22,7 +22,7 @@ const Movies = () => {
         `search=${router.query.search || ""}&limit=10&page=${page}`
       )
     );
-  }, [search, page]);
+  }, [search, page, dispatch, router]);
 
   return (
     <>
