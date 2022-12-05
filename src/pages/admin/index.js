@@ -73,7 +73,12 @@ function Index() {
   const [kids, setKids] = useState(false);
 
   const token = useSelector((state) => state.auth.userData.token);
+  const role = useSelector((state) => state.auth.userData.role);
   const router = useRouter();
+
+   useEffect(() => {
+     if (role === "user" || role === null ) router.push("/home");
+   }, [role, router]);
 
   const saveHandler = () => {
     setLoading(true);

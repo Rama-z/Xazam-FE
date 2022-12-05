@@ -383,15 +383,16 @@
     justify-content: center;
   }
   .imgscreen {
-    padding-left: 39px;
+    padding-left: 0;
     margin-bottom: 2rem;
-    width: 361px;
+    width: 340px;
   }
   .pads2 {
-    padding-left: 22px;
+    padding-left: 0;
   }
+
   .number {
-    padding-left: 40px;
+    padding-left: 0.5rem;
     gap: 46px;
   }
   .keyseat {
@@ -401,7 +402,7 @@
     padding-left: 0px;
     gap: 11px !important;
     position: relative;
-    left: 9px;
+    left: 1px;
     font-size: 10px;
   }
   .changes {
@@ -426,9 +427,9 @@
     font-size: 24px;
   }
   .seat {
-    padding: 0px;
+    padding: 0.5rem;
     position: relative;
-    left: -8px;
+    left: -5px;
   }
 }
 @media only screen and (max-width: 375px) {
