@@ -36,6 +36,7 @@ const initialState = {
     total_price: null,
     seat_id: [],
     tsm_id: null,
+    studio: null,
   },
 };
 
@@ -247,6 +248,9 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
           tsm_id: payload.body?.tsm_id
             ? payload.body.tsm_id
             : initialState.transfer_data.tsm_id,
+          studio: payload.body?.tsm_id
+            ? payload.body.studio
+            : initialState.transfer_data.studio,
         },
       };
 

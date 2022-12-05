@@ -19,12 +19,23 @@ const Detail = () => {
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movie);
   const auth = useSelector((state) => state.auth);
-  const [body, setBody] = useState();
+  const [body, setBody] = useState({});
   const [selectTime, setTime] = useState("");
+  console.log(body);
+  console.log(selectTime);
 
   const handleClickText = () => {
     setClickText(!clickText);
   };
+
+  useEffect(() => {
+    setBody({
+      ...body,
+      tsm_id: selectTime,
+      movie_id: movies.movieDetail?.id,
+      token: auth.userData.token,
+    });
+  }, [selectTime, auth.userData.token]);
 
   useEffect(() => {
     dispatch(movieAction.movieDetailThunk(router.query.id));
@@ -32,12 +43,6 @@ const Detail = () => {
   }, [dispatch, router.query.id]);
 
   const submitHandler = (e) => {
-    setBody({
-      ...body,
-      tsm_id: selectTime,
-      movie_id: movies.movieDetail.id,
-      token: auth.userData.token,
-    });
     e.preventDefault();
     dispatch(movieAction.payment(body));
     router.push("/orderpage");
@@ -280,7 +285,16 @@ const Detail = () => {
                         <span className={styles["btn-tickets-section"]}>
                           <button
                             className={styles["btn-book"]}
-                            onClick={submitHandler}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              dispatch(
+                                movieAction.payment({
+                                  ...body,
+                                  studio: item.name,
+                                })
+                              );
+                              router.push("/orderpage");
+                            }}
                           >
                             Book Now
                           </button>
