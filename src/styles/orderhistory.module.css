@@ -359,6 +359,9 @@
   .nav-account-set {
     padding-left: 40px !important;
   }
+  .nav-account-set {
+    padding-left: 39px !important;
+  }
 }
 
 @media only screen and (max-width: 425px) {

@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900;1000&display=swap");
+
+.hist {
+  margin-bottom: 50px;
+}
+
+.history-ticket {
+  flex-direction: column;
+}
+
+.date {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  color: #aaaaaa;
+}
+
+.homecoming {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  color: #000000;
+}
+
+.logo1 {
+  width: 132px;
+  height: 29px;
+}
+
+.collapse {
+  padding-bottom: 25px;
+  padding-right: 47px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.ticketz {
+  background: #00ba88;
+  border-radius: 4px;
+  width: 196px;
+  height: 40px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #f7f7fc;
+  justify-content: center;
+  margin-left: 3rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .date {
+    font-size: 10px;
+  }
+  .homecoming {
+    font-size: 22px;
+  }
+
+  .logo1 {
+    width: 100px;
+    height: 23px;
+    position: relative;
+    top: 23px;
+  }
+  .history-ticket {
+    padding: 0px 26px !important;
+  }
+  .ticketz {
+    width: 142px;
+    margin-left: 1rem;
+  }
+  .collapse {
+    align-items: center;
+    padding-right: 25px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .shows {
+    position: relative;
+    top: 11px;
+    left: 20px;
+  }
+
+  .logo1 {
+    width: 103px;
+    height: 23px;
+    position: relative;
+    top: -13px;
+  }
+
+  .date {
+    font-size: 10px;
+  }
+
+  .homecoming {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .ticketz {
+    width: 110px;
+    height: 40px;
+    font-size: 11px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    margin-left: 1rem;
+  }
+
+  .history-ticket {
+    padding: 0px 28px !important;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .homecoming {
+    font-size: 11px;
+  }
+  .logo1 {
+    width: 81px;
+    height: 23px;
+    position: relative;
+    top: -5px;
+  }
+  .nav-account-set {
+    padding-left: 31px !important;
+  }
+}
