@@ -9,6 +9,8 @@ export const actionStrings = {
   getProfile: "GET_PROFILE",
   authConfirm: "AUTH_CONFIRM_PASSWORD",
   movieDetail: "MOVIE_DETAIL",
+  studios: "STUDIO",
+  payment: "PAYMENT",
 };
 
 export const actionMovies = {
@@ -18,4 +20,4 @@ export const actionMovies = {
   showTime: "SHOW_TIME",
   movieCreate: "MOVIE_CREATE",
   movieDelete: "MOVIE_DELETE",
-}
+};

@@ -215,6 +215,12 @@
   letter-spacing: 0.75px;
   color: #6b6b6b;
 }
+
+.seat-urgent {
+  display: flex !important;
+  justify-content: end !important;
+}
+
 .right-text {
   font-family: "Mulish";
   font-style: normal;

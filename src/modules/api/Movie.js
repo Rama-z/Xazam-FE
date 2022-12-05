@@ -8,5 +8,16 @@ const showtimes = () => Axios.get(`${BASE_URL}/showmovie`);
 const showtime = (params) => Axios.get(`${BASE_URL}/showmovie${params}`);
 const createmovie = (body) => Axios.post(`${BASE_URL}/create-movie`, body);
 const deletemovie = (id) => Axios.delete(`${BASE_URL}/delete/${id}`);
+const studios = () =>
+  Axios.get(`
+http://localhost:8080/api/xazam/movie/studio`);
 
-export { movies, moviedetail, showtimes, showtime, createmovie, deletemovie };
+export {
+  movies,
+  moviedetail,
+  showtimes,
+  showtime,
+  createmovie,
+  deletemovie,
+  studios,
+};
