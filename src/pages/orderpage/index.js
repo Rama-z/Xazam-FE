@@ -853,7 +853,7 @@ const Index = () => {
                     </div>
                   </div>
                   <div className={`${styles.number} d-flex `}>
-                    <div className={`d-flex ${styles.gaps} `}>
+                    <div className={`d-flex ${styles.gaps1} `}>
                       <p>1</p>
                       <p>2</p>
                       <p>3</p>
@@ -862,7 +862,7 @@ const Index = () => {
                       <p>6</p>
                       <p>7</p>
                     </div>
-                    <div className={`d-flex ${styles.gaps} `}>
+                    <div className={`d-flex ${styles.gaps2} `}>
                       <p>8</p>
                       <p>9</p>
                       <p>10</p>
@@ -926,7 +926,7 @@ const Index = () => {
             <p className={`${styles["movie-selected"]}`}>Order Info</p>
             <div className={`card ${styles.cardpayment} `}>
               <div className={` d-flex  ${styles.img}`}>
-                {/* <Image src={cineone} alt="/" /> */}
+                <Image src={cineone} alt="/" width={160} height={30} />
                 <p className={`${styles["title-payment"]}`}>CineOne21 Cinema</p>
               </div>
               <div className="d-flex justify-content-between px-4">

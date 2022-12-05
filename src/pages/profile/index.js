@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import React, { useEffect, useState, useRef } from "react";
 import styles from "../../styles/Profile.module.css";
 import { useRouter } from "next/router";
@@ -125,7 +126,8 @@ const Profile = () => {
     }
   }
 
-  console.log(data);
+  // console.log(body);
+  //  console.log(formState);
   useEffect(() => {
     dispatch(profileAction.getProfileThunk(token, setImageUser));
     setEmail(emailUser);
@@ -156,7 +158,10 @@ const Profile = () => {
 
   const changeHandlerInputImage = (e) => {
     const files = e.target.files[0];
-    e.preventDefault();
+    setImage(files);
+    setImagePreview(URL.createObjectURL(files));
+    setFormState({ ...formState, image: e.target.files[0] });
+    setImageUser(e.target.files[0]);
     setBody({
       ...body,
       image: files,
@@ -181,13 +186,21 @@ const Profile = () => {
               <div className={`${styles["man-wrap"]}`}>
                 <Upload
                   ref={target}
-                  onChange={(e) => changeHandlerInputImage(e)}
-                  img={profile.profile?.image ? profile.profile.image : sample}
+                  onChange={(e) => {
+                    changeHandlerInputImage(e);
+                  }}
+                  // img={profile.profile.image ? profile.profile.image : sample}
+                  img={
+                    imagePreview !== null ? imagePreview : profile.profile.image
+                  }
                   name="image"
                   width={100}
                   height={100}
                 />
               </div>
+              <p className={`${styles["name"]}`}>
+                {firstName === null ? "Your Name is.." : firstName}
+              </p>
               <p className={`${styles["name"]}`}>
                 {!profile.profile.firstName
                   ? "Your Name is.."
@@ -239,7 +252,10 @@ const Profile = () => {
                   <div class="col">
                     <p className={` ${styles["category"]}`}>First Name</p>
                     <input
-                      onChange={changeHandlerInput}
+                      onChange={(e) => {
+                        handleInputChange(e);
+                        handleInputValue(e);
+                      }}
                       className={
                         disableButton
                           ? `${styles["input"]}`
@@ -256,7 +272,10 @@ const Profile = () => {
                     />
                     <p className={` ${styles["category"]}`}>E-mail</p>
                     <input
-                      onChange={changeHandlerInput}
+                      onChange={(e) => {
+                        handleInputChange(e);
+                        handleInputValueEmail(e);
+                      }}
                       className={
                         disableButton
                           ? `${styles["input"]}`
@@ -337,8 +356,11 @@ const Profile = () => {
                   </div>
                   <div className="row">
                     <div className="col">
-                      {/* <hr className={` ${styles["hr-1"]}`} /> */}
-                      <p className={` ${styles["pass"]}`}>New Password</p>
+                      <p className={` ${styles["privacy"]}`}>
+                        Account and Privacy
+                      </p>
+                      <hr className={` ${styles["hr-1"]}`} />
+                      <p className={` ${styles["pass"]}`}>Old Password</p>
                       <p
                         onClick={handleChange2}
                         className={` ${styles["edit2"]}`}
@@ -393,7 +415,21 @@ const Profile = () => {
                   </div>
                 </form>
                 <button
-                  onClick={submitHandler}
+                  onClick={() => {
+                    dispatch(
+                      profileAction.editProfileThunk(
+                        data,
+                        token,
+                        formState,
+                        setIsCorrect
+                      )
+                    );
+                    dispatch(authAction.changeThunk(body, token));
+                    toast.success("Profile Data Updated!", {
+                      position: toast.POSITION.TOP_CENTER,
+                      autoClose: 2000,
+                    });
+                  }}
                   className={
                     !formState.firstName &&
                     !formState.lastName &&
