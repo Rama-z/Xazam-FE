@@ -88,6 +88,9 @@
   height: 70px !important;
   border-radius: 4px;
   margin-bottom: 4rem;
+  width: 717px;
+  position: relative;
+  left: 12px;
 }
 .account {
   font-family: "Mulish";
@@ -195,6 +198,10 @@
   width: 132px;
   height: 37px;
 }
+.nav-account-set {
+  gap: 134px !important;
+  padding-left: 132px !important;
+}
 
 @media only screen and (min-width: 1367px) {
   .cont-fluid {
@@ -211,12 +218,24 @@
     left: -21px;
     width: 315px;
   }
+  .bar {
+    height: 70px !important;
+    border-radius: 4px;
+    margin-bottom: 4rem;
+    width: 839px;
+    position: relative;
+    left: 12px;
+  }
   .non-loadings {
     width: 269px;
     padding: 0px;
   }
   .satulapan {
     font-size: 19px !important;
+  }
+  .nav-account-set {
+    gap: 265px !important;
+    padding-left: 132px !important;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -237,6 +256,11 @@
     left: -22px;
     height: 16px;
     width: 88px;
+  }
+  .bar {
+    width: 600px;
+    position: relative;
+    left: 12px;
   }
   .star {
     position: relative;
@@ -285,6 +309,10 @@
   .card-profile {
     max-height: 760px !important;
   }
+  .nav-account-set {
+    gap: 146px !important;
+    padding-left: 90px !important;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -294,6 +322,15 @@
     left: -21px;
     width: 282px;
     height: 155px;
+  }
+  .nav-account-set {
+    padding-left: 29px !important;
+    gap: 45px !important;
+  }
+  .bar {
+    width: 324px;
+    position: relative;
+    left: 12px;
   }
   .Moviegoers {
     position: relative;
@@ -356,12 +393,6 @@
   .collapse {
     padding-right: 30px;
   }
-  .nav-account-set {
-    padding-left: 40px !important;
-  }
-  .nav-account-set {
-    padding-left: 39px !important;
-  }
 }
 
 @media only screen and (max-width: 425px) {
@@ -372,6 +403,9 @@
   .Moviegoers {
     left: 5px;
     top: -190px;
+  }
+  .date {
+    font-size: 8px;
   }
   .star {
     left: 125px;
@@ -403,6 +437,12 @@
     max-height: 860px !important;
     height: 860px !important;
   }
+  .bar {
+    width: 354px;
+  }
+  .nav-account-set {
+    padding-left: 42px !important;
+  }
 }
 
 @media only screen and (max-width: 375px) {
@@ -414,5 +454,22 @@
   }
   .non-loadings {
     width: 275px;
+  }
+  .bar {
+    width: 303px !important;
+  }
+  .nav-account-set {
+    padding-left: 18px !important;
+  }
+  .date {
+    font-size: 9px;
+    letter-spacing: -0.25px;
+  }
+  .logo1 {
+    width: 72px;
+    height: 21px;
+    position: relative;
+    top: -5px;
+    left: 10px;
   }
 }

@@ -41,6 +41,7 @@ const initialState = {
 };
 
 const movieReduser = (prevState = initialState, { payload, type }) => {
+  // console.log(payload);
   const { Pending, Rejected, Fulfilled } = ActionType;
   const {
     movieAll,
@@ -250,9 +251,6 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
           tsm_id: payload.body?.tsm_id
             ? payload.body.tsm_id
             : initialState.transfer_data.tsm_id,
-          studio: payload.body?.tsm_id
-            ? payload.body.studio
-            : initialState.transfer_data.studio,
         },
       };
 
