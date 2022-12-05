@@ -16,31 +16,14 @@ const Detail = () => {
   const [clickText, setClickText] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
-  const movies = useSelector((state) => state.movie.movieDetail);
-  const casts = useSelector((state) => state.movie.movieDetail?.cast);
-  const catagories = useSelector((state) => state.movie.movieDetail?.category);
-
-  const [name, setName] = useState(movies?.name);
-  const [image, setImage] = useState(movies?.image);
-  const [director, setDirector] = useState(movies?.director);
-  const [relasedate, setRelasedate] = useState(movies?.relase_date);
-  const [duration, setDuration] = useState(movies?.duration);
-  const [synopsis, setSynopsis] = useState(movies?.synopsis);
+  const movies = useSelector((state) => state.movie);
 
   const handleClickText = () => {
     setClickText(!clickText);
   };
 
   useEffect(() => {
-    dispatch(
-      movieAction.movieDetailThunk(router.query.id),
-      setName,
-      setImage,
-      setDirector,
-      setRelasedate,
-      setDuration,
-      setSynopsis
-    );
+    dispatch(movieAction.movieDetailThunk(router.query.id));
   }, [dispatch, router.query.id]);
 
   return (
@@ -58,7 +41,9 @@ const Detail = () => {
         <section className={styles["section-first"]}>
           <span className={styles["desc-image"]}>
             <Image
-              src={image ? image : sample}
+              src={
+                movies.movieDetail?.image ? movies.movieDetail.image : sample
+              }
               alt={name}
               className={styles["image"]}
               width={500}
@@ -67,33 +52,37 @@ const Detail = () => {
           </span>
           <span className={styles["desc-main"]}>
             <span className={styles["desc-detail"]}>
-              <h3>{name}</h3>
+              <h3>{movies.movieDetail?.name}</h3>
               <span className={styles["catagory-content"]}>
-                {catagories?.map((result, idx) => (
+                {movies.movieDetail?.category?.map((result, idx) => (
                   <p key={idx}>{result}</p>
                 ))}
               </span>
             </span>
-            <span className={styles["desc-secondary"]}>
-              <span className={styles["release"]}>
-                <p>Release</p>
-                <p>{relasedate}</p>
+            <span className={`row ${styles["desc-secondary"]}`}>
+              <span className="col">
+                <span className={`col ${styles["release"]}`}>
+                  <p>Release</p>
+                  <p>{movies.movieDetail?.relase_date}</p>
+                </span>
+                <span className={styles["ridrected-by"]}>
+                  <p>Directed by</p>
+                  <p>{movies.movieDetail?.director}</p>
+                </span>
               </span>
-              <span className={styles["ridrected-by"]}>
-                <p>Directed by</p>
-                <p>{director}</p>
-              </span>
-              <span className={styles["duration"]}>
-                <p>Duration</p>
-                <p>{duration}</p>
-              </span>
-              <span className={styles["casts"]}>
-                <p>Casts</p>
-                <ul className={styles["cast-content"]}>
-                  {casts?.map((result, idx) => (
-                    <li key={idx}>{result}</li>
-                  ))}
-                </ul>
+              <span className="col">
+                <span className={styles["duration"]}>
+                  <p>Duration</p>
+                  <p>{movies.movieDetail?.duration}</p>
+                </span>
+                <span className={styles["casts"]}>
+                  <p>Casts</p>
+                  <ul className={styles["cast-content"]}>
+                    {movies.movieDetail.cast?.map((result, idx) => (
+                      <li key={idx}>{result}</li>
+                    ))}
+                  </ul>
+                </span>
               </span>
             </span>
           </span>
@@ -101,7 +90,7 @@ const Detail = () => {
         <section className={styles["section-second"]}>
           <span className={styles["synopsis"]}>
             <h3>Synopsis</h3>
-            <p>{synopsis}</p>
+            <p>{movies.movieDetail?.synopsis}</p>
           </span>
         </section>
         <section className={styles["section-third"]}>

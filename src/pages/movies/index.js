@@ -44,12 +44,7 @@ const Movies = () => {
                   <p className={styles["description"]}>{movie.category}</p>
                   <button
                     className={styles["btn-movie"]}
-                    // onClick={() =>
-                    //   router.push({
-                    //     pathname: "/movie/[id]",
-                    //     query: { id: `${movie.id}` },
-                    //   })
-                    // }
+                    onClick={() => router.push(`/movie/${movie.id}`)}
                   >{`Details`}</button>
                 </li>
               );
