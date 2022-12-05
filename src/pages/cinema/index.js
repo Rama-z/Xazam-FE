@@ -6,8 +6,15 @@ import styles from "../../styles/Cinema.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import movieAction from "src/redux/actions/movie";
 
 const Cinema = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(movieAction.studiosThunk());
+  }, [dispatch]);
   return (
     <>
       <Header />
