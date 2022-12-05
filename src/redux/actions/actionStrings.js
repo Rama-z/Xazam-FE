@@ -9,6 +9,7 @@ export const actionStrings = {
   getProfile: "GET_PROFILE",
   authConfirm: "AUTH_CONFIRM_PASSWORD",
   movieDetail: "MOVIE_DETAIL",
+  ticketResult: "TICKET_RESULT",
 };
 
 export const actionMovies = {

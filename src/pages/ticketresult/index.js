@@ -14,8 +14,32 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import ticketAction from "src/redux/actions/ticket";
 
 const TicketResult = () => {
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.userData.token);
+  const ticket = useSelector((state) => state.ticket.ticket);
+  const [title, setTitle] = useState(ticket.title_movie);
+  const [studio, setStudio] = useState(ticket.studio);
+  const [ticketCount, setTicketCount] = useState(ticket.ticket_count);
+  const [seat, setSeat] = useState(ticket.seats);
+  const [price, setPrice] = useState(ticket.price);
+  const [date, setDate] = useState(ticket.date);
+  const [month, setMonth] = useState(ticket.month);
+  const [time, setTime] = useState(ticket.time);
+
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
+
+  useEffect(() => {
+    dispatch(ticketAction.getTicketThunk(token));
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -50,26 +74,43 @@ const TicketResult = () => {
                   <div className={`col-sm-8 ${styles["sub-row8"]}`}>
                     <p className={`${styles["category-movie"]}`}>Movie</p>
                     <p className={`${styles["content"]}`}>
-                      Spider-Man: Homecoming
+                      {title}
+                      {/* Spider-Man: Homecoming */}
                     </p>
                     <div class="row">
                       <div className={`col ${styles["col-1"]}`}>
                         <p className={`${styles["category"]}`}>Date</p>
-                        <p className={`${styles["content2"]}`}>07 July</p>
+                        <p className={`${styles["content2"]}`}>
+                          {/* 07 July */}
+                          {date}
+                        </p>
                         <p className={`${styles["category"]}`}>Count</p>
-                        <p className={`${styles["content2"]}`}>3 pieces</p>
+                        <p className={`${styles["content2"]}`}>
+                          {/* 3 pieces */}
+                          {ticketCount + ` pcs`}
+                        </p>
                       </div>
                       <div className={`col-sm-5 ${styles["col-2"]}`}>
                         <p className={`${styles["category"]}`}>Time</p>
-                        <p className={`${styles["content2"]}`}>02:00pm</p>
+                        <p className={`${styles["content2"]}`}>
+                          {/* 02:00pm */}
+                          {time}
+                        </p>
                         <p className={`${styles["category"]}`}>Seats</p>
-                        <p className={`${styles["content2"]}`}>C4, C5, C6</p>
+                        <p className={`${styles["content2"]}`}>
+                          {/* C4, C5, C6 */}
+                          {seat}
+                        </p>
                       </div>
                       <div className={`col ${styles["col-3"]}`}>
-                        <p className={`${styles["category-cat"]}`}>Category</p>
-                        <p className={`${styles["contentpg"]}`}>PG-13</p>
+                        <p className={`${styles["category-cat"]}`}>Studio</p>
+                        <p className={`${styles["contentpg"]}`}>
+                          {studio}
+                          </p>
                         <p className={`${styles["category-price"]}`}>Price</p>
-                        <p className={`${styles["price"]}`}>$30.00</p>
+                        <p className={`${styles["price"]}`}>
+                          { rupiah(Number(price)) }
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -86,22 +127,33 @@ const TicketResult = () => {
                     />
                     <p className={`${styles["category-mov2"]}`}>Movie</p>
                     <p className={`${styles["content1"]}`}>
-                      Spider-Man: Home...
+                      {title}
+                      {/* Spider-Man: Home... */}
                     </p>
                     <div class="row">
                       <div className={`col ${styles["col-sub1"]}`}>
                         <p className={`${styles["category1"]}`}>Date</p>
-                        <p className={`${styles["contentx"]}`}>07 Jul</p>
+                        <p className={`${styles["contentx"]}`}>
+                          {date}
+                          </p>
                         <p className={`${styles["category1"]}`}>Count</p>
-                        <p className={`${styles["contentx"]}`}>3 pcs</p>
+                        <p className={`${styles["contentx"]}`}>
+                          {ticketCount + ` pcs`}
+                        </p>
                       </div>
                       <div className={`col ${styles["col-sub2"]}`}>
                         <p className={`${styles["category1"]}`}>Time</p>
-                        <p className={`${styles["contentx"]}`}>2:00pm</p>
+                        <p className={`${styles["contentx"]}`}>
+                          {time}
+                        </p>
                         <p className={`${styles["category1"]}`}>Seats</p>
-                        <p className={`${styles["contentx"]}`}>C4, C5, C6</p>
-                        <p className={`${styles["category1"]}`}>Category</p>
-                        <p className={`${styles["contentx"]}`}>PG-13 </p>
+                        <p className={`${styles["contentx"]}`}>
+                          {seat}
+                        </p>
+                        <p className={`${styles["category1"]}`}>Studio</p>
+                        <p className={`${styles["contentx"]}`}>
+                          {studio}
+                          </p>
                       </div>
                       <span className={`dot ${styles["dot2"]}`}></span>
                       <span className={`dot ${styles["dot3"]}`}></span>
