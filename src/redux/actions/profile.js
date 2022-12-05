@@ -52,19 +52,12 @@ const getProfileThunk = (
 
 const editProfileThunk = (data, token, formState) => {
   return async (dispatch) => {
-    if (formState.pw1 !== formState.password) {
-      setIsCorrect(true);
-      setTimeout(() => {
-        setIsCorrect(false);
-      }, 2000);
-    } else {
-      try {
-        dispatch(editProfilePending());
-        const result = await editprofilesApi(data, token);
-        dispatch(editProfileFulfilled(result.data));
-      } catch (error) {
-        dispatch(editProfileRejected(error));
-      }
+    try {
+      dispatch(editProfilePending());
+      const result = await editprofilesApi(data, token);
+      dispatch(editProfileFulfilled(result.data));
+    } catch (error) {
+      dispatch(editProfileRejected(error));
     }
   };
 };

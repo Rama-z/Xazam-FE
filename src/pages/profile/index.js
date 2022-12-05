@@ -2,8 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from "../../styles/Profile.module.css";
 import { useRouter } from "next/router";
 import dot from "../../assets/images/dot.png";
-import tjango from "../../assets/images/tjango.webp";
-import defaultpic from "../../assets/images/defaultpic.jpg";
 import scrl from "../../assets/images/scroll.png";
 import eye from "../../assets/images/eye.png";
 import Image from "next/image";
@@ -11,7 +9,7 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import profileAction from "src/redux/actions/profile";
-
+import sample from "src/assets/images/avatar.webp";
 import Upload from "components/upload/upload";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -34,7 +32,7 @@ const Profile = () => {
   const [imageUser, setImageUser] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [image, setImage] = useState("");
-  const [formState, setFormState] = useState({});
+
   const [disableButton, setDisableButton] = useState(true);
   const [disableButtonPw, setDisableButtonPw] = useState(true);
   const [body, setBody] = useState();
@@ -46,6 +44,14 @@ const Profile = () => {
     setDisableButtonPw(!disableButtonPw);
   };
 
+  const [formState, setFormState] = useState({
+    pw1: "",
+    pw2: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNum: "",
+  });
   const router = useRouter();
   const nav = () => {
     router.push("/");
@@ -87,10 +93,10 @@ const Profile = () => {
   };
 
   const data = new FormData();
-  if (formState.firstname !== undefined) {
+  if (formState.firstName !== undefined) {
     data.append("firstname", formState.firstname);
   }
-  if (formState.lastname !== undefined) {
+  if (formState.lastName !== undefined) {
     data.append("lastname", formState.lastname);
   }
   if (formState.image !== undefined) {
@@ -148,6 +154,8 @@ const Profile = () => {
                   onChange={(e) => onImageUpload(e)}
                   img={imagePreview !== null ? imagePreview : imageUser}
                   name="image"
+                  width={100}
+                  height={100}
                 />
               </div>
               <p className={`${styles["name"]}`}>
@@ -332,7 +340,12 @@ const Profile = () => {
                 <button
                   onClick={() => {
                     dispatch(
-                      profileAction.editProfileThunk(data, token, formState)
+                      profileAction.editProfileThunk(
+                        data,
+                        token,
+                        formState,
+                        setIsCorrect
+                      )
                     );
                     dispatch(authAction.changeThunk(body, token));
                     toast.success("Profile Data Updated!", {
@@ -341,10 +354,11 @@ const Profile = () => {
                     });
                   }}
                   className={
-                    !formState.firstname &&
-                    !formState.lastname &&
+                    !formState.firstName &&
+                    !formState.lastName &&
                     !formState.notelp &&
-                    (!formState.pw1 || !formState.password)
+                    (!formState.pw1 || !formState.password) &&
+                    !body
                       ? `${styles["btn-changes"]}`
                       : `${styles["btn-change"]}`
                   }
@@ -357,6 +371,15 @@ const Profile = () => {
                 ) : (
                   ""
                 )}
+                <button
+                  className={`btn btn-danger ${styles["btn-changes"]}`}
+                  onClick={() => {
+                    dispatch(authAction.logoutThunk(token));
+                    router.push("/auth/login");
+                  }}
+                >
+                  Logout
+                </button>
               </div>
             </section>
           </div>

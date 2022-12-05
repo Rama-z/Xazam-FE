@@ -107,7 +107,7 @@ function Footer() {
                 </h6>
                 <div className={` ${styles["cont-social-media"]}`}>
                   <div className={`${styles["tickits-1"]}`}>
-                    <div className="d-flex gap-2 pb-1">
+                    <div className="d-flex gap-1 pb-1">
                       <Image
                         src={fb}
                         alt="/"

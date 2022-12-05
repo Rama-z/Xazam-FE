@@ -14,7 +14,8 @@ const config = (token) => {
 
 export const register = (body) => axios.post(`${baseUrl}/register`, body);
 export const login = (body) => axios.post(`${baseUrl}/login`, body);
-export const logout = () => axios.delete(`${baseUrl}/logout`);
+export const logout = (token) =>
+  axios.delete(`${baseUrl}/logout`, config(token));
 export const forgot = (body) => axios.post(`${baseUrl}/reset-password`, body);
 export const confirm = (body) => axios.patch(`${baseUrl}/reset-password`, body);
 export const reset = (body) => axios.patch(`${baseUrl}/reset-password`, body);

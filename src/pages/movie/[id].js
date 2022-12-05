@@ -1,22 +1,48 @@
 import React from "react";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Header from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { Input } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
 import profile from "../../assets/images/profile.png";
 import Search from "components/Search";
-
 import styles from "../../styles/MovieDetail.module.css";
-
+import movieAction from "src/redux/actions/movie";
+import sample from "src/assets/images/avatar.webp";
 const Detail = () => {
   const [clickText, setClickText] = useState(false);
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const movies = useSelector((state) => state.movie.movieDetail);
+  const casts = useSelector((state) => state.movie.movieDetail?.cast);
+  const catagories = useSelector((state) => state.movie.movieDetail?.category);
+
+  const [name, setName] = useState(movies?.name);
+  const [image, setImage] = useState(movies?.image);
+  const [director, setDirector] = useState(movies?.director);
+  const [relasedate, setRelasedate] = useState(movies?.relase_date);
+  const [duration, setDuration] = useState(movies?.duration);
+  const [synopsis, setSynopsis] = useState(movies?.synopsis);
 
   const handleClickText = () => {
     setClickText(!clickText);
   };
+
+  useEffect(() => {
+    dispatch(
+      movieAction.movieDetailThunk(router.query.id),
+      setName,
+      setImage,
+      setDirector,
+      setRelasedate,
+      setDuration,
+      setSynopsis
+    );
+  }, [dispatch, router.query.id]);
+
   return (
     <>
       <Header
@@ -31,65 +57,51 @@ const Detail = () => {
       <main className={styles["main"]}>
         <section className={styles["section-first"]}>
           <span className={styles["desc-image"]}>
-            <Image src={``} alt={``} className={styles["image"]} />
+            <Image
+              src={image ? image : sample}
+              alt={name}
+              className={styles["image"]}
+              width={500}
+              height={500}
+            />
           </span>
           <span className={styles["desc-main"]}>
             <span className={styles["desc-detail"]}>
-              <h3>{`Spider-Man: Homecoming`}</h3>
-              <p>{`Advanture, Action, Sci-Fi`}</p>
+              <h3>{name}</h3>
+              <span className={styles["catagory-content"]}>
+                {catagories?.map((result, idx) => (
+                  <p key={idx}>{result}</p>
+                ))}
+              </span>
             </span>
             <span className={styles["desc-secondary"]}>
               <span className={styles["release"]}>
                 <p>Release</p>
-                <p>{`June 28, 2017`}</p>
+                <p>{relasedate}</p>
               </span>
               <span className={styles["ridrected-by"]}>
                 <p>Directed by</p>
-                <p>{`Jon Watss`}</p>
+                <p>{director}</p>
               </span>
               <span className={styles["duration"]}>
                 <p>Duration</p>
-                <p>{`2 hours 13 minutes `}</p>
+                <p>{duration}</p>
               </span>
-              <span className={styles["costs"]}>
-                <p>Costs</p>
-                <p>{`Tom Holland, Michael Keaton, Robert Downey Jr., ...`}</p>
+              <span className={styles["casts"]}>
+                <p>Casts</p>
+                <ul className={styles["cast-content"]}>
+                  {casts?.map((result, idx) => (
+                    <li key={idx}>{result}</li>
+                  ))}
+                </ul>
               </span>
-              {/* <span className={styles["desc"]}>
-                <span className={styles["release"]}>
-                  <p>Release</p>
-                  <p>{`June 28, 2017`}</p>
-                </span>
-                <span className={styles["ridrected-by"]}>
-                  <p>Directed by</p>
-                  <p>{`Jon Watss`}</p>
-                </span>
-              </span> */}
-              {/* <span className={styles["desc"]}>
-                <span className={styles["duration"]}>
-                  <p>Duration</p>
-                  <p>{`2 hours 13 minutes `}</p>
-                </span>
-                <span className={styles["costs"]}>
-                  <p>Costs</p>
-                  <p>{`Tom Holland, Michael Keaton, Robert Downey Jr., ...`}</p>
-                </span>
-              </span> */}
             </span>
           </span>
         </section>
         <section className={styles["section-second"]}>
           <span className={styles["synopsis"]}>
             <h3>Synopsis</h3>
-            <p>
-              Thrilled by his experience with the Avengers, Peter returns home,
-              where he lives with his Aunt May, under the watchful eye of his
-              new mentor Tony Stark, Peter tries to fall back into his normal
-              daily routine - distracted by thoughts of proving himself to be
-              more than just your friendly neighborhood Spider-Man - but when
-              the Vulture emerges as a new villain, everything that Peter holds
-              most important will be threatened.
-            </p>
+            <p>{synopsis}</p>
           </span>
         </section>
         <section className={styles["section-third"]}>
@@ -119,7 +131,7 @@ const Detail = () => {
                     <span className={styles["ticket-image-section"]}>
                       <Image
                         src={``}
-                        alt={`Image`}
+                        alt={``}
                         className={styles["ticket-image"]}
                       />
                     </span>

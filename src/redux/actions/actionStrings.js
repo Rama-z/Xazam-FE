@@ -8,4 +8,14 @@ export const actionStrings = {
   editProfile: "EDIT_PROFILE",
   getProfile: "GET_PROFILE",
   authConfirm: "AUTH_CONFIRM_PASSWORD",
+  movieDetail: "MOVIE_DETAIL",
 };
+
+export const actionMovies = {
+  movieAll: "MOVIE_ALL",
+  movieDetail: "MOVIE_DETAIL",
+  showTimes: "SHOW_TIMES",
+  showTime: "SHOW_TIME",
+  movieCreate: "MOVIE_CREATE",
+  movieDelete: "MOVIE_DELETE",
+}
