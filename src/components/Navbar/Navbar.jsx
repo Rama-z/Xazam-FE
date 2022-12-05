@@ -21,10 +21,10 @@ import { toast } from "react-toastify";
 
 const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
   const profile = useSelector((state) => state.profile);
-  const [firstName, setFirstName] = useState(profile.userData.firstName);
-  const [lastName, setLastName] = useState(profile.userData.lastName);
-  const [phoneNum, setPhoneNum] = useState(profile.userData.notelp);
-  const [imageUser, setImageUser] = useState(profile.image);
+  const [firstName, setFirstName] = useState(profile.userData?.firstName);
+  const [lastName, setLastName] = useState(profile.userData?.lastName);
+  const [phoneNum, setPhoneNum] = useState(profile.userData?.notelp);
+  const [imageUser, setImageUser] = useState(profile?.image);
   const [clickText, setClickText] = useState(false);
   const router = useRouter();
   const auth = useSelector((state) => state.auth);

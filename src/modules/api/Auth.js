@@ -24,5 +24,6 @@ export const change = (body, token) =>
 
 export const profiles = (token) =>
   axios.get(`${baseUrl2}/profile`, config(token));
+
 export const editprofilesApi = (body, token) =>
   axios.patch(`${baseUrl2}/profile/edit`, body, config(token));
