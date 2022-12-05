@@ -141,7 +141,6 @@ const movieDetailThunk = (id, success, denied) => {
     try {
       dispatch(movieDetailPanding());
       const result = await moviedetail(id);
-      console.log(result.data);
       dispatch(movieDetailFulfilled(result.data));
       typeof success === "function" && success();
     } catch (error) {
@@ -156,7 +155,6 @@ const showTimesThunk = (success, denied) => {
     try {
       dispatch(showTimesPending());
       const result = await showtimes();
-      console.log(result.data);
       dispatch(showTimesFulfilled(result.data));
       typeof success === "function" && success();
     } catch (error) {
@@ -171,7 +169,6 @@ const showTimeThunk = (params, success, denied) => {
     try {
       dispatch(showTimePending());
       const result = await showtime(params);
-      console.log(result.data);
       dispatch(showTimeFulfilled(result.data));
       typeof success === "function" && success();
     } catch (error) {
@@ -186,7 +183,6 @@ const createMovieThunk = (body, success, denied) => {
     try {
       dispatch(createMoviePending());
       const result = await createmovie(body);
-      console.log(result.data);
       dispatch(createMovieFulfilled(result.data));
       typeof success === "function" && success();
     } catch (error) {
@@ -201,7 +197,6 @@ const deleteMovieThunk = (id, success, denied) => {
     try {
       dispatch(deleteMoviePending());
       const result = await deletemovie(id);
-      console.log(result.data);
       dispatch(deleteMovieFulfilled(result.data));
       typeof success === "function" && success();
     } catch (error) {
@@ -234,6 +229,7 @@ const movieAction = {
   deleteMovieThunk,
   studiosThunk,
   payment,
+  movieDetailFulfilled,
 };
 
 export default movieAction;

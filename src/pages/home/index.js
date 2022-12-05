@@ -118,25 +118,27 @@ const Home = () => {
             </p>
           </span>
           <ul className={`${styles["list-movies"]}`}>
-            {moviesNowShowing?.map((movie, idx) => {
-              if (idx < nowShowing) {
-                return (
-                  <li
-                    className={styles["movie-spesific-to-image"]}
-                    key={idx}
-                    onClick={() => router.push(`/movie/${movie.id}`)}
-                  >
-                    <Image
-                      src={movie.image}
-                      alt={`movie`}
-                      className={styles["movie-images"]}
-                      width={500}
-                      height={500}
-                    />
-                  </li>
-                );
-              }
-            })}
+            {moviesNowShowing &&
+              moviesNowShowing.map((movie, idx) => {
+                console.log(movie);
+                if (idx < nowShowing) {
+                  return (
+                    <li
+                      className={styles["movie-spesific-to-image"]}
+                      key={idx}
+                      onClick={() => router.push(`/movie/${movie.id}`)}
+                    >
+                      <Image
+                        src={movie.image}
+                        alt={`movie`}
+                        className={styles["movie-images"]}
+                        width={500}
+                        height={500}
+                      />
+                    </li>
+                  );
+                }
+              })}
           </ul>
         </section>
         <section
