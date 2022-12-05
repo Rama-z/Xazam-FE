@@ -16,12 +16,13 @@ import Footer from "../../components/Footer/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
+import PrivateRoute from "src/helper/privateroute";
 
 const Payment = () => {
   const movies = useSelector((state) => state.movie);
   const auth = useSelector((state) => state.auth);
   const profile = useSelector((state) => state.profile);
+  PrivateRoute();
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown1, setIsPwdShown1] = useState(false);
   const [formState, setFormState] = useState({

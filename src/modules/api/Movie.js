@@ -10,7 +10,7 @@ const createmovie = (body) => Axios.post(`${BASE_URL}/create-movie`, body);
 const deletemovie = (id) => Axios.delete(`${BASE_URL}/delete/${id}`);
 const studios = () =>
   Axios.get(`
-http://localhost:8080/api/xazam/movie/studio`);
+  ${process.env.NEXT_PUBLIC_BACKEND_URL}/api/xazam/movie/studio`);
 
 export {
   movies,

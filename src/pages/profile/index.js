@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-duplicate-props */
 import React, { useEffect, useState, useRef } from "react";
 import styles from "../../styles/Profile.module.css";
 import { useRouter } from "next/router";
@@ -199,9 +198,6 @@ const Profile = () => {
                 />
               </div>
               <p className={`${styles["name"]}`}>
-                {firstName === null ? "Your Name is.." : firstName}
-              </p>
-              <p className={`${styles["name"]}`}>
                 {!profile.profile.firstName
                   ? "Your Name is.."
                   : `${profile.profile.firstName} ${profile.profile.lastName}`}
@@ -252,10 +248,7 @@ const Profile = () => {
                   <div class="col">
                     <p className={` ${styles["category"]}`}>First Name</p>
                     <input
-                      onChange={(e) => {
-                        handleInputChange(e);
-                        handleInputValue(e);
-                      }}
+                      onChange={changeHandlerInput}
                       className={
                         disableButton
                           ? `${styles["input"]}`
@@ -272,10 +265,7 @@ const Profile = () => {
                     />
                     <p className={` ${styles["category"]}`}>E-mail</p>
                     <input
-                      onChange={(e) => {
-                        handleInputChange(e);
-                        handleInputValueEmail(e);
-                      }}
+                      onChange={changeHandlerInput}
                       className={
                         disableButton
                           ? `${styles["input"]}`
@@ -356,11 +346,8 @@ const Profile = () => {
                   </div>
                   <div className="row">
                     <div className="col">
-                      <p className={` ${styles["privacy"]}`}>
-                        Account and Privacy
-                      </p>
-                      <hr className={` ${styles["hr-1"]}`} />
-                      <p className={` ${styles["pass"]}`}>Old Password</p>
+                      {/* <hr className={` ${styles["hr-1"]}`} /> */}
+                      <p className={` ${styles["pass"]}`}>New Password</p>
                       <p
                         onClick={handleChange2}
                         className={` ${styles["edit2"]}`}
@@ -415,21 +402,7 @@ const Profile = () => {
                   </div>
                 </form>
                 <button
-                  onClick={() => {
-                    dispatch(
-                      profileAction.editProfileThunk(
-                        data,
-                        token,
-                        formState,
-                        setIsCorrect
-                      )
-                    );
-                    dispatch(authAction.changeThunk(body, token));
-                    toast.success("Profile Data Updated!", {
-                      position: toast.POSITION.TOP_CENTER,
-                      autoClose: 2000,
-                    });
-                  }}
+                  onClick={submitHandler}
                   className={
                     !formState.firstName &&
                     !formState.lastName &&

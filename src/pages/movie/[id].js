@@ -13,7 +13,7 @@ import Search from "components/Search";
 import styles from "../../styles/MovieDetail.module.css";
 import movieAction from "src/redux/actions/movie";
 import sample from "src/assets/images/avatar.webp";
-const Detail = () => {
+const Detail = ({ datas }) => {
   const [clickText, setClickText] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -21,8 +21,6 @@ const Detail = () => {
   const auth = useSelector((state) => state.auth);
   const [body, setBody] = useState({});
   const [selectTime, setTime] = useState("");
-  console.log(body);
-  console.log(selectTime);
 
   const handleClickText = () => {
     setClickText(!clickText);
@@ -38,9 +36,9 @@ const Detail = () => {
   }, [selectTime, auth.userData.token]);
 
   useEffect(() => {
-    dispatch(movieAction.movieDetailThunk(router.query.id));
+    dispatch(movieAction.movieDetailFulfilled(datas.data));
     dispatch(movieAction.studiosThunk());
-  }, [dispatch, router.query.id]);
+  }, [dispatch, router]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -74,15 +72,19 @@ const Detail = () => {
           </span>
           <span className={styles["desc-main"]}>
             <span className={styles["desc-detail"]}>
-              <h3 className={styles["h3-main"]}>
-                {movies.movieDetail?.name}
-                Spider-Man: Homecoming
-              </h3>
-              <span className={styles["catagory-content"]}>
-                Adventure, Action, Sci-Fi
-                {movies.movieDetail?.category?.map((result, idx) => (
-                  <p key={idx}>{result}</p>
-                ))}
+              <h3 className={styles["h3-main"]}>{movies.movieDetail?.name}</h3>
+              <span
+                className={styles["catagory-content"]}
+                style={{ display: "flex" }}
+              >
+                {movies.movieDetail?.category?.map((result, idx) => {
+                  console.log(movies.movieDetail.category.length - 1);
+                  console.log(idx === movies.movieDetail.category.length - 1);
+                  if (idx !== movies.movieDetail.category.length - 1)
+                    return <p key={idx}>{`${result},  `}</p>;
+                  if (idx === movies.movieDetail.category.length - 1)
+                    return <p key={idx}>{`${result}`}</p>;
+                })}
               </span>
             </span>
             <span className={`row ${styles["desc-secondary"]}`}>
@@ -93,7 +95,6 @@ const Detail = () => {
                       <p>Release Date</p>
                       <p className={`${styles["bef-rel"]}`}>
                         {movies.movieDetail?.relase_date}
-                        June 28, 2017
                       </p>
                     </span>
                   </div>
@@ -102,7 +103,6 @@ const Detail = () => {
                       <p className={`${styles["release"]}`}>Directed by</p>
 
                       <p className={`${styles["bef-rel"]}`}>
-                        Jon Watss
                         {movies.movieDetail?.director}
                       </p>
                     </span>
@@ -114,7 +114,6 @@ const Detail = () => {
                     <span className={styles["duration"]}>
                       <p className={`${styles["release"]}`}>Duration</p>
                       <p className={`${styles["bef-rel"]}`}>
-                        2 hours 13 minutes
                         {movies.movieDetail?.duration}
                       </p>
                     </span>
@@ -122,25 +121,17 @@ const Detail = () => {
                   <div class="col">
                     <span className={styles["casts"]}>
                       <p className={`${styles["release"]}`}>Casts</p>
-                      <p className={styles["cast-content"]}>
-                        Tom Holland, Michael Keaton, Robert Downey Jr., ...
+                      <div className={styles["cast-content"]}>
                         {movies.movieDetail?.cast?.map((result, idx) => (
                           <li key={idx}>{result}</li>
                         ))}
-                      </p>
+                      </div>
                     </span>
                   </div>
                 </div>
                 <hr />
                 <h3 className={styles["synop"]}>Synopsis</h3>
                 <p className={styles["story"]}>
-                  Thrilled by his experience with the Avengers, Peter returns
-                  home, where he lives with his Aunt May, under the watchful eye
-                  of his new mentor Tony Stark, Peter tries to fall back into
-                  his normal daily routine - distracted by thoughts of proving
-                  himself to be more than just your friendly neighborhood
-                  Spider-Man - but when the Vulture emerges as a new villain,
-                  everything that Peter holds most important will be threatened.
                   {movies.movieDetail?.synopsis}
                 </p>
               </div>
@@ -320,6 +311,26 @@ const Detail = () => {
       <Footer />
     </>
   );
+};
+
+export const getServerSideProps = async (context) => {
+  const id = context.query.id;
+  try {
+    const baseUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/xazam/movie/movie-detail/${id}`;
+    const result = await fetch(baseUrl);
+    const datas = await result.json();
+    return {
+      props: {
+        datas,
+      },
+    };
+  } catch (err) {
+    return {
+      props: {
+        datas: { err },
+      },
+    };
+  }
 };
 
 export default Detail;

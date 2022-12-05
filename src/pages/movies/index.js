@@ -11,13 +11,17 @@ import movieAction from "src/redux/actions/movie";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { Button } from "react-bootstrap";
 
 const Movies = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const search = router.query.search || "";
+  const [disable, setDisable] = useState(true);
+  const [disable2, setDisable2] = useState(false);
   const [page, setPage] = useState(1);
   const movies = useSelector((state) => state.movie.movies?.data);
+  const next = useSelector((state) => state.movie);
 
   useEffect(() => {
     dispatch(
@@ -54,6 +58,38 @@ const Movies = () => {
             })}
           </ul>
         </span>
+        <div className={styles.button}>
+          <Button
+            disabled={page !== 1 ? false : true}
+            className={`btn btn-primary ${styles.btn}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setPage(page - 1);
+              router.push(
+                `movies?search=${router.query.search || ""}&limit=10&page=${
+                  page - 1
+                }`
+              );
+            }}
+          >
+            Previous
+          </Button>
+          <Button
+            disabled={page !== next.movies?.totalPage ? false : true}
+            className={`btn btn-primary ${styles.btn}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setPage(page + 1);
+              router.push(
+                `movies?search=${router.query.search || ""}&limit=10&page=${
+                  page + 1
+                }`
+              );
+            }}
+          >
+            Next
+          </Button>
+        </div>
       </main>
       <Footer />
     </>

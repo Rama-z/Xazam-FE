@@ -7,11 +7,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import movieAction from "src/redux/actions/movie";
 
 const Cinema = () => {
   const dispatch = useDispatch();
+  const studio = useSelector((state) => state.movie);
   useEffect(() => {
     dispatch(movieAction.studiosThunk());
   }, [dispatch]);
@@ -21,25 +22,36 @@ const Cinema = () => {
       <main className={styles["main"]}>
         <span className={styles["tickets-section"]}>
           <ul className={styles["tickets-list"]}>
-            <li className={styles["ticket"]}>
-              <span className={styles["ticket__content"]}>
-                <span className={styles["ticket__content__header"]}>
-                  <span className={styles["ticket-image-section"]}>
-                    <Image
-                      src={``}
-                      alt={``}
-                      className={styles["ticket-image"]}
-                    />
-                  </span>
-                  <span className={styles["ticket-desc"]}>
-                    <p className={styles["ticket-desc__title"]}>{`ebv.id`}</p>
-                    <p
-                      className={styles["ticket-desc__location"]}
-                    >{`Whatever street No.12, South Purwokerto`}</p>
-                  </span>
-                </span>
-              </span>
-            </li>
+            {studio.studios?.length > 0 &&
+              studio.studios.map((item, idx) => {
+                return (
+                  <>
+                    <li className={styles["ticket"]} key={idx}>
+                      <span className={styles["ticket__content"]}>
+                        <span className={styles["ticket__content__header"]}>
+                          <span className={styles["ticket-image-section"]}>
+                            <Image
+                              src={item.image}
+                              alt={`image`}
+                              width={500}
+                              height={500}
+                              className={styles["ticket-image"]}
+                            />
+                          </span>
+                          <span className={styles["ticket-desc"]}>
+                            <p className={styles["ticket-desc__title"]}>
+                              {item.name}
+                            </p>
+                            <p className={styles["ticket-desc__location"]}>
+                              {item.address}
+                            </p>
+                          </span>
+                        </span>
+                      </span>
+                    </li>
+                  </>
+                );
+              })}
           </ul>
         </span>
       </main>
