@@ -105,12 +105,20 @@
   gap: 109px;
   padding-top: 10px;
 }
-.gaps {
+.gaps1 {
   gap: 13px;
   font-family: "Mulish";
   font-style: normal;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 10px;
+  line-height: 24px;
+}
+.gaps2 {
+  gap: 13px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
   line-height: 24px;
 }
 .keyseat {

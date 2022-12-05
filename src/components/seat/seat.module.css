@@ -1,0 +1,168 @@
+.order-movie .choose-your-seat {
+  margin-top: 48px;
+}
+
+@media screen and (max-width: 992px) {
+  .order-movie .choose-your-seat {
+    margin-top: 0;
+  }
+}
+
+.order-movie .choose-your-seat h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #14142b;
+}
+
+.order-movie .choose-your-seat .card-seat {
+  background: white;
+  padding: 106px 117px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 992px) {
+  .order-movie .choose-your-seat .card-seat {
+    padding: 10px;
+  }
+}
+
+.order-movie .choose-your-seat .card-seat h5 {
+  font-weight: 500;
+  font-size: 14px;
+  color: #4e4b66;
+  text-align: center;
+}
+
+.order-movie .choose-your-seat .card-seat hr {
+  height: 8px;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 992px) {
+  .order-movie .choose-your-seat .card-seat hr {
+    color: #5f2eea;
+    background-color: #5f2eea;
+    opacity: 100%;
+  }
+}
+
+.order-movie .choose-your-seat .card-seat .seatGap {
+  width: 120px;
+}
+
+.order-movie .choose-your-seat .card-seat .seats {
+  width: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .order-movie .choose-your-seat .card-seat .seats {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .order-movie .choose-your-seat .card-seat .seats-number {
+    display: none;
+  }
+}
+
+.order-movie .choose-your-seat .card-seat input[type="checkbox"] {
+  width: 0px;
+  margin-right: 27px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .order-movie .choose-your-seat .card-seat input[type="checkbox"] {
+    margin-right: 20px;
+    margin-bottom: 5px;
+  }
+}
+
+.order-movie .choose-your-seat .card-seat input[type="checkbox"]::before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  text-align: justify;
+  background-color: #d6d8e7;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 992px) {
+  .order-movie .choose-your-seat .card-seat input[type="checkbox"]::before {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+  }
+}
+
+.order-movie .choose-your-seat .card-seat input[type="checkbox"]:checked::before {
+  background-color: #5f2eea;
+}
+
+.order-movie .choose-your-seat .card-seat input[type="checkbox"]:disabled::before {
+  background-color: #6e7191;
+}
+
+.order-movie .choose-your-seat .card-seat .seating-key {
+  margin-top: 32px;
+}
+
+.order-movie .choose-your-seat .card-seat .seating-key h4 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.75px;
+  margin-bottom: 20px;
+}
+
+.order-movie .choose-your-seat .card-seat .seating-key p {
+  font-size: 14px;
+  color: #4e4b66;
+}
+
+.order-movie .choose-your-seat .card-seat .seating-key .available {
+  width: 26px;
+  height: 26px;
+  background-color: #d6d8e7;
+  border-radius: 4px;
+}
+
+.order-movie .choose-your-seat .card-seat .seating-key .selected {
+  width: 26px;
+  height: 26px;
+  background-color: #5f2eea;
+  border-radius: 4px;
+}
+
+
+.order-movie .choose-your-seat .card-seat .seating-key .sold {
+  width: 26px;
+  height: 26px;
+  background-color: #6e7191;
+  border-radius: 4px;
+}
+
+.order-movie .choose-your-seat .btn-your-movie {
+  width: 300px;
+  border: 2px solid #5f2eea;
+  color: #5f2eea;
+  border-radius: 4px;
+}
+
+.order-movie .choose-your-seat .btn-checkout {
+  width: 300px;
+  background: #5f2eea;
+  border-radius: 4px;
+  color: white;
+}
+
+@media screen and (max-width: 992px) {
+  .order-movie .choose-your-seat .btn-checkout {
+    width: 100%;
+  }
+}
