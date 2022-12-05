@@ -14,6 +14,7 @@ import authAction from "src/redux/actions/auth";
 import Button from "src/components/Button";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Title from "src/components/Title";
 
 const Login = () => {
   const router = useRouter();
@@ -54,6 +55,7 @@ const Login = () => {
 
   return (
     <>
+      <Title title={`Login`} />
       <main className={styles["main"]}>
         <section className={styles["left-side"]}>
           <span className={styles["logo"]}>

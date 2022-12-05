@@ -13,6 +13,8 @@ import Search from "components/Search";
 import styles from "../../styles/MovieDetail.module.css";
 import movieAction from "src/redux/actions/movie";
 import sample from "src/assets/images/avatar.webp";
+import Title from "src/components/Title";
+
 const Detail = ({ datas }) => {
   const [clickText, setClickText] = useState(false);
   const router = useRouter();
@@ -48,6 +50,7 @@ const Detail = ({ datas }) => {
 
   return (
     <>
+      <Title title={`Movie Detail`} />
       <Header
         profileAndBtn={
           <>

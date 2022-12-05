@@ -150,11 +150,11 @@ const movieDetailThunk = (id, success, denied) => {
   };
 };
 
-const showTimesThunk = (success, denied) => {
+const showTimesThunk = (params, success, denied) => {
   return async (dispatch) => {
     try {
       dispatch(showTimesPending());
-      const result = await showtimes();
+      const result = await showtimes(params);
       dispatch(showTimesFulfilled(result.data));
       typeof success === "function" && success();
     } catch (error) {

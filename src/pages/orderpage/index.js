@@ -23,6 +23,7 @@ import { useRouter } from "next/router";
 import movieAction from "src/redux/actions/movie";
 import { useEffect } from "react";
 import { movies } from "src/modules/api/Movie";
+import Title from "src/components/Title";
 
 const Index = () => {
   // TODO: Private route
@@ -53,7 +54,8 @@ const Index = () => {
     router.push("/payment");
   };
   return (
-    <div>
+    <>
+      <Title title={`Order Page`} />
       <Navbar />
       <main className={` container-fluid ${styles["cont-fluid"]}`}>
         <div
@@ -968,7 +970,7 @@ const Index = () => {
         </div>
       </main>
       <Footer />
-    </div>
+    </>
   );
 };
 

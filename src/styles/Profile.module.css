@@ -615,6 +615,24 @@
   border: none;
 }
 
+.btn-changes2 {
+  margin-top: 5%;
+  /* background: #8c8c8c; */
+  border-radius: 4px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  width: 19vw;
+  height: 3.5vw;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #f7f7fc;
+  border: none;
+}
+
 .hr-2 {
   margin-top: 29.5%;
 }
