@@ -30,7 +30,7 @@
 
 .componay__logo {
   width: 120.41px;
-  height: 31.41px;
+  height: 42.41px;
 }
 
 .cont-sponsor__image {
@@ -90,7 +90,8 @@
   .tickits {
     position: relative;
     width: 165px;
-    top: -27px;
+    top: -59px;
+    /* top: -27px; */
     left: 13rem;
   }
 }
