@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../../styles/orderhistory.module.css";
@@ -28,41 +27,43 @@ import nonloading from "../../assets/images/nonloading.png";
 import cineone from "../../assets/images/cineone.png";
 import chevrondown from "../../assets/images/chevrondown.png";
 import ebu from "../../assets/images/ebu.png";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
+// import sample from "../../../src/assets/images/avatar.webp";
 
-import profileAction from "src/redux/actions/profile";
+// import profileAction from "src/redux/actions/profile";
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const profiles = useSelector((state) => state.profile);
-  console.log(profiles);
+  // const token = useSelector((state) => state.auth.userData.token);
+  // console.log(token);
+  // const profiles = useSelector((state) => state.profile);
+  // console.log(profiles);
 
-  const auth = useSelector((state) => state.auth);
-  console.log(auth);
+  // console.log(images);
 
-  const [firstName, setFirstName] = useState(profiles.userData.firstName);
-  const [lastName, setLastName] = useState(profiles.userData.lastName);
-  const [phoneNum, setPhoneNum] = useState(profiles.userData.notelp);
-  const [imageUser, setImageUser] = useState(profiles.image);
+  // const [firstName, setFirstName] = useState(profiles.userData.firstName);
+  // const [lastName, setLastName] = useState(profiles.userData.lastName);
+  // const [phoneNum, setPhoneNum] = useState(profiles.userData.noTelp);
+  // const [imageUser, setImageUser] = useState(profiles.userData.image);
 
-  console.log(imageUser);
-  console.log(phoneNum);
-  console.log(lastName);
-  console.log(firstName);
+  // console.log(firstName);
+  // console.log(lastName);
+  //console.log(phoneNum);
+  // console.log(imageUser);
 
-  useEffect(() => {
-    dispatch(
-      profileAction.getProfileThunk(
-        auth.userData.token,
-        setFirstName,
-        setLastName,
-        setPhoneNum,
-        setImageUser
-      )
-    );
-  }, [dispatch, auth.userData.token]);
+  // useEffect(() => {
+  //   dispatch(
+  //     profileAction.getProfileThunk(
+  //       token,
+  //       setFirstName,
+  //       setLastName,
+  //       setPhoneNum,
+  //       setImageUser
+  //     )
+  //   );
+  // }, [dispatch, token, setImageUser]);
 
   return (
     <div>
@@ -82,12 +83,13 @@ const index = () => {
               >
                 <Image
                   className="mb-3"
-                  src={profile}
+                  src={``}
                   alt="/"
                   width={136}
                   height={136}
                 />
-                <p className={`mb-0 ${styles.jonas}`}>Jonas El Rodriguez</p>
+
+                <p className={`mb-0 ${styles.jonas}`}>{``}</p>
                 <p className={`${styles.MoviegoersText}`}>Moviegoers </p>
               </div>
             </div>
@@ -268,4 +270,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
