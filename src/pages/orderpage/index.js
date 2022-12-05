@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/orderpage.module.css";
 import Image from "next/image";
 import Table from "react-bootstrap/Table";
@@ -18,10 +18,23 @@ import selected from "../../assets/images/selected.png";
 import lovenest from "../../assets/images/lovenest.png";
 import sold from "../../assets/images/sold.png";
 import screen from "../../assets/images/screen.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import movieAction from "src/redux/actions/movie";
 
 const Index = () => {
   // TODO: Private route
   PrivateRoute();
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const payment = useSelector((state) => state);
+  const [seat, setSeat] = useState([]);
+  const [body, setBody] = useState();
+
+  const submitHandler = () => {
+    setBody({ ...body, ...seat });
+    dispatch(movieAction.payment(body));
+  };
   return (
     <div>
       <Navbar />
@@ -52,7 +65,6 @@ const Index = () => {
                   >
                     <h5>Screen</h5>
                   </div>
-
                   <Image
                     className={`${styles.imgscreen}`}
                     src={screen}
@@ -65,85 +77,379 @@ const Index = () => {
                       <div className="d-flex gap-3 align-items-center">
                         <p className={`mb-0 col-1 ${styles["seat-font"]}`}>A</p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A1"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A2"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A3"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A4"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A5"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A6"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A7"
+                          />
                         </div>
                       </div>
                       <div className="d-flex gap-3 align-items-center">
                         <p className={`mb-0 col-1 ${styles["seat-font"]}`}>B</p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B1"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B2"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B3"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B4"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B5"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B6"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B7"
+                          />
                         </div>
                       </div>
                       <div className="d-flex gap-3 align-items-center">
                         <p className={`mb-0 col-1 ${styles["seat-font"]}`}>C</p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C1"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C2"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C3"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C4"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C5"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C6"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C7"
+                          />
                         </div>
                       </div>
                       <div className="d-flex gap-3 align-items-center">
                         <p className={`mb-0 col-1 ${styles["seat-font"]}`}>D</p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D1"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D2"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D3"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D4"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D5"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D6"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D7"
+                          />
                         </div>
                       </div>
                       <div className="d-flex gap-3 align-items-center">
                         <p className={`mb-0 col-1 ${styles["seat-font"]}`}>E</p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E1"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E2"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E3"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E4"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E5"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E6"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E7"
+                          />
                         </div>
                       </div>
                       <div className="d-flex gap-3 align-items-center">
                         <p className={`mb-0 col-1 ${styles["seat-font"]}`}>F</p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F1"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F2"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F3"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F4"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F5"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F6"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F7"
+                          />
                         </div>
                       </div>
                       <div className="d-flex gap-3 align-items-center">
                         <p className={`mb-0 col-1 ${styles["seat-font"]}`}>G</p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G1"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G2"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G3"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G4"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G5"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G6"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G7"
+                          />
                         </div>
                       </div>
                     </div>
@@ -152,85 +458,379 @@ const Index = () => {
                       <div className="d-flex align-items-center">
                         <p className={`mb-0 col-1 ${styles.heightseat}`}></p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A8"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A9"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A10"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A11"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A12"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A13"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="A14"
+                          />
                         </div>
                       </div>
                       <div className="d-flex align-items-center">
                         <p className={`mb-0 col-1 ${styles.heightseat}`}></p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B8"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B9"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B10"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B11"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B12"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B13"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="B14"
+                          />
                         </div>
                       </div>
                       <div className="d-flex align-items-center">
                         <p className={`mb-0 col-1 ${styles.heightseat}`}></p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C8"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C9"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C10"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C11"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C12"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C13"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="C14"
+                          />
                         </div>
                       </div>
                       <div className="d-flex align-items-center">
                         <p className={`mb-0 col-1 ${styles.heightseat}`}></p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D8"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D9"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D10"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D11"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D12"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D13"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="D14"
+                          />
                         </div>
                       </div>
                       <div className="d-flex align-items-center">
                         <p className={`mb-0 col-1 ${styles.heightseat}`}></p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E8"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E9"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E10"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E11"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E12"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E13"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="E14"
+                          />
                         </div>
                       </div>
                       <div className="d-flex align-items-center">
                         <p className={`mb-0 col-1 ${styles.heightseat}`}></p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F8"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F9"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F10"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F11"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F12"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F13"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="F14"
+                          />
                         </div>
                       </div>
                       <div className="d-flex align-items-center">
                         <p className={`mb-0 col-1 ${styles.heightseat}`}></p>
                         <div className="d-flex gap-2">
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
-                          <input type="checkbox" value="A1" />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G8"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G9"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G10"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G11"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G12"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G13"
+                          />
+                          <input
+                            onClick={(e) => {
+                              setSeat([...seat, { seat_id: e.target.value }]);
+                            }}
+                            type="checkbox"
+                            value="G14"
+                          />
                         </div>
                       </div>
                     </div>
@@ -246,13 +846,13 @@ const Index = () => {
                       <p>7</p>
                     </div>
                     <div className={`d-flex ${styles.gaps} `}>
-                      <p>1</p>
-                      <p>2</p>
-                      <p>3</p>
-                      <p>4</p>
-                      <p>5</p>
-                      <p>6</p>
-                      <p>7</p>
+                      <p>8</p>
+                      <p>9</p>
+                      <p>10</p>
+                      <p>11</p>
+                      <p>12</p>
+                      <p>13</p>
+                      <p>14</p>
                     </div>
                   </div>
                 </div>
@@ -299,9 +899,7 @@ const Index = () => {
               </div>
               <div
                 className={` card ${styles.checkoutbtn}`}
-                onClick={() => {
-                  router.push("/payment");
-                }}
+                onClick={submitHandler}
               >
                 Checkout now
               </div>
@@ -332,9 +930,19 @@ const Index = () => {
                 <p className={`${styles["left-text"]}`}>One ticket price</p>
                 <p className={`${styles["right-text"]}`}> $10</p>
               </div>
-              <div className="d-flex justify-content-between px-4">
+              <div className="d-flex px-4">
                 <p className={`${styles["left-text"]}`}>Seat choosed</p>
-                <p className={`${styles["right-text"]}`}>C4, C5, C6</p>
+                {seat.map((item) => {
+                  return (
+                    <>
+                      <div className={`${styles["seat-urgent"]}`}>
+                        <p className={`${styles["right-text"]}`}>
+                          {item.seat_id}
+                        </p>
+                      </div>
+                    </>
+                  );
+                })}
               </div>
               <hr />
               <div className="d-flex justify-content-between px-4">
@@ -348,6 +956,6 @@ const Index = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default Index;

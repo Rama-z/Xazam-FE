@@ -6,9 +6,10 @@ import {
   createmovie,
   deletemovie,
   showtimes,
+  studios,
 } from "../../modules/api/Movie";
 
-import { actionMovies } from "./actionStrings";
+import { actionMovies, actionStrings } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
 
@@ -102,6 +103,25 @@ const deleteMovieFulfilled = (data) => ({
   payload: { data },
 });
 
+const studioPending = () => ({
+  type: actionStrings.studios.concat("-", Pending),
+});
+
+const studioRejected = (error) => ({
+  type: actionStrings.studios.concat("-", Rejected),
+  payload: { error },
+});
+
+const studioFulfilled = (data) => ({
+  type: actionStrings.studios.concat("-", Fulfilled),
+  payload: { data },
+});
+
+const payment = (body) => ({
+  type: actionStrings.payment,
+  payload: { body },
+});
+
 const moviesThunk = (params, success, denied) => {
   return async (dispatch) => {
     try {
@@ -191,6 +211,20 @@ const deleteMovieThunk = (id, success, denied) => {
   };
 };
 
+const studiosThunk = (params, success, denied) => {
+  return async (dispatch) => {
+    try {
+      dispatch(studioPending());
+      const result = await studios();
+      dispatch(studioFulfilled(result.data));
+      typeof success === "function" && success();
+    } catch (error) {
+      dispatch(studioRejected(error));
+      typeof denied === "function" && denied();
+    }
+  };
+};
+
 const movieAction = {
   moviesThunk,
   movieDetailThunk,
@@ -198,6 +232,8 @@ const movieAction = {
   showTimeThunk,
   createMovieThunk,
   deleteMovieThunk,
+  studiosThunk,
+  payment,
 };
 
 export default movieAction;

@@ -1,5 +1,6 @@
 import { ActionType } from "redux-promise-middleware";
-import { actionMovies } from "../actions/actionStrings";
+import Payment from "src/pages/payment";
+import { actionMovies, actionStrings } from "../actions/actionStrings";
 
 const initialState = {
   movies: [],
@@ -27,9 +28,19 @@ const initialState = {
   isFulfilled: false,
   err: null,
   consfirms: false,
+  studios: [],
+  transfer_data: {
+    movie_id: null,
+    payment_id: null,
+    ticket_count: null,
+    total_price: null,
+    seat_id: [],
+    tsm_id: null,
+  },
 };
 
 const movieReduser = (prevState = initialState, { payload, type }) => {
+  console.log(payload);
   const { Pending, Rejected, Fulfilled } = ActionType;
   const {
     movieAll,
@@ -39,6 +50,7 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
     movieCreate,
     movieDelete,
   } = actionMovies;
+  const { studios, payment } = actionStrings;
   switch (type) {
     // TODO: movie all
     case movieAll.concat("-", Pending):
@@ -186,6 +198,56 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
         isError: false,
         isFulfilled: true,
         deleteMovie: payload.data.data,
+      };
+
+    case studios.concat("-", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
+    case studios.concat("-", Rejected):
+      return {
+        isLoading: false,
+        isError: true,
+        isFulfilled: false,
+        err: payload.error.response?.data.message,
+      };
+    case studios.concat("-", Fulfilled):
+      return {
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        studios: payload.data.data,
+      };
+
+    case payment:
+      return {
+        ...prevState,
+        transfer_data: {
+          token: payload.body?.token
+            ? payload.body.token
+            : initialState.transfer_data.token,
+          movie_id: payload.body?.movie_id
+            ? payload.body.movie_id
+            : initialState.transfer_data.movie_id,
+          payment_id: payload.body?.payment_id
+            ? payload.body.payment_id
+            : initialState.transfer_data.payment_id,
+          ticket_count: payload.body?.ticket_count
+            ? payload.body.ticket_count
+            : initialState.transfer_data.ticket_count,
+          total_price: payload.body?.total_price
+            ? payload.body.total_price
+            : initialState.transfer_data.total_price,
+          seat_id: payload.body?.seat_id
+            ? payload.body.seat_id
+            : initialState.transfer_data.seat_id,
+          tsm_id: payload.body?.tsm_id
+            ? payload.body.tsm_id
+            : initialState.transfer_data.tsm_id,
+        },
       };
 
     default:

@@ -2,16 +2,13 @@ import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-bootstrap";
 import Header from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { Input } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import profile from "../../assets/images/profile.png";
-import ebv from "../../assets/images/ebu.png";
-import cineone from "../../assets/images/cineone.png";
-import hiflix from "../../assets/images/hiflix.png";
-import spider from "../../assets/images/spiderman.png";
 import Search from "components/Search";
 import styles from "../../styles/MovieDetail.module.css";
 import movieAction from "src/redux/actions/movie";
@@ -21,6 +18,9 @@ const Detail = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movie);
+  const auth = useSelector((state) => state.auth);
+  const [body, setBody] = useState();
+  const [selectTime, setTime] = useState("");
 
   const handleClickText = () => {
     setClickText(!clickText);
@@ -28,7 +28,20 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch(movieAction.movieDetailThunk(router.query.id));
+    dispatch(movieAction.studiosThunk());
   }, [dispatch, router.query.id]);
+
+  const submitHandler = (e) => {
+    setBody({
+      ...body,
+      tsm_id: selectTime,
+      movie_id: movies.movieDetail.id,
+      token: auth.userData.token,
+    });
+    e.preventDefault();
+    dispatch(movieAction.payment(body));
+    router.push("/orderpage");
+  };
 
   return (
     <>
@@ -47,7 +60,6 @@ const Detail = () => {
             <Image
               src={
                 movies.movieDetail?.image ? movies.movieDetail.image : sample
-                // spider
               }
               alt={name}
               className={styles["image"]}
@@ -130,7 +142,6 @@ const Detail = () => {
             </span>
           </span>
         </section>
-
         <section className={styles["section-third"]}>
           <h1>Showtimes and Tickets</h1>
           <span className={styles["date-and-location"]}>
@@ -152,145 +163,136 @@ const Detail = () => {
           </span>
           <span className={styles["tickets-section"]}>
             <ul className={styles["tickets-list"]}>
-              <li className={styles["ticket"]}>
-                <span className={styles["ticket__content"]}>
-                  <span className={styles["ticket__content__header"]}>
-                    <span className={styles["ticket-image-section"]}>
-                      <Image
-                        src={cineone}
-                        alt={``}
-                        className={styles["ticket-image"]}
-                      />
-                    </span>
-                    <span className={styles["ticket-desc"]}>
-                      <p className={styles["ticket-desc__title"]}>{`ebv.id`}</p>
-                      <p
-                        className={styles["ticket-desc__location"]}
-                      >{`Whatever street No.12, South Purwokerto`}</p>
-                    </span>
-                  </span>
-                  <span>
-                    <ul className={styles["date"]}>
-                      <div className={`row ${styles["timeset"]}`}>
-                        <div class="col">{`08:30am`}</div>
-                        <div class="col">{`10:30pm`}</div>
-                        <div class="col">{`12:00pm`}</div>
-                        <div class="col">{`02:00pm`}</div>
-                      </div>
-                      <div className={`row ${styles["timesets"]}`}>
-                        <div class="col">{`04:30pm`}</div>
-                        <div class="col">{`07:00pm`}</div>
-                        <div class="col">{`08:00pm`}</div>
-                        <div class="col"></div>
-                      </div>
-                    </ul>
-                  </span>
-                  <span className={styles["price"]}>
-                    <p>Price</p>
-                    <p>{`$10.00/seat`}</p>
-                  </span>
-                  <span className={styles["btn-tickets-section"]}>
-                    <button
-                      className={styles["btn-book"]}
-                      onClick={() => {
-                        router.push("/orderpage");
-                      }}
-                    >
-                      Book Now
-                    </button>
-                    <p>Add to cart</p>
-                  </span>
-                </span>
-              </li>
-              <li className={styles["ticket"]}>
-                <span className={styles["ticket__content"]}>
-                  <span className={styles["ticket__content__header"]}>
-                    <span className={styles["ticket-image-section"]}>
-                      <Image
-                        src={ebv}
-                        alt={`Image`}
-                        className={styles["ticket-image"]}
-                      />
-                    </span>
-                    <span className={styles["ticket-desc"]}>
-                      <p className={styles["ticket-desc__title"]}>{`ebv.id`}</p>
-                      <p
-                        className={styles["ticket-desc__location"]}
-                      >{`Whatever street No.12, South Purwokerto`}</p>
-                    </span>
-                  </span>
-                  <span>
-                    <ul className={styles["date"]}>
-                      <div className={`row ${styles["timeset"]}`}>
-                        <div class="col">{`08:30am`}</div>
-                        <div class="col">{`10:30pm`}</div>
-                        <div class="col">{`12:00pm`}</div>
-                        <div class="col">{`02:00pm`}</div>
-                      </div>
-                      <div className={`row ${styles["timesets"]}`}>
-                        <div class="col">{`04:30pm`}</div>
-                        <div class="col">{`07:00pm`}</div>
-                        <div class="col">{`08:00pm`}</div>
-                        <div class="col"></div>
-                      </div>
-                    </ul>
-                  </span>
-                  <span className={styles["price"]}>
-                    <p>Price</p>
-                    <p>{`$10.00/seat`}</p>
-                  </span>
-                  <span className={styles["btn-tickets-section"]}>
-                    <button className={styles["btn-book"]}>Book Now</button>
-                    <p>Add to cart</p>
-                  </span>
-                </span>
-              </li>
-              <li className={styles["ticket"]}>
-                <span className={styles["ticket__content"]}>
-                  <span className={styles["ticket__content__header"]}>
-                    <span className={styles["ticket-image-section"]}>
-                      <Image
-                        src={hiflix}
-                        alt={`Image`}
-                        className={styles["ticket-image"]}
-                      />
-                    </span>
-                    <span className={styles["ticket-desc"]}>
-                      <p className={styles["ticket-desc__title"]}>{`ebv.id`}</p>
-                      <p
-                        className={styles["ticket-desc__location"]}
-                      >{`Whatever street No.12, South Purwokerto`}</p>
-                    </span>
-                  </span>
-                  <span>
-                    <ul className={styles["date"]}>
-                      <div className={`row ${styles["timeset"]}`}>
-                        <div class="col">{`08:30am`}</div>
-                        <div class="col">{`10:30pm`}</div>
-                        <div class="col">{`12:00pm`}</div>
-                        <div class="col">{`02:00pm`}</div>
-                      </div>
-                      <div className={`row ${styles["timesets"]}`}>
-                        <div class="col">{`04:30pm`}</div>
-                        <div class="col">{`07:00pm`}</div>
-                        <div class="col">{`08:00pm`}</div>
-                        <div class="col"></div>
-                      </div>
-                    </ul>
-                  </span>
-                  <span className={styles["price"]}>
-                    <p>Price</p>
-                    <p>{`$10.00/seat`}</p>
-                  </span>
-                  <span className={styles["btn-tickets-section"]}>
-                    <button className={styles["btn-book"]}>Book Now</button>
-                    <p>Add to cart</p>
-                  </span>
-                </span>
-              </li>
+              {movies.studios?.length > 0 &&
+                movies.studios.map((item, idx) => {
+                  return (
+                    <li className={styles["ticket"]} key={idx}>
+                      <span className={styles["ticket__content"]}>
+                        <span className={styles["ticket__content__header"]}>
+                          <span className={styles["ticket-image-section"]}>
+                            <Image
+                              src={item.image}
+                              alt="logo"
+                              width={500}
+                              height={500}
+                              className={styles["ticket-image"]}
+                            />
+                          </span>
+                          <span className={styles["ticket-desc"]}>
+                            <p className={styles["ticket-desc__title"]}>
+                              {item.name}
+                            </p>
+                            <p className={styles["ticket-desc__location"]}>
+                              {item.address}
+                            </p>
+                          </span>
+                        </span>
+                        <span className={styles.timecontainer}>
+                          <ul className={styles["date"]}>
+                            <div className={`row ${styles["timeset"]}`}>
+                              <div
+                                onClick={() => {
+                                  setTime("");
+                                  setTime(
+                                    selectTime === "08:30" ? "" : "08:30"
+                                  );
+                                }}
+                                class={
+                                  selectTime === "08:30"
+                                    ? `col ${styles.time2}`
+                                    : `col ${styles.time}`
+                                }
+                              >{`08:30am`}</div>
+                              <div
+                                onClick={() => {
+                                  setTime("");
+                                  setTime(
+                                    selectTime === "10:30" ? "" : "10:30"
+                                  );
+                                }}
+                                class={
+                                  selectTime === "10:30"
+                                    ? `col ${styles.time2}`
+                                    : `col ${styles.time}`
+                                }
+                              >{`10:30am`}</div>
+                              <div
+                                onClick={() => {
+                                  setTime("");
+                                  setTime(
+                                    selectTime === "12:00" ? "" : "12:00"
+                                  );
+                                }}
+                                class={
+                                  selectTime === "12:00"
+                                    ? `col ${styles.time2}`
+                                    : `col ${styles.time}`
+                                }
+                              >{`12:00pm`}</div>
+                            </div>
+                            <div className={`row ${styles["timesets"]}`}>
+                              <div
+                                onClick={() => {
+                                  setTime("");
+                                  setTime(
+                                    selectTime === "16:30" ? "" : "16:30"
+                                  );
+                                }}
+                                class={
+                                  selectTime === "16:30"
+                                    ? `col ${styles.time2}`
+                                    : `col ${styles.time}`
+                                }
+                              >{`04:30pm`}</div>
+                              <div
+                                onClick={() => {
+                                  setTime("");
+                                  setTime(
+                                    selectTime === "19:00" ? "" : "19:00"
+                                  );
+                                }}
+                                class={
+                                  selectTime === "19:00"
+                                    ? `col ${styles.time2}`
+                                    : `col ${styles.time}`
+                                }
+                              >{`07:00pm`}</div>
+                              <div
+                                onClick={() => {
+                                  setTime("");
+                                  setTime(
+                                    selectTime === "20:30" ? "" : "20:30"
+                                  );
+                                }}
+                                class={
+                                  selectTime === "20:30"
+                                    ? `col ${styles.time2}`
+                                    : `col ${styles.time}`
+                                }
+                              >{`08:30pm`}</div>
+                            </div>
+                          </ul>
+                        </span>
+                        <span className={styles["price"]}>
+                          <p>Price</p>
+                          <p>{`$10.00/seat`}</p>
+                        </span>
+                        <span className={styles["btn-tickets-section"]}>
+                          <button
+                            className={styles["btn-book"]}
+                            onClick={submitHandler}
+                          >
+                            Book Now
+                          </button>
+                          <p>Add to cart</p>
+                        </span>
+                      </span>
+                    </li>
+                  );
+                })}
             </ul>
           </span>
-          <section className={styles["pagination"]}>
+          {/* <section className={styles["pagination"]}>
             <ul>
               <li>1</li>
               <li>2</li>
@@ -298,7 +300,7 @@ const Detail = () => {
               <li>4</li>
               <li>5</li>
             </ul>
-          </section>
+              </section> */}
         </section>
       </main>
       <Footer />
