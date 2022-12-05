@@ -2,6 +2,9 @@ import React from "react";
 import styles from "../../styles/orderpage.module.css";
 import Image from "next/image";
 import Table from "react-bootstrap/Table";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 // Import Component
 import Navbar from "../../components/Navbar/Navbar";

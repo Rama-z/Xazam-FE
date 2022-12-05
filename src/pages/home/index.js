@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
@@ -75,7 +77,6 @@ const Home = () => {
                   src={spiderman}
                   alt={`spiderman`}
                   className={styles["content-list-image1"]}
-                  contain
                   objectFit="cover"
                 />
               </li>
@@ -84,9 +85,7 @@ const Home = () => {
                   src={lion}
                   alt={`lion`}
                   className={styles["content-list-image2"]}
-                  contain
-                  width={500}
-                  height={500}
+                  objectFit="cover"
                 />
               </li>
               <li className={styles["list-image3"]}>
@@ -94,9 +93,7 @@ const Home = () => {
                   src={movie}
                   alt={`movie`}
                   className={styles["content-list-image3"]}
-                  contain
-                  width={500}
-                  height={500}
+                  objectFit="cover"
                 />
               </li>
             </ul>

@@ -8,6 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import movieAction from "src/redux/actions/movie";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const Movies = () => {
   const router = useRouter();
@@ -22,7 +25,7 @@ const Movies = () => {
         `search=${router.query.search || ""}&limit=10&page=${page}`
       )
     );
-  }, [search, page]);
+  }, [search, page, dispatch, router]);
 
   return (
     <>
