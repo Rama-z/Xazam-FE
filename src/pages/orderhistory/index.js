@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../../styles/orderhistory.module.css";
 import Image from "next/image";
+import PrivateRoute from "src/helper/privateroute";
 
 // Import React-Bootsrap
 import Button from "react-bootstrap/Button";
@@ -33,6 +34,9 @@ import ebu from "../../assets/images/ebu.png";
 // import profileAction from "src/redux/actions/profile";
 
 const Index = () => {
+  // TODO: Private route
+  PrivateRoute();
+  
   const router = useRouter();
   // const dispatch = useDispatch();
 

@@ -14,8 +14,12 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import PrivateRoute from "src/helper/privateroute";
 
 const TicketResult = () => {
+  // TODO: Private route
+  PrivateRoute();
+  
   return (
     <>
       <Navbar />

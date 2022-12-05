@@ -5,6 +5,7 @@ import Table from "react-bootstrap/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import PrivateRoute from "src/helper/privateroute";
 
 // Import Component
 import Navbar from "../../components/Navbar/Navbar";
@@ -18,7 +19,9 @@ import lovenest from "../../assets/images/lovenest.png";
 import sold from "../../assets/images/sold.png";
 import screen from "../../assets/images/screen.png";
 
-function index() {
+const Index = () => {
+  // TODO: Private route
+  PrivateRoute();
   return (
     <div>
       <Navbar />
@@ -347,4 +350,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;
