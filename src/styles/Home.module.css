@@ -88,6 +88,7 @@
   padding-right: 1rem;
   padding-top: 0.2rem;
   transform: scale(2);
+  object-fit: cover;
 }
 
 .content-list-image2 {
@@ -96,6 +97,7 @@
   padding-top: 1.3rem;
   padding-right: 0.5rem;
   transform: scale(4);
+  object-fit: cover;
 }
 
 .content-list-image3 {
@@ -104,6 +106,7 @@
   padding-top: 1.6rem;
   padding-right: 2.6rem;
   transform: scale(3);
+  object-fit: cover;
 }
 
 /* .section_two {
