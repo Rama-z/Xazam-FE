@@ -5,6 +5,7 @@ import Table from "react-bootstrap/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import PrivateRoute from "src/helper/privateroute";
 
 // Import Component
 import Navbar from "../../components/Navbar/Navbar";
@@ -23,7 +24,9 @@ import movieAction from "src/redux/actions/movie";
 import { useEffect } from "react";
 import { movies } from "src/modules/api/Movie";
 
-function Index() {
+const Index = () => {
+  // TODO: Private route
+  PrivateRoute();
   const dispatch = useDispatch();
   const router = useRouter();
   const movies = useSelector((state) => state.movie);
@@ -49,7 +52,6 @@ function Index() {
     dispatch(movieAction.payment(body));
     router.push("/payment");
   };
-
   return (
     <div>
       <Navbar />
@@ -968,6 +970,6 @@ function Index() {
       <Footer />
     </div>
   );
-}
+};
 
 export default Index;
