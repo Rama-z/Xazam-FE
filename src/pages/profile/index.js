@@ -121,7 +121,8 @@ const Profile = () => {
     }
   }
 
-  console.log(data);
+  // console.log(body);
+//  console.log(formState);
   useEffect(() => {
     dispatch(profileAction.getProfileThunk(token, setImageUser));
     setEmail(emailUser);
@@ -152,7 +153,10 @@ const Profile = () => {
 
   const changeHandlerInputImage = (e) => {
     const files = e.target.files[0];
-    e.preventDefault();
+    setImage(files);
+    setImagePreview(URL.createObjectURL(files));
+    setFormState({ ...formState, image: e.target.files[0] });
+    setImageUser(e.target.files[0]);
     setBody({
       ...body,
       image: files,
@@ -177,8 +181,11 @@ const Profile = () => {
               <div className={`${styles["man-wrap"]}`}>
                 <Upload
                   ref={target}
-                  onChange={(e) => changeHandlerInputImage(e)}
-                  img={profile.profile?.image ? profile.profile.image : sample}
+                  onChange={(e) =>{
+                  
+                    changeHandlerInputImage(e)}}
+                  // img={profile.profile.image ? profile.profile.image : sample}
+                  img={imagePreview !== null ? imagePreview : profile.profile.image}
                   name="image"
                   width={100}
                   height={100}
