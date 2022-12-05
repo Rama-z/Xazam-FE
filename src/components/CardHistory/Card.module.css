@@ -60,3 +60,81 @@
   justify-content: center;
   margin-left: 3rem;
 }
+
+@media only screen and (max-width: 768px) {
+  .date {
+    font-size: 10px;
+  }
+  .homecoming {
+    font-size: 22px;
+  }
+
+  .logo1 {
+    width: 100px;
+    height: 23px;
+    position: relative;
+    top: 23px;
+  }
+  .history-ticket {
+    padding: 0px 26px !important;
+  }
+  .ticketz {
+    width: 142px;
+    margin-left: 1rem;
+  }
+  .collapse {
+    align-items: center;
+    padding-right: 25px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .shows {
+    position: relative;
+    top: 11px;
+    left: 20px;
+  }
+
+  .logo1 {
+    width: 103px;
+    height: 23px;
+    position: relative;
+    top: -13px;
+  }
+
+  .date {
+    font-size: 10px;
+  }
+
+  .homecoming {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .ticketz {
+    width: 110px;
+    height: 40px;
+    font-size: 11px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    margin-left: 1rem;
+  }
+
+  .history-ticket {
+    padding: 0px 28px !important;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .homecoming {
+    font-size: 11px;
+  }
+  .logo1 {
+    width: 81px;
+    height: 23px;
+    position: relative;
+    top: -5px;
+  }
+  .nav-account-set {
+    padding-left: 31px !important;
+  }
+}
