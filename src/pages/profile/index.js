@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import React, { useEffect, useState, useRef } from "react";
 import styles from "../../styles/Profile.module.css";
 import { useRouter } from "next/router";
@@ -18,14 +19,14 @@ import authAction from "src/redux/actions/auth";
 const Profile = () => {
   const target = useRef(null);
   const dispatch = useDispatch();
-  const profile = useSelector((state) => state.profile.userData);
+  const profile = useSelector((state) => state.profile);
   const token = useSelector((state) => state.auth.userData.token);
   const emailUser = useSelector((state) => state.auth.userData.email);
 
   const [isCorrect, setIsCorrect] = useState(false);
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown1, setIsPwdShown1] = useState(false);
-  const [firstName, setFirstName] = useState(profile.firstName);
+  const [firstName, setFirstName] = useState(profile.length > 0 && profile.firstName);
   const [lastName, setLastName] = useState(profile.lastName);
   const [email, setEmail] = useState(profile.email);
   const [phoneNum, setPhoneNum] = useState(profile.notelp);
@@ -35,7 +36,9 @@ const Profile = () => {
 
   const [disableButton, setDisableButton] = useState(true);
   const [disableButtonPw, setDisableButtonPw] = useState(true);
+
   const [body, setBody] = useState();
+  console.log(body);
 
   const handleChange = () => {
     setDisableButton(!disableButton);
@@ -94,17 +97,21 @@ const Profile = () => {
 
   const data = new FormData();
   if (formState.firstName !== undefined) {
-    data.append("firstname", formState.firstname);
+    data.append("firstname", formState.firstName);
   }
+  formState.firstName = formState.firstName;
   if (formState.lastName !== undefined) {
-    data.append("lastname", formState.lastname);
+    data.append("lastname", formState.lastName);
   }
+  formState.lastName = formState.lastName;
   if (formState.image !== undefined) {
     data.append("image", formState.image);
   }
+  formState.image = formState.image;
   if (formState.notelp !== undefined) {
     data.append("notelp", formState.notelp);
   }
+  formState.notelp = formState.notelp;
   if (formState.pw1 !== undefined && formState.password !== undefined) {
     if (formState.pw1 !== formState.password) {
       console.log(`password salah`);
@@ -113,16 +120,48 @@ const Profile = () => {
     }
   }
 
+  console.log(data);
   useEffect(() => {
     console.log(body);
   }, [body]);
 
   useEffect(() => {
     dispatch(profileAction.getProfileThunk(token, setFirstName, setPhoneNum, setLastName, setImageUser));
+    dispatch(profileAction.getProfileThunk(token, setImageUser));
     setEmail(emailUser);
-  }, [dispatch, setEmail, emailUser, token]);
+  }, [dispatch, emailUser, token]);
 
   const changePwdSubmitHandler = () => {};
+
+  const submitHandler = () => {
+    dispatch(profileAction.editProfileThunk(body, token));
+    dispatch(authAction.changeThunk(body, token));
+    toast.success("Profile Data Updated!", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2000,
+    });
+  };
+
+  const editProfileSubmit = () => {
+    dispatch(profileAction.editProfileThunk(body));
+  };
+
+  const changeHandlerInput = (e) => {
+    e.preventDefault();
+    setBody({
+      ...body,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const changeHandlerInputImage = (e) => {
+    const files = e.target.files[0];
+    e.preventDefault();
+    setBody({
+      ...body,
+      image: files,
+    });
+  };
 
   return (
     <>
@@ -141,8 +180,10 @@ const Profile = () => {
               </div>
               <div className={`${styles["man-wrap"]}`}>
                 <Upload ref={target} onChange={(e) => onImageUpload(e)} img={imagePreview !== null ? imagePreview : imageUser} name="image" width={100} height={100} />
+                <Upload ref={target} onChange={(e) => changeHandlerInputImage(e)} img={profile.profile?.image ? profile.profile.image : sample} name="image" width={100} height={100} />
               </div>
               <p className={`${styles["name"]}`}>{firstName === null ? "Your Name is.." : firstName}</p>
+              <p className={`${styles["name"]}`}>{!profile.profile.firstName ? "Your Name is.." : `${profile.profile.firstName} ${profile.profile.lastName}`}</p>
               <p className={`${styles["tag"]}`}>Moviegoers</p>
               <hr />
               <p className={`${styles["point"]}`}>Loyalty Points</p>
@@ -172,12 +213,12 @@ const Profile = () => {
                   </div>
                   <div class="col"></div>
                 </div>
-                <hr />
+                <hr className={` ${styles["hr"]}`} />
                 <p className={` ${styles["details"]}`}>Details Information</p>
                 <p onClick={handleChange} className={` ${styles["edit"]}`}>
                   ✎ Edit
                 </p>
-                <form class="row">
+                <form class="row" onSubmit={editProfileSubmit}>
                   <div class="col">
                     <p className={` ${styles["category"]}`}>First Name</p>
                     <input
@@ -187,8 +228,7 @@ const Profile = () => {
                       }}
                       className={disableButton ? `${styles["input"]}` : `${styles["inputs"]}`}
                       type="text"
-                      placeholder="Input Here..."
-                      value={firstName === null ? "" : firstName}
+                      placeholder={profile.profile.firstName ? profile.profile.firstName : "Input Here..."}
                       name="firstname"
                       disabled={disableButton}
                     />
@@ -208,33 +248,44 @@ const Profile = () => {
                   <div class="col">
                     <p className={` ${styles["category"]}`}>Last Name</p>
                     <input
-                      onChange={(e) => {
-                        handleInputChange(e);
-                        handleInputValueLastName(e);
-                      }}
+                      onChange={changeHandlerInput}
                       value={lastName === null ? "" : lastName}
                       className={disableButton ? `${styles["input"]}` : `${styles["inputs"]}`}
                       type="text"
-                      placeholder="Input Here..."
+                      placeholder={profile.profile.lastName ? profile.profile.lastName : "Input Here..."}
                       name="lastname"
                       disabled={disableButton}
                     />
                     <p className={` ${styles["category"]}`}>Phone Number</p>
                     <input
-                      onChange={(e) => {
-                        handleInputChange(e);
-                        handleInputValuePhoneNum(e);
-                      }}
+                      onChange={changeHandlerInput}
                       value={phoneNum === null ? "" : phoneNum}
                       className={disableButton ? `${styles["input"]}` : `${styles["inputs"]}`}
                       type="text"
-                      placeholder="Input Here..."
+                      placeholder={profile.profile.noTelp ? profile.profile.noTelp : "Input Here..."}
                       name="notelp"
                       disabled={disableButton}
                     />
                   </div>
                 </form>
+                <p className={` ${styles["privacy"]}`}>Account and Privacy</p>
+                <hr className={` ${styles["hr"]}`} />
                 <form className="col" onSubmit={changePwdSubmitHandler}>
+                  <div className="col">
+                    <div>
+                      {/* <hr className={` ${styles["hr-2"]}`} /> */}
+                      <p className={` ${styles["confirm-pw"]}`}>Old Password</p>
+                      <input
+                        onChange={changePwdHandler}
+                        className={disableButtonPw ? `${styles["input"]}` : `${styles["inputs"]}`}
+                        type={isPwdShown1 ? "text" : "password"}
+                        placeholder="Confirm your password"
+                        name="password"
+                        disabled={disableButtonPw}
+                      />
+                      <Image className={` ${styles["eye"]}`} width={20} src={eye} alt="eye" onClick={() => setIsPwdShown1(!isPwdShown1)} />
+                    </div>
+                  </div>
                   <div className="row">
                     <div className="col">
                       <p className={` ${styles["privacy"]}`}>Account and Privacy</p>
@@ -248,20 +299,20 @@ const Profile = () => {
                         className={disableButtonPw ? `${styles["input"]}` : `${styles["inputs"]}`}
                         type={isPwdShown ? "text" : "password"}
                         placeholder="Write your password"
-                        name="password"
+                        name="new_password"
                         disabled={disableButtonPw}
                       />
                       <Image className={` ${styles["eye"]}`} width={20} src={eye} alt="eye" onClick={() => setIsPwdShown(!isPwdShown)} />
                     </div>
                     <div className="col">
-                      <hr className={` ${styles["hr-2"]}`} />
-                      <p className={` ${styles["confirm-pw"]}`}>New Password</p>
+                      {/* <hr className={` ${styles["hr-2"]}`} /> */}
+                      <p className={` ${styles["confirm-pw"]}`}>Confirm Password</p>
                       <input
                         onChange={changePwdHandler}
                         className={disableButtonPw ? `${styles["input"]}` : `${styles["inputs"]}`}
                         type={isPwdShown1 ? "text" : "password"}
                         placeholder="Confirm your password"
-                        name="new_password"
+                        name="confirm_password"
                         disabled={disableButtonPw}
                       />
                       <Image className={` ${styles["eye"]}`} width={20} src={eye} alt="eye" onClick={() => setIsPwdShown1(!isPwdShown1)} />
@@ -287,7 +338,7 @@ const Profile = () => {
                   className={`btn btn-danger ${styles["btn-changes"]}`}
                   onClick={() => {
                     dispatch(authAction.logoutThunk(token));
-                    router.push("/auth/login");
+                    router.push("/home");
                   }}
                 >
                   Logout

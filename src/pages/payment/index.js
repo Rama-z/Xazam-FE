@@ -13,6 +13,9 @@ import pay8 from "../../assets/images/ovo.png";
 import Image from "next/image";
 import BasicExample from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const Payment = () => {
   const [isPwdShown, setIsPwdShown] = useState(false);
@@ -192,7 +195,9 @@ const Payment = () => {
                   </div>
                 </div>
               </div>
-              <div className={`row justify-content-sm-center ${styles["dash-wrap"]}`} >
+              <div
+                className={`row justify-content-sm-center ${styles["dash-wrap"]}`}
+              >
                 <div className={` col-sm-2 ${styles["dash1"]}`}>
                   <hr className={` ${styles["hr"]}`} />
                 </div>

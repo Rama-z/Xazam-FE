@@ -13,12 +13,18 @@
 
 .company__image {
   width: 120.41px;
+<<<<<<< HEAD
   height: 42.41px;
+=======
+  height: 31.41px;
+  cursor: pointer;
+>>>>>>> 724762ca7c61320c439906150f2741ffe47e6290
 }
 
 .cont-nav {
   gap: 10rem;
 }
+
 .nav-links {
   font-family: "Mulish";
   font-style: normal;
@@ -26,12 +32,17 @@
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0.005em;
-
   color: #414141;
 }
+
+.nav-links:hover {
+  transform: scale(1.1);
+}
+
 .list-menu {
   padding-left: 100px;
 }
+
 .dropdown {
   border: none;
   font-family: "Mulish";
@@ -41,6 +52,10 @@
   line-height: 20px;
   letter-spacing: 0.005em;
   color: #414141;
+}
+
+.dropdown:hover {
+  transform: scale(1.1);
 }
 
 .icon-1 {

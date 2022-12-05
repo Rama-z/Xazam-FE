@@ -1,10 +1,23 @@
 .main {
-  /* border: 1px solid darkblue; */
   font-family: "Mulish", sans-serif;
-  max-width: 1440px;
+  max-width: 1200px;
   margin: auto;
 }
-
+.desc-main {
+  /* background-color: aquamarine; */
+  width: 74.7%;
+}
+.right-content {
+  float: left;
+  /* background-color: yellow; */
+}
+.firsttwo {
+  padding-top: 4%;
+  width: fit-content;
+}
+.sectwo {
+  width: fit-content;
+}
 .section-first,
 .section-second,
 .section-third {
@@ -12,29 +25,77 @@
 }
 
 .section-first {
-  /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: row;
   gap: 1rem;
   padding: 1rem;
+  /* background-color: #0853d7; */
 }
 
 .desc-secondary {
-  /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 .desc-secondary span {
-  /* border: 1px solid darkblue; */
   position: relative;
   width: 15rem;
 }
+.release {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
 
-/* .desc-secondary span p {
-  border: 1px solid darkblue;
-} */
+  letter-spacing: 0.75px;
+
+  color: #8692a6;
+}
+.bef-rel {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  /* identical to box height, or 200% */
+
+  letter-spacing: 0.75px;
+
+  color: #121212;
+}
+.h3-main {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 34px;
+  /* identical to box height, or 106% */
+
+  letter-spacing: 1px;
+
+  /* Text - Title */
+
+  color: #14142b;
+}
+
+.genre {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 34px;
+  /* identical to box height, or 189% */
+
+  text-align: center;
+  letter-spacing: 0.75px;
+
+  /* Text - Body */
+
+  color: #4e4b66;
+}
 
 .desc-secondary span p:nth-child(1) {
   color: #8692a6;
@@ -60,33 +121,18 @@
   /* border: 1px solid darkorange; */
   height: 358px;
   width: 232px;
+  border-radius: 4px;
 }
 
 /* .casts {
-  border: 1px solid darkblue;
 } */
 
-.cast-content {
-  /* border: 1px solid darkblue; */
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  padding-left: 0;
-}
-
-.cast-content li {
-  list-style: none;
-  font-size: 14px;
-}
-
 /* .desc {
-  border: 1px solid darkblue;
   display: flex;
   flex-direction: row;
 } */
 
 .desc-secondary span {
-  /* border: 1px solid darkblue; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -97,9 +143,9 @@
 } */
 
 .synopsis {
-  /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: column;
+  background-color: #6b6b6b;
 }
 
 .synopsis h3 {
@@ -107,16 +153,15 @@
   font-weight: 600;
 }
 
-.synopsis p {
+/* .synopsis p {
   text-align: justify;
-}
+} */
 
 .section-third {
-  /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background: #f5f6f8; */
+  background-color: #f5f6f8;
   padding: 1rem;
   gap: 1rem;
 }
@@ -127,7 +172,6 @@
 }
 
 /* .date-and-location {
-  border: 1px solid darkblue;
 } */
 
 .tickets-section {
@@ -144,12 +188,16 @@
   gap: 1rem;
 }
 
-/* .ticket {
-  border: 1px solid darkblue;
+.tickets-list li {
+  height: 410px;
+  position: relative;
+}
+/* 
+.ticket {
+  height: 100px;
 } */
 
 .ticket__content {
-  /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -164,11 +212,9 @@
 }
 /* 
 .ticket-image-section {
-  border: 1px solid darkblue;
 } */
 
 .ticket-image {
-  /* border: 1px solid darkblue; */
   width: 147px;
   height: 59px;
 }
@@ -186,7 +232,6 @@
 }
 
 /* .ticket-desc {
-  border: 1px solid darkblue;
 } */
 
 .ticket-desc p {
@@ -211,13 +256,11 @@
 }
 
 .schedule {
-  /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: row;
 }
 
 .location {
-  /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: row;
 }
@@ -228,7 +271,6 @@
 }
 
 .schedule-input {
-  /* border: 1px solid darkblue; */
   padding: 0.5rem 1rem;
   cursor: pointer;
   outline: none;
@@ -239,7 +281,6 @@
 }
 
 .select-location {
-  /* border: 1px solid darkblue; */
   padding: 0.5rem 1rem;
   cursor: pointer;
   outline: none;
@@ -252,17 +293,55 @@
 /* .tickets-section {
   border: 1px solid darkred;
 } */
-
+.timeset {
+  font-size: smaller;
+  margin-top: 5%;
+  text-align: center;
+}
+.timesets {
+  margin-top: 5%;
+  font-size: smaller;
+  text-align: center;
+}
 .date {
-  /* border: 1px solid darkgoldenrod; */
-  padding-left: none;
+  /* background-color: #4e4b66; */
+  margin-left: -12%;
+}
+
+.timecontainer {
+  position: absolute;
+  bottom: 7rem;
+}
+
+.time {
+  cursor: pointer;
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.time2 {
+  color: #ffffff;
+  background-color: #73a8e5;
+  border-radius: 1rem;
+  cursor: pointer;
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
 .price {
-  /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: 10rem;
+  margin-left: 0.5rem;
+  position: absolute;
+  bottom: 10rem;
 }
 
 .price p {
@@ -286,6 +365,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  position: absolute;
+  bottom: 2rem;
 }
 
 .btn-tickets-section p {
@@ -293,7 +374,6 @@
 }
 
 .btn-book {
-  /* border: 1px solid darkblue; */
   background: var(--primary-color);
   color: #f7f7fc;
   border: none;
@@ -311,7 +391,6 @@
 }
 
 .pagination ul {
-  /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: row;
   list-style: none;
@@ -331,11 +410,57 @@
 .movie-spesific-to-image {
   cursor: pointer;
 }
+.cast-content {
+  text-align: left;
+}
+.synop {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 34px;
+  /* identical to box height, or 170% */
+
+  letter-spacing: 0.5px;
+
+  color: #000000;
+}
+.story {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  /* or 200% */
+
+  letter-spacing: 0.75px;
+
+  /* Text - Body */
+
+  color: #4e4b66;
+}
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
   .tickets-list {
     overflow-x: auto;
     justify-content: flex-start;
+  }
+  .desc-main {
+    width: 100%;
+    /* background-color: #14142b; */
+  }
+  .catagory-content {
+    text-align: center;
+    /* background-color: #14142b; */
+    width: 100%;
+  }
+  .firsttwo {
+    margin: auto;
+    /* background-color: #14142b; */
+    /* width: 100%; */
+  }
+  .sectwo {
+    margin: auto;
   }
 }
 
@@ -364,19 +489,19 @@
   }
 
   .desc-secondary {
-    /* border: 1px solid darkblue; */
     align-items: center;
   }
 
   .desc-secondary span p {
-    /* border: 1px solid darkblue; */
     text-align: center;
   }
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 428px) {
   .section-first {
+    /* background-color: #6b6b6b; */
     flex-direction: column;
+    justify-content: center;
   }
   .desc-image {
     display: flex;
@@ -410,5 +535,40 @@
 
   .section-third {
     gap: 1.5rem;
+  }
+  .catagory-content {
+    text-align: center;
+  }
+  .desc-main {
+    /* background-color: #14142b; */
+    width: 100%;
+  }
+  .befor-rilis {
+    /* background-color: yellow; */
+    text-align: center;
+    margin-left: 14%;
+  }
+  .release {
+    /* text-align: center; */
+    /* margin: auto; */
+  }
+  .firsttwo {
+    margin: auto;
+    width: 100%;
+    /* background-color: #4e4b66; */
+  }
+  .desc-container {
+    /* padding-left: 10%; */
+    /* background-color: gray; */
+    width: 100%;
+    margin-left: 3%;
+  }
+  .right-content {
+    text-align: center;
+    margin-left: 13.5%;
+  }
+  .sectwo {
+    text-align: center;
+    margin-left: 13%;
   }
 }

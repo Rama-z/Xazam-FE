@@ -12,6 +12,8 @@ import print from "../../assets/images/print.png";
 import barcode2 from "../../assets/images/barcode2.png";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const TicketResult = () => {
   return (

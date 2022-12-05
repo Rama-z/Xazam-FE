@@ -1,0 +1,287 @@
+.main {
+  font-family: "Mulish", sans-serif;
+  max-width: 1440px;
+  margin: auto;
+}
+
+/* .tickets-section {
+  border: 1px solid darkblue;
+} */
+
+.tickets-list {
+  /* border: 1px solid darkred; */
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* .ticket {
+  border: 1px solid darkblue;
+} */
+
+.ticket__content {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ticket__content__header {
+  /* border: 1px solid darkgoldenrod; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+/* 
+.ticket-image-section {
+  border: 1px solid darkblue;
+} */
+
+.ticket-image {
+  /* border: 1px solid darkblue; */
+  width: 147px;
+  height: 59px;
+}
+
+.ticket {
+  /* border: 1px solid darkorchid; */
+  list-style: none;
+  /* width: 23.8125rem;
+  height: 21.875em; */
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0px 8px 16px rgba(186, 186, 186, 0.24);
+  border-radius: 8px;
+}
+
+/* .ticket-desc {
+  border: 1px solid darkblue;
+} */
+
+.ticket-desc p {
+  margin-bottom: 0;
+}
+
+.ticket-desc__title {
+  font-weight: 600;
+}
+
+.ticket-desc__location {
+  color: #6e7191;
+  font-size: 12px;
+}
+
+.date-and-location {
+  /* border: 1px solid darkgoldenrod; */
+  padding: 1rem 10rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.schedule {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  flex-direction: row;
+}
+
+.location {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  flex-direction: row;
+}
+
+.schedule-input,
+.select-location {
+  width: 12rem;
+}
+
+.schedule-input {
+  /* border: 1px solid darkblue; */
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  background: #eff0f6;
+}
+
+.select-location {
+  /* border: 1px solid darkblue; */
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  background: #eff0f6;
+}
+
+/* .tickets-section {
+  border: 1px solid darkred;
+} */
+
+.date {
+  /* border: 1px solid darkgoldenrod; */
+  padding-left: none;
+}
+
+.price {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.price p {
+  font-size: 14px;
+}
+
+.price p:nth-child(1) {
+  color: #6b6b6b;
+}
+
+.price p:nth-child(2) {
+  font-weight: 600;
+}
+
+.date li {
+  list-style: none;
+}
+
+.btn-tickets-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-tickets-section p {
+  margin-bottom: 0;
+}
+
+.btn-book {
+  /* border: 1px solid darkblue; */
+  background: var(--primary-color);
+  color: #f7f7fc;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  box-shadow: 0px 8px 24px rgba(95, 46, 234, 0.24);
+}
+
+.btn-tickets-section p {
+  /* border: 1px solid darkcyan; */
+  color: var(--primary-color);
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.pagination ul {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding-left: 0;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.pagination ul li {
+  color: var(--secondary-color);
+  background: var(--primary-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px rgba(95, 46, 234, 0.24);
+}
+
+.movie-spesific-to-image {
+  cursor: pointer;
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .tickets-list {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .section-first {
+    flex-direction: column;
+  }
+  .desc-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .desc-detail h3,
+  .desc-detail p {
+    text-align: center;
+  }
+
+  .desc-secondary span p:nth-child(1) {
+    font-weight: 700;
+  }
+
+  .tickets-list {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .desc-secondary {
+    /* border: 1px solid darkblue; */
+    align-items: center;
+  }
+
+  .desc-secondary span p {
+    /* border: 1px solid darkblue; */
+    text-align: center;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .section-first {
+    flex-direction: column;
+  }
+  .desc-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .desc-detail h3,
+  .desc-detail p {
+    text-align: center;
+  }
+
+  .tickets-list {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .schedule-input,
+  .select-location {
+    width: 10.5rem;
+  }
+
+  .synopsis p {
+    text-align: justify;
+  }
+
+  .date-and-location {
+    width: 100%;
+    padding: 0;
+  }
+
+  .section-third {
+    gap: 1.5rem;
+  }
+}
