@@ -46,8 +46,7 @@ const Detail = () => {
           <span className={styles["desc-image"]}>
             <Image
               src={
-                movies.movieDetail?.image ? movies.movieDetail.image : 
-                sample
+                movies.movieDetail?.image ? movies.movieDetail.image : sample
                 // spider
               }
               alt={name}
@@ -70,9 +69,9 @@ const Detail = () => {
               </span>
             </span>
             <span className={`row ${styles["desc-secondary"]}`}>
-              <div className={`container ${styles["desc-container"]}`} >
+              <div className={`container ${styles["desc-container"]}`}>
                 <div className={`row ${styles["firsttwo"]}`}>
-                  <div className={`col ${styles["befor-rilis"]}`} >
+                  <div className={`col ${styles["befor-rilis"]}`}>
                     <span className={`${styles["release"]}`}>
                       <p>Release Date</p>
                       <p className={`${styles["bef-rel"]}`}>
@@ -172,7 +171,7 @@ const Detail = () => {
                   </span>
                   <span>
                     <ul className={styles["date"]}>
-                      <div className={`row ${styles["timeset"]}`} >
+                      <div className={`row ${styles["timeset"]}`}>
                         <div class="col">{`08:30am`}</div>
                         <div class="col">{`10:30pm`}</div>
                         <div class="col">{`12:00pm`}</div>
@@ -222,7 +221,7 @@ const Detail = () => {
                   </span>
                   <span>
                     <ul className={styles["date"]}>
-                    <div className={`row ${styles["timeset"]}`} >
+                      <div className={`row ${styles["timeset"]}`}>
                         <div class="col">{`08:30am`}</div>
                         <div class="col">{`10:30pm`}</div>
                         <div class="col">{`12:00pm`}</div>
@@ -265,7 +264,7 @@ const Detail = () => {
                   </span>
                   <span>
                     <ul className={styles["date"]}>
-                    <div className={`row ${styles["timeset"]}`} >
+                      <div className={`row ${styles["timeset"]}`}>
                         <div class="col">{`08:30am`}</div>
                         <div class="col">{`10:30pm`}</div>
                         <div class="col">{`12:00pm`}</div>
@@ -292,16 +291,15 @@ const Detail = () => {
             </ul>
           </span>
           <section className={styles["pagination"]}>
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-          </ul>
+            <ul>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+            </ul>
+          </section>
         </section>
-        </section>
-        
       </main>
       <Footer />
     </>

@@ -2,11 +2,10 @@ import { ActionType } from "redux-promise-middleware";
 import { actionStrings } from "../actions/actionStrings";
 
 const initialState = {
-  userData: {
+  profile: {
     firstName: null,
     lastName: null,
     noTelp: null,
-    email: null,
     image: null,
   },
   isLoading: false,
@@ -35,21 +34,21 @@ const profileReducer = (prevState = initialState, { payload, type }) => {
         error: payload.error.message,
       };
     case getProfile.concat("_", Fulfilled):
+      console.log(payload);
       return {
         ...prevState,
         isError: false,
         isFulfilled: true,
         isLoading: false,
         profile: {
-          firstName: payload.data.data.firstName,
-          lastName: payload.data.data.lastName,
-          email: payload.data.data.email,
+          firstName: payload.data.data.firstname,
+          lastName: payload.data.data.lastname,
           image: payload.data.data.image,
-          noTelp: payload.data.data.noTelp,
+          noTelp: payload.data.data.notelp,
         },
       };
 
-      case editProfile.concat("_", Pending):
+    case editProfile.concat("_", Pending):
       return {
         ...prevState,
         isLoading: true,

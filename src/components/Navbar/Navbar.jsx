@@ -17,13 +17,14 @@ import search from "src/assets/Icons/search.png";
 import sample from "src/assets/images/avatar.webp";
 import { useDispatch, useSelector } from "react-redux";
 import profileAction from "src/redux/actions/profile";
+import { toast } from "react-toastify";
 
 const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
   const profile = useSelector((state) => state.profile);
-  const [firstName, setFirstName] = useState(profile.userData.firstName);
-  const [lastName, setLastName] = useState(profile.userData.lastName);
-  const [phoneNum, setPhoneNum] = useState(profile.userData.notelp);
-  const [imageUser, setImageUser] = useState(profile.image);
+  const [firstName, setFirstName] = useState(profile.userData?.firstName);
+  const [lastName, setLastName] = useState(profile.userData?.lastName);
+  const [phoneNum, setPhoneNum] = useState(profile.userData?.notelp);
+  const [imageUser, setImageUser] = useState(profile?.image);
   const [clickText, setClickText] = useState(false);
   const router = useRouter();
   const auth = useSelector((state) => state.auth);
@@ -81,8 +82,16 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
             <div
               className={`d-flex justify-content-center align-items-center ${styles["pages-shop"]}`}
             >
-              <p className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}>
-                {" "}
+              <p
+                className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}
+                onClick={() => {
+                  if (!auth.userData.token) {
+                    toast.info("You have to login first");
+                    router.push("/auth/login");
+                  }
+                  router.push("/movies");
+                }}
+              >
                 Buy Ticket
               </p>
             </div>

@@ -7,6 +7,9 @@ import Image from "next/image";
 // Import React-Bootsrap
 import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 // Import Component
 import Navbar from "../../components/Navbar/Navbar";
@@ -50,8 +53,15 @@ const index = () => {
   console.log(firstName);
 
   useEffect(() => {
-    dispatch(profileAction.getProfileThunk(auth.userData.token,
-      setFirstName,setLastName,setPhoneNum,setImageUser));
+    dispatch(
+      profileAction.getProfileThunk(
+        auth.userData.token,
+        setFirstName,
+        setLastName,
+        setPhoneNum,
+        setImageUser
+      )
+    );
   }, [dispatch, auth.userData.token]);
 
   return (
