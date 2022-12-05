@@ -121,6 +121,9 @@ const Profile = () => {
     if (body?.image) {
       data.append("image", body.image);
     }
+    if (!body?.image) {
+      data.append("image", ...body);
+    }
     if (body?.lastname && body.lastname.length > 0) {
       data.append("lastname", body.lastname);
     }
