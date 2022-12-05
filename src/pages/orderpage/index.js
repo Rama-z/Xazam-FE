@@ -20,17 +20,34 @@ import screen from "../../assets/images/screen.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import movieAction from "src/redux/actions/movie";
+import { useEffect } from "react";
+import { movies } from "src/modules/api/Movie";
 
 function Index() {
   const dispatch = useDispatch();
   const router = useRouter();
+  const movies = useSelector((state) => state.movie);
   const payment = useSelector((state) => state);
   const [seat, setSeat] = useState([]);
-  const [body, setBody] = useState();
+  const bodys = useSelector((state) => state.movie.transfer_data);
+  const [body, setBody] = useState(bodys);
+  const totalPayment = 10 * seat.length;
+  useEffect(() => {
+    setBody({
+      ...body,
+      total_price: totalPayment,
+      ticket_count: seat.length,
+      seat_id: [
+        seat.map((item, idx) => {
+          return item.seat_id;
+        }),
+      ],
+    });
+  }, [seat]);
 
   const submitHandler = () => {
-    setBody({ ...body, ...seat });
     dispatch(movieAction.payment(body));
+    router.push("/payment");
   };
 
   return (
@@ -45,7 +62,7 @@ function Index() {
             <div className={` card ${styles.cardmovie}`}>
               <div className="d-flex justify-content-between align-items-center">
                 <p className={`${styles.titlemovie} ${styles.spiders}`}>
-                  Spider-Man: Homecoming
+                  {movies.movieDetail.name}
                 </p>
                 <button className={`${styles.buttons}`}>Change movie</button>
               </div>
@@ -913,8 +930,7 @@ function Index() {
               <div className="d-flex justify-content-between px-4">
                 <p className={`${styles["left-text"]}`}>Movie selected</p>
                 <p className={`${styles["right-text"]}`}>
-                  {" "}
-                  Spider-Man: Homecoming
+                  {movies.movieDetail.name}
                 </p>
               </div>
               <div className="d-flex justify-content-between px-4">
@@ -922,7 +938,7 @@ function Index() {
                   {" "}
                   Tuesday, 07 July 2020
                 </p>
-                <p className={`${styles["right-text"]}`}> 02:00pm</p>
+                <p className={`${styles["right-text"]}`}>{bodys.tsm_id}</p>
               </div>
               <div className="d-flex justify-content-between px-4">
                 <p className={`${styles["left-text"]}`}>One ticket price</p>
@@ -930,22 +946,20 @@ function Index() {
               </div>
               <div className="d-flex px-4">
                 <p className={`${styles["left-text"]}`}>Seat choosed</p>
-                {seat.map((item) => {
+                {seat?.map((item, idx) => {
                   return (
-                    <>
-                      <div className={`${styles["seat-urgent"]}`}>
-                        <p className={`${styles["right-text"]}`}>
-                          {item.seat_id}
-                        </p>
-                      </div>
-                    </>
+                    <div className={`${styles["seat-urgent"]}`} key={idx}>
+                      <p className={`${styles["right-text"]}`}>
+                        {item.seat_id}
+                      </p>
+                    </div>
                   );
                 })}
               </div>
               <hr />
               <div className="d-flex justify-content-between px-4">
                 <p className={`${styles["title-payment"]}`}>Total Payment</p>
-                <p className={`${styles["prices"]}`}>$30</p>
+                <p className={`${styles["prices"]}`}>${totalPayment}</p>
               </div>
             </div>
           </div>
