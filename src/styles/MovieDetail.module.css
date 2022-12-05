@@ -391,12 +391,10 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 32px;
+  text-align: justify;
   /* or 200% */
-
   letter-spacing: 0.75px;
-
   /* Text - Body */
-
   color: #4e4b66;
 }
 
