@@ -14,13 +14,9 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
-import PrivateRoute from "src/helper/privateroute";
-import Title from "src/components/Title";
-
 import ticketAction from "src/redux/actions/ticket";
 
 const TicketResult = () => {
-  PrivateRoute();
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.userData.token);
   const ticket = useSelector((state) => state.ticket.ticket);
@@ -42,14 +38,13 @@ const TicketResult = () => {
 
   useEffect(() => {
     dispatch(ticketAction.getTicketThunk(token));
-  }, []);
+  }, [dispatch, token]);
 
   return (
     <>
-      <Title title={`Ticket Result`} />
       <Navbar />
       <Container>
-        <main className={` ${styles["main"]}`}>
+        <main className={`${styles["main"]}`}>
           <div className={`${styles["sub-main"]}`}>
             <section className={`${styles["sec"]}`}>
               <p className={`${styles["proof"]}`}>Proof of Payment</p>
@@ -67,7 +62,7 @@ const TicketResult = () => {
                   <hr className={`${styles["new1"]}`} />
                   <div className={`col-sm ${styles["img-wrap2"]}`}>
                     <Image
-                      className={`${styles["img"]} ${styles["img-right"]}`}
+                      className={`${styles["img"]}`}
                       src={tickitz}
                       alt="Tickitz"
                     />
@@ -117,7 +112,7 @@ const TicketResult = () => {
                       </div>
                     </div>
                   </div>
-                  <div className={`col-sm-4 ${styles.cols}`}>
+                  <div class="col-sm-4">
                     <Image
                       className={`${styles["barcode"]}`}
                       src={barcode2}
@@ -156,7 +151,7 @@ const TicketResult = () => {
                   </div>
                 </div>
               </section>
-              <div class={` row ${styles.download}`}>
+              <div class="row">
                 <div className={`col ${styles["dl-btn"]}`}>
                   <button className={`${styles["dl"]}`}>
                     <Image
