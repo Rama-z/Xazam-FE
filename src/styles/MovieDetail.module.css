@@ -3,7 +3,21 @@
   max-width: 1200px;
   margin: auto;
 }
-
+.desc-main {
+  /* background-color: aquamarine; */
+  width: 74.7%;
+}
+.right-content {
+  float: left;
+  /* background-color: yellow; */
+}
+.firsttwo {
+  padding-top: 4%;
+  width: fit-content;
+}
+.sectwo {
+  width: fit-content;
+}
 .section-first,
 .section-second,
 .section-third {
@@ -15,6 +29,7 @@
   flex-direction: row;
   gap: 1rem;
   padding: 1rem;
+  /* background-color: #0853d7; */
 }
 
 .desc-secondary {
@@ -27,9 +42,60 @@
   position: relative;
   width: 15rem;
 }
+.release {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
 
-/* .desc-secondary span p {
-} */
+  letter-spacing: 0.75px;
+
+  color: #8692a6;
+}
+.bef-rel {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  /* identical to box height, or 200% */
+
+  letter-spacing: 0.75px;
+
+  color: #121212;
+}
+.h3-main {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 34px;
+  /* identical to box height, or 106% */
+
+  letter-spacing: 1px;
+
+  /* Text - Title */
+
+  color: #14142b;
+}
+
+.genre {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 34px;
+  /* identical to box height, or 189% */
+
+  text-align: center;
+  letter-spacing: 0.75px;
+
+  /* Text - Body */
+
+  color: #4e4b66;
+}
 
 .desc-secondary span p:nth-child(1) {
   color: #8692a6;
@@ -61,20 +127,6 @@
 /* .casts {
 } */
 
-.cast-content,
-.catagory-content {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  padding-left: 0;
-  width: 50vw;
-}
-
-.cast-content li {
-  list-style: none;
-  font-size: 14px;
-}
-
 /* .desc {
   display: flex;
   flex-direction: row;
@@ -93,6 +145,7 @@
 .synopsis {
   display: flex;
   flex-direction: column;
+  background-color: #6b6b6b;
 }
 
 .synopsis h3 {
@@ -100,15 +153,15 @@
   font-weight: 600;
 }
 
-.synopsis p {
+/* .synopsis p {
   text-align: justify;
-}
+} */
 
 .section-third {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background: #f5f6f8; */
+  background-color: #f5f6f8;
   padding: 1rem;
   gap: 1rem;
 }
@@ -234,10 +287,17 @@
 /* .tickets-section {
   border: 1px solid darkred;
 } */
-
+.timeset {
+  font-size: smaller;
+  margin-top: 5%;
+}
+.timesets {
+  margin-top: 5%;
+  font-size: smaller;
+}
 .date {
-  /* border: 1px solid darkgoldenrod; */
-  padding-left: none;
+  /* background-color: #4e4b66; */
+  margin-left: -12%;
 }
 
 .price {
@@ -310,11 +370,57 @@
 .movie-spesific-to-image {
   cursor: pointer;
 }
+.cast-content {
+  text-align: left;
+}
+.synop {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 34px;
+  /* identical to box height, or 170% */
+
+  letter-spacing: 0.5px;
+
+  color: #000000;
+}
+.story {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  /* or 200% */
+
+  letter-spacing: 0.75px;
+
+  /* Text - Body */
+
+  color: #4e4b66;
+}
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
   .tickets-list {
     overflow-x: auto;
     justify-content: flex-start;
+  }
+  .desc-main {
+    width: 100%;
+    /* background-color: #14142b; */
+  }
+  .catagory-content {
+    text-align: center;
+    /* background-color: #14142b; */
+    width: 100%;
+  }
+  .firsttwo {
+    margin: auto;
+    /* background-color: #14142b; */
+    /* width: 100%; */
+  }
+  .sectwo {
+    margin: auto;
   }
 }
 
@@ -351,9 +457,11 @@
   }
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 428px) {
   .section-first {
+    /* background-color: #6b6b6b; */
     flex-direction: column;
+    justify-content: center;
   }
   .desc-image {
     display: flex;
@@ -387,5 +495,40 @@
 
   .section-third {
     gap: 1.5rem;
+  }
+  .catagory-content {
+    text-align: center;
+  }
+  .desc-main {
+    /* background-color: #14142b; */
+    width: 100%;
+  }
+  .befor-rilis {
+    /* background-color: yellow; */
+    text-align: center;
+    margin-left: 14%;
+  }
+  .release {
+    /* text-align: center; */
+    /* margin: auto; */
+  }
+  .firsttwo {
+    margin: auto;
+    width: 100%;
+    /* background-color: #4e4b66; */
+  }
+  .desc-container {
+    /* padding-left: 10%; */
+    /* background-color: gray; */
+    width: 100%;
+    margin-left: 3%;
+  }
+  .right-content {
+    text-align: center;
+    margin-left: 13.5%;
+  }
+  .sectwo {
+    text-align: center;
+    margin-left: 13%;
   }
 }

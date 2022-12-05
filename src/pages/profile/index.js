@@ -18,14 +18,16 @@ import authAction from "src/redux/actions/auth";
 const Profile = () => {
   const target = useRef(null);
   const dispatch = useDispatch();
-  const profile = useSelector((state) => state.profile.userData);
+  const profile = useSelector((state) => state.profile);
   const token = useSelector((state) => state.auth.userData.token);
   const emailUser = useSelector((state) => state.auth.userData.email);
 
   const [isCorrect, setIsCorrect] = useState(false);
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown1, setIsPwdShown1] = useState(false);
-  const [firstName, setFirstName] = useState(profile.firstName);
+  const [firstName, setFirstName] = useState(
+    profile.length > 0 && profile.firstName
+  );
   const [lastName, setLastName] = useState(profile.lastName);
   const [email, setEmail] = useState(profile.email);
   const [phoneNum, setPhoneNum] = useState(profile.notelp);
@@ -35,7 +37,9 @@ const Profile = () => {
 
   const [disableButton, setDisableButton] = useState(true);
   const [disableButtonPw, setDisableButtonPw] = useState(true);
+
   const [body, setBody] = useState();
+  console.log(body);
 
   const handleChange = () => {
     setDisableButton(!disableButton);
@@ -117,6 +121,7 @@ const Profile = () => {
     }
   }
 
+  console.log(data);
   useEffect(() => {
     dispatch(profileAction.getProfileThunk(token, setImageUser));
     setEmail(emailUser);
@@ -125,13 +130,32 @@ const Profile = () => {
   const changePwdSubmitHandler = () => {};
 
   const submitHandler = () => {
-    dispatch(
-      profileAction.editProfileThunk(data, token, formState, setIsCorrect)
-    );
+    dispatch(profileAction.editProfileThunk(body, token));
     dispatch(authAction.changeThunk(body, token));
     toast.success("Profile Data Updated!", {
       position: toast.POSITION.TOP_CENTER,
       autoClose: 2000,
+    });
+  };
+
+  const editProfileSubmit = () => {
+    dispatch(profileAction.editProfileThunk(body));
+  };
+
+  const changeHandlerInput = (e) => {
+    e.preventDefault();
+    setBody({
+      ...body,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const changeHandlerInputImage = (e) => {
+    const files = e.target.files[0];
+    e.preventDefault();
+    setBody({
+      ...body,
+      image: files,
     });
   };
 
@@ -153,17 +177,17 @@ const Profile = () => {
               <div className={`${styles["man-wrap"]}`}>
                 <Upload
                   ref={target}
-                  onChange={(e) => onImageUpload(e)}
-                  img={imagePreview !== null ? imagePreview : imageUser}
+                  onChange={(e) => changeHandlerInputImage(e)}
+                  img={profile.profile?.image ? profile.profile.image : sample}
                   name="image"
                   width={100}
                   height={100}
                 />
               </div>
               <p className={`${styles["name"]}`}>
-                {profile.firstname === null
+                {!profile.profile.firstName
                   ? "Your Name is.."
-                  : profile.firstname}
+                  : `${profile.profile.firstName} ${profile.profile.lastName}`}
               </p>
               <p className={`${styles["tag"]}`}>Moviegoers</p>
               <hr />
@@ -207,31 +231,28 @@ const Profile = () => {
                 <p onClick={handleChange} className={` ${styles["edit"]}`}>
                   ✎ Edit
                 </p>
-                <form class="row">
+                <form class="row" onSubmit={editProfileSubmit}>
                   <div class="col">
                     <p className={` ${styles["category"]}`}>First Name</p>
                     <input
-                      onChange={(e) => {
-                        handleInputChange(e);
-                        handleInputValue(e);
-                      }}
+                      onChange={changeHandlerInput}
                       className={
                         disableButton
                           ? `${styles["input"]}`
                           : `${styles["inputs"]}`
                       }
                       type="text"
-                      placeholder="Input Here..."
-                      value={firstName === null ? "" : firstName}
+                      placeholder={
+                        profile.profile.firstName
+                          ? profile.profile.firstName
+                          : "Input Here..."
+                      }
                       name="firstname"
                       disabled={disableButton}
                     />
                     <p className={` ${styles["category"]}`}>E-mail</p>
                     <input
-                      onChange={(e) => {
-                        handleInputChange(e);
-                        handleInputValueEmail(e);
-                      }}
+                      onChange={changeHandlerInput}
                       className={
                         disableButton
                           ? `${styles["input"]}`
@@ -246,10 +267,7 @@ const Profile = () => {
                   <div class="col">
                     <p className={` ${styles["category"]}`}>Last Name</p>
                     <input
-                      onChange={(e) => {
-                        handleInputChange(e);
-                        handleInputValueLastName(e);
-                      }}
+                      onChange={changeHandlerInput}
                       value={lastName === null ? "" : lastName}
                       className={
                         disableButton
@@ -257,16 +275,17 @@ const Profile = () => {
                           : `${styles["inputs"]}`
                       }
                       type="text"
-                      placeholder="Input Here..."
+                      placeholder={
+                        profile.profile.lastName
+                          ? profile.profile.lastName
+                          : "Input Here..."
+                      }
                       name="lastname"
                       disabled={disableButton}
                     />
                     <p className={` ${styles["category"]}`}>Phone Number</p>
                     <input
-                      onChange={(e) => {
-                        handleInputChange(e);
-                        handleInputValuePhoneNum(e);
-                      }}
+                      onChange={changeHandlerInput}
                       value={phoneNum === null ? "" : phoneNum}
                       className={
                         disableButton
@@ -274,7 +293,11 @@ const Profile = () => {
                           : `${styles["inputs"]}`
                       }
                       type="text"
-                      placeholder="Input Here..."
+                      placeholder={
+                        profile.profile.noTelp
+                          ? profile.profile.noTelp
+                          : "Input Here..."
+                      }
                       name="notelp"
                       disabled={disableButton}
                     />
@@ -296,7 +319,7 @@ const Profile = () => {
                         }
                         type={isPwdShown1 ? "text" : "password"}
                         placeholder="Confirm your password"
-                        name="new_password"
+                        name="password"
                         disabled={disableButtonPw}
                       />
                       <Image
@@ -327,7 +350,7 @@ const Profile = () => {
                         }
                         type={isPwdShown ? "text" : "password"}
                         placeholder="Write your password"
-                        name="password"
+                        name="new_password"
                         disabled={disableButtonPw}
                       />
                       <Image
@@ -352,7 +375,7 @@ const Profile = () => {
                         }
                         type={isPwdShown1 ? "text" : "password"}
                         placeholder="Confirm your password"
-                        name="new_password"
+                        name="confirm_password"
                         disabled={disableButtonPw}
                       />
                       <Image
