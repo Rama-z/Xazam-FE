@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import styles from "../../styles/orderhistory.module.css";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
+import PrivateRoute from "src/helper/privateroute";
 
 // Import React-Bootsrap
 import Button from "react-bootstrap/Button";
@@ -206,4 +207,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

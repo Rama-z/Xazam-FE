@@ -16,8 +16,11 @@ import Footer from "../../components/Footer/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import PrivateRoute from "src/helper/privateroute";
 
 const Payment = () => {
+  // TODO: Private route
+  PrivateRoute();
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown1, setIsPwdShown1] = useState(false);
   const [formState, setFormState] = useState({

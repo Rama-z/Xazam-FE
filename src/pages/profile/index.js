@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "../../styles/Profile.module.css";
 import { useRouter } from "next/router";
+import PrivateRoute from "src/helper/privateroute";
 import dot from "../../assets/images/dot.png";
 import scrl from "../../assets/images/scroll.png";
 import eye from "../../assets/images/eye.png";
@@ -17,6 +18,9 @@ import "react-toastify/dist/ReactToastify.css";
 import authAction from "src/redux/actions/auth";
 
 const Profile = () => {
+  // TODO: Private route
+  PrivateRoute();
+  
   const target = useRef(null);
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
