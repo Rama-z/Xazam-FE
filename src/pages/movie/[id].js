@@ -2,15 +2,16 @@ import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-toastify";
 
 import Header from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { Input } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import profile from "../../assets/images/profile.png";
+import ebv from "../../assets/images/ebu.png";
+import cineone from "../../assets/images/cineone.png";
+import hiflix from "../../assets/images/hiflix.png";
+import spider from "../../assets/images/spiderman.png";
 import Search from "components/Search";
 import styles from "../../styles/MovieDetail.module.css";
 import movieAction from "src/redux/actions/movie";
@@ -46,6 +47,7 @@ const Detail = () => {
             <Image
               src={
                 movies.movieDetail?.image ? movies.movieDetail.image : sample
+                // spider
               }
               alt={name}
               className={styles["image"]}
@@ -55,47 +57,80 @@ const Detail = () => {
           </span>
           <span className={styles["desc-main"]}>
             <span className={styles["desc-detail"]}>
-              <h3>{movies.movieDetail?.name}</h3>
+              <h3 className={styles["h3-main"]}>
+                {movies.movieDetail?.name}
+                Spider-Man: Homecoming
+              </h3>
               <span className={styles["catagory-content"]}>
+                Adventure, Action, Sci-Fi
                 {movies.movieDetail?.category?.map((result, idx) => (
                   <p key={idx}>{result}</p>
                 ))}
               </span>
             </span>
             <span className={`row ${styles["desc-secondary"]}`}>
-              <span className="col">
-                <span className={`col ${styles["release"]}`}>
-                  <p>Release</p>
-                  <p>{movies.movieDetail?.relase_date}</p>
-                </span>
-                <span className={styles["ridrected-by"]}>
-                  <p>Directed by</p>
-                  <p>{movies.movieDetail?.director}</p>
-                </span>
-              </span>
-              <span className="col">
-                <span className={styles["duration"]}>
-                  <p>Duration</p>
-                  <p>{movies.movieDetail?.duration}</p>
-                </span>
-                <span className={styles["casts"]}>
-                  <p>Casts</p>
-                  <ul className={styles["cast-content"]}>
-                    {movies.movieDetail?.cast?.map((result, idx) => (
-                      <li key={idx}>{result}</li>
-                    ))}
-                  </ul>
-                </span>
-              </span>
+              <div className={`container ${styles["desc-container"]}`}>
+                <div className={`row ${styles["firsttwo"]}`}>
+                  <div className={`col ${styles["befor-rilis"]}`}>
+                    <span className={`${styles["release"]}`}>
+                      <p>Release Date</p>
+                      <p className={`${styles["bef-rel"]}`}>
+                        {movies.movieDetail?.relase_date}
+                        June 28, 2017
+                      </p>
+                    </span>
+                  </div>
+                  <div className={`col ${styles["right-content"]}`}>
+                    <span className={styles["ridrected-by"]}>
+                      <p className={`${styles["release"]}`}>Directed by</p>
+
+                      <p className={`${styles["bef-rel"]}`}>
+                        Jon Watss
+                        {movies.movieDetail?.director}
+                      </p>
+                    </span>
+                  </div>
+                </div>
+
+                <div className={`row ${styles["sectwo"]}`}>
+                  <div class="col">
+                    <span className={styles["duration"]}>
+                      <p className={`${styles["release"]}`}>Duration</p>
+                      <p className={`${styles["bef-rel"]}`}>
+                        2 hours 13 minutes
+                        {movies.movieDetail?.duration}
+                      </p>
+                    </span>
+                  </div>
+                  <div class="col">
+                    <span className={styles["casts"]}>
+                      <p className={`${styles["release"]}`}>Casts</p>
+                      <p className={styles["cast-content"]}>
+                        Tom Holland, Michael Keaton, Robert Downey Jr., ...
+                        {movies.movieDetail?.cast?.map((result, idx) => (
+                          <li key={idx}>{result}</li>
+                        ))}
+                      </p>
+                    </span>
+                  </div>
+                </div>
+                <hr />
+                <h3 className={styles["synop"]}>Synopsis</h3>
+                <p className={styles["story"]}>
+                  Thrilled by his experience with the Avengers, Peter returns
+                  home, where he lives with his Aunt May, under the watchful eye
+                  of his new mentor Tony Stark, Peter tries to fall back into
+                  his normal daily routine - distracted by thoughts of proving
+                  himself to be more than just your friendly neighborhood
+                  Spider-Man - but when the Vulture emerges as a new villain,
+                  everything that Peter holds most important will be threatened.
+                  {movies.movieDetail?.synopsis}
+                </p>
+              </div>
             </span>
           </span>
         </section>
-        <section className={styles["section-second"]}>
-          <span className={styles["synopsis"]}>
-            <h3>Synopsis</h3>
-            <p>{movies.movieDetail?.synopsis}</p>
-          </span>
-        </section>
+
         <section className={styles["section-third"]}>
           <h1>Showtimes and Tickets</h1>
           <span className={styles["date-and-location"]}>
@@ -122,7 +157,7 @@ const Detail = () => {
                   <span className={styles["ticket__content__header"]}>
                     <span className={styles["ticket-image-section"]}>
                       <Image
-                        src={``}
+                        src={cineone}
                         alt={``}
                         className={styles["ticket-image"]}
                       />
@@ -136,7 +171,18 @@ const Detail = () => {
                   </span>
                   <span>
                     <ul className={styles["date"]}>
-                      <li>{`08:30am`}</li>
+                      <div className={`row ${styles["timeset"]}`}>
+                        <div class="col">{`08:30am`}</div>
+                        <div class="col">{`10:30pm`}</div>
+                        <div class="col">{`12:00pm`}</div>
+                        <div class="col">{`02:00pm`}</div>
+                      </div>
+                      <div className={`row ${styles["timesets"]}`}>
+                        <div class="col">{`04:30pm`}</div>
+                        <div class="col">{`07:00pm`}</div>
+                        <div class="col">{`08:00pm`}</div>
+                        <div class="col"></div>
+                      </div>
                     </ul>
                   </span>
                   <span className={styles["price"]}>
@@ -161,7 +207,7 @@ const Detail = () => {
                   <span className={styles["ticket__content__header"]}>
                     <span className={styles["ticket-image-section"]}>
                       <Image
-                        src={``}
+                        src={ebv}
                         alt={`Image`}
                         className={styles["ticket-image"]}
                       />
@@ -175,7 +221,18 @@ const Detail = () => {
                   </span>
                   <span>
                     <ul className={styles["date"]}>
-                      <li>{`08:30am`}</li>
+                      <div className={`row ${styles["timeset"]}`}>
+                        <div class="col">{`08:30am`}</div>
+                        <div class="col">{`10:30pm`}</div>
+                        <div class="col">{`12:00pm`}</div>
+                        <div class="col">{`02:00pm`}</div>
+                      </div>
+                      <div className={`row ${styles["timesets"]}`}>
+                        <div class="col">{`04:30pm`}</div>
+                        <div class="col">{`07:00pm`}</div>
+                        <div class="col">{`08:00pm`}</div>
+                        <div class="col"></div>
+                      </div>
                     </ul>
                   </span>
                   <span className={styles["price"]}>
@@ -193,7 +250,7 @@ const Detail = () => {
                   <span className={styles["ticket__content__header"]}>
                     <span className={styles["ticket-image-section"]}>
                       <Image
-                        src={``}
+                        src={hiflix}
                         alt={`Image`}
                         className={styles["ticket-image"]}
                       />
@@ -207,7 +264,18 @@ const Detail = () => {
                   </span>
                   <span>
                     <ul className={styles["date"]}>
-                      <li>{`08:30am`}</li>
+                      <div className={`row ${styles["timeset"]}`}>
+                        <div class="col">{`08:30am`}</div>
+                        <div class="col">{`10:30pm`}</div>
+                        <div class="col">{`12:00pm`}</div>
+                        <div class="col">{`02:00pm`}</div>
+                      </div>
+                      <div className={`row ${styles["timesets"]}`}>
+                        <div class="col">{`04:30pm`}</div>
+                        <div class="col">{`07:00pm`}</div>
+                        <div class="col">{`08:00pm`}</div>
+                        <div class="col"></div>
+                      </div>
                     </ul>
                   </span>
                   <span className={styles["price"]}>
@@ -222,15 +290,15 @@ const Detail = () => {
               </li>
             </ul>
           </span>
-        </section>
-        <section className={styles["pagination"]}>
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-          </ul>
+          <section className={styles["pagination"]}>
+            <ul>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+            </ul>
+          </section>
         </section>
       </main>
       <Footer />

@@ -121,6 +121,7 @@ const Profile = () => {
     }
   }
 
+  console.log(data);
   useEffect(() => {
     dispatch(profileAction.getProfileThunk(token, setImageUser));
     setEmail(emailUser);

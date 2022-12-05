@@ -308,7 +308,7 @@ function index() {
             <p className={`${styles["movie-selected"]}`}>Order Info</p>
             <div className={`card ${styles.cardpayment} `}>
               <div className={` d-flex  ${styles.img}`}>
-                <Image src={cineone} alt="/" />
+                {/* <Image src={cineone} alt="/" /> */}
                 <p className={`${styles["title-payment"]}`}>CineOne21 Cinema</p>
               </div>
               <div className="d-flex justify-content-between px-4">
