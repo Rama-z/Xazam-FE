@@ -15,7 +15,7 @@ import Form from "react-bootstrap/Form";
 import ebu from "../../assets/images/ebu.png";
 import hiflix from "../../assets/images/hiflix.png";
 import cineone from "../../assets/images/cineone.png";
-import chart from "src/assets/images/chart.png";
+import chart from "src/assets/images/Chart.png";
 import xxi from "src/assets/images/XXI.webp";
 import cgv from "src/assets/images/cgv.png";
 import platinum from "src/assets/images/cine.png";
