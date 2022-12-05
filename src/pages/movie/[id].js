@@ -74,10 +74,7 @@ const Detail = () => {
           </span>
           <span className={styles["desc-main"]}>
             <span className={styles["desc-detail"]}>
-              <h3 className={styles["h3-main"]}>
-                {movies.movieDetail?.name}
-                Spider-Man: Homecoming
-              </h3>
+              <h3 className={styles["h3-main"]}>{movies.movieDetail?.name}</h3>
               <span className={styles["catagory-content"]}>
                 Adventure, Action, Sci-Fi
                 {movies.movieDetail?.category?.map((result, idx) => (
