@@ -8,7 +8,7 @@ const config = (token) => {
   }
 }
 
-const BASE_URL = `NEXT_PUBLIC_BACKEND_URL/transaction`;
+const BASE_URL = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/xazam/transaction`;
 
 const gethistory = (token) => Axios.get(`${BASE_URL}/history`, config(token));
 

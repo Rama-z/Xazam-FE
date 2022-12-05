@@ -1,6 +1,6 @@
 import { ActionType } from "redux-promise-middleware";
 
-import { gethistory } from "src/modules/api/Transaction";
+import { gethistory } from "../../modules/api/Transaction";
 
 import { actionTransactions } from "./actionStrings";
 
@@ -15,7 +15,7 @@ const getHistoryRejected = (error) => ({
   payload: {error},
 })
 
-const getHistoryFulfilled = () => ({
+const getHistoryFulfilled = (data) => ({
   type: actionTransactions.getHistory.concat("-", Fulfilled),
   payload: {data},
 })

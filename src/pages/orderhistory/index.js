@@ -29,12 +29,16 @@ import chevrondown from "../../assets/images/chevrondown.png";
 import ebu from "../../assets/images/ebu.png";
 import profileAction from "src/redux/actions/profile";
 import authAction from "src/redux/actions/auth";
+import transactionAction from "src/redux/actions/transaction";
 import sample from "src/assets/images/avatar.webp";
 const Index = () => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
   const token = useSelector((state) => state.auth.userData.token);
   // const auth = useSelector((state) => state.auth);
+
+  const history = useSelector((state) => state.transaction);
+  console.log(history);
 
   const [firstName, setFirstName] = useState(profile.firstName);
   const [lastName, setLastName] = useState(profile.lastName);
@@ -43,6 +47,13 @@ const Index = () => {
   // const [imageUser, setImageUser] = useState(null);
   // const [imagePreview, setImagePreview] = useState(null);
   // const [image, setImage] = useState("");
+
+  useEffect(() => {
+    dispatch(
+      transactionAction.getHistoryThunk(token)
+    )
+  },[dispatch,token])
+
 
   useEffect(() => {
     dispatch(

@@ -40,7 +40,7 @@ const transactionsReducer = (prevState = initState, { payload, type }) => {
         isLoading: false,
         isError: false,
         isFulfilled: true,
-        history: payload.data.data,
+        history: payload.data,
       };
 
       default:
