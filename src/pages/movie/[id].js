@@ -21,7 +21,7 @@ const Detail = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movie);
-  const [timeStyle, setTimeStyle] = useState(true);
+  const [timeStyle, setTimeStyle] = useState([""]);
 
   const handleClickText = () => {
     setClickText(!clickText);
@@ -175,84 +175,88 @@ const Detail = () => {
                       <div className={`row ${styles["timeset"]}`}>
                         <div
                           onClick={() => {
-                            setTimeStyle(!timeStyle);
+                            setTimeStyle(
+                              timeStyle.includes("1")
+                                ? timeStyle.push("1")
+                                : timeStyle.push("")
+                            );
                           }}
                           class={
-                            timeStyle
-                              ? `col ${styles.time}`
-                              : `col ${styles.times}`
+                            timeStyle.includes("1")
+                              ? `col ${styles.time2}`
+                              : `col ${styles.time}`
                           }
                         >{`08:30am`}</div>
                         <div
                           onClick={() => {
-                            setTimeStyle(!timeStyle);
+                            setTimeStyle(2);
                           }}
                           class={
-                            timeStyle
+                            timeStyle === 2
                               ? `col ${styles.time}`
-                              : `col ${styles.times}`
+                              : `col ${styles.time2}`
                           }
                         >{`10:30pm`}</div>
                         <div
                           onClick={() => {
-                            setTimeStyle(!timeStyle);
+                            setTimeStyle(3);
                           }}
                           class={
-                            timeStyle
+                            timeStyle === 3
                               ? `col ${styles.time}`
-                              : `col ${styles.times}`
+                              : `col ${styles.time2}`
                           }
                         >{`12:00pm`}</div>
                         <div
                           onClick={() => {
-                            setTimeStyle(!timeStyle);
+                            setTimeStyle(4);
                           }}
                           class={
-                            timeStyle
+                            timeStyle === 4
                               ? `col ${styles.time}`
-                              : `col ${styles.times}`
+                              : `col ${styles.time2}`
                           }
                         >{`02:00pm`}</div>
                       </div>
                       <div className={`row ${styles["timesets"]}`}>
                         <div
                           onClick={() => {
-                            setTimeStyle(!timeStyle);
+                            setTimeStyle(5);
                           }}
                           class={
-                            timeStyle
+                            timeStyle === 5
                               ? `col ${styles.time}`
-                              : `col ${styles.times}`
+                              : `col ${styles.time2}`
                           }
                         >{`04:30pm`}</div>
                         <div
                           onClick={() => {
-                            setTimeStyle(!timeStyle);
+                            setTimeStyle(6);
                           }}
                           class={
-                            timeStyle
+                            timeStyle === 6
                               ? `col ${styles.time}`
-                              : `col ${styles.times}`
+                              : `col ${styles.time2}`
                           }
                         >{`07:00pm`}</div>
                         <div
                           onClick={() => {
-                            setTimeStyle(!timeStyle);
+                            setTimeStyle(7);
                           }}
                           class={
-                            timeStyle
+                            timeStyle === 7
                               ? `col ${styles.time}`
-                              : `col ${styles.times}`
+                              : `col ${styles.time2}`
                           }
                         >{`08:00pm`}</div>
                         <div
                           onClick={() => {
-                            setTimeStyle(!timeStyle);
+                            setTimeStyle(8);
                           }}
                           class={
-                            timeStyle
+                            timeStyle === 8
                               ? `col ${styles.time}`
-                              : `col ${styles.times}`
+                              : `col ${styles.time2}`
                           }
                         ></div>
                       </div>
