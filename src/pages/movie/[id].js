@@ -78,7 +78,7 @@ const Detail = () => {
                 <span className={styles["casts"]}>
                   <p>Casts</p>
                   <ul className={styles["cast-content"]}>
-                    {movies.movieDetail.cast?.map((result, idx) => (
+                    {movies.movieDetail?.cast?.map((result, idx) => (
                       <li key={idx}>{result}</li>
                     ))}
                   </ul>
