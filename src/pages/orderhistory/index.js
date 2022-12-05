@@ -30,56 +30,52 @@ import cineone from "../../assets/images/cineone.png";
 import chevrondown from "../../assets/images/chevrondown.png";
 import ebu from "../../assets/images/ebu.png";
 import profileAction from "src/redux/actions/profile";
-import authAction from "src/redux/actions/auth";
+import transactionAction from "src/redux/actions/transaction";
 import sample from "src/assets/images/avatar.webp";
+
 function index() {
+  const router = useRouter();
+
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
   // const auth = useSelector((state) => state.auth);
   const token = useSelector((state) => state.auth.userData.token);
+  const transactions = useSelector((state) => state.transaction.history);
+  console.log(transactions);
 
   const [firstName, setFirstName] = useState(profile.firstName);
   const [lastName, setLastName] = useState(profile.lastName);
-  // const [phoneNum, setPhoneNum] = useState(profiles.notelp);
   const [imageUser, setImageUser] = useState(profile.image);
-  // const [imageUser, setImageUser] = useState(null);
-  // const [imagePreview, setImagePreview] = useState(null);
+
+  const [movie, setMovie] = useState("");
+  const [status, setStatus] = useState("");
+  const [studio, setStudio] = useState("");
+  const [time, setTime] = useState("");
   // const [image, setImage] = useState("");
 
+  console.log(time);
+
   useEffect(() => {
-    dispatch(
-      profileAction.getProfileThunk(
-        token,
-        setFirstName,
-        setLastName,
-        setImageUser
-      )
-    );
+    dispatch(profileAction.getProfileThunk(token, setFirstName, setLastName, setImageUser));
+  }, [dispatch, token]);
+
+  useEffect(() => {
+    dispatch(transactionAction.getHistoryThunk(token));
   }, [dispatch, token]);
 
   return (
     <div>
       <Navbar />
       <main className={` container-fluid ${styles["cont-fluid"]}`}>
-        <div
-          className={`container d-flex justify-content-between ${styles["cont-up"]} `}
-        >
+        <div className={`container d-flex justify-content-between ${styles["cont-up"]} `}>
           <div className={` card col-md-5 col-lg-3 ${styles["card-profile"]}`}>
             <div className={`container px-4 `}>
               <div className={`d-flex justify-content-between pt-4`}>
                 <p className={styles.info}>INFO </p>
                 <Image src={dot} alt="/" />
               </div>
-              <div
-                className={` justify-content-center align-items-center pt-5 ${styles["cont-profile"]}`}
-              >
-                <Image
-                  className="mb-3"
-                  src={profile.profile.image ? profile.profile.image : sample}
-                  alt="/"
-                  width={100}
-                  height={100}
-                />
+              <div className={` justify-content-center align-items-center pt-5 ${styles["cont-profile"]}`}>
+                <Image className="mb-3" src={profile.profile.image ? profile.profile.image : sample} alt="/" width={100} height={100} />
                 <p className={`mb-0 ${styles.jonas}`}>{firstName}</p>
                 <p className={`${styles.MoviegoersText}`}>Moviegoers </p>
               </div>
@@ -90,51 +86,59 @@ function index() {
               <div>
                 <Image className={`${styles["card"]}`} src={card} alt="/" />
                 <Image className={`${styles["points"]}`} src={points} alt="/" />
-                <Image
-                  className={`${styles["Moviegoers"]}`}
-                  src={Moviegoers}
-                  alt="/"
-                />
+                <Image className={`${styles["Moviegoers"]}`} src={Moviegoers} alt="/" />
                 <Image className={`${styles["star"]}`} src={star} alt="/" />
-                <Image
-                  className={`${styles["tigaduanol"]}`}
-                  src={tigaduanol}
-                  alt="/"
-                />
+                <Image className={`${styles["tigaduanol"]}`} src={tigaduanol} alt="/" />
               </div>
-              <p className={`${styles.satulapan}`}>
-                180 points become a master
-              </p>
+              <p className={`${styles.satulapan}`}>180 points become a master</p>
               <div className={`${styles.imgloads}`}>
-                <Image
-                  className={`${styles["non-loadings"]}`}
-                  src={nonloading}
-                  alt="/"
-                />
-                <Image
-                  className={`${styles["loadings"]}`}
-                  src={loading}
-                  alt="/"
-                />
+                <Image className={`${styles["non-loadings"]}`} src={nonloading} alt="/" />
+                <Image className={`${styles["loadings"]}`} src={loading} alt="/" />
               </div>
             </div>
           </div>
           <div className={`d-flex col-md-6 col-lg-8 ${styles.contRight} `}>
-            <div
-              className={` card  d-flex justify-content-center ${styles["bar"]}`}
-            >
-              <div
-                className={` d-flex gap-5 ps-md-5 ps-lg-5 ${styles["nav-account-set"]}`}
-              >
-                <p className={`mb-0 ${styles.account} ${styles.cursor}`}>
+            <div className={` card  d-flex justify-content-center ${styles["bar"]}`}>
+              <div className={` d-flex gap-5 ps-md-5 ps-lg-5 ${styles["nav-account-set"]}`}>
+                <p className={`mb-0 ${styles.account} ${styles.cursor}`} onClick={() => router.push("/profile")}>
                   Account Settings{" "}
                 </p>
-                <p className={`mb-0 ${styles.order} ${styles.cursor}`}>
-                  Order History{" "}
-                </p>
+                <p className={`mb-0 ${styles.order} ${styles.cursor}`}>Order History </p>
               </div>
             </div>
-            <CardHistory />
+            {/* <CardHistory date={time} /> */}
+
+            <div className="container">
+              {transactions?.length > 0 ? (
+                transactions.map((data, index) => {
+                  const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                  console.log(data);
+                  let month = "";
+                  const DD = data.date_transaction?.split("/")[0];
+                  const MM = data.date_transaction?.split("/")[1];
+                  const YY = data.date_transaction?.split("/")[2];
+                  const d = new Date(data.date_transaction);
+                  let day = weekday[d.getDay()];
+                  if (MM === "1") month = "January";
+                  if (MM === "2") month = "February";
+                  if (MM === "3") month = "March";
+                  if (MM === "4") month = "April";
+                  if (MM === "5") month = "Mei";
+                  if (MM === "6") month = "June";
+                  if (MM === "7") month = "July";
+                  if (MM === "8") month = "Agustus";
+                  if (MM === "9") month = "September";
+                  if (MM === "10") month = "October";
+                  if (MM === "11") month = "November";
+                  if (MM === "12") month = "December";
+                  let sendDate = `${day}, ${DD} ${month} ${YY} - ${data.time_transaction} WIB `;
+                  return <CardHistory key={index} movie={data.name} status={data.status} studio={data.studio} time={sendDate} id={data.id} />;
+                })
+              ) : (
+                <p> Loading</p>
+              )}
+            </div>
+
             {/* <div className={`card d-flex pt-4 justify-content-center ${styles["hist"]}`}>
               <div className={` d-flex px-5 ${styles["history-ticket"]}`}>
                 <p className={`mb-0 ${styles.date}`}>Tuesday, 07 July 2020 - 04:30pm </p>

@@ -60,13 +60,31 @@
   justify-content: center;
   margin-left: 3rem;
 }
+.ticketznon {
+  background: #6e7191;
+  border-radius: 4px;
+  width: 196px;
+  height: 40px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #f7f7fc;
+  justify-content: center;
+  margin-left: 3rem;
+}
 
 @media only screen and (max-width: 768px) {
   .date {
     font-size: 10px;
   }
   .homecoming {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .logo1 {
@@ -79,6 +97,10 @@
     padding: 0px 26px !important;
   }
   .ticketz {
+    width: 142px;
+    margin-left: 1rem;
+  }
+  .ticketznon {
     width: 142px;
     margin-left: 1rem;
   }
@@ -111,6 +133,14 @@
   }
 
   .ticketz {
+    width: 110px;
+    height: 40px;
+    font-size: 11px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    margin-left: 1rem;
+  }
+  .ticketznon {
     width: 110px;
     height: 40px;
     font-size: 11px;
