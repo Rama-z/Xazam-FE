@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "../../styles/orderhistory.module.css";
@@ -32,16 +30,16 @@ import ebu from "../../assets/images/ebu.png";
 import profileAction from "src/redux/actions/profile";
 import authAction from "src/redux/actions/auth";
 import sample from "src/assets/images/avatar.webp";
-function index() {
+const Index = () => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
-  // const auth = useSelector((state) => state.auth);
   const token = useSelector((state) => state.auth.userData.token);
+  // const auth = useSelector((state) => state.auth);
 
   const [firstName, setFirstName] = useState(profile.firstName);
   const [lastName, setLastName] = useState(profile.lastName);
-  // const [phoneNum, setPhoneNum] = useState(profiles.notelp);
   const [imageUser, setImageUser] = useState(profile.image);
+  // const [phoneNum, setPhoneNum] = useState(profiles.notelp);
   // const [imageUser, setImageUser] = useState(null);
   // const [imagePreview, setImagePreview] = useState(null);
   // const [image, setImage] = useState("");
@@ -74,7 +72,7 @@ function index() {
                 className={` justify-content-center align-items-center pt-5 ${styles["cont-profile"]}`}
               >
                 <Image
-                  className="mb-3"
+                  className={`mb-3 ${styles["cont-profile__image"]}`}
                   src={profile.profile.image ? profile.profile.image : sample}
                   alt="/"
                   width={100}
