@@ -121,11 +121,11 @@ const Detail = ({ datas }) => {
                   <div class="col">
                     <span className={styles["casts"]}>
                       <p className={`${styles["release"]}`}>Casts</p>
-                      <p className={styles["cast-content"]}>
+                      <div className={styles["cast-content"]}>
                         {movies.movieDetail?.cast?.map((result, idx) => (
                           <li key={idx}>{result}</li>
                         ))}
-                      </p>
+                      </div>
                     </span>
                   </div>
                 </div>
