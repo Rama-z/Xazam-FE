@@ -6,13 +6,14 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { useRouter } from "next/router";
+import Search from "src/components/Search";
 
 // Import Styles
 import styles from "src/styles/Navbar.module.css";
 
 // Import Image
 import Tickitz from "../../assets/images/Tickitz-purple.png";
-import search from "src/assets/icons/search.png";
+import search from "src/assets/Icons/search.png";
 import sample from "src/assets/images/avatar.webp";
 import { useDispatch, useSelector } from "react-redux";
 import profileAction from "src/redux/actions/profile";
@@ -22,7 +23,8 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
   const [firstName, setFirstName] = useState(profile.userData.firstName);
   const [lastName, setLastName] = useState(profile.userData.lastName);
   const [phoneNum, setPhoneNum] = useState(profile.userData.notelp);
-  const [imageUser, setImageUser] = useState(null);
+  const [imageUser, setImageUser] = useState(profile.image);
+  const [clickText, setClickText] = useState(false);
   const router = useRouter();
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -47,6 +49,9 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
             src={Tickitz}
             alt="Tickitz"
             className={styles["company__image"]}
+            onClick={() => {
+              router.push("/home");
+            }}
           />
           <div className="dropdown"></div>
         </Navbar.Brand>
@@ -56,7 +61,7 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
             <Nav.Link
               className={` p-0 ${styles["nav-links"]}`}
               onClick={() => {
-                router.push("/home");
+                router.push("/movies");
               }}
             >
               Movies
@@ -64,7 +69,12 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
             <div
               className={`${styles["pages-shop"]} d-flex justify-content-center align-items-center`}
             >
-              <p className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}>
+              <p
+                className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}
+                onClick={() => {
+                  router.push("/cinema");
+                }}
+              >
                 Cinemas
               </p>
             </div>
@@ -87,7 +97,6 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
               >
                 Location
               </Dropdown.Toggle>
-
               <Dropdown.Menu variant="white">
                 <Dropdown.Item href="#/action-1" active>
                   Action
@@ -97,30 +106,32 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
               </Dropdown.Menu>
             </Dropdown>
             <Image
-              onClick={propsOnclick}
-              className={`  ${styles["icon-1"]} ${styles["cursor"]}`}
+              onClick={() => {
+                setClickText(!clickText);
+              }}
+              className={`${styles["icon-1"]} ${styles["cursor"]}`}
               src={search}
               alt="/"
             />
-            {/* TO DO: Using props to reusable components */}
-            <span className={styles["image-profile"]}>
-              {auth.userData.user_id ? (
+            {auth.userData.user_id ? (
+              <div className={styles["image-profile"]}>
                 <Image
-                  src={profile.profile.image ? profile.profile.image : sample}
+                  src={imageUser ? imageUser : sample}
                   layout="fill"
-                  style={{ cursor: "pointer" }}
                   objectFit="cover"
+                  style={{ cursor: "pointer" }}
                   alt="profile"
                   onClick={() => {
                     router.push("/profile");
                   }}
                 />
-              ) : (
-                profileAndBtn
-              )}
-            </span>
+              </div>
+            ) : (
+              profileAndBtn
+            )}
           </div>
         </Navbar.Collapse>
+        <Search showInputText={clickText} />
       </Container>
     </Navbar>
   );

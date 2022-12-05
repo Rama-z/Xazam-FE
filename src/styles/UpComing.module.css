@@ -1,0 +1,84 @@
+.main {
+  /* border: 1px solid darkgoldenrod; */
+  font-family: "Mulish", sans-serif;
+  max-width: 1440px;
+  margin: auto;
+  font-family: 'Mulish', sans-serif;
+}
+
+.section {
+  /* border: 1px solid darkblue; */
+  padding: 1rem 0;
+}
+
+.section__header {
+  /* border: 1px solid darkgoldenrod; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section__header h1 {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.section__header p {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.list-movies {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+/* || TODO: card */
+.movie {
+  border: 1px solid #dedede;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  max-width: 13.9375rem;
+  height: 23.25rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+}
+
+.movie-images {
+  /* border: 1px solid darkgreen; */
+  width: 159px;
+  height: 224px;
+  border-radius: 4px;
+}
+
+.movie .title {
+  text-align: center;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.btn-movie {
+  border: 1px solid #5f2eea;
+  background: none;
+  border-radius: 4px;
+  color: #5f2eea;
+}
+
+/* .title {
+  border: 1px solid darkgreen;
+} */
+
+.description {
+  /* border: 1px solid darkgoldenrod; */
+  font-size: 12px;
+  color: #a0a3bd;
+}
