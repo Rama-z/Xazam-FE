@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-bootstrap";
+import { toast } from "react-toastify";
 import Header from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { Input } from "@chakra-ui/react";
@@ -23,7 +23,6 @@ const Detail = ({ datas }) => {
   const auth = useSelector((state) => state.auth);
   const [body, setBody] = useState({});
   const [selectTime, setTime] = useState("");
-
   const handleClickText = () => {
     setClickText(!clickText);
   };
@@ -38,15 +37,12 @@ const Detail = ({ datas }) => {
   }, [selectTime, auth.userData.token]);
 
   useEffect(() => {
+    toast.success;
     dispatch(movieAction.movieDetailFulfilled(datas.data));
     dispatch(movieAction.studiosThunk());
   }, [dispatch, router]);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(movieAction.payment(body));
-    router.push("/orderpage");
-  };
+  const submitHandler = (e) => {};
 
   return (
     <>
@@ -81,8 +77,6 @@ const Detail = ({ datas }) => {
                 style={{ display: "flex" }}
               >
                 {movies.movieDetail?.category?.map((result, idx) => {
-                  console.log(movies.movieDetail.category.length - 1);
-                  console.log(idx === movies.movieDetail.category.length - 1);
                   if (idx !== movies.movieDetail.category.length - 1)
                     return <p key={idx}>{`${result},  `}</p>;
                   if (idx === movies.movieDetail.category.length - 1)
@@ -148,8 +142,12 @@ const Detail = ({ datas }) => {
               <Input
                 placeholder="Select Date and Time"
                 size="md"
-                type="datetime-local"
+                type="date"
                 className={styles["schedule-input"]}
+                onChange={(e) => {
+                  e.preventDefault();
+                  setBody({ ...body, date: e.target.value });
+                }}
               />
             </span>
             <span className={styles["location"]}>
@@ -192,12 +190,10 @@ const Detail = ({ datas }) => {
                               <div
                                 onClick={() => {
                                   setTime("");
-                                  setTime(
-                                    selectTime === "08:30" ? "" : "08:30"
-                                  );
+                                  setTime(selectTime === "08:30" ? "" : "1");
                                 }}
                                 class={
-                                  selectTime === "08:30"
+                                  selectTime === "1"
                                     ? `col ${styles.time2}`
                                     : `col ${styles.time}`
                                 }
@@ -205,12 +201,10 @@ const Detail = ({ datas }) => {
                               <div
                                 onClick={() => {
                                   setTime("");
-                                  setTime(
-                                    selectTime === "10:30" ? "" : "10:30"
-                                  );
+                                  setTime(selectTime === "10:30" ? "" : "2");
                                 }}
                                 class={
-                                  selectTime === "10:30"
+                                  selectTime === "2"
                                     ? `col ${styles.time2}`
                                     : `col ${styles.time}`
                                 }
@@ -218,12 +212,10 @@ const Detail = ({ datas }) => {
                               <div
                                 onClick={() => {
                                   setTime("");
-                                  setTime(
-                                    selectTime === "12:00" ? "" : "12:00"
-                                  );
+                                  setTime(selectTime === "12:00" ? "" : "3");
                                 }}
                                 class={
-                                  selectTime === "12:00"
+                                  selectTime === "3"
                                     ? `col ${styles.time2}`
                                     : `col ${styles.time}`
                                 }
@@ -233,12 +225,10 @@ const Detail = ({ datas }) => {
                               <div
                                 onClick={() => {
                                   setTime("");
-                                  setTime(
-                                    selectTime === "16:30" ? "" : "16:30"
-                                  );
+                                  setTime(selectTime === "16:30" ? "" : "4");
                                 }}
                                 class={
-                                  selectTime === "16:30"
+                                  selectTime === "4"
                                     ? `col ${styles.time2}`
                                     : `col ${styles.time}`
                                 }
@@ -246,12 +236,10 @@ const Detail = ({ datas }) => {
                               <div
                                 onClick={() => {
                                   setTime("");
-                                  setTime(
-                                    selectTime === "19:00" ? "" : "19:00"
-                                  );
+                                  setTime(selectTime === "19:00" ? "" : "5");
                                 }}
                                 class={
-                                  selectTime === "19:00"
+                                  selectTime === "5"
                                     ? `col ${styles.time2}`
                                     : `col ${styles.time}`
                                 }
@@ -259,12 +247,10 @@ const Detail = ({ datas }) => {
                               <div
                                 onClick={() => {
                                   setTime("");
-                                  setTime(
-                                    selectTime === "20:30" ? "" : "20:30"
-                                  );
+                                  setTime(selectTime === "20:30" ? "" : "6");
                                 }}
                                 class={
-                                  selectTime === "20:30"
+                                  selectTime === "6"
                                     ? `col ${styles.time2}`
                                     : `col ${styles.time}`
                                 }
@@ -281,6 +267,14 @@ const Detail = ({ datas }) => {
                             className={styles["btn-book"]}
                             onClick={(e) => {
                               e.preventDefault();
+                              if (!body.date) {
+                                toast.warn("Choose The Date");
+                                return;
+                              }
+                              if (!body.tsm_id) {
+                                toast.warn("Choose The Time");
+                                return;
+                              }
                               dispatch(
                                 movieAction.payment({
                                   ...body,

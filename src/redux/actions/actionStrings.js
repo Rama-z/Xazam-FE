@@ -12,6 +12,7 @@ export const actionStrings = {
   studios: "STUDIO",
   payment: "PAYMENT",
   ticketResult: "TICKET_RESULT",
+  createTransactions: "CREATE_TRANS",
 };
 
 export const actionMovies = {

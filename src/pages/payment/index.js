@@ -18,12 +18,22 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import PrivateRoute from "src/helper/privateroute";
 import Title from "src/components/Title";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import movieAction from "src/redux/actions/movie";
+import transactionAction from "src/redux/actions/transaction";
 
 const Payment = () => {
   const movies = useSelector((state) => state.movie);
   const auth = useSelector((state) => state.auth);
   const profile = useSelector((state) => state.profile);
+  const bodys = useSelector((state) => state.movie.transfer_data);
+  const transaction = useSelector(
+    (state) => state.transaction.create_transaction.redirectUrl
+  );
+  const [body, setBody] = useState(bodys);
+  const [pay, setPay] = useState(false);
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.userData.token);
   PrivateRoute();
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown1, setIsPwdShown1] = useState(false);
@@ -148,30 +158,58 @@ const Payment = () => {
                 <div class="row">
                   <div class="col">
                     <Image
-                      className={` ${styles["paymethod"]}`}
+                      className={
+                        body.payment_id === "1"
+                          ? `${styles["paymethod2"]}`
+                          : `${styles["paymethod"]}`
+                      }
                       src={pay1}
                       alt="payment"
+                      onClick={() => {
+                        setBody({ ...body, payment_id: "1" });
+                      }}
                     />
                   </div>
                   <div class="col">
                     <Image
-                      className={` ${styles["paymethod"]}`}
+                      className={
+                        body.payment_id === "2"
+                          ? `${styles["paymethod2"]}`
+                          : `${styles["paymethod"]}`
+                      }
                       src={pay2}
                       alt="payment"
+                      onClick={() => {
+                        setBody({ ...body, payment_id: "2" });
+                      }}
                     />
                   </div>
                   <div class="col">
                     <Image
-                      className={` ${styles["paymethod"]}`}
+                      className={
+                        body.payment_id === "3"
+                          ? `${styles["paymethod2"]}`
+                          : `${styles["paymethod"]}`
+                      }
                       src={pay3}
                       alt="payment"
+                      onClick={() => {
+                        setBody({ ...body, payment_id: "3" });
+                      }}
                     />
                   </div>
                   <div class="col">
                     <Image
-                      className={` ${styles["paymethod"]}`}
+                      className={
+                        body.payment_id === "4"
+                          ? `${styles["paymethod2"]}`
+                          : `${styles["paymethod"]}`
+                      }
                       src={pay4}
                       alt="payment"
+                      onClick={() => {
+                        setBody({ ...body, payment_id: "4" });
+                      }}
                     />
                   </div>
                 </div>
@@ -179,30 +217,58 @@ const Payment = () => {
                 <div class="row">
                   <div class="col">
                     <Image
-                      className={` ${styles["paymethod"]}`}
+                      className={
+                        body.payment_id === "5"
+                          ? `${styles["paymethod2"]}`
+                          : `${styles["paymethod"]}`
+                      }
                       src={pay5}
                       alt="payment"
+                      onClick={() => {
+                        setBody({ ...body, payment_id: "5" });
+                      }}
                     />
                   </div>
                   <div class="col">
                     <Image
-                      className={` ${styles["paymethod"]}`}
+                      className={
+                        body.payment_id === "6"
+                          ? `${styles["paymethod2"]}`
+                          : `${styles["paymethod"]}`
+                      }
                       src={pay6}
                       alt="payment"
+                      onClick={() => {
+                        setBody({ ...body, payment_id: "6" });
+                      }}
                     />
                   </div>
                   <div class="col">
                     <Image
-                      className={` ${styles["paymethod"]}`}
+                      className={
+                        body.payment_id === "7"
+                          ? `${styles["paymethod2"]}`
+                          : `${styles["paymethod"]}`
+                      }
                       src={pay7}
                       alt="payment"
+                      onClick={() => {
+                        setBody({ ...body, payment_id: "7" });
+                      }}
                     />
                   </div>
                   <div class="col">
                     <Image
-                      className={` ${styles["paymethod"]}`}
+                      className={
+                        body.payment_id === "8"
+                          ? `${styles["paymethod2"]}`
+                          : `${styles["paymethod"]}`
+                      }
                       src={pay8}
                       alt="payment"
+                      onClick={() => {
+                        setBody({ ...body, payment_id: "8" });
+                      }}
                     />
                   </div>
                 </div>
@@ -224,7 +290,17 @@ const Payment = () => {
               </p>
             </div>
             <button className={` ${styles["btn-prev"]}`}>Previous step</button>
-            <button className={` ${styles["btn-pay"]}`}>Pay your order</button>
+            <button
+              target="_blank"
+              className={` ${styles["btn-pay"]}`}
+              onClick={() => {
+                dispatch(movieAction.payment(body, token));
+                dispatch(transactionAction.createTransThunk(body, token));
+                router.push(transaction);
+              }}
+            >
+              Pay your order
+            </button>
           </div>
         </div>
       </main>
