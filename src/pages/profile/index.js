@@ -26,7 +26,9 @@ const Profile = () => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown1, setIsPwdShown1] = useState(false);
-  const [firstName, setFirstName] = useState(profile.length > 0 && profile.firstName);
+  const [firstName, setFirstName] = useState(
+    profile.length > 0 && profile.firstName
+  );
   const [lastName, setLastName] = useState(profile.lastName);
   const [email, setEmail] = useState(profile.email);
   const [phoneNum, setPhoneNum] = useState(profile.notelp);
@@ -120,13 +122,9 @@ const Profile = () => {
     }
   }
 
-  console.log(data);
+  // console.log(body);
+  //  console.log(formState);
   useEffect(() => {
-    console.log(body);
-  }, [body]);
-
-  useEffect(() => {
-    dispatch(profileAction.getProfileThunk(token, setFirstName, setPhoneNum, setLastName, setImageUser));
     dispatch(profileAction.getProfileThunk(token, setImageUser));
     setEmail(emailUser);
   }, [dispatch, emailUser, token]);
@@ -156,7 +154,10 @@ const Profile = () => {
 
   const changeHandlerInputImage = (e) => {
     const files = e.target.files[0];
-    e.preventDefault();
+    setImage(files);
+    setImagePreview(URL.createObjectURL(files));
+    setFormState({ ...formState, image: e.target.files[0] });
+    setImageUser(e.target.files[0]);
     setBody({
       ...body,
       image: files,
@@ -179,11 +180,28 @@ const Profile = () => {
                 </div>
               </div>
               <div className={`${styles["man-wrap"]}`}>
-                <Upload ref={target} onChange={(e) => onImageUpload(e)} img={imagePreview !== null ? imagePreview : imageUser} name="image" width={100} height={100} />
-                <Upload ref={target} onChange={(e) => changeHandlerInputImage(e)} img={profile.profile?.image ? profile.profile.image : sample} name="image" width={100} height={100} />
+                <Upload
+                  ref={target}
+                  onChange={(e) => {
+                    changeHandlerInputImage(e);
+                  }}
+                  // img={profile.profile.image ? profile.profile.image : sample}
+                  img={
+                    imagePreview !== null ? imagePreview : profile.profile.image
+                  }
+                  name="image"
+                  width={100}
+                  height={100}
+                />
               </div>
-              <p className={`${styles["name"]}`}>{firstName === null ? "Your Name is.." : firstName}</p>
-              <p className={`${styles["name"]}`}>{!profile.profile.firstName ? "Your Name is.." : `${profile.profile.firstName} ${profile.profile.lastName}`}</p>
+              <p className={`${styles["name"]}`}>
+                {firstName === null ? "Your Name is.." : firstName}
+              </p>
+              <p className={`${styles["name"]}`}>
+                {!profile.profile.firstName
+                  ? "Your Name is.."
+                  : `${profile.profile.firstName} ${profile.profile.lastName}`}
+              </p>
               <p className={`${styles["tag"]}`}>Moviegoers</p>
               <hr />
               <p className={`${styles["point"]}`}>Loyalty Points</p>
@@ -198,8 +216,16 @@ const Profile = () => {
                     <div className={`${styles["five-pointed-star"]}`}></div>
                   </div>
                 </div>
-                <p className={`${styles["master"]}`}>180 points become a master</p>
-                <Image className={`${styles["scrlll"]}`} width={260} height={20} src={scrl} alt="scroll" />
+                <p className={`${styles["master"]}`}>
+                  180 points become a master
+                </p>
+                <Image
+                  className={`${styles["scrlll"]}`}
+                  width={260}
+                  height={20}
+                  src={scrl}
+                  alt="scroll"
+                />
               </div>
             </div>
             <section className={`col-sm-8 ${styles["sect-2"]}`}>
@@ -226,9 +252,17 @@ const Profile = () => {
                         handleInputChange(e);
                         handleInputValue(e);
                       }}
-                      className={disableButton ? `${styles["input"]}` : `${styles["inputs"]}`}
+                      className={
+                        disableButton
+                          ? `${styles["input"]}`
+                          : `${styles["inputs"]}`
+                      }
                       type="text"
-                      placeholder={profile.profile.firstName ? profile.profile.firstName : "Input Here..."}
+                      placeholder={
+                        profile.profile.firstName
+                          ? profile.profile.firstName
+                          : "Input Here..."
+                      }
                       name="firstname"
                       disabled={disableButton}
                     />
@@ -238,7 +272,11 @@ const Profile = () => {
                         handleInputChange(e);
                         handleInputValueEmail(e);
                       }}
-                      className={disableButton ? `${styles["input"]}` : `${styles["input"]}`}
+                      className={
+                        disableButton
+                          ? `${styles["input"]}`
+                          : `${styles["input"]}`
+                      }
                       type="text"
                       placeholder={email}
                       name="email"
@@ -250,9 +288,17 @@ const Profile = () => {
                     <input
                       onChange={changeHandlerInput}
                       value={lastName === null ? "" : lastName}
-                      className={disableButton ? `${styles["input"]}` : `${styles["inputs"]}`}
+                      className={
+                        disableButton
+                          ? `${styles["input"]}`
+                          : `${styles["inputs"]}`
+                      }
                       type="text"
-                      placeholder={profile.profile.lastName ? profile.profile.lastName : "Input Here..."}
+                      placeholder={
+                        profile.profile.lastName
+                          ? profile.profile.lastName
+                          : "Input Here..."
+                      }
                       name="lastname"
                       disabled={disableButton}
                     />
@@ -260,9 +306,17 @@ const Profile = () => {
                     <input
                       onChange={changeHandlerInput}
                       value={phoneNum === null ? "" : phoneNum}
-                      className={disableButton ? `${styles["input"]}` : `${styles["inputs"]}`}
+                      className={
+                        disableButton
+                          ? `${styles["input"]}`
+                          : `${styles["inputs"]}`
+                      }
                       type="text"
-                      placeholder={profile.profile.noTelp ? profile.profile.noTelp : "Input Here..."}
+                      placeholder={
+                        profile.profile.noTelp
+                          ? profile.profile.noTelp
+                          : "Input Here..."
+                      }
                       name="notelp"
                       disabled={disableButton}
                     />
@@ -277,63 +331,119 @@ const Profile = () => {
                       <p className={` ${styles["confirm-pw"]}`}>Old Password</p>
                       <input
                         onChange={changePwdHandler}
-                        className={disableButtonPw ? `${styles["input"]}` : `${styles["inputs"]}`}
+                        className={
+                          disableButtonPw
+                            ? `${styles["input"]}`
+                            : `${styles["inputs"]}`
+                        }
                         type={isPwdShown1 ? "text" : "password"}
                         placeholder="Confirm your password"
                         name="password"
                         disabled={disableButtonPw}
                       />
-                      <Image className={` ${styles["eye"]}`} width={20} src={eye} alt="eye" onClick={() => setIsPwdShown1(!isPwdShown1)} />
+                      <Image
+                        className={` ${styles["eye"]}`}
+                        width={20}
+                        src={eye}
+                        alt="eye"
+                        onClick={() => setIsPwdShown1(!isPwdShown1)}
+                      />
                     </div>
                   </div>
                   <div className="row">
                     <div className="col">
-                      <p className={` ${styles["privacy"]}`}>Account and Privacy</p>
+                      <p className={` ${styles["privacy"]}`}>
+                        Account and Privacy
+                      </p>
                       <hr className={` ${styles["hr-1"]}`} />
                       <p className={` ${styles["pass"]}`}>Old Password</p>
-                      <p onClick={handleChange2} className={` ${styles["edit2"]}`}>
+                      <p
+                        onClick={handleChange2}
+                        className={` ${styles["edit2"]}`}
+                      >
                         ✎ Edit
                       </p>
                       <input
                         onChange={changePwdHandler}
-                        className={disableButtonPw ? `${styles["input"]}` : `${styles["inputs"]}`}
+                        className={
+                          disableButtonPw
+                            ? `${styles["input"]}`
+                            : `${styles["inputs"]}`
+                        }
                         type={isPwdShown ? "text" : "password"}
                         placeholder="Write your password"
                         name="new_password"
                         disabled={disableButtonPw}
                       />
-                      <Image className={` ${styles["eye"]}`} width={20} src={eye} alt="eye" onClick={() => setIsPwdShown(!isPwdShown)} />
+                      <Image
+                        className={` ${styles["eye"]}`}
+                        width={20}
+                        src={eye}
+                        alt="eye"
+                        onClick={() => setIsPwdShown(!isPwdShown)}
+                      />
                     </div>
                     <div className="col">
                       {/* <hr className={` ${styles["hr-2"]}`} /> */}
-                      <p className={` ${styles["confirm-pw"]}`}>Confirm Password</p>
+                      <p className={` ${styles["confirm-pw"]}`}>
+                        Confirm Password
+                      </p>
                       <input
                         onChange={changePwdHandler}
-                        className={disableButtonPw ? `${styles["input"]}` : `${styles["inputs"]}`}
+                        className={
+                          disableButtonPw
+                            ? `${styles["input"]}`
+                            : `${styles["inputs"]}`
+                        }
                         type={isPwdShown1 ? "text" : "password"}
                         placeholder="Confirm your password"
                         name="confirm_password"
                         disabled={disableButtonPw}
                       />
-                      <Image className={` ${styles["eye"]}`} width={20} src={eye} alt="eye" onClick={() => setIsPwdShown1(!isPwdShown1)} />
+                      <Image
+                        className={` ${styles["eye"]}`}
+                        width={20}
+                        src={eye}
+                        alt="eye"
+                        onClick={() => setIsPwdShown1(!isPwdShown1)}
+                      />
                     </div>
                   </div>
                 </form>
                 <button
                   onClick={() => {
-                    dispatch(profileAction.editProfileThunk(data, token, formState, setIsCorrect));
+                    dispatch(
+                      profileAction.editProfileThunk(
+                        data,
+                        token,
+                        formState,
+                        setIsCorrect
+                      )
+                    );
                     dispatch(authAction.changeThunk(body, token));
                     toast.success("Profile Data Updated!", {
                       position: toast.POSITION.TOP_CENTER,
                       autoClose: 2000,
                     });
                   }}
-                  className={!formState.firstName && !formState.lastName && !formState.notelp && (!formState.pw1 || !formState.password) && !body ? `${styles["btn-changes"]}` : `${styles["btn-change"]}`}
+                  className={
+                    !formState.firstName &&
+                    !formState.lastName &&
+                    !formState.notelp &&
+                    (!formState.pw1 || !formState.password) &&
+                    !body
+                      ? `${styles["btn-changes"]}`
+                      : `${styles["btn-change"]}`
+                  }
                 >
                   Update changes
                 </button>
                 <ToastContainer />
-                {isCorrect ? <div className={styles["ui-fail"]}>Password isn`t match!</div> : ""}
+                {isCorrect ? (
+                  <div className={styles["ui-fail"]}>Password isn`t match!</div>
+                ) : (
+                  ""
+                )}
                 <button
                   className={`btn btn-danger ${styles["btn-changes"]}`}
                   onClick={() => {

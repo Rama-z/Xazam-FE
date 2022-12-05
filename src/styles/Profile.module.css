@@ -1,6 +1,8 @@
+
+
 .main {
   background-color: #e5e5e5;
-  max-width: 1440px;
+  /* max-width: 1440px; */
   margin: auto;
 }
 .row {
@@ -581,7 +583,9 @@
   margin-left: 45%;
 }
 
-@media screen and (max-width: 768px) {
+
+
+@media screen and  (max-width: 768px) {
   .scrlll {
     width: 20vw;
   }
