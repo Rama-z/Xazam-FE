@@ -15,11 +15,12 @@ import Upload from "components/upload/upload";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import authAction from "src/redux/actions/auth";
+import ModalLogout from "components/ModalLogout";
+import Title from "src/components/Title";
 
 const Profile = () => {
-  // TODO: Private route
   PrivateRoute();
-  
+
   const target = useRef(null);
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
@@ -169,6 +170,7 @@ const Profile = () => {
 
   return (
     <>
+      <Title title={`Profile`} />
       <Navbar />
       <main className={styles.main}>
         <div class="container">
@@ -422,7 +424,7 @@ const Profile = () => {
                   ""
                 )}
                 <button
-                  className={`btn btn-danger ${styles["btn-changes"]}`}
+                  className={`btn btn-danger ${styles["btn-changes2"]}`}
                   onClick={() => {
                     dispatch(authAction.logoutThunk(token));
                     router.push("/home");
@@ -435,6 +437,7 @@ const Profile = () => {
           </div>
         </div>
       </main>
+      <ModalLogout />
       <Footer />
     </>
   );

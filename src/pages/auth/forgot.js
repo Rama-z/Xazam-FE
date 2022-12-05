@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import authAction from "src/redux/actions/auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Title from "src/components/Title";
 
 const Forgot = () => {
   const router = useRouter();
@@ -41,6 +42,7 @@ const Forgot = () => {
   };
   return (
     <>
+      <Title title={`Forgot Password`} />
       <main className={styles["main"]}>
         <section className={styles["left-side"]}>
           <span

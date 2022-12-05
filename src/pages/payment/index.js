@@ -17,6 +17,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import PrivateRoute from "src/helper/privateroute";
+import Title from "src/components/Title";
+import { useSelector } from "react-redux";
 
 const Payment = () => {
   const movies = useSelector((state) => state.movie);
@@ -44,6 +46,7 @@ const Payment = () => {
 
   return (
     <>
+      <Title title={`Payment`} />
       <BasicExample />
       <main className={styles.main}>
         <div class="container">

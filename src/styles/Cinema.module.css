@@ -1,7 +1,8 @@
 .main {
   font-family: "Mulish", sans-serif;
-  max-width: 1440px;
+  max-width: 1140px;
   margin: auto;
+  margin-top: 3rem;
 }
 
 /* .tickets-section {

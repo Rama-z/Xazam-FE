@@ -32,6 +32,8 @@ import ebu from "../../assets/images/ebu.png";
 import profileAction from "src/redux/actions/profile";
 import authAction from "src/redux/actions/auth";
 import sample from "src/assets/images/avatar.webp";
+import Title from "src/components/Title";
+
 function index() {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
@@ -59,6 +61,7 @@ function index() {
 
   return (
     <div>
+      <Title title={`Order History`} />
       <Navbar />
       <main className={` container-fluid ${styles["cont-fluid"]}`}>
         <div

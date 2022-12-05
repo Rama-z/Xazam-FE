@@ -12,6 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { Button } from "react-bootstrap";
+import Title from "src/components/Title";
 
 const Movies = () => {
   const router = useRouter();
@@ -33,6 +34,7 @@ const Movies = () => {
 
   return (
     <>
+      <Title title={`Movies`} />
       <Header />
       <main className={styles["main"]}>
         <span className={`${styles["section__header__movie"]}`}>

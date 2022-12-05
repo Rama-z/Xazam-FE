@@ -15,13 +15,15 @@ import Navbar from "../../components/Navbar/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "src/helper/privateroute";
+import Title from "src/components/Title";
 
 const TicketResult = () => {
   // TODO: Private route
   PrivateRoute();
-  
+
   return (
     <>
+      <Title title={`Ticket Result`} />
       <Navbar />
       <Container>
         <main className={` ${styles["main"]}`}>
@@ -31,13 +33,21 @@ const TicketResult = () => {
               <aside className={`${styles["aside"]}`}>
                 <div class="row">
                   <div className={`col-sm ${styles["img-wrap"]}`}>
-                    <Image className={`${styles["img"]}`} src={tickitz} alt="Tickitz" />
+                    <Image
+                      className={`${styles["img"]}`}
+                      src={tickitz}
+                      alt="Tickitz"
+                    />
                   </div>
                   <div className={`col-sm-6 ${styles["admit"]}`}>Admit One</div>
                   <span className={`dot ${styles["dot"]}`}></span>
                   <hr className={`${styles["new1"]}`} />
                   <div className={`col-sm ${styles["img-wrap2"]}`}>
-                    <Image className={`${styles["img"]} ${styles["img-right"]}`} src={tickitz} alt="Tickitz" />
+                    <Image
+                      className={`${styles["img"]} ${styles["img-right"]}`}
+                      src={tickitz}
+                      alt="Tickitz"
+                    />
                   </div>
                 </div>
               </aside>
@@ -45,7 +55,9 @@ const TicketResult = () => {
                 <div className={`row ${styles["main-row"]}`}>
                   <div className={`col-sm-8 ${styles["sub-row8"]}`}>
                     <p className={`${styles["category-movie"]}`}>Movie</p>
-                    <p className={`${styles["content"]}`}>Spider-Man: Homecoming</p>
+                    <p className={`${styles["content"]}`}>
+                      Spider-Man: Homecoming
+                    </p>
                     <div class="row">
                       <div className={`col ${styles["col-1"]}`}>
                         <p className={`${styles["category"]}`}>Date</p>
@@ -68,10 +80,20 @@ const TicketResult = () => {
                     </div>
                   </div>
                   <div className={`col-sm-4 ${styles.cols}`}>
-                    <Image className={`${styles["barcode"]}`} src={barcode2} alt="barcode" />
-                    <Image className={`${styles["barcode2"]}`} src={barcode2} alt="barcode" />
+                    <Image
+                      className={`${styles["barcode"]}`}
+                      src={barcode2}
+                      alt="barcode"
+                    />
+                    <Image
+                      className={`${styles["barcode2"]}`}
+                      src={barcode2}
+                      alt="barcode"
+                    />
                     <p className={`${styles["category-mov2"]}`}>Movie</p>
-                    <p className={`${styles["content1"]}`}>Spider-Man: Home...</p>
+                    <p className={`${styles["content1"]}`}>
+                      Spider-Man: Home...
+                    </p>
                     <div class="row">
                       <div className={`col ${styles["col-sub1"]}`}>
                         <p className={`${styles["category1"]}`}>Date</p>
@@ -84,8 +106,16 @@ const TicketResult = () => {
                         <p className={`${styles["contentx"]}`}>2:00pm</p>
                         <p className={`${styles["category1"]}`}>Seats</p>
                         <p className={`${styles["contentx"]}`}>C4, C5, C6</p>
-                        <p className={`${styles["category1"]} ${styles["category11"]}`}>Category</p>
-                        <p className={`${styles["contentx"]} ${styles["content14"]}`}>PG-13 </p>
+                        <p
+                          className={`${styles["category1"]} ${styles["category11"]}`}
+                        >
+                          Category
+                        </p>
+                        <p
+                          className={`${styles["contentx"]} ${styles["content14"]}`}
+                        >
+                          PG-13{" "}
+                        </p>
                       </div>
                       <span className={`dot ${styles["dot2"]}`}></span>
                       <span className={`dot ${styles["dot3"]}`}></span>
@@ -96,12 +126,22 @@ const TicketResult = () => {
               <div class={` row ${styles.download}`}>
                 <div className={`col ${styles["dl-btn"]}`}>
                   <button className={`${styles["dl"]}`}>
-                    <Image className={`${styles["img-btn"]}`} src={down} alt="dl" /> Download
+                    <Image
+                      className={`${styles["img-btn"]}`}
+                      src={down}
+                      alt="dl"
+                    />{" "}
+                    Download
                   </button>
                 </div>
                 <div className={`col ${styles["pr-btn"]}`}>
                   <button className={`${styles["print"]}`}>
-                    <Image className={`${styles["img-btn"]}`} src={print} alt="print" /> Print
+                    <Image
+                      className={`${styles["img-btn"]}`}
+                      src={print}
+                      alt="print"
+                    />{" "}
+                    Print
                   </button>
                 </div>
               </div>
