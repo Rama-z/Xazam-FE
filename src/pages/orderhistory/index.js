@@ -34,27 +34,27 @@ import authAction from "src/redux/actions/auth";
 function index() {
   const dispatch = useDispatch();
   const profiles = useSelector((state) => state.profile.userData);
-  console.log(profile);
-  const auth = useSelector((state) => state.auth);
-  console.log(auth);
+  console.log(profiles);
+  // const auth = useSelector((state) => state.auth);
+  // console.log(auth);
   const token = useSelector((state) => state.auth.userData.token);
 
   const [firstName, setFirstName] = useState(profiles.firstName);
-  const [lastName, setLastName] = useState(profiles.lastName);
-  const [phoneNum, setPhoneNum] = useState(profiles.notelp);
-  const [imageUser, setImageUser] = useState(profiles.image);
-  // const [imageUser, setImageUser] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
-  const [image, setImage] = useState("");
+  // const [lastName, setLastName] = useState(profiles.lastName);
+  // const [phoneNum, setPhoneNum] = useState(profiles.notelp);
+  // const [imageUser, setImageUser] = useState(profiles.image);
+  // // const [imageUser, setImageUser] = useState(null);
+  // const [imagePreview, setImagePreview] = useState(null);
+  // const [image, setImage] = useState("");
 
-  console.log(imageUser);
-  console.log(phoneNum);
-  console.log(lastName);
+  // console.log(imageUser);
+  // console.log(phoneNum);
+  // console.log(lastName);
   console.log(firstName);
 
   useEffect(() => {
-    dispatch(profileAction.getProfileThunk(token, setFirstName, setImageUser));
-  }, [dispatch, token]);
+    dispatch(profileAction.getProfileThunk(token, profiles));
+  }, [dispatch, token, profiles]);
 
   return (
     <div>
@@ -69,7 +69,7 @@ function index() {
               </div>
               <div className={` justify-content-center align-items-center pt-5 ${styles["cont-profile"]}`}>
                 <Image className="mb-3" src={ebu} alt="/" width={100} height={100} />
-                <p className={`mb-0 ${styles.jonas}`}>{firstName}</p>
+                {/* <p className={`mb-0 ${styles.jonas}`}>{auth}</p> */}
                 <p className={`${styles.MoviegoersText}`}>Moviegoers </p>
               </div>
             </div>
