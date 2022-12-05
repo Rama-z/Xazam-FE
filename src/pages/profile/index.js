@@ -94,17 +94,21 @@ const Profile = () => {
 
   const data = new FormData();
   if (formState.firstName !== undefined) {
-    data.append("firstname", formState.firstname);
+    data.append("firstname", formState.firstName);
   }
+  formState.firstName = formState.firstName;
   if (formState.lastName !== undefined) {
-    data.append("lastname", formState.lastname);
+    data.append("lastname", formState.lastName);
   }
+  formState.lastName = formState.lastName;
   if (formState.image !== undefined) {
     data.append("image", formState.image);
   }
+  formState.image = formState.image;
   if (formState.notelp !== undefined) {
     data.append("notelp", formState.notelp);
   }
+  formState.notelp = formState.notelp;
   if (formState.pw1 !== undefined && formState.password !== undefined) {
     if (formState.pw1 !== formState.password) {
       console.log(`password salah`);
@@ -113,25 +117,23 @@ const Profile = () => {
     }
   }
 
-  console.log(data);
   useEffect(() => {
-    console.log(body);
-  }, [body]);
-
-  useEffect(() => {
-    dispatch(
-      profileAction.getProfileThunk(
-        token,
-        setFirstName,
-        setPhoneNum,
-        setLastName,
-        setImageUser
-      )
-    );
+    dispatch(profileAction.getProfileThunk(token, setImageUser));
     setEmail(emailUser);
-  }, [dispatch, setEmail, emailUser, token]);
+  }, [dispatch, emailUser, token]);
 
   const changePwdSubmitHandler = () => {};
+
+  const submitHandler = () => {
+    dispatch(
+      profileAction.editProfileThunk(data, token, formState, setIsCorrect)
+    );
+    dispatch(authAction.changeThunk(body, token));
+    toast.success("Profile Data Updated!", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2000,
+    });
+  };
 
   return (
     <>
@@ -159,7 +161,9 @@ const Profile = () => {
                 />
               </div>
               <p className={`${styles["name"]}`}>
-                {firstName === null ? "Your Name is.." : firstName}
+                {profile.firstname === null
+                  ? "Your Name is.."
+                  : profile.firstname}
               </p>
               <p className={`${styles["tag"]}`}>Moviegoers</p>
               <hr />
@@ -198,7 +202,7 @@ const Profile = () => {
                   </div>
                   <div class="col"></div>
                 </div>
-                <hr className={` ${styles["hr"]}`} /> 
+                <hr className={` ${styles["hr"]}`} />
                 <p className={` ${styles["details"]}`}>Details Information</p>
                 <p onClick={handleChange} className={` ${styles["edit"]}`}>
                   ✎ Edit
@@ -276,16 +280,38 @@ const Profile = () => {
                     />
                   </div>
                 </form>
-                <p className={` ${styles["privacy"]}`}>
-                        Account and Privacy
-                      </p>
-                      <hr className={` ${styles["hr"]}`} />
+                <p className={` ${styles["privacy"]}`}>Account and Privacy</p>
+                <hr className={` ${styles["hr"]}`} />
                 <form className="col" onSubmit={changePwdSubmitHandler}>
+                  <div className="col">
+                    <div>
+                      {/* <hr className={` ${styles["hr-2"]}`} /> */}
+                      <p className={` ${styles["confirm-pw"]}`}>Old Password</p>
+                      <input
+                        onChange={changePwdHandler}
+                        className={
+                          disableButtonPw
+                            ? `${styles["input"]}`
+                            : `${styles["inputs"]}`
+                        }
+                        type={isPwdShown1 ? "text" : "password"}
+                        placeholder="Confirm your password"
+                        name="new_password"
+                        disabled={disableButtonPw}
+                      />
+                      <Image
+                        className={` ${styles["eye"]}`}
+                        width={20}
+                        src={eye}
+                        alt="eye"
+                        onClick={() => setIsPwdShown1(!isPwdShown1)}
+                      />
+                    </div>
+                  </div>
                   <div className="row">
                     <div className="col">
-                      
                       {/* <hr className={` ${styles["hr-1"]}`} /> */}
-                      <p className={` ${styles["pass"]}`}>Old Password</p>
+                      <p className={` ${styles["pass"]}`}>New Password</p>
                       <p
                         onClick={handleChange2}
                         className={` ${styles["edit2"]}`}
@@ -314,7 +340,9 @@ const Profile = () => {
                     </div>
                     <div className="col">
                       {/* <hr className={` ${styles["hr-2"]}`} /> */}
-                      <p className={` ${styles["confirm-pw"]}`}>New Password</p>
+                      <p className={` ${styles["confirm-pw"]}`}>
+                        Confirm Password
+                      </p>
                       <input
                         onChange={changePwdHandler}
                         className={
@@ -338,21 +366,7 @@ const Profile = () => {
                   </div>
                 </form>
                 <button
-                  onClick={() => {
-                    dispatch(
-                      profileAction.editProfileThunk(
-                        data,
-                        token,
-                        formState,
-                        setIsCorrect
-                      )
-                    );
-                    dispatch(authAction.changeThunk(body, token));
-                    toast.success("Profile Data Updated!", {
-                      position: toast.POSITION.TOP_CENTER,
-                      autoClose: 2000,
-                    });
-                  }}
+                  onClick={submitHandler}
                   className={
                     !formState.firstName &&
                     !formState.lastName &&
@@ -375,7 +389,7 @@ const Profile = () => {
                   className={`btn btn-danger ${styles["btn-changes"]}`}
                   onClick={() => {
                     dispatch(authAction.logoutThunk(token));
-                    router.push("/auth/login");
+                    router.push("/home");
                   }}
                 >
                   Logout

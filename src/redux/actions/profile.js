@@ -55,6 +55,7 @@ const editProfileThunk = (data, token, formState) => {
     try {
       dispatch(editProfilePending());
       const result = await editprofilesApi(data, token);
+      console.log(result.data);
       dispatch(editProfileFulfilled(result.data));
     } catch (error) {
       dispatch(editProfileRejected(error));
