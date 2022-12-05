@@ -34,7 +34,7 @@ import authAction from "src/redux/actions/auth";
 import sample from "src/assets/images/avatar.webp";
 import Title from "src/components/Title";
 
-function index() {
+function Index() {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
   // const auth = useSelector((state) => state.auth);

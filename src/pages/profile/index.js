@@ -256,9 +256,18 @@ const Profile = () => {
               <div className={` ${styles["sectwrap"]}`}>
                 <div class="row">
                   <div class="col">
-                    <p className={` ${styles["account"]}`}>Account Settings</p>
+                    <p
+                      className={` ${styles["account"]} ${styles["selected"]}`}
+                    >
+                      Account Settings
+                    </p>
                   </div>
-                  <div class="col-6">
+                  <div
+                    class="col-6"
+                    onClick={() => {
+                      router.push("/orderhistory/");
+                    }}
+                  >
                     <p className={` ${styles["account"]}`}>Order History</p>
                   </div>
                   <div class="col"></div>

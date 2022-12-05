@@ -443,6 +443,12 @@
   height: 4vw;
 }
 
+.selected {
+  font-weight: 600 !important;
+  border-bottom: 2px solid #5f2eea;
+  width: 156px !important;
+}
+
 .account {
   font-family: "Mulish";
   font-style: normal;
@@ -450,7 +456,8 @@
   font-size: 18px;
   line-height: 34px;
   width: 15vw;
-
+  user-select: none;
+  cursor: pointer;
   letter-spacing: 0.75px;
 
   /* Text - Title */
@@ -562,6 +569,8 @@
 
   color: #4e4b66;
 }
+
+
 
 .confirm-pw {
   font-family: "Mulish";
