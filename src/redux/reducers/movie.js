@@ -40,16 +40,9 @@ const initialState = {
 };
 
 const movieReduser = (prevState = initialState, { payload, type }) => {
-  console.log(payload);
+  // console.log(payload);
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const {
-    movieAll,
-    movieDetail,
-    showTimes,
-    showTime,
-    movieCreate,
-    movieDelete,
-  } = actionMovies;
+  const { movieAll, movieDetail, showTimes, showTime, movieCreate, movieDelete } = actionMovies;
   const { studios, payment } = actionStrings;
   switch (type) {
     // TODO: movie all
@@ -209,6 +202,7 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
       };
     case studios.concat("-", Rejected):
       return {
+        ...prevState,
         isLoading: false,
         isError: true,
         isFulfilled: false,
@@ -216,6 +210,7 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
       };
     case studios.concat("-", Fulfilled):
       return {
+        ...prevState,
         isLoading: false,
         isError: false,
         isFulfilled: true,
@@ -226,27 +221,13 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
       return {
         ...prevState,
         transfer_data: {
-          token: payload.body?.token
-            ? payload.body.token
-            : initialState.transfer_data.token,
-          movie_id: payload.body?.movie_id
-            ? payload.body.movie_id
-            : initialState.transfer_data.movie_id,
-          payment_id: payload.body?.payment_id
-            ? payload.body.payment_id
-            : initialState.transfer_data.payment_id,
-          ticket_count: payload.body?.ticket_count
-            ? payload.body.ticket_count
-            : initialState.transfer_data.ticket_count,
-          total_price: payload.body?.total_price
-            ? payload.body.total_price
-            : initialState.transfer_data.total_price,
-          seat_id: payload.body?.seat_id
-            ? payload.body.seat_id
-            : initialState.transfer_data.seat_id,
-          tsm_id: payload.body?.tsm_id
-            ? payload.body.tsm_id
-            : initialState.transfer_data.tsm_id,
+          token: payload.body?.token ? payload.body.token : initialState.transfer_data.token,
+          movie_id: payload.body?.movie_id ? payload.body.movie_id : initialState.transfer_data.movie_id,
+          payment_id: payload.body?.payment_id ? payload.body.payment_id : initialState.transfer_data.payment_id,
+          ticket_count: payload.body?.ticket_count ? payload.body.ticket_count : initialState.transfer_data.ticket_count,
+          total_price: payload.body?.total_price ? payload.body.total_price : initialState.transfer_data.total_price,
+          seat_id: payload.body?.seat_id ? payload.body.seat_id : initialState.transfer_data.seat_id,
+          tsm_id: payload.body?.tsm_id ? payload.body.tsm_id : initialState.transfer_data.tsm_id,
         },
       };
 

@@ -21,3 +21,7 @@ export const actionMovies = {
   movieCreate: "MOVIE_CREATE",
   movieDelete: "MOVIE_DELETE",
 };
+
+export const actionTransactions = {
+  getHistory: "HISTORY",
+};
