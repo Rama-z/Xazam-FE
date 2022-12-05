@@ -3,6 +3,8 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "../../styles/Admin.module.css";
 import Image from "next/image";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
 
 // React-Bootsrap
 import Form from "react-bootstrap/Form";

@@ -2,6 +2,9 @@ import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 import Header from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
