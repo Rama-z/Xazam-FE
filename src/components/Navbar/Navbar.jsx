@@ -28,6 +28,7 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
   const router = useRouter();
   const role = useSelector((state) => state.auth.userData?.role);
   console.log(role);
+  const roles = useSelector((state) => state.auth.userData.role);
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
@@ -84,18 +85,34 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
             <div
               className={`d-flex justify-content-center align-items-center ${styles["pages-shop"]}`}
             >
-              <p
-                className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}
-                onClick={() => {
-                  if (!auth.userData.token) {
-                    toast.info("You have to login first");
-                    router.push("/auth/login");
-                  }
-                  router.push("/movies");
-                }}
-              >
-                Buy Ticket
-              </p>
+              {roles === "user" || role === null ? (
+                <p
+                  className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}
+                  onClick={() => {
+                    if (!auth.userData.token) {
+                      toast.info("You have to login first");
+                      router.push("/auth/login");
+                    }
+                    router.push("/movies");
+                  }}
+                >
+                  Buy Ticket
+                </p>
+              ) : (
+                <p
+                  className={`mb-0 ${styles["nav-links"]} ${styles["cursor"]}`}
+                  onClick={() => {
+                    if (!auth.userData.token) {
+                      toast.info("You have to login first");
+                      router.push("/auth/login");
+                    }
+                    router.push("/movies");
+                  }}
+                  style={{display:"none"}}
+                >
+                  Buy Ticket
+                </p>
+              )}
             </div>
           </Nav>
           <div
