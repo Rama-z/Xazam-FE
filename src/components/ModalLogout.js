@@ -6,11 +6,11 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 
-const ModalLogout = ({ open, setOpen }) => {
+const ModalLogout = ({ open, setOpen, token }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const logoutHandler = () => {
-    dispatch(authAction.logoutThunk());
+    dispatch(authAction.logoutThunk(token));
     toast.success(`Success logout`);
     router.push("/home");
   };

@@ -14,6 +14,7 @@ import styles from "../../styles/MovieDetail.module.css";
 import movieAction from "src/redux/actions/movie";
 import sample from "src/assets/images/avatar.webp";
 import Title from "src/components/Title";
+import Loading from "src/components/Loading/Loading";
 
 const Detail = ({ datas }) => {
   const [clickText, setClickText] = useState(false);

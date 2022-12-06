@@ -14,6 +14,7 @@ import { toast } from "react-toastify";
 import { Button } from "react-bootstrap";
 import Title from "src/components/Title";
 import { background } from "@chakra-ui/react";
+import Loading from "src/components/Loading/Loading";
 
 const Movies = () => {
   const router = useRouter();
@@ -40,25 +41,29 @@ const Movies = () => {
       <main className={styles["main"]}>
         <span className={`${styles["section__header__movie"]}`}>
           <ul className={`${styles["list-movies"]}`}>
-            {movies?.map((movie, idx) => {
-              return (
-                <li className={`${styles["movie"]}`} key={idx}>
-                  <Image
-                    src={movie.image ? movie.image : sample}
-                    alt={`movie`}
-                    className={styles["movie-images"]}
-                    width={500}
-                    height={500}
-                  />
-                  <h3 className={styles[`title`]}>{movie.name}</h3>
-                  <p className={styles["description"]}>{movie.category}</p>
-                  <button
-                    className={styles["btn-movie"]}
-                    onClick={() => router.push(`/movie/${movie.id}`)}
-                  >{`Details`}</button>
-                </li>
-              );
-            })}
+            {next.isLoading ? (
+              <Loading />
+            ) : (
+              movies?.map((movie, idx) => {
+                return (
+                  <li className={`${styles["movie"]}`} key={idx}>
+                    <Image
+                      src={movie.image ? movie.image : sample}
+                      alt={`movie`}
+                      className={styles["movie-images"]}
+                      width={500}
+                      height={500}
+                    />
+                    <h3 className={styles[`title`]}>{movie.name}</h3>
+                    <p className={styles["description"]}>{movie.category}</p>
+                    <button
+                      className={styles["btn-movie"]}
+                      onClick={() => router.push(`/movie/${movie.id}`)}
+                    >{`Details`}</button>
+                  </li>
+                );
+              })
+            )}
           </ul>
         </span>
         <div className={styles.button}>
