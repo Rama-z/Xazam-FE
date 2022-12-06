@@ -33,6 +33,9 @@ import sample from "src/assets/images/avatar.webp";
 import Title from "src/components/Title";
 
 function Index() {
+  // TODO: Private route
+  PrivateRoute();
+  
   const router = useRouter();
 
   const dispatch = useDispatch();
