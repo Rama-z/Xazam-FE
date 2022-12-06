@@ -18,7 +18,6 @@ import movieAction from "src/redux/actions/movie";
 
 const Home = () => {
   const router = useRouter();
-  console.log(router);
   const [clickText, setClickText] = useState(false);
   const [upcomingShow, setUpcomingShow] = useState(true);
   const [show, setShow] = useState(true);
