@@ -24,6 +24,7 @@ import movieAction from "src/redux/actions/movie";
 import { useEffect } from "react";
 import { movies } from "src/modules/api/Movie";
 import Title from "src/components/Title";
+import transactionAction from "src/redux/actions/transaction";
 
 const Index = () => {
   // TODO: Private route
@@ -36,10 +37,13 @@ const Index = () => {
   const bodys = useSelector((state) => state.movie.transfer_data);
   const [body, setBody] = useState(bodys);
   const totalPayment = 10 * seat.length;
+  const token = useSelector((state) => state.auth.userData.token);
 
   useEffect(() => {
-    dispatch
-  })
+    dispatch(transactionAction.getSeatAllThunk(token));
+    dispatch(transactionAction.getSeatTagThunk(``, token));
+  }, [dispatch]);
+
   useEffect(() => {
     setBody({
       ...body,

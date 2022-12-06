@@ -1,6 +1,11 @@
 import { ActionType } from "redux-promise-middleware";
 
-import { gethistory, createTrans } from "src/modules/api/Transaction";
+import {
+  gethistory,
+  createTrans,
+  getSeatAll,
+  getSeatTag,
+} from "src/modules/api/Transaction";
 
 import { actionStrings, actionTransactions } from "./actionStrings";
 
@@ -75,11 +80,11 @@ const getHistoryThunk = (token) => {
   };
 };
 
-const getSeatAllThunk = () => {
+const getSeatAllThunk = (token) => {
   return async (dispatch) => {
     try {
       dispatch(getSeatAllPending());
-      const result = await getSeatAll();
+      const result = await getSeatAll(token);
       dispatch(getSeatAllFulfilled(result.data));
     } catch (error) {
       console.log(error);
@@ -88,11 +93,11 @@ const getSeatAllThunk = () => {
   };
 };
 
-const getSeatTagThunk = (params) => {
+const getSeatTagThunk = (params, token) => {
   return async (dispatch) => {
     try {
       dispatch(getSeatTagPending());
-      const result = await getSeatTag(params);
+      const result = await getSeatTag(params, token);
       dispatch(getSeatTagFulfilled(result.data));
     } catch (error) {
       console.log(error);
