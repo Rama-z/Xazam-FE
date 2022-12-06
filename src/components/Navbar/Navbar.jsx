@@ -27,7 +27,6 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
   const [clickText, setClickText] = useState(false);
   const router = useRouter();
   const role = useSelector((state) => state.auth.userData?.role);
-  console.log(role);
   const roles = useSelector((state) => state.auth.userData.role);
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -108,7 +107,7 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
                     }
                     router.push("/movies");
                   }}
-                  style={{display:"none"}}
+                  style={{ display: "none" }}
                 >
                   Buy Ticket
                 </p>

@@ -254,6 +254,9 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
           date: payload.body?.date
             ? payload.body.date
             : initialState.transfer_data.date,
+          studio: payload.body?.studio
+            ? payload.body.studio
+            : initialState.transfer_data.studio,
         },
       };
 
