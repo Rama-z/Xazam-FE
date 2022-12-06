@@ -1,6 +1,6 @@
 <div align="center">
   <a href="#">
-    <img src="../xazam-team-fe/src/assets/images/xazam.png" alt="Logo" width="180" height="180">
+    <img src="./src/assets/images/xazam.png" alt="Logo" width="180" height="180">
   </a>
 
   <h2 align="center">XAZAM - FE</h2>
@@ -99,6 +99,6 @@ You may also see any lint errors in the console.
 ## Screenshots
 
 <div align="center">
-<img width="500" src="../xazam-team-fe/src/assets/images/xazam-fe.png" alt="Home">
+<img width="500" src="./src/assets/images/xazam-fe.png" alt="Home">
 
 </div>
