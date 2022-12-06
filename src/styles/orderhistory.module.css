@@ -14,6 +14,10 @@
   flex-direction: column;
 }
 
+.cont-profile__image {
+  border-radius: 100%;
+}
+
 .star {
   position: relative;
   top: -153px;

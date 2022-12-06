@@ -71,6 +71,40 @@
   border: 1px solid darkblue;
 } */
 
+.admin-btn {
+  position: relative;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  right: 2.5rem;
+}
+
+.profile {
+  /* border: 1px solid darkblue; */
+  position: relative;
+  right: 1.4rem;
+  margin-bottom: 0;
+}
+
+.profile p {
+  /* border: 1px solid darkblue; */
+  cursor: pointer;
+  margin-bottom: 0;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-family: "Mulish";
+  font-size: 16px;
+}
+
+.profile p:hover {
+  transform: scale(1.1);
+}
+
 @media only screen and (max-width: 1024px) {
   .pages-shop {
     justify-content: flex-start !important;
@@ -112,5 +146,39 @@
   }
   .icon {
     margin-left: 1rem !important;
+  }
+
+  .icon-1 {
+    display: none;
+  }
+
+  .admin-btn {
+    position: relative;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    right: 0;
+  }
+
+  .profile {
+    /* border: 1px solid darkblue; */
+    position: relative;
+    right: 0;
+    margin-bottom: 0;
+  }
+
+  .profile p {
+    /* border: 1px solid darkblue; */
+    cursor: pointer;
+    margin-bottom: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-family: "Mulish";
+    font-size: 16px;
   }
 }

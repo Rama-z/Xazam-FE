@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { Button } from "react-bootstrap";
 import Title from "src/components/Title";
+import { background } from "@chakra-ui/react";
 
 const Movies = () => {
   const router = useRouter();
@@ -73,12 +74,13 @@ const Movies = () => {
                 }`
               );
             }}
+            style={{ background: "var(--primary-color)", border: "none" }}
           >
             Previous
           </Button>
           <Button
             disabled={page !== next.movies?.totalPage ? false : true}
-            className={`btn btn-primary ${styles.btn}`}
+            className={`btn btn-primary ${styles["btn"]}`}
             onClick={(e) => {
               e.preventDefault();
               setPage(page + 1);
@@ -88,6 +90,7 @@ const Movies = () => {
                 }`
               );
             }}
+            style={{ background: "var(--primary-color)", border: "none" }}
           >
             Next
           </Button>

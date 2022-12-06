@@ -11,7 +11,6 @@ import Search from "src/components/Search";
 // Import Styles
 import styles from "src/styles/Navbar.module.css";
 
-// Import Image
 import Tickitz from "../../assets/images/Tickitz-purple.png";
 import search from "src/assets/Icons/search.png";
 import sample from "src/assets/images/avatar.webp";
@@ -27,6 +26,8 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
   const [imageUser, setImageUser] = useState(profile?.image);
   const [clickText, setClickText] = useState(false);
   const router = useRouter();
+  const role = useSelector((state) => state.auth.userData?.role);
+  console.log(role);
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
@@ -123,7 +124,26 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
               src={search}
               alt="/"
             />
-            {auth.userData.user_id ? (
+            {role === "admin" ? (
+              <>
+                <span
+                  className={styles["profile"]}
+                  onClick={() => {
+                    router.push("/profile");
+                  }}
+                >
+                  <p>Profile</p>
+                </span>
+                <button
+                  onClick={() => {
+                    router.push("/admin");
+                  }}
+                  className={styles["admin-btn"]}
+                >
+                  Admin
+                </button>
+              </>
+            ) : auth.userData.user_id ? (
               <div className={styles["image-profile"]}>
                 <Image
                   src={imageUser ? imageUser : sample}

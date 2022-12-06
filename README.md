@@ -1,31 +1,46 @@
-# Zappay: E-Wallet With NextJS
-
 <div align="center">
+  <a href="#">
+    <img src="./src/assets/images/xazam.png" alt="Logo" width="180" height="180">
+  </a>
 
-[![React-router-dom](https://img.shields.io/npm/v/react-router-dom?label=React-Router-Dom)](https://www.npmjs.com/package/react-router-dom)
-[![Axios](https://img.shields.io/npm/v/axios?label=Axios)](https://www.npmjs.com/package/axios)
-[![Chart.js](https://img.shields.io/npm/v/chart.js?label=Chart.js)](https://www.npmjs.com/package/chart.js)
-[![Craco](https://img.shields.io/npm/v/craco?label=Craco)](https://www.npmjs.com/package/craco)
-[![Lottie-react](https://img.shields.io/npm/v/lottie-react?label=Lottie-React)](https://www.npmjs.com/package/lottie-react)
-[![Moment](https://img.shields.io/npm/v/moment?label=Moment)](https://www.npmjs.com/package/moment)
-[![Redux](https://img.shields.io/npm/v/redux?label=Redux)](https://www.npmjs.com/package/redux)
+  <h2 align="center">XAZAM - FE</h2>
 
-<br/>
+  <p align="center">
+    <br />
+    <a href="#"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://xazam-fe-wdua-6w3cy43s2-rama-z.vercel.app/home">View Demo</a>
+    ·
+    <a href="#">Report Bug</a>
+    ·
+    <a href="#">Request Feature</a>
+  </p>
+</div>
+
+## Built With
+
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,nextjs,javascript," />
+  </a>
+</p>
 
 </div>
 
-Zappay is a digital system that stores a person’s payment information.
-
 ## Contents
 
-- [Features](#features)
-- [Run Application](#how-to-run-the-application)
+- [Built With](#built-with)
+- [Contents](#contents)
+- [How to Run the Application](#how-to-run-the-application)
+  - [1. Clone this repository](#1-clone-this-repository)
+  - [2. Install dependency packages](#2-install-dependency-packages)
+  - [3. Configure .env file](#3-configure-env-file)
+  - [4. Run projects](#4-run-projects)
 - [Deployment](#deployment)
 - [Screenshots](#screenshots)
-- [Related Projects](#related-projects)
-- [Contributors](#contributors)
 
-## Features
+<!-- ## Features
 
 ### Public
 
@@ -35,7 +50,7 @@ Zappay is a digital system that stores a person’s payment information.
 - Transfer
 - Transfer History
 - Edit Profile
-- Dashboard
+- Dashboard -->
 
 ## How to Run the Application
 
@@ -60,7 +75,7 @@ $ npm install
 Configure .env file by create file named .env inside project folder and add this line to the file:
 
 ```
-NEXT_PUBLIC_BACKEND_URL = "https://fazzpay-rose.vercel.app"
+NEXT_PUBLIC_BACKEND_URL = "https://xazam-be.vercel.app"
 ```
 
 ### 4. Run projects
@@ -79,16 +94,11 @@ You may also see any lint errors in the console.
 
 ## Deployment
 
-[Vercel deploy link](https://zwallet-next.vercel.app/)
+[Vercel deploy link](https://xazam-fe-wdua-6w3cy43s2-rama-z.vercel.app/home)
 
 ## Screenshots
 
 <div align="center">
-<img width="500" src="https://raw.githubusercontent.com/Rama-z/zappay/main/public/images/landingpage.png" alt="Landing page">
+<img width="500" src="./src/assets/images/xazam-fe.png" alt="Home">
 
-<img width="500" src="https://raw.githubusercontent.com/Rama-z/zappay/main/public/images/login.png" alt="Login page">
-
-<img width="500" src="https://raw.githubusercontent.com/Rama-z/zappay/main/public/images/dashboard.png" alt="Dashboard">
-
-<img width="500" src="https://raw.githubusercontent.com/Rama-z/zappay/main/public/images/history.png" alt="Transfer history">
 </div>
