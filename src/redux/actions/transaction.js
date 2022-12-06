@@ -47,12 +47,13 @@ const getHistoryThunk = (token) => {
   };
 };
 
-const createTransThunk = (data, token) => {
+const createTransThunk = (data, token, cbredir) => {
   return async (dispatch) => {
     try {
       dispatch(createTransPending());
       const result = await createTrans(data, token);
       dispatch(createTransFulfilled(result.data));
+      if (typeof cbredir === "function") cbredir(result.data.redirctUrl);
     } catch (error) {
       console.log(error);
       dispatch(createTransRejected(error));
