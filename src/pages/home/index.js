@@ -15,6 +15,7 @@ import lion from "src/assets/images/lion-home.png";
 import movie from "../../assets/images/movie-home.png";
 import Search from "components/Search";
 import movieAction from "src/redux/actions/movie";
+import Loading from "src/components/Loading/Loading";
 
 const Home = () => {
   const router = useRouter();
@@ -31,7 +32,7 @@ const Home = () => {
   const moviesUpComing = useSelector(
     (state) => state.movie.showTimes?.upComing
   );
-
+  const next = useSelector((state) => state.movie);
   const handleClickText = () => {
     setClickText(!clickText);
   };
@@ -120,7 +121,10 @@ const Home = () => {
             </p>
           </span>
           <ul className={`${styles["list-movies"]}`}>
-            {moviesNowShowing &&
+            {next.isLoading ? (
+              <Loading />
+            ) : (
+              moviesNowShowing &&
               moviesNowShowing.map((movie, idx) => {
                 if (idx < nowShowing) {
                   return (
@@ -139,7 +143,8 @@ const Home = () => {
                     </li>
                   );
                 }
-              })}
+              })
+            )}
           </ul>
         </section>
         <section
