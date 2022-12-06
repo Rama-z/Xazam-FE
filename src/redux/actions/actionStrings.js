@@ -26,4 +26,6 @@ export const actionMovies = {
 
 export const actionTransactions = {
   getHistory: "HISTORY",
+  getSeatAll: "GET_SEAT_ALL",
+  getSeatTag: "GET_SEAT_TAG",
 };

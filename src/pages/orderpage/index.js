@@ -36,6 +36,10 @@ const Index = () => {
   const bodys = useSelector((state) => state.movie.transfer_data);
   const [body, setBody] = useState(bodys);
   const totalPayment = 10 * seat.length;
+
+  useEffect(() => {
+    dispatch
+  })
   useEffect(() => {
     setBody({
       ...body,

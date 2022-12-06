@@ -20,6 +20,34 @@ const getHistoryFulfilled = (data) => ({
   payload: { data },
 });
 
+const getSeatAllPending = () => ({
+  type: actionTransactions.getSeatAll.concat("-", Pending),
+});
+
+const getSeatAllRejected = (error) => ({
+  type: actionTransactions.getSeatAll.concat("-", Rejected),
+  payload: { error },
+});
+
+const getSeatAllFulfilled = (data) => ({
+  type: actionTransactions.getSeatAll.concat("-", Fulfilled),
+  payload: { data },
+});
+
+const getSeatTagPending = () => ({
+  type: actionTransactions.getSeatTag.concat("-", Pending),
+});
+
+const getSeatTagRejected = (error) => ({
+  type: actionTransactions.getSeatTag.concat("-", Rejected),
+  payload: { error },
+});
+
+const getSeatTagFulfilled = (data) => ({
+  type: actionTransactions.getSeatTag.concat("-", Fulfilled),
+  payload: { data },
+});
+
 const createTransPending = () => ({
   type: actionStrings.createTransactions.concat("-", Pending),
 });
@@ -47,6 +75,32 @@ const getHistoryThunk = (token) => {
   };
 };
 
+const getSeatAllThunk = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(getSeatAllPending());
+      const result = await getSeatAll();
+      dispatch(getSeatAllFulfilled(result.data));
+    } catch (error) {
+      console.log(error);
+      dispatch(getSeatAllRejected(error));
+    }
+  };
+};
+
+const getSeatTagThunk = (params) => {
+  return async (dispatch) => {
+    try {
+      dispatch(getSeatTagPending());
+      const result = await getSeatTag(params);
+      dispatch(getSeatTagFulfilled(result.data));
+    } catch (error) {
+      console.log(error);
+      dispatch(getSeatTagRejected(error));
+    }
+  };
+};
+
 const createTransThunk = (data, token, cbredir) => {
   return async (dispatch) => {
     try {
@@ -64,6 +118,8 @@ const createTransThunk = (data, token, cbredir) => {
 const transactionAction = {
   getHistoryThunk,
   createTransThunk,
+  getSeatAllThunk,
+  getSeatTagThunk,
 };
 
 export default transactionAction;
