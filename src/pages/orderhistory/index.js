@@ -28,12 +28,6 @@ import cineone from "../../assets/images/cineone.png";
 import chevrondown from "../../assets/images/chevrondown.png";
 import ebu from "../../assets/images/ebu.png";
 import profileAction from "src/redux/actions/profile";
-<<<<<<< HEAD
-import authAction from "src/redux/actions/auth";
-import transactionAction from "src/redux/actions/transaction";
-import sample from "src/assets/images/avatar.webp";
-const Index = () => {
-=======
 import transactionAction from "src/redux/actions/transaction";
 import sample from "src/assets/images/avatar.webp";
 import Title from "src/components/Title";
@@ -41,62 +35,30 @@ import Title from "src/components/Title";
 function Index() {
   const router = useRouter();
 
->>>>>>> 43055339896278aee4cd635e89bcf7324ec28514
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
   const token = useSelector((state) => state.auth.userData.token);
-<<<<<<< HEAD
-  // const auth = useSelector((state) => state.auth);
-
-  const history = useSelector((state) => state.transaction);
-  console.log(history);
-=======
   const transactions = useSelector((state) => state.transaction.history);
   console.log(transactions);
->>>>>>> 43055339896278aee4cd635e89bcf7324ec28514
 
   const [firstName, setFirstName] = useState(profile.firstName);
   const [lastName, setLastName] = useState(profile.lastName);
   const [imageUser, setImageUser] = useState(profile.image);
-<<<<<<< HEAD
-  // const [phoneNum, setPhoneNum] = useState(profiles.notelp);
-  // const [imageUser, setImageUser] = useState(null);
-  // const [imagePreview, setImagePreview] = useState(null);
-=======
 
   const [movie, setMovie] = useState("");
   const [status, setStatus] = useState("");
   const [studio, setStudio] = useState("");
   const [time, setTime] = useState("");
->>>>>>> 43055339896278aee4cd635e89bcf7324ec28514
   // const [image, setImage] = useState("");
 
   console.log(time);
 
   useEffect(() => {
-<<<<<<< HEAD
-    dispatch(
-      transactionAction.getHistoryThunk(token)
-    )
-  },[dispatch,token])
-
-
-  useEffect(() => {
-    dispatch(
-      profileAction.getProfileThunk(
-        token,
-        setFirstName,
-        setLastName,
-        setImageUser
-      )
-    );
-=======
     dispatch(transactionAction.getHistoryThunk(token));
   }, [dispatch, token]);
 
   useEffect(() => {
     dispatch(transactionAction.getHistoryThunk(token));
->>>>>>> 43055339896278aee4cd635e89bcf7324ec28514
   }, [dispatch, token]);
 
   return (
