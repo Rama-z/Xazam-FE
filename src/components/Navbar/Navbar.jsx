@@ -172,7 +172,7 @@ const Header = ({ profileAndBtn, propsOnclick, updateProfile }) => {
                   }}
                 />
               </div>
-            ) : (
+            ): (
               profileAndBtn
             )}
           </div>

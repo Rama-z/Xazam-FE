@@ -22,6 +22,7 @@ const Detail = ({ datas }) => {
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movie);
   const auth = useSelector((state) => state.auth);
+  const token = useSelector((state) => state.auth.token);
   const [body, setBody] = useState({});
   const [selectTime, setTime] = useState("");
   const handleClickText = () => {
@@ -48,14 +49,18 @@ const Detail = ({ datas }) => {
   return (
     <>
       <Title title={`Movie Detail`} />
-      <Header
-        profileAndBtn={
-          <>
-            <Image src={profile} alt="/" />
-          </>
-        }
-        propsOnclick={handleClickText}
-      />
+        <Header
+          profileAndBtn={
+            <>
+            {!token === null ? (
+              <Image src={profile} alt="/" />
+              ) : (
+                null
+              )}
+            </>
+          }
+          propsOnclick={handleClickText}
+        />
       <Search showInputText={clickText} />
       <main className={styles["main"]}>
         <section className={styles["section-first"]}>
