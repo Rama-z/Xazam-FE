@@ -121,14 +121,11 @@ const Profile = () => {
     if (body?.image) {
       data.append("image", body.image);
     }
-    if (!body?.image) {
-      data.append("image", ...body);
-    }
     if (body?.lastname && body.lastname.length > 0) {
       data.append("lastname", body.lastname);
     }
     if (body?.firstname && body.firstname.length > 0) {
-      data.append("image", body.firstname);
+      data.append("firstname", body.firstname);
     }
     if (body?.notelp && body.notelp.length >= 11) {
       data.append("notelp", body.notelp);
@@ -167,7 +164,6 @@ const Profile = () => {
       autoClose: 2000,
     });
   };
-
   const editProfileSubmit = () => {
     dispatch(profileAction.editProfileThunk(body));
   };

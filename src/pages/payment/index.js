@@ -27,9 +27,7 @@ const Payment = () => {
   const auth = useSelector((state) => state.auth);
   const profile = useSelector((state) => state.profile);
   const bodys = useSelector((state) => state.movie.transfer_data);
-  const transaction = useSelector(
-    (state) => state.transaction.create_transaction.redirectUrl
-  );
+  const transaction = useSelector((state) => state.transaction);
   const [body, setBody] = useState(bodys);
   const [pay, setPay] = useState(false);
   const dispatch = useDispatch();
@@ -41,6 +39,11 @@ const Payment = () => {
     pw1: "",
     pw2: "",
   });
+
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  };
 
   const handleInputChange = function (e) {
     setFormState({
@@ -295,7 +298,9 @@ const Payment = () => {
               className={` ${styles["btn-pay"]}`}
               onClick={() => {
                 dispatch(movieAction.payment(body, token));
-                dispatch(transactionAction.createTransThunk(body, token));
+                dispatch(
+                  transactionAction.createTransThunk(body, token, openInNewTab)
+                );
                 router.push(transaction);
               }}
             >
