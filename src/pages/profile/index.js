@@ -26,7 +26,8 @@ const Profile = () => {
   const profile = useSelector((state) => state.profile);
   const token = useSelector((state) => state.auth.userData.token);
   const emailUser = useSelector((state) => state.auth.userData.email);
-
+  const [modalOpen, setModalOpen] = useState(false);
+  const modalhandler = () => setModalOpen(!modalOpen);
   const [isCorrect, setIsCorrect] = useState(false);
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown1, setIsPwdShown1] = useState(false);
@@ -456,8 +457,7 @@ const Profile = () => {
                 <button
                   className={`btn btn-danger ${styles["btn-changes2"]}`}
                   onClick={() => {
-                    dispatch(authAction.logoutThunk(token));
-                    router.push("/home");
+                    modalhandler();
                   }}
                 >
                   Logout
@@ -467,7 +467,7 @@ const Profile = () => {
           </div>
         </div>
       </main>
-      <ModalLogout />
+      <ModalLogout open={modalOpen} setOpen={setModalOpen} token={token} />
       <Footer />
     </>
   );
