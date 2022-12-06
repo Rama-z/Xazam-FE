@@ -24,5 +24,15 @@ export const change = (body, token) =>
 
 export const profiles = (token) =>
   axios.get(`${baseUrl2}/profile`, config(token));
+
 export const editprofilesApi = (body, token) =>
   axios.patch(`${baseUrl2}/profile/edit`, body, config(token));
+
+export const ticketApi = (
+  token
+  // terima id tiket lalu ganti dibawah
+) =>
+  axios.get(
+    `${baseUrl2}/transaction/ticket-detail/b338ad15-4132-402f-bbf1`,
+    config(token)
+  );

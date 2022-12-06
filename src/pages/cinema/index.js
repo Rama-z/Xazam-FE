@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import movieAction from "src/redux/actions/movie";
+import Title from "src/components/Title";
 
 const Cinema = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const Cinema = () => {
   }, [dispatch]);
   return (
     <>
+      <Title title={`Cinema`} />
       <Header />
       <main className={styles["main"]}>
         <span className={styles["tickets-section"]}>

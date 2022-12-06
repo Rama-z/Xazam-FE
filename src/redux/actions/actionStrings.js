@@ -11,6 +11,8 @@ export const actionStrings = {
   movieDetail: "MOVIE_DETAIL",
   studios: "STUDIO",
   payment: "PAYMENT",
+  ticketResult: "TICKET_RESULT",
+  createTransactions: "CREATE_TRANS",
 };
 
 export const actionMovies = {
@@ -24,4 +26,4 @@ export const actionMovies = {
 
 export const actionTransactions = {
   getHistory: "HISTORY",
-}
+};

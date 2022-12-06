@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import authAction from "../../redux/actions/auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Title from "src/components/Title";
 
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
@@ -61,6 +62,7 @@ const Register = () => {
 
   return (
     <>
+      <Title title={`Register`} />
       <main className={styles["main"]}>
         <section className={styles["left-side"]}>
           <span className={styles["logo"]}>

@@ -9,7 +9,7 @@ import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
-
+import Title from "src/components/Title";
 import spiderman from "src/assets/images/spiderman-home.png";
 import lion from "src/assets/images/lion-home.png";
 import movie from "../../assets/images/movie-home.png";
@@ -24,6 +24,7 @@ const Home = () => {
   const [upComing, setUpComing] = useState(5);
   const [nowShowing, setNowShowing] = useState(5);
   const dispatch = useDispatch();
+  const [month, setMonth] = useState("");
   const moviesNowShowing = useSelector(
     (state) => state.movie.showTimes?.nowShowing
   );
@@ -36,11 +37,13 @@ const Home = () => {
   };
 
   useEffect(() => {
-    dispatch(movieAction.showTimesThunk());
-  }, [dispatch]);
+    router.push(`/home?month=${month}`);
+    dispatch(movieAction.showTimesThunk(`?month=${month}`));
+  }, [dispatch, month]);
 
   return (
     <>
+      <Title title={`Home`} />
       <Navbar
         profileAndBtn={
           <>
@@ -119,7 +122,6 @@ const Home = () => {
           <ul className={`${styles["list-movies"]}`}>
             {moviesNowShowing &&
               moviesNowShowing.map((movie, idx) => {
-                console.log(movie);
                 if (idx < nowShowing) {
                   return (
                     <li
@@ -159,18 +161,102 @@ const Home = () => {
             </p>
           </span>
           <ul className={`${styles["section__header__month"]}`}>
-            <li>January</li>
-            <li>February</li>
-            <li>March</li>
-            <li>April</li>
-            <li>May</li>
-            <li>June</li>
-            <li>Juli</li>
-            <li>August</li>
-            <li>Sepetember</li>
-            <li>October</li>
-            <li>November</li>
-            <li>December</li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                setMonth("1");
+              }}
+            >
+              January
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                setMonth("2");
+              }}
+            >
+              February
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                setMonth("3");
+              }}
+            >
+              March
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                setMonth("4");
+              }}
+            >
+              April
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                setMonth("5");
+              }}
+            >
+              May
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                setMonth("6");
+              }}
+            >
+              June
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                setMonth("7");
+              }}
+            >
+              Juli
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                setMonth("8");
+              }}
+            >
+              August
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                setMonth("9");
+              }}
+            >
+              Sepetember
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                setMonth("10");
+              }}
+            >
+              October
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                setMonth("11");
+              }}
+            >
+              November
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                setMonth("12");
+              }}
+            >
+              December
+            </li>
           </ul>
           <span className={`${styles["section__header__movie"]}`}>
             <ul className={`${styles["list-movies"]}`}>

@@ -3,11 +3,13 @@
   /* max-width: 1440px; */
   margin: auto;
 }
+
 .row {
   background-color: #f5f6f8;
   padding: 5%;
   padding-bottom: 10%;
 }
+
 .dot {
   margin-left: 55%;
   border-radius: 50px;
@@ -59,6 +61,7 @@
   color: #5f2eea;
   cursor: pointer;
 }
+
 .edit2 {
   position: absolute;
   margin-left: 39%;
@@ -77,6 +80,7 @@
   color: #5f2eea;
   cursor: pointer;
 }
+
 .tag {
   font-family: "Mulish";
   font-style: normal;
@@ -92,6 +96,7 @@
 
   color: #4e4b66;
 }
+
 .tag2 {
   font-family: "Mulish";
   font-style: normal;
@@ -104,6 +109,7 @@
 
   color: #ffffff;
 }
+
 .num {
   font-family: "Mulish";
   font-style: normal;
@@ -116,6 +122,7 @@
 
   color: #ffffff;
 }
+
 .poi {
   font-family: "Mulish";
   font-style: normal;
@@ -129,6 +136,7 @@
   color: #ffffff;
   padding-left: 5%;
 }
+
 .master {
   font-family: "Mulish";
   font-style: normal;
@@ -142,6 +150,7 @@
 
   color: #4e4b66;
 }
+
 .point {
   font-family: "Mulish";
   font-style: normal;
@@ -156,6 +165,7 @@
 
   color: #4e4b66;
 }
+
 .five-pointed-star {
   --star-color: orange;
   margin: 1em auto;
@@ -174,6 +184,7 @@
   -ms-transform: rotate(70deg);
   -o-transform: rotate(70deg);
 }
+
 .five-pointed-star:before {
   border-bottom: 0.8em solid var(--star-color);
   border-left: 0.3em solid transparent;
@@ -187,6 +198,7 @@
   content: "";
   transform: rotate(-35deg);
 }
+
 .five-pointed-star:after {
   position: absolute;
   display: block;
@@ -200,6 +212,7 @@
   transform: rotate(-70deg);
   content: "";
 }
+
 .star-wrap {
   background-color: antiquewhite;
   margin-top: -20%;
@@ -210,17 +223,21 @@
   box-shadow: 0px 8px 32px #5f2eea;
   border-radius: 8px;
 }
+
 .sub-card {
   background-color: beige;
 }
+
 .box {
   padding: 5%;
 }
+
 .scroll {
   background: #f5f6f8;
   box-shadow: inset 0px 2px 4px rgba(17, 17, 17, 0.16);
   border-radius: 8px;
 }
+
 .list-cat {
   font-family: "Mulish";
   font-style: normal;
@@ -235,6 +252,7 @@
 
   color: #6b6b6b;
 }
+
 .content-cat {
   font-family: "Mulish";
   font-style: normal;
@@ -275,6 +293,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .warn {
   width: 1.5vw;
   height: 1.5vw;
@@ -282,15 +301,18 @@
   margin-top: 1.2%;
   margin-left: 1%;
 }
+
 .eye {
   position: absolute;
   margin-left: -2.5%;
   margin-top: 1.5%;
 }
+
 .sect-2 {
   padding: 3%;
   /* background-color: #f5f6f8; */
 }
+
 .sectwrap {
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
@@ -303,6 +325,7 @@
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
 }
+
 .sectwrap2 {
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
@@ -316,6 +339,7 @@
   width: 66.5%;
   height: fit-content;
 }
+
 .btn-prev {
   border: 2px solid #5f2eea;
   border-radius: 10px;
@@ -339,6 +363,7 @@
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+
 .btn-pay {
   position: absolute;
   border: 2px solid #5f2eea;
@@ -363,18 +388,22 @@
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+
 .or {
   width: 2vw;
   margin-top: 5%;
   margin-left: -2%;
 }
+
 .hr {
   width: 95%;
 }
+
 .dash1 {
   margin-top: 5%;
   width: 25vw;
 }
+
 .cash {
   text-align: center;
   margin-top: 5%;
@@ -391,23 +420,35 @@
 
   color: #6e7191;
 }
+
 .see {
   color: #5f2eea;
 }
+
 .dash2 {
   margin-top: 5%;
   width: 25vw;
 }
+
 .ors {
   width: fit-content;
 }
+
 .pay-wrap {
   text-align: center;
 }
+
 .paymethod {
   width: fit-content;
   height: 4vw;
 }
+
+.selected {
+  font-weight: 600 !important;
+  border-bottom: 2px solid #5f2eea;
+  width: 156px !important;
+}
+
 .account {
   font-family: "Mulish";
   font-style: normal;
@@ -415,13 +456,15 @@
   font-size: 18px;
   line-height: 34px;
   width: 15vw;
-
+  user-select: none;
+  cursor: pointer;
   letter-spacing: 0.75px;
 
   /* Text - Title */
 
   color: #14142b;
 }
+
 .history {
   font-family: "Mulish";
   font-style: normal;
@@ -434,6 +477,7 @@
 
   color: #aaaaaa;
 }
+
 .details {
   font-family: "Mulish";
   font-style: normal;
@@ -448,6 +492,7 @@
 
   color: #14142b;
 }
+
 .category {
   font-family: "Mulish";
   font-style: normal;
@@ -459,6 +504,7 @@
   margin-top: 5%;
   color: #4e4b66;
 }
+
 .privacy {
   font-family: "Mulish";
   font-style: normal;
@@ -472,6 +518,7 @@
 
   color: #14142b;
 }
+
 .pass {
   font-family: "Mulish";
   font-style: normal;
@@ -487,6 +534,7 @@
 
   color: #4e4b66;
 }
+
 .input {
   background: #fcfdfe;
   border: 1px solid #dedede;
@@ -496,6 +544,7 @@
   padding: 5%;
   color: black;
 }
+
 .inputs {
   background: #fcfdfe;
   border: 1px solid #000000;
@@ -505,6 +554,7 @@
   padding: 5%;
   color: black;
 }
+
 .info {
   font-family: "Mulish";
   font-style: normal;
@@ -519,6 +569,9 @@
 
   color: #4e4b66;
 }
+
+
+
 .confirm-pw {
   font-family: "Mulish";
   font-style: normal;
@@ -553,6 +606,7 @@
 }
 
 .btn-changes {
+  cursor: default !important;
   margin-top: 5%;
   background: #8c8c8c;
   border-radius: 4px;
@@ -569,9 +623,29 @@
   color: #f7f7fc;
   border: none;
 }
+
+.btn-changes2 {
+  margin-top: 5%;
+  /* background: #8c8c8c; */
+  border-radius: 4px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  width: 19vw;
+  height: 3.5vw;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #f7f7fc;
+  border: none;
+}
+
 .hr-2 {
   margin-top: 29.5%;
 }
+
 .ui-fail {
   text-align: center;
   font-weight: bold;
@@ -584,16 +658,20 @@
   .scrlll {
     width: 20vw;
   }
+
   .five-pointed-star {
     margin-left: -5%;
   }
+
   .hr-2 {
     margin-top: 41%;
   }
+
   .eye {
     margin-left: 0.5%;
     margin-top: 1%;
   }
+
   .btn-change {
     font-size: 15px;
     width: 25vw;
@@ -601,6 +679,7 @@
     height: 6vw;
     margin-top: 15%;
   }
+
   .btn-changes {
     font-size: 15px;
     width: 25vw;
@@ -608,14 +687,17 @@
     height: 6vw;
     margin-top: 15%;
   }
+
   .edit {
     margin-top: -8%;
     margin-left: 43%;
   }
+
   .edit2 {
     margin-top: -14%;
     margin-left: 43%;
   }
+
   .sectwrap {
     padding-bottom: 11%;
   }
@@ -626,72 +708,89 @@
     width: 30vw;
     height: 30vw;
   }
+
   .five-pointed-star {
     margin-top: -20%;
     margin-left: 85%;
   }
+
   .scrlll {
     width: 100%;
     height: fit-content;
   }
+
   .sect-2 {
     padding: 0;
   }
+
   .sectwrap {
     margin-top: 5%;
     padding: 5%;
     width: 100%;
   }
+
   .account {
     width: fit-content;
   }
+
   .history {
     width: fit-content;
   }
+
   .category {
     width: 100%;
   }
+
   .input {
     width: 100%;
     height: fit-content;
   }
+
   .inputs {
     width: 100%;
     height: fit-content;
   }
+
   .hr-2 {
     margin-top: 64%;
   }
+
   .btn-change {
     font-size: 15px;
     width: 30vw;
     margin-left: 32%;
     height: 8vw;
   }
+
   .btn-changes {
     font-size: 15px;
     width: 30vw;
     margin-left: 32%;
     height: 8vw;
   }
+
   .privacy,
   .details {
     font-weight: bolder;
   }
+
   .eye {
     margin-top: 4%;
     margin-left: 1%;
     width: 3vw;
     height: 3vw;
   }
+
   .edit {
     margin-top: -15%;
     margin-left: 75%;
   }
+
   .edit2 {
     margin-top: -25%;
     margin-left: 75%;
   }
+
   .ui-fail {
     margin-top: 5%;
     margin-left: -1%;

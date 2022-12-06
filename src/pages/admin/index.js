@@ -21,7 +21,7 @@ import cgv from "src/assets/images/cgv.png";
 import platinum from "src/assets/images/cine.png";
 import defaultImage from "../../assets/images/default.png";
 import axios from "axios";
-
+import Title from "src/components/Title";
 import Loading from "components/Loading/Loading";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -350,6 +350,7 @@ function Index() {
 
   return (
     <>
+      <Title title={`Admin`} />
       <Navbar />
       <main className={` container-fluid ${styles["cont-fluid"]}`}>
         <div className={`container ${styles["cont-up"]} `}>

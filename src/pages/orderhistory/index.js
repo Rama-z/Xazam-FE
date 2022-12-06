@@ -28,27 +28,53 @@ import cineone from "../../assets/images/cineone.png";
 import chevrondown from "../../assets/images/chevrondown.png";
 import ebu from "../../assets/images/ebu.png";
 import profileAction from "src/redux/actions/profile";
+<<<<<<< HEAD
 import authAction from "src/redux/actions/auth";
 import transactionAction from "src/redux/actions/transaction";
 import sample from "src/assets/images/avatar.webp";
 const Index = () => {
+=======
+import transactionAction from "src/redux/actions/transaction";
+import sample from "src/assets/images/avatar.webp";
+import Title from "src/components/Title";
+
+function Index() {
+  const router = useRouter();
+
+>>>>>>> 43055339896278aee4cd635e89bcf7324ec28514
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
   const token = useSelector((state) => state.auth.userData.token);
+<<<<<<< HEAD
   // const auth = useSelector((state) => state.auth);
 
   const history = useSelector((state) => state.transaction);
   console.log(history);
+=======
+  const transactions = useSelector((state) => state.transaction.history);
+  console.log(transactions);
+>>>>>>> 43055339896278aee4cd635e89bcf7324ec28514
 
   const [firstName, setFirstName] = useState(profile.firstName);
   const [lastName, setLastName] = useState(profile.lastName);
   const [imageUser, setImageUser] = useState(profile.image);
+<<<<<<< HEAD
   // const [phoneNum, setPhoneNum] = useState(profiles.notelp);
   // const [imageUser, setImageUser] = useState(null);
   // const [imagePreview, setImagePreview] = useState(null);
+=======
+
+  const [movie, setMovie] = useState("");
+  const [status, setStatus] = useState("");
+  const [studio, setStudio] = useState("");
+  const [time, setTime] = useState("");
+>>>>>>> 43055339896278aee4cd635e89bcf7324ec28514
   // const [image, setImage] = useState("");
 
+  console.log(time);
+
   useEffect(() => {
+<<<<<<< HEAD
     dispatch(
       transactionAction.getHistoryThunk(token)
     )
@@ -64,10 +90,18 @@ const Index = () => {
         setImageUser
       )
     );
+=======
+    dispatch(transactionAction.getHistoryThunk(token));
+  }, [dispatch, token]);
+
+  useEffect(() => {
+    dispatch(transactionAction.getHistoryThunk(token));
+>>>>>>> 43055339896278aee4cd635e89bcf7324ec28514
   }, [dispatch, token]);
 
   return (
     <div>
+      <Title title={`Order History`} />
       <Navbar />
       <main className={` container-fluid ${styles["cont-fluid"]}`}>
         <div
@@ -135,7 +169,10 @@ const Index = () => {
               <div
                 className={` d-flex gap-5 ps-md-5 ps-lg-5 ${styles["nav-account-set"]}`}
               >
-                <p className={`mb-0 ${styles.account} ${styles.cursor}`}>
+                <p
+                  className={`mb-0 ${styles.account} ${styles.cursor}`}
+                  onClick={() => router.push("/profile")}
+                >
                   Account Settings{" "}
                 </p>
                 <p className={`mb-0 ${styles.order} ${styles.cursor}`}>
@@ -143,7 +180,56 @@ const Index = () => {
                 </p>
               </div>
             </div>
-            <CardHistory />
+            {/* <CardHistory date={time} /> */}
+
+            <div className="container">
+              {transactions?.length > 0 ? (
+                transactions.map((data, index) => {
+                  const weekday = [
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                  ];
+                  console.log(data);
+                  let month = "";
+                  const DD = data.date_transaction?.split("/")[0];
+                  const MM = data.date_transaction?.split("/")[1];
+                  const YY = data.date_transaction?.split("/")[2];
+                  const d = new Date(data.date_transaction);
+                  let day = weekday[d.getDay()];
+                  if (MM === "1") month = "January";
+                  if (MM === "2") month = "February";
+                  if (MM === "3") month = "March";
+                  if (MM === "4") month = "April";
+                  if (MM === "5") month = "Mei";
+                  if (MM === "6") month = "June";
+                  if (MM === "7") month = "July";
+                  if (MM === "8") month = "Agustus";
+                  if (MM === "9") month = "September";
+                  if (MM === "10") month = "October";
+                  if (MM === "11") month = "November";
+                  if (MM === "12") month = "December";
+                  let sendDate = `${day}, ${DD} ${month} ${YY} - ${data.time_transaction} WIB `;
+                  return (
+                    <CardHistory
+                      key={index}
+                      movie={data.name}
+                      status={data.status}
+                      studio={data.studio}
+                      time={sendDate}
+                      id={data.id}
+                    />
+                  );
+                })
+              ) : (
+                <p> Loading</p>
+              )}
+            </div>
+
             {/* <div className={`card d-flex pt-4 justify-content-center ${styles["hist"]}`}>
               <div className={` d-flex px-5 ${styles["history-ticket"]}`}>
                 <p className={`mb-0 ${styles.date}`}>Tuesday, 07 July 2020 - 04:30pm </p>

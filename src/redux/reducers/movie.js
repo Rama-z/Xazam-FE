@@ -41,6 +41,7 @@ const initialState = {
 };
 
 const movieReduser = (prevState = initialState, { payload, type }) => {
+  // console.log(payload);
   const { Pending, Rejected, Fulfilled } = ActionType;
   const {
     movieAll,
@@ -245,14 +246,14 @@ const movieReduser = (prevState = initialState, { payload, type }) => {
             ? payload.body.total_price
             : initialState.transfer_data.total_price,
           seat_id: payload.body?.seat_id
-            ? payload.body.seat_id
+            ? payload.body.seat_id.toString()
             : initialState.transfer_data.seat_id,
           tsm_id: payload.body?.tsm_id
             ? payload.body.tsm_id
             : initialState.transfer_data.tsm_id,
-          studio: payload.body?.tsm_id
-            ? payload.body.studio
-            : initialState.transfer_data.studio,
+          date: payload.body?.date
+            ? payload.body.date
+            : initialState.transfer_data.date,
         },
       };
 

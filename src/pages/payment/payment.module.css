@@ -184,34 +184,33 @@
   box-shadow: inset 0px 2px 4px rgba(17, 17, 17, 0.16);
   border-radius: 8px;
 }
-.list-cat{
-  font-family: 'Mulish';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 25px;
-/* identical to box height */
+.list-cat {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  /* identical to box height */
 
-display: flex;
-align-items: center;
-letter-spacing: 0.25px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25px;
 
-color: #6B6B6B;
+  color: #6b6b6b;
 }
-.content-cat{
-  font-family: 'Mulish';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 25px;
+.content-cat {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
 
-/* display: flex; */
-align-items: center;
-text-align: right;
-letter-spacing: 0.25px;
+  /* display: flex; */
+  align-items: center;
+  text-align: right;
+  letter-spacing: 0.25px;
 
-color: #000000;
-
+  color: #000000;
 }
 .main-sec {
   background-color: white;
@@ -224,7 +223,6 @@ color: #000000;
   -o-border-radius: 8px;
   height: fit-content;
   margin-top: 1.8%;
-  
 }
 .fill {
   background: rgba(244, 183, 64, 0.3);
@@ -255,7 +253,6 @@ color: #000000;
 .sect-2 {
   padding: 3%;
   background-color: #f5f6f8;
-  
 }
 .sectwrap {
   background-color: rgb(255, 255, 255);
@@ -268,7 +265,6 @@ color: #000000;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
- 
 }
 .sectwrap2 {
   background-color: rgb(255, 255, 255);
@@ -375,6 +371,14 @@ color: #000000;
   width: fit-content;
   height: 4vw;
   cursor: pointer;
+}
+.paymethod2 {
+  width: fit-content;
+  height: 4vw;
+  cursor: pointer;
+  transform: scale(1.1);
+  border: 2px solid #5f2eea;
+  border-radius: 1rem;
 }
 .account {
   font-family: "Mulish";
@@ -532,73 +536,70 @@ color: #000000;
 }
 
 @media screen and (max-width: 768px) {
-  .fill{
-    font-size: 11px
+  .fill {
+    font-size: 11px;
   }
-  .btn-prev{
+  .btn-prev {
     margin-top: 79%;
   }
-  .btn-pay{
-    margin-top: 79%
+  .btn-pay {
+    margin-top: 79%;
   }
 }
 
 @media screen and (max-width: 428px) {
-  .fill{
-    font-size: 11px
+  .fill {
+    font-size: 11px;
   }
-  .btn-prev{
+  .btn-prev {
     margin-top: 248%;
-    margin-left: 10%; 
+    margin-left: 10%;
     width: fit-content;
   }
-  .btn-pay{
+  .btn-pay {
     margin-top: 248%;
-    margin-left: 45%; 
+    margin-left: 45%;
     width: fit-content;
   }
-  .input{
-width: 100%;
+  .input {
+    width: 100%;
   }
-  .sectwrap{
+  .sectwrap {
     margin-top: 5%;
     padding: 5%;
-    
   }
-  .sect-2{
+  .sect-2 {
     padding: 0;
   }
-  .sectwrap2{
+  .sectwrap2 {
     margin-top: 5%;
     padding: 5%;
     width: 100%;
-    
   }
-  .fill{
+  .fill {
     width: 100%;
     font-size: large;
     height: fit-content;
   }
-  .warn{
+  .warn {
     width: 3.5vw;
     height: 3.5vw;
     margin-left: 2%;
   }
-  .paymethod{
+  .paymethod {
     width: 16vw;
-    height: fit-content
-
+    height: fit-content;
   }
-  .dash-wrap{
+  .dash-wrap {
     width: 100%;
   }
-  .dash1{
+  .dash1 {
     width: 50%;
   }
-  .dash2{
+  .dash2 {
     width: 45%;
   }
-  .row{
+  .row {
     padding-bottom: 15%;
   }
 }
