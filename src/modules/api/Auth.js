@@ -29,10 +29,10 @@ export const editprofilesApi = (body, token) =>
   axios.patch(`${baseUrl2}/profile/edit`, body, config(token));
 
 export const ticketApi = (
-  token
+  token, id
   // terima id tiket lalu ganti dibawah
 ) =>
   axios.get(
-    `${baseUrl2}/transaction/ticket-detail/b338ad15-4132-402f-bbf1`,
+    `${baseUrl2}/transaction/ticket-detail/${id}`,
     config(token)
   );
