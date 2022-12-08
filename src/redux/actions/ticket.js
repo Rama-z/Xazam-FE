@@ -17,6 +17,7 @@ const ticketFulfilled = (data) => ({
 
 const getTicketThunk = (
   token,
+  id,
   setTitle,
   setStudio,
   setTicketCount,
@@ -30,7 +31,7 @@ const getTicketThunk = (
     try {
       dispatch(ticketPending());
       const result = await ticketApi(
-        token,
+        token,id
         // kirim id ticket disini
         );
       dispatch(ticketFulfilled(result.data));

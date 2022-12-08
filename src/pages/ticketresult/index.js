@@ -20,6 +20,7 @@ const TicketResult = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.userData.token);
   const ticket = useSelector((state) => state.ticket.ticket);
+  const ticketId = useSelector((state) => state.ticket.ticket.id);
   const [title, setTitle] = useState(ticket.title_movie);
   const [studio, setStudio] = useState(ticket.studio);
   const [ticketCount, setTicketCount] = useState(ticket.ticket_count);
@@ -29,6 +30,8 @@ const TicketResult = () => {
   const [month, setMonth] = useState(ticket.month);
   const [time, setTime] = useState(ticket.time);
 
+  // console.log(ticket);
+
   const rupiah = (number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
@@ -37,8 +40,8 @@ const TicketResult = () => {
   };
 
   useEffect(() => {
-    dispatch(ticketAction.getTicketThunk(token));
-  }, [dispatch, token]);
+    dispatch(ticketAction.getTicketThunk(token, ticketId));
+  }, [dispatch, token,ticketId]);
 
   return (
     <>
@@ -74,7 +77,7 @@ const TicketResult = () => {
                   <div className={`col-sm-8 ${styles["sub-row8"]}`}>
                     <p className={`${styles["category-movie"]}`}>Movie</p>
                     <p className={`${styles["content"]}`}>
-                      {title}
+                      {ticket.title_movie}
                       {/* Spider-Man: Homecoming */}
                     </p>
                     <div class="row">
@@ -82,24 +85,24 @@ const TicketResult = () => {
                         <p className={`${styles["category"]}`}>Date</p>
                         <p className={`${styles["content2"]}`}>
                           {/* 07 July */}
-                          {date}
+                          {ticket.date}
                         </p>
                         <p className={`${styles["category"]}`}>Count</p>
                         <p className={`${styles["content2"]}`}>
                           {/* 3 pieces */}
-                          {ticketCount + ` pcs`}
+                          {ticket.ticket_count + ` pcs`}
                         </p>
                       </div>
                       <div className={`col-sm-5 ${styles["col-2"]}`}>
                         <p className={`${styles["category"]}`}>Time</p>
                         <p className={`${styles["content2"]}`}>
                           {/* 02:00pm */}
-                          {time}
+                          {ticket.time}
                         </p>
                         <p className={`${styles["category"]}`}>Seats</p>
                         <p className={`${styles["content2"]}`}>
                           {/* C4, C5, C6 */}
-                          {seat}
+                          {ticket.seats}
                         </p>
                       </div>
                       <div className={`col ${styles["col-3"]}`}>
@@ -107,7 +110,7 @@ const TicketResult = () => {
                         <p className={`${styles["contentpg"]}`}>{studio}</p>
                         <p className={`${styles["category-price"]}`}>Price</p>
                         <p className={`${styles["price"]}`}>
-                          {rupiah(Number(price))}
+                          {rupiah(Number(ticket.price))}
                         </p>
                       </div>
                     </div>
@@ -125,7 +128,7 @@ const TicketResult = () => {
                     />
                     <p className={`${styles["category-mov2"]}`}>Movie</p>
                     <p className={`${styles["content1"]}`}>
-                      {title}
+                      {ticket.title}
                       {/* Spider-Man: Home... */}
                     </p>
                     <div class="row">

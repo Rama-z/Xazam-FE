@@ -92,3 +92,11 @@
         opacity: 0;
     }
 }
+
+@media all and (max-width: 480px) {
+  .pos-loader {
+    /* border: 1px solid darkblue; */
+    position: relative;
+    left: 35vw;
+  }
+}
