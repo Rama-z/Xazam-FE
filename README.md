@@ -96,6 +96,10 @@ You may also see any lint errors in the console.
 
 [Vercel deploy link](https://xazam-fe-wdua-6w3cy43s2-rama-z.vercel.app/home)
 
+## Related Project
+
+[Xazam TIckitz Backend](https://xazam-be.vercel.app)
+
 ## Screenshots
 
 <div align="center">
